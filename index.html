@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KCLOTH — 韓系質感男裝選物｜高雄冬季衣櫥</title>
+<meta name="description" content="韓國男裝品牌 20 選、22 件單品、10 套穿搭與 2 件外套。30–40 歲、175cm/75kg、高雄冬天 10–20°C。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f3ee; --card:#fffdf9; --ink:#1f1d1a; --mute:#6f6a62; --line:#e3ddd3;
+  --navy:#1f2a44; --brown:#6b4a33; --olive:#5d6142; --accent:#b4532a; --sale:#c0392b;
+  --r:14px; --shadow:0 1px 2px rgba(0,0,0,.04),0 8px 24px rgba(31,29,26,.06);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.65 "Noto Sans TC",system-ui,-apple-system,sans-serif}
+a{color:inherit}
+img{display:block;max-width:100%}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Noto Serif TC",serif;line-height:1.25;margin:0}
+h2{font-size:clamp(24px,3.2vw,34px)}
+.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700}
+section{padding:72px 0;border-bottom:1px solid var(--line)}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:28px;flex-wrap:wrap}
+.sec-head p{margin:6px 0 0;color:var(--mute);max-width:620px}
+
+/* nav */
+header.nav{position:sticky;top:0;z-index:20;background:rgba(246,243,238,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:18px;height:64px}
+.logo{font-family:"Noto Serif TC",serif;font-weight:700;font-size:22px;letter-spacing:.08em;text-decoration:none}
+.logo span{color:var(--accent)}
+.nav nav{display:flex;gap:4px;margin-left:auto;overflow-x:auto}
+.nav nav a{text-decoration:none;padding:9px 14px;border-radius:999px;font-weight:500;white-space:nowrap;font-size:14px}
+.nav nav a:hover{background:#ebe5db}
+.cart-btn{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;border:0;border-radius:999px;padding:11px 18px;font:600 14px inherit;font-family:inherit;cursor:pointer;white-space:nowrap}
+.cart-btn b{background:var(--accent);border-radius:999px;padding:0 8px;font-size:12px}
+
+/* hero */
+.hero{padding:56px 0 64px}
+.hero-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(34px,5vw,58px);margin:12px 0 16px}
+.hero p.lead{font-size:17px;color:#3d3a35;margin:0 0 26px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.chip{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:13px}
+.btn{display:inline-block;text-decoration:none;font-weight:700;padding:14px 26px;border-radius:999px;background:var(--accent);color:#fff;margin-right:10px}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.hero-collage{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.hero-collage img{aspect-ratio:3/4;object-fit:cover;border-radius:12px;background:#ddd}
+.hero-collage img:nth-child(2),.hero-collage img:nth-child(5){transform:translateY(22px)}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px}
+.stat b{display:block;font-size:26px;font-family:"Noto Serif TC",serif}
+.stat span{color:var(--mute);font-size:13px}
+
+/* profile */
+.profile{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;box-shadow:var(--shadow)}
+.panel h3{font-size:18px;margin-bottom:10px}
+.panel ul{margin:0;padding-left:18px}
+.panel li{margin:4px 0}
+.swatches{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.sw{display:flex;align-items:center;gap:6px;font-size:13px}
+.sw i{width:22px;height:22px;border-radius:50%;border:1px solid rgba(0,0,0,.1);display:inline-block}
+.bad{color:var(--sale)}
+
+/* filters */
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filters button{border:1.5px solid var(--ink);background:transparent;border-radius:999px;padding:10px 18px;font:600 14px inherit;font-family:inherit;cursor:pointer}
+.filters button.on{background:var(--ink);color:#fff}
+
+/* product grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow);transition:transform .2s}
+.card:hover{transform:translateY(-3px)}
+.card .ph{position:relative;background:#eee;aspect-ratio:1/1}
+.card .ph img{width:100%;height:100%;object-fit:cover}
+.tag{position:absolute;top:10px;left:10px;background:var(--ink);color:#fff;font-size:11px;font-weight:700;padding:4px 9px;border-radius:999px;letter-spacing:.05em}
+.off{position:absolute;top:10px;right:10px;background:var(--sale);color:#fff;font-size:12px;font-weight:700;padding:4px 8px;border-radius:6px}
+.card .body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.brand{font-size:11px;letter-spacing:.12em;font-weight:700;color:var(--mute);text-transform:uppercase}
+.card h3{font-family:"Noto Sans TC",sans-serif;font-size:15px;font-weight:700}
+.why{font-size:13px;color:var(--mute);margin:0}
+.price{display:flex;gap:8px;align-items:baseline;margin-top:auto}
+.price b{font-size:19px;color:var(--sale)}
+.price s{color:#9a948a;font-size:13px}
+.acts{display:flex;gap:8px;margin-top:8px}
+.acts a,.acts button{flex:1;text-align:center;text-decoration:none;border-radius:10px;padding:11px 8px;font:700 13px inherit;font-family:inherit;cursor:pointer}
+.acts a{background:var(--ink);color:#fff}
+.acts button{background:transparent;border:1.5px solid var(--ink)}
+.acts button.added{background:var(--olive);border-color:var(--olive);color:#fff}
+
+/* outfits */
+.outfits{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px}
+.look{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;box-shadow:var(--shadow)}
+.look-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.look-top .n{font-family:"Noto Serif TC",serif;font-size:28px;font-weight:700;color:var(--accent)}
+.look-top .occ{font-size:12px;font-weight:700;background:#efe8dc;padding:4px 10px;border-radius:999px}
+.look h3{font-size:19px;margin-bottom:12px}
+.look-imgs{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.look-imgs a{position:relative;display:block}
+.look-imgs img{aspect-ratio:1/1;object-fit:cover;border-radius:8px;background:#eee}
+.look-imgs span{position:absolute;bottom:4px;left:4px;background:rgba(0,0,0,.72);color:#fff;font-size:10px;font-weight:700;padding:1px 6px;border-radius:4px}
+.look p{margin:12px 0 8px;font-size:14px;color:#3d3a35}
+.look ul{list-style:none;padding:0;margin:0;font-size:13px;color:var(--mute)}
+.look li{display:flex;justify-content:space-between;gap:10px;padding:3px 0;border-top:1px dashed var(--line)}
+.look .tot{display:flex;justify-content:space-between;margin-top:10px;font-weight:700}
+.look .addall{width:100%;margin-top:12px;border:0;border-radius:10px;padding:12px;background:var(--navy);color:#fff;font:700 14px inherit;font-family:inherit;cursor:pointer}
+
+/* coats */
+.coats{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.coat{display:grid;grid-template-columns:200px 1fr;gap:20px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;box-shadow:var(--shadow)}
+.coat img{border-radius:10px;aspect-ratio:3/4;object-fit:cover;width:100%}
+.coat .temp{display:inline-block;background:var(--navy);color:#fff;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;margin:8px 0}
+.alt{margin-top:18px;padding:14px 18px;border:1px dashed var(--brown);border-radius:var(--r);display:flex;gap:16px;align-items:center}
+.alt img{width:80px;border-radius:8px}
+
+/* matrix */
+.matrix{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:var(--r)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{padding:11px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:#efe8dc;font-weight:700;white-space:nowrap}
+td a{font-weight:700}
+.pill{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px}
+.pill.ok{background:#e1ead9;color:#3e5a2a}
+.pill.no{background:#f4dfd6;color:#8b3a1c}
+.top{color:var(--accent);font-weight:700}
+
+/* guide */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:s}
+.step{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px}
+.step::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--accent);color:#fff;font-weight:700;margin-bottom:10px}
+.note{font-size:13px;color:var(--mute)}
+
+/* drawer */
+.drawer{position:fixed;inset:0 0 0 auto;width:min(420px,100%);background:var(--card);z-index:50;transform:translateX(100%);transition:transform .25s;display:flex;flex-direction:column;box-shadow:-10px 0 40px rgba(0,0,0,.15)}
+.drawer.open{transform:none}
+.drawer header{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;border-bottom:1px solid var(--line)}
+.drawer header button{border:0;background:#efe8dc;border-radius:999px;width:40px;height:40px;font-size:20px;cursor:pointer}
+.drawer .list{flex:1;overflow:auto;padding:10px 20px}
+.ci{display:grid;grid-template-columns:56px 1fr auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line);font-size:13px}
+.ci img{width:56px;height:56px;object-fit:cover;border-radius:8px}
+.ci button{border:0;background:none;color:var(--sale);font-weight:700;cursor:pointer;padding:6px}
+.drawer footer{padding:18px 20px;border-top:1px solid var(--line)}
+.ship{height:8px;background:#eee;border-radius:99px;overflow:hidden;margin:8px 0}
+.ship i{display:block;height:100%;background:var(--olive)}
+.drawer .go{display:block;text-align:center;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;border-radius:10px;padding:13px;margin-top:10px}
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:40;display:none}
+.scrim.show{display:block}
+
+footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
+
+@media (max-width:900px){
+  .hero-grid,.coats,.profile{grid-template-columns:1fr}
+  .stats,.steps{grid-template-columns:1fr 1fr}
+  .coat{grid-template-columns:130px 1fr}
+  .nav nav{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top">K<span>·</span>CLOTH</a>
+    <nav>
+      <a href="#intro">介紹</a><a href="#shop">選物</a><a href="#looks">10 套穿搭</a>
+      <a href="#coats">外套</a><a href="#brands">20 品牌</a><a href="#guide">購買</a>
+    </nav>
+    <button class="cart-btn" id="openCart">購物清單 <b id="cartCount">0</b></button>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Korean Menswear · Winter Edit 2026</div>
+      <h1>韓系質感，<br>剛好適合高雄的冬天。</h1>
+      <p class="lead">為 30–40 歲男性挑選的韓國男裝衣櫥：20 個品牌、22 件單品、10 套可混搭穿搭與 2 件主力外套。每件單價 NT$1,000–3,000 上下，全部可在 MUSINSA 台灣站直送。</p>
+      <div class="chips">
+        <span class="chip">🌡 高雄冬天 10–20°C</span><span class="chip">📏 175cm / 75kg</span>
+        <span class="chip">腰 87 · 胸 95 · 肩 43</span><span class="chip">膚色偏小麥</span>
+      </div>
+      <a class="btn" href="#shop">逛選物</a><a class="btn ghost" href="#looks">看 10 套穿搭</a>
+    </div>
+    <div class="hero-collage" id="collage"></div>
+  </div>
+  <div class="wrap stats">
+    <div class="stat"><b>20</b><span>精選韓國品牌</span></div>
+    <div class="stat"><b>22</b><span>單品＋寒流備案</span></div>
+    <div class="stat"><b>10</b><span>套可混搭穿搭</span></div>
+    <div class="stat"><b id="totalAll">—</b><span>全衣櫥今日價合計</span></div>
+  </div>
+</section>
+
+<section id="intro">
+  <div class="wrap">
+    <div class="sec-head"><div><div class="eyebrow">Fit Profile</div><h2>為你的身形與膚色挑選</h2>
+      <p>選物原則：材質優先（美麗諾羊毛、Supima 棉、燈芯絨、厚牛津布），版型選「寬鬆但不邋遢」，用層次應付高雄一天 8–10 度的溫差。</p></div></div>
+    <div class="profile">
+      <div class="panel"><h3>📏 尺寸建議</h3><ul>
+        <li><b>上衣：韓碼 L（100–105）</b></li>
+        <li>Oversized 款可降一號 M，但肩寬需 ≥ 45cm</li>
+        <li><b>褲子：34／XL</b>（腰 87cm）</li>
+        <li>優先選 Hidden Banding（隱藏鬆緊腰）</li>
+        <li>下單前核對：平量腰 ≥ 43.5cm、肩寬 44–47cm</li></ul></div>
+      <div class="panel"><h3>🎨 襯小麥膚色的顏色</h3>
+        <div class="swatches">
+          <span class="sw"><i style="background:#1f2a44"></i>深藍</span><span class="sw"><i style="background:#3a3a3c"></i>炭灰</span>
+          <span class="sw"><i style="background:#5d6142"></i>橄欖綠</span><span class="sw"><i style="background:#6b4a33"></i>咖啡</span>
+          <span class="sw"><i style="background:#b8875a"></i>駝色</span><span class="sw"><i style="background:#f1ead9"></i>奶油白</span>
+          <span class="sw"><i style="background:#6d2232"></i>酒紅</span></div>
+        <p class="bad" style="margin:12px 0 0;font-size:13px">✕ 避開：粉嫩色、與膚色相近的土黃 / 淺卡其、Crop 短版</p></div>
+      <div class="panel"><h3>🌡 高雄冬天怎麼穿</h3><ul>
+        <li><b>20°C 以上</b>：長袖 T＋開襟衫</li>
+        <li><b>15–20°C</b>：襯衫／針織＋燈芯絨夾克</li>
+        <li><b>10–15°C 寒流</b>：高領針織＋羊毛大衣</li>
+        <li><b>低於 10°C</b>：大衣內加輕羽絨</li>
+        <li>上身深藍/灰/白/綠/咖，下身黑/灰/米/丹寧 → 任意互搭</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="shop">
+  <div class="wrap">
+    <div class="sec-head"><div><div class="eyebrow">The Edit</div><h2>衣櫥選物</h2>
+      <p>價格為 2026-10-22 MUSINSA 台灣站含折扣價，會隨活動變動，以點進去的商品頁為準。</p></div>
+      <div class="filters" id="filters"></div></div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section id="looks">
+  <div class="wrap">
+    <div class="sec-head"><div><div class="eyebrow">10 Looks</div><h2>10 套穿搭，件件互搭</h2>
+      <p>點單品圖直接到商品頁。外套 J1（休閒）／J2（正式）在全部 10 套都可互換。</p></div></div>
+    <div class="outfits" id="outfits"></div>
+  </div>
+</section>
+
+<section id="coats">
+  <div class="wrap">
+    <div class="sec-head"><div><div class="eyebrow">Outerwear</div><h2>2 件主力外套</h2>
+      <p>一件休閒、一件正式，涵蓋高雄冬天全部溫度帶。</p></div></div>
+    <div class="coats" id="coatList"></div>
+    <div class="alt" id="altCoat"></div>
+  </div>
+</section>
+
+<section id="brands">
+  <div class="wrap">
+    <div class="sec-head"><div><div class="eyebrow">20 Brands</div><h2>韓國男裝品牌 20 選</h2>
+      <p>依「材質 × 30–40 歲適配度」排序。★ = 優先購買（材質好、價位剛好、台灣直送）。</p></div></div>
+    <div class="matrix"><table>
+      <thead><tr><th>#</th><th>品牌</th><th>價位</th><th>材質優勢</th><th>必買單品</th><th>購買</th></tr></thead>
+      <tbody id="brandRows"></tbody></table></div>
+  </div>
+</section>
+
+<section id="guide">
+  <div class="wrap">
+    <div class="sec-head"><div><div class="eyebrow">How to Buy</div><h2>台灣怎麼買</h2></div></div>
+    <div class="steps">
+      <div class="step"><h3>MUSINSA 台灣站</h3><p>global.musinsa.com/tw 直送台灣。運費 NT$320，<b>滿 NT$6,380 免運</b>，建議湊單。</p></div>
+      <div class="step"><h3>新會員優惠</h3><p>站上常有首購折扣與優惠券，結帳前到「Coupon Box」領取。</p></div>
+      <div class="step"><h3>代購品牌</h3><p>COOR、UNIFORM BRIDGE、STEADY EVERY WEAR、SPAO、8seconds 在台灣站不販售，需透過代購。</p></div>
+      <div class="step"><h3>匯率參考</h3><p>1 TWD ≈ 40.8 KRW（2026-10-22）。韓幣標價 ÷ 40.8 ≈ 台幣。</p></div>
+    </div>
+    <p class="note" style="margin-top:20px">未查證：COOR、UNIFORM BRIDGE、LAFUDGESTORE、SPAO、8seconds 價格；LMOOD、FILLUMINATE、PLAC、OUTSTANDING 以 MUSINSA 品牌頁代替官網。T4 為 2 入組價格。本站僅為個人選物整理，與各品牌無合作關係。</p>
+  </div>
+</section>
+</main>
+
+<footer class="site"><div class="wrap">KCLOTH · 韓系質感男裝選物 · 資料整理於 2026-10-22 · 商品圖片與價格來源 MUSINSA</div></footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="購物清單">
+  <header><h3>購物清單</h3><button id="closeCart" aria-label="關閉">×</button></header>
+  <div class="list" id="cartList"></div>
+  <footer>
+    <div style="display:flex;justify-content:space-between;font-weight:700"><span>合計</span><span id="cartTotal">NT$0</span></div>
+    <div class="ship"><i id="shipBar" style="width:0"></i></div>
+    <div class="note" id="shipNote"></div>
+    <a class="go" href="https://global.musinsa.com/tw" target="_blank" rel="noopener">前往 MUSINSA 台灣站</a>
+    <p class="note" style="margin:8px 0 0">清單存在本機瀏覽器，點各商品連結加入 MUSINSA 購物車。</p>
+  </footer>
+</aside>
+
+<script src="data.js"></script>
+<script>
+(() => {
+const D = window.KCLOTH;
+const byId = Object.fromEntries(D.items.map(i => [i.id, i]));
+const num = s => +String(s).replace(/[^\d]/g, '');
+const fmt = n => 'NT$' + n.toLocaleString('en-US');
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const $ = id => document.getElementById(id);
+
+// cart
+let cart = JSON.parse(localStorage.getItem('kcloth-cart') || '[]');
+const save = () => { localStorage.setItem('kcloth-cart', JSON.stringify(cart)); renderCart(); syncBtns(); };
+const toggle = id => { cart = cart.includes(id) ? cart.filter(x => x !== id) : [...cart, id]; save(); };
+function renderCart(){
+  $('cartCount').textContent = cart.length;
+  const tot = cart.reduce((s, id) => s + num(byId[id].price), 0);
+  $('cartList').innerHTML = cart.length ? cart.map(id => { const i = byId[id]; return `
+    <div class="ci"><img src="${i.img}" alt=""><div><b>${esc(i.name)}</b><br>
+    <a href="${i.url}" target="_blank" rel="noopener">${i.price} · 商品頁 ↗</a></div>
+    <button data-rm="${id}" aria-label="移除">移除</button></div>`}).join('') : '<p class="note">還沒有加入任何單品。</p>';
+  $('cartTotal').textContent = fmt(tot);
+  const free = 6380;
+  $('shipBar').style.width = Math.min(100, tot / free * 100) + '%';
+  $('shipNote').textContent = tot >= free ? '✓ 已達 MUSINSA 免運門檻' : `再 ${fmt(free - tot)} 免運（未達運費 NT$320）`;
+}
+function syncBtns(){
+  document.querySelectorAll('[data-add]').forEach(b => {
+    const on = cart.includes(b.dataset.add);
+    b.classList.toggle('added', on); b.textContent = on ? '✓ 已加入' : '加入清單';
+  });
+}
+const openCart = v => { $('drawer').classList.toggle('open', v); $('scrim').classList.toggle('show', v); };
+$('openCart').onclick = () => openCart(true);
+$('closeCart').onclick = $('scrim').onclick = () => openCart(false);
+document.addEventListener('click', e => {
+  const a = e.target.closest('[data-add]'); if (a) toggle(a.dataset.add);
+  const r = e.target.closest('[data-rm]'); if (r) toggle(r.dataset.rm);
+  const o = e.target.closest('[data-look]');
+  if (o) { D.outfits[+o.dataset.look][2].concat(D.outfits[+o.dataset.look][3] || []).forEach(id => { if (!cart.includes(id)) cart.push(id); }); save(); openCart(true); }
+});
+
+// hero
+$('collage').innerHTML = ['K1','J1','S3','K4','J2','P4'].map(id => `<img src="${byId[id].img}" alt="${esc(byId[id].name)}" loading="eager">`).join('');
+$('totalAll').textContent = fmt(D.items.filter(i => i.id !== 'J3').reduce((s, i) => s + num(i.price), 0));
+
+// shop
+const cats = ['全部', 'T-shirt', '針織衫', '襯衫', '褲子', '外套'];
+let cur = '全部';
+$('filters').innerHTML = cats.map(c => `<button data-cat="${c}" class="${c===cur?'on':''}">${c}</button>`).join('');
+$('filters').onclick = e => { const b = e.target.closest('button'); if (!b) return; cur = b.dataset.cat;
+  document.querySelectorAll('#filters button').forEach(x => x.classList.toggle('on', x === b)); renderGrid(); };
+function card(i){
+  const o = num(i.orig), p = num(i.price), off = o > p ? Math.round((1 - p / o) * 100) : 0;
+  return `<article class="card"><a class="ph" href="${i.url}" target="_blank" rel="noopener">
+    <img src="${i.img}" alt="${esc(i.en)}" loading="lazy"><span class="tag">${i.id}</span>${off?`<span class="off">-${off}%</span>`:''}</a>
+    <div class="body"><div class="brand">${esc(i.brand)}</div><h3>${esc(i.name)}</h3><p class="why">${esc(i.why)}</p>
+    <div class="price"><b>${i.price}</b>${off?`<s>${i.orig}</s>`:''}</div>
+    <div class="acts"><a href="${i.url}" target="_blank" rel="noopener">去購買 ↗</a><button data-add="${i.id}">加入清單</button></div></div></article>`;
+}
+function renderGrid(){ $('grid').innerHTML = D.items.filter(i => cur === '全部' || i.cat === cur).map(card).join(''); syncBtns(); }
+renderGrid();
+
+// outfits
+$('outfits').innerHTML = D.outfits.map(([occ, title, ids, coat, note], n) => {
+  const all = ids.concat(coat || []);
+  const tot = all.reduce((s, id) => s + num(byId[id].price), 0);
+  return `<article class="look"><div class="look-top"><span class="n">${String(n+1).padStart(2,'0')}</span><span class="occ">${occ}</span></div>
+    <h3>${esc(title)}</h3>
+    <div class="look-imgs">${all.map(id => `<a href="${byId[id].url}" target="_blank" rel="noopener" title="${esc(byId[id].name)}"><img src="${byId[id].img}" alt="" loading="lazy"><span>${id}</span></a>`).join('')}</div>
+    <p>${esc(note)}</p>
+    <ul>${all.map(id => `<li><span>${id} ${esc(byId[id].name)}</span><span>${byId[id].price}</span></li>`).join('')}</ul>
+    <div class="tot"><span>${coat ? '含外套' : '不需外套'}</span><span>${fmt(tot)}</span></div>
+    <button class="addall" data-look="${n}">整套加入清單</button></article>`;
+}).join('');
+
+// coats
+const coatInfo = {J1:['15–20°C','休閒主力。咖啡色燈芯絨最襯小麥膚色，配丹寧、燈芯絨褲、米色寬褲都好看。'],
+                  J2:['10–15°C','寒流主力。黑色羊毛感 Car Coat，西褲、牛仔褲、高領都能撐場。']};
+$('coatList').innerHTML = ['J1','J2'].map(id => { const i = byId[id]; return `
+  <div class="coat"><a href="${i.url}" target="_blank" rel="noopener"><img src="${i.img}" alt="${esc(i.en)}"></a>
+  <div><div class="brand">${esc(i.brand)} · ${id}</div><h3 style="font-size:20px;margin-top:4px">${esc(i.name)}</h3>
+  <span class="temp">${coatInfo[id][0]}</span><p>${coatInfo[id][1]}</p>
+  <div class="price"><b>${i.price}</b><s>${i.orig}</s></div>
+  <div class="acts"><a href="${i.url}" target="_blank" rel="noopener">去購買 ↗</a><button data-add="${id}">加入清單</button></div></div></div>`}).join('');
+const j3 = byId.J3;
+$('altCoat').innerHTML = `<img src="${j3.img}" alt=""><div><b>寒流備案：${esc(j3.name)}</b> · ${j3.price}<br>
+  <span class="note">低於 10°C 時內搭在 J2 大衣裡，或單穿。</span> <a href="${j3.url}" target="_blank" rel="noopener">商品頁 ↗</a></div>`;
+
+// brands
+$('brandRows').innerHTML = D.brands.map(([n, price, mat, must, url, how, direct], k) => `
+  <tr><td>${k < 5 ? '<span class="top">★'+(k+1)+'</span>' : k+1}</td><td><b>${esc(n)}</b></td><td>${esc(price)}</td><td>${esc(mat)}</td><td>${esc(must)}</td>
+  <td><a href="${url}" target="_blank" rel="noopener">官網 ↗</a><br><span class="pill ${direct?'ok':'no'}">${how}</span></td></tr>`).join('');
+
+renderCart(); syncBtns();
+})();
+</script>
+</body>
+</html>
