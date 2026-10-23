@@ -9,7 +9,12 @@
   "orig": "NT$899",
   "price": "NT$450",
   "url": "https://global.musinsa.com/tw/products/1864004",
-  "img": "img/T1.jpg"
+  "img": "img/T1.jpg",
+  "color": "深灰 Dark Gray",
+  "hex": "#55585c",
+  "size": "M",
+  "sizeWhy": "肩 48.5・胸平量 55・衣長 70.55",
+  "no": "1864004"
  },
  {
   "id": "T2",
@@ -21,7 +26,12 @@
   "orig": "NT$1,771",
   "price": "NT$1,683",
   "url": "https://global.musinsa.com/tw/products/6991015",
-  "img": "img/T2.jpg"
+  "img": "img/T2.jpg",
+  "color": "象牙白 Ivory",
+  "hex": "#efe8d8",
+  "size": "105",
+  "sizeWhy": "肩 49.6・胸平量 54.5・衣長 69.5",
+  "no": "6991015"
  },
  {
   "id": "T3",
@@ -33,7 +43,12 @@
   "orig": "NT$1,273",
   "price": "NT$955",
   "url": "https://global.musinsa.com/tw/products/5312848",
-  "img": "img/T3.jpg"
+  "img": "img/T3.jpg",
+  "color": "黑條紋 Black",
+  "hex": "#222",
+  "size": "M",
+  "sizeWhy": "肩 56.5・胸平量 60.5・衣長 72",
+  "no": "5312848"
  },
  {
   "id": "T4",
@@ -45,7 +60,12 @@
   "orig": "NT$1,935",
   "price": "NT$1,805",
   "url": "https://global.musinsa.com/tw/products/3206068",
-  "img": "img/T4.jpg"
+  "img": "img/T4.jpg",
+  "color": "選「BLACK - WHITE」黑白各一",
+  "hex": "#222",
+  "size": "M",
+  "sizeWhy": "肩 52・胸平量 59・衣長 69.5",
+  "no": "3206068"
  },
  {
   "id": "K1",
@@ -57,7 +77,12 @@
   "orig": "NT$1,473",
   "price": "NT$1,326",
   "url": "https://global.musinsa.com/tw/products/6639861",
-  "img": "img/K1.jpg"
+  "img": "img/K1.jpg",
+  "color": "深藍 Navy",
+  "hex": "#1f2a44",
+  "size": "L",
+  "sizeWhy": "肩 46・胸平量 54.5・衣長 68",
+  "no": "6639861"
  },
  {
   "id": "K2",
@@ -69,7 +94,12 @@
   "orig": "NT$1,473",
   "price": "NT$1,179",
   "url": "https://global.musinsa.com/tw/products/6639864",
-  "img": "img/K2.jpg"
+  "img": "img/K2.jpg",
+  "color": "炭灰 Charcoal Gray",
+  "hex": "#3a3a3c",
+  "size": "L",
+  "sizeWhy": "肩 46・胸平量 54.5・衣長 68",
+  "no": "6639864"
  },
  {
   "id": "K3",
@@ -81,7 +111,12 @@
   "orig": "NT$1,848",
   "price": "NT$1,664",
   "url": "https://global.musinsa.com/tw/products/7037192",
-  "img": "img/K3.jpg"
+  "img": "img/K3.jpg",
+  "color": "選「MELANGE GREY」麻花灰",
+  "hex": "#a7a7a5",
+  "size": "L",
+  "sizeWhy": "肩 55・胸平量 62・衣長 63（短版設計，M 太短）",
+  "no": "7037192"
  },
  {
   "id": "K4",
@@ -93,7 +128,12 @@
   "orig": "NT$2,850",
   "price": "NT$2,081",
   "url": "https://global.musinsa.com/tw/products/5453542",
-  "img": "img/K4.jpg"
+  "img": "img/K4.jpg",
+  "color": "選「브라운」咖啡",
+  "hex": "#7a5a44",
+  "size": "FREE",
+  "sizeWhy": "肩 57・胸平量 59.5・衣長 77.5",
+  "no": "5453542"
  },
  {
   "id": "K5",
@@ -105,7 +145,12 @@
   "orig": "NT$1,801",
   "price": "NT$1,351",
   "url": "https://global.musinsa.com/tw/products/5662153",
-  "img": "img/K5.jpg"
+  "img": "img/K5.jpg",
+  "color": "深藍 Navy",
+  "hex": "#1f2a44",
+  "size": "L",
+  "sizeWhy": "肩 48・胸平量 57.5・衣長 66",
+  "no": "5662153"
  },
  {
   "id": "S1",
@@ -117,7 +162,12 @@
   "orig": "NT$1,200",
   "price": "NT$720",
   "url": "https://global.musinsa.com/tw/products/854337",
-  "img": "img/S1.jpg"
+  "img": "img/S1.jpg",
+  "color": "白 White",
+  "hex": "#fafafa",
+  "size": "M",
+  "sizeWhy": "肩 50.4・胸平量 58.5・衣長 76.5",
+  "no": "854337"
  },
  {
   "id": "S2",
@@ -129,7 +179,12 @@
   "orig": "NT$2,771",
   "price": "NT$1,386",
   "url": "https://global.musinsa.com/tw/products/4822868",
-  "img": "img/S2.jpg"
+  "img": "img/S2.jpg",
+  "color": "淺灰 Light Grey",
+  "hex": "#c9cbcd",
+  "size": "M",
+  "sizeWhy": "肩 56・胸平量 65・衣長 79",
+  "no": "4822868"
  },
  {
   "id": "S3",
@@ -141,7 +196,12 @@
   "orig": "NT$2,850",
   "price": "NT$2,565",
   "url": "https://global.musinsa.com/tw/products/4480350",
-  "img": "img/S3.jpg"
+  "img": "img/S3.jpg",
+  "color": "橄欖綠 Dark Olive",
+  "hex": "#5d6142",
+  "size": "M",
+  "sizeWhy": "肩 54・胸平量 67・衣長 79",
+  "no": "4480350"
  },
  {
   "id": "S4",
@@ -153,7 +213,12 @@
   "orig": "NT$1,504",
   "price": "NT$1,128",
   "url": "https://global.musinsa.com/tw/products/2392759",
-  "img": "img/S4.jpg"
+  "img": "img/S4.jpg",
+  "color": "石洗藍 Blue",
+  "hex": "#6d8bb0",
+  "size": "M",
+  "sizeWhy": "肩 64・胸平量 69・衣長 74.5（落肩寬版）",
+  "no": "2392759"
  },
  {
   "id": "S5",
@@ -165,7 +230,12 @@
   "orig": "NT$1,543",
   "price": "NT$1,050",
   "url": "https://global.musinsa.com/tw/products/4703183",
-  "img": "img/S5.jpg"
+  "img": "img/S5.jpg",
+  "color": "選「SKY BLUE」藍白條",
+  "hex": "#a9c3df",
+  "size": "M",
+  "sizeWhy": "肩 50.5・胸平量 59.5・衣長 77.5",
+  "no": "4703183"
  },
  {
   "id": "P1",
@@ -177,7 +247,12 @@
   "orig": "NT$2,703",
   "price": "NT$1,893",
   "url": "https://global.musinsa.com/tw/products/2398627",
-  "img": "img/P1.jpg"
+  "img": "img/P1.jpg",
+  "color": "黑 Black",
+  "hex": "#151515",
+  "size": "34",
+  "sizeWhy": "腰平量 45・褲長 105",
+  "no": "2398627"
  },
  {
   "id": "P2",
@@ -189,7 +264,12 @@
   "orig": "NT$2,703",
   "price": "NT$1,893",
   "url": "https://global.musinsa.com/tw/products/4052611",
-  "img": "img/P2.jpg"
+  "img": "img/P2.jpg",
+  "color": "炭灰 Charcoal Gray",
+  "hex": "#3a3a3c",
+  "size": "34",
+  "sizeWhy": "腰平量 45・褲長 105",
+  "no": "4052611"
  },
  {
   "id": "P3",
@@ -201,7 +281,12 @@
   "orig": "NT$1,801",
   "price": "NT$1,441",
   "url": "https://global.musinsa.com/tw/products/5746364",
-  "img": "img/P3.jpg"
+  "img": "img/P3.jpg",
+  "color": "中灰 Medium Gray",
+  "hex": "#8a8b8d",
+  "size": "34",
+  "sizeWhy": "腰平量 45・褲長 112",
+  "no": "5746364"
  },
  {
   "id": "P4",
@@ -213,7 +298,12 @@
   "orig": "NT$3,111",
   "price": "NT$2,645",
   "url": "https://global.musinsa.com/tw/products/2084435",
-  "img": "img/P4.jpg"
+  "img": "img/P4.jpg",
+  "color": "米 Beige",
+  "hex": "#cbbf9f",
+  "size": "L",
+  "sizeWhy": "腰平量 44・褲長 104",
+  "no": "2084435"
  },
  {
   "id": "P5",
@@ -225,19 +315,29 @@
   "orig": "NT$1,501",
   "price": "NT$1,351",
   "url": "https://global.musinsa.com/tw/products/2028328",
-  "img": "img/P5.jpg"
+  "img": "img/P5.jpg",
+  "color": "中藍 Medium Indigo",
+  "hex": "#4a6890",
+  "size": "34",
+  "sizeWhy": "腰平量 45・褲長 104",
+  "no": "2028328"
  },
  {
   "id": "P6",
   "cat": "褲子",
-  "brand": "PARTIMENTO",
-  "name": "PARTIMENTO 燈芯絨褲（深藍）",
-  "en": "Puckering Corduroy Pants in Navy",
-  "why": "燈芯絨保暖，秋冬感最強",
-  "orig": "NT$2,884",
-  "price": "NT$2,308",
-  "url": "https://global.musinsa.com/tw/products/7059128",
-  "img": "img/P6.jpg"
+  "brand": "ESPIONAGE",
+  "name": "ESPIONAGE 復古燈芯絨五口袋褲（洗舊深藍）",
+  "en": "Vintage Corduroy 5Pocket Pants Washed Navy",
+  "why": "燈芯絨保暖，洗舊感不死板，秋冬主力",
+  "orig": "NT$3,033",
+  "price": "NT$2,730",
+  "url": "https://global.musinsa.com/tw/products/5516452",
+  "img": "img/P6.jpg",
+  "color": "洗舊深藍 Washed Navy",
+  "hex": "#2c3550",
+  "size": "XL",
+  "sizeWhy": "腰平量 44・褲長 107",
+  "no": "5516452"
  },
  {
   "id": "J1",
@@ -249,7 +349,13 @@
   "orig": "NT$3,304",
   "price": "NT$2,313",
   "url": "https://global.musinsa.com/tw/products/5304019",
-  "img": "img/J1.jpg"
+  "img": "img/J1.jpg",
+  "color": "咖啡 Brown",
+  "hex": "#6b4a33",
+  "size": "M",
+  "sizeWhy": "胸平量 61.5・衣長 61",
+  "no": "5304019",
+  "temp": "15–20°C"
  },
  {
   "id": "J2",
@@ -261,7 +367,13 @@
   "orig": "NT$3,905",
   "price": "NT$2,929",
   "url": "https://global.musinsa.com/tw/products/5755620",
-  "img": "img/J2.jpg"
+  "img": "img/J2.jpg",
+  "color": "黑 Black",
+  "hex": "#111",
+  "size": "M",
+  "sizeWhy": "肩 52・胸平量 65・衣長 81",
+  "no": "5755620",
+  "temp": "10–15°C"
  },
  {
   "id": "J3",
@@ -269,10 +381,142 @@
   "brand": "MUSINSA STANDARD",
   "name": "MUSINSA STANDARD [City Leisure] 連帽輕羽絨（黑）",
   "en": "[City Leisure] Hooded Light Down Jacket [Black]",
-  "why": "備案：寒流可內搭於大衣下",
+  "why": "輕羽絨，寒流內搭在大衣裡或單穿",
   "orig": "NT$3,304",
   "price": "NT$1,983",
   "url": "https://global.musinsa.com/tw/products/4356794",
-  "img": "img/J3.jpg"
+  "img": "img/J3.jpg",
+  "color": "黑 Black",
+  "hex": "#111",
+  "size": "L",
+  "sizeWhy": "肩 50・胸平量 59・衣長 67",
+  "no": "4356794",
+  "temp": "10°C 以下（內搭）"
+ },
+ {
+  "id": "J4",
+  "cat": "外套",
+  "brand": "MUSINSA STANDARD",
+  "name": "MUSINSA STANDARD 羊毛混紡 Harrington 夾克（深藍）",
+  "en": "울 블렌드 해링턴 재킷 [네이비]",
+  "why": "羊毛混紡，比棉質更擋風，上班休閒都行",
+  "orig": "NT$4,206",
+  "price": "NT$3,786",
+  "url": "https://global.musinsa.com/tw/products/3405558",
+  "img": "img/J4.jpg",
+  "color": "深藍 Navy",
+  "hex": "#1f2a44",
+  "size": "M",
+  "sizeWhy": "胸平量 61.5・衣長 63",
+  "no": "3405558",
+  "temp": "12–18°C"
+ },
+ {
+  "id": "J5",
+  "cat": "外套",
+  "brand": "MUSINSA STANDARD",
+  "name": "MUSINSA STANDARD 羊毛混紡短版 Balmacaan 大衣（炭灰）",
+  "en": "울 블렌드 오버사이즈 쇼트 발마칸 코트 [차콜 그레이]",
+  "why": "短版大衣不壓身高，175cm 比例最好",
+  "orig": "NT$4,206",
+  "price": "NT$3,786",
+  "url": "https://global.musinsa.com/tw/products/3405548",
+  "img": "img/J5.jpg",
+  "color": "炭灰 Charcoal Gray",
+  "hex": "#3a3a3c",
+  "size": "M",
+  "sizeWhy": "肩 50.4・胸平量 62.5・衣長 63",
+  "no": "3405548",
+  "temp": "10–15°C"
+ },
+ {
+  "id": "J6",
+  "cat": "外套",
+  "brand": "ESPIONAGE",
+  "name": "ESPIONAGE 法式寬版工作外套（Moleskin 炭灰）",
+  "en": "French Wide Work Jacket (Moleskin) Dark Grey",
+  "why": "鼴鼠皮棉布，厚實防風，工裝感",
+  "orig": "NT$3,817",
+  "price": "NT$3,245",
+  "url": "https://global.musinsa.com/tw/products/6956762",
+  "img": "img/J6.jpg",
+  "color": "炭灰 Dark Grey",
+  "hex": "#4a4b4d",
+  "size": "M",
+  "sizeWhy": "肩 55・胸平量 63・衣長 73",
+  "no": "6956762",
+  "temp": "15–20°C"
+ },
+ {
+  "id": "J7",
+  "cat": "外套",
+  "brand": "PARTIMENTO",
+  "name": "PARTIMENTO 寬版 Melton 牛角扣長大衣（深藍）",
+  "en": "오버사이즈 멜톤 더플 롱 코트 네이비",
+  "why": "Melton 羊毛呢，寒流最暖的一件",
+  "orig": "NT$4,052",
+  "price": "NT$3,039",
+  "url": "https://global.musinsa.com/tw/products/2238440",
+  "img": "img/J7.jpg",
+  "color": "深藍 Navy",
+  "hex": "#1f2a44",
+  "size": "S",
+  "sizeWhy": "肩 54.5・胸平量 63.5・衣長 108",
+  "no": "2238440",
+  "temp": "8–14°C"
+ },
+ {
+  "id": "J8",
+  "cat": "外套",
+  "brand": "SUARE",
+  "name": "SUARE 羊毛混紡針織 Drizzler 外套（炭灰）",
+  "en": "울 블렌드 드리즐러 니트 자켓 차콜",
+  "why": "針織外套，16–21°C 比夾克更舒服",
+  "orig": "NT$2,614",
+  "price": "NT$1,830",
+  "url": "https://global.musinsa.com/tw/products/7383579",
+  "img": "img/J8.jpg",
+  "color": "炭灰 Charcoal",
+  "hex": "#3e3e40",
+  "size": "L",
+  "sizeWhy": "肩 50・胸平量 55・衣長 63",
+  "no": "7383579",
+  "temp": "16–21°C"
+ },
+ {
+  "id": "J9",
+  "cat": "外套",
+  "brand": "MUSINSA STANDARD",
+  "name": "MUSINSA STANDARD 寬版 Balmacaan 風衣（米）",
+  "en": "오버사이즈 발마칸 트렌치 코트 [베이지]",
+  "why": "風衣擋風不悶，高雄冬天白天剛好",
+  "orig": "NT$4,206",
+  "price": "NT$3,155",
+  "url": "https://global.musinsa.com/tw/products/4594018",
+  "img": "img/J9.jpg",
+  "color": "米 Beige",
+  "hex": "#cdb991",
+  "size": "M",
+  "sizeWhy": "胸平量 69.5・衣長 113",
+  "no": "4594018",
+  "temp": "15–20°C"
+ },
+ {
+  "id": "J10",
+  "cat": "外套",
+  "brand": "MUSINSA STANDARD",
+  "name": "MUSINSA STANDARD 合成麂皮 Harrington 夾克（淺咖啡）",
+  "en": "신세틱 스웨이드 해링턴 재킷 [라이트 브라운]",
+  "why": "麂皮質感、淺咖啡最襯小麥膚色",
+  "orig": "NT$4,206",
+  "price": "NT$3,576",
+  "url": "https://global.musinsa.com/tw/products/6662934",
+  "img": "img/J10.jpg",
+  "color": "淺咖啡 Light Brown",
+  "hex": "#a57c57",
+  "size": "M",
+  "sizeWhy": "胸平量 59.5・衣長 62.1",
+  "no": "6662934",
+  "temp": "15–20°C"
  }
 ]

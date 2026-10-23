@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>KCLOTH — 韓系質感男裝選物｜高雄冬季衣櫥</title>
-<meta name="description" content="韓國男裝品牌 20 選、22 件單品、10 套穿搭與 2 件外套。30–40 歲、175cm/75kg、高雄冬天 10–20°C。">
+<meta name="description" content="韓國男裝品牌 20 選、30 件膠囊衣櫥、30 套穿搭與 10 件外套。30–40 歲、175cm/75kg、高雄冬天 10–20°C。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
 <style>
@@ -159,6 +159,28 @@ footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
   .coat{grid-template-columns:130px 1fr}
   .nav nav{display:none}
 }
+
+.sizebox{display:flex;gap:6px;flex-wrap:wrap;font-size:12px;margin-top:2px}
+.sizebox span{background:#efe8dc;border-radius:6px;padding:3px 8px;font-weight:600}
+.sizebox .dot{display:inline-block;width:10px;height:10px;border-radius:50%;border:1px solid rgba(0,0,0,.15);vertical-align:-1px;margin-right:4px}
+.sizewhy{font-size:11.5px;color:var(--mute);margin:0}
+.coats{grid-template-columns:repeat(auto-fill,minmax(520px,1fr))}
+.builder{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.slot{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px;box-shadow:var(--shadow);min-width:0}
+.slot-h{font-weight:700;margin-bottom:8px}
+.slot-pick{aspect-ratio:1/1;border-radius:10px;background:#eee center/cover no-repeat;margin-bottom:6px;position:relative}
+.slot-pick .lbl{position:absolute;left:6px;right:6px;bottom:6px;background:rgba(0,0,0,.72);color:#fff;font-size:11.5px;padding:5px 7px;border-radius:6px;line-height:1.35}
+.slot-row{display:flex;gap:5px;overflow-x:auto;padding:4px 0}
+.slot-row button{flex:0 0 44px;height:44px;border-radius:8px;border:2px solid transparent;background:#eee center/cover;cursor:pointer;padding:0;font:700 11px inherit;color:#555}
+.slot-row button.on{border-color:var(--accent)}
+.build-sum{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-top:16px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px 18px}
+.btn-s{border:1.5px solid var(--ink);background:transparent;border-radius:999px;padding:12px 20px;font:700 14px inherit;font-family:inherit;cursor:pointer;margin-left:8px}
+.btn-s.dark{background:var(--ink);color:#fff}
+.palette{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.pal{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-size:12px}
+.pal i{width:26px;height:26px;border-radius:50%;flex:0 0 26px;border:1px solid rgba(0,0,0,.12)}
+.look-imgs{grid-template-columns:repeat(5,1fr)}
+@media (max-width:900px){.builder{grid-template-columns:1fr 1fr}.coats{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -167,7 +189,7 @@ footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
   <div class="wrap">
     <a class="logo" href="#top">K<span>·</span>CLOTH</a>
     <nav>
-      <a href="#intro">介紹</a><a href="#shop">選物</a><a href="#looks">10 套穿搭</a>
+      <a href="#intro">介紹</a><a href="#shop">選物</a><a href="#capsule">膠囊</a><a href="#looks">30 套穿搭</a>
       <a href="#coats">外套</a><a href="#brands">20 品牌</a><a href="#guide">購買</a>
     </nav>
     <button class="cart-btn" id="openCart">購物清單 <b id="cartCount">0</b></button>
@@ -180,19 +202,19 @@ footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
     <div>
       <div class="eyebrow">Korean Menswear · Winter Edit 2026</div>
       <h1>韓系質感，<br>剛好適合高雄的冬天。</h1>
-      <p class="lead">為 30–40 歲男性挑選的韓國男裝衣櫥：20 個品牌、22 件單品、10 套可混搭穿搭與 2 件主力外套。每件單價 NT$1,000–3,000 上下，全部可在 MUSINSA 台灣站直送。</p>
+      <p class="lead">為 30–40 歲男性挑選的韓國男裝衣櫥：20 個品牌、30 件膠囊單品（20 件上衣褲子＋10 件外套）、30 套穿搭，件件互搭。每件單價 NT$1,000–3,000 上下，全部可在 MUSINSA 台灣站直送。</p>
       <div class="chips">
         <span class="chip">🌡 高雄冬天 10–20°C</span><span class="chip">📏 175cm / 75kg</span>
-        <span class="chip">腰 87 · 胸 95 · 肩 43</span><span class="chip">膚色偏小麥</span>
+        <span class="chip">腰 87 · 胸 95 · 肩 45</span><span class="chip">膚色偏小麥</span>
       </div>
-      <a class="btn" href="#shop">逛選物</a><a class="btn ghost" href="#looks">看 10 套穿搭</a>
+      <a class="btn" href="#shop">逛選物</a><a class="btn ghost" href="#looks">看 30 套穿搭</a>
     </div>
     <div class="hero-collage" id="collage"></div>
   </div>
   <div class="wrap stats">
     <div class="stat"><b>20</b><span>精選韓國品牌</span></div>
-    <div class="stat"><b>22</b><span>單品＋寒流備案</span></div>
-    <div class="stat"><b>10</b><span>套可混搭穿搭</span></div>
+    <div class="stat"><b>30</b><span>膠囊單品（含 10 件外套）</span></div>
+    <div class="stat"><b>30</b><span>套穿搭・924 種組合</span></div>
     <div class="stat"><b id="totalAll">—</b><span>全衣櫥今日價合計</span></div>
   </div>
 </section>
@@ -203,11 +225,11 @@ footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
       <p>選物原則：材質優先（美麗諾羊毛、Supima 棉、燈芯絨、厚牛津布），版型選「寬鬆但不邋遢」，用層次應付高雄一天 8–10 度的溫差。</p></div></div>
     <div class="profile">
       <div class="panel"><h3>📏 尺寸建議</h3><ul>
-        <li><b>上衣：韓碼 L（100–105）</b></li>
-        <li>Oversized 款可降一號 M，但肩寬需 ≥ 45cm</li>
-        <li><b>褲子：34／XL</b>（腰 87cm）</li>
-        <li>優先選 Hidden Banding（隱藏鬆緊腰）</li>
-        <li>下單前核對：平量腰 ≥ 43.5cm、肩寬 44–47cm</li></ul></div>
+        <li>身形：175cm／75kg・<b>肩 45</b>・胸 95・腰 87</li>
+        <li><b>合身款上衣：L</b>（肩 ≥ 45、胸平量 ≥ 54）</li>
+        <li><b>寬版／落肩款：M</b>（肩線本來就落在手臂上）</li>
+        <li><b>褲子：34 號或 L／XL</b>（腰平量 ≥ 44cm）</li>
+        <li>每件商品卡已依 MUSINSA 實測尺寸表標好建議尺寸與顏色</li></ul></div>
       <div class="panel"><h3>🎨 襯小麥膚色的顏色</h3>
         <div class="swatches">
           <span class="sw"><i style="background:#1f2a44"></i>深藍</span><span class="sw"><i style="background:#3a3a3c"></i>炭灰</span>
@@ -234,20 +256,36 @@ footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
   </div>
 </section>
 
+<section id="capsule">
+  <div class="wrap">
+    <div class="sec-head"><div><div class="eyebrow">Capsule Wardrobe</div><h2>膠囊衣櫥：自己混搭</h2>
+      <p>14 件上衣 × 6 條褲子 × 11 種外套選擇（含不穿外套）= 924 種組合。色系只有 3 組：<b>深色基底</b>（黑／炭灰／深藍）、<b>大地色</b>（咖啡／橄欖／米）、<b>提亮色</b>（白／象牙／淺灰），任意兩組都不衝突。</p></div></div>
+    <div class="builder">
+      <div class="slot" data-slot="top"><div class="slot-h">上衣</div><div class="slot-pick"></div><div class="slot-row"></div></div>
+      <div class="slot" data-slot="layer"><div class="slot-h">疊穿（選填）</div><div class="slot-pick"></div><div class="slot-row"></div></div>
+      <div class="slot" data-slot="pants"><div class="slot-h">褲子</div><div class="slot-pick"></div><div class="slot-row"></div></div>
+      <div class="slot" data-slot="coat"><div class="slot-h">外套</div><div class="slot-pick"></div><div class="slot-row"></div></div>
+    </div>
+    <div class="build-sum"><div id="buildSum"></div><div><button class="btn-s" id="shuffle">🎲 隨機一套</button><button class="btn-s dark" id="addBuild">整套加入清單</button></div></div>
+    <h3 style="margin:36px 0 12px">色票：30 件單品一覽</h3>
+    <div class="palette" id="palette"></div>
+  </div>
+</section>
+
 <section id="looks">
   <div class="wrap">
-    <div class="sec-head"><div><div class="eyebrow">10 Looks</div><h2>10 套穿搭，件件互搭</h2>
-      <p>點單品圖直接到商品頁。外套 J1（休閒）／J2（正式）在全部 10 套都可互換。</p></div></div>
+    <div class="sec-head"><div><div class="eyebrow">30 Looks</div><h2>30 套穿搭，件件互搭</h2>
+      <p>點單品圖到商品頁。每張卡標了建議尺寸與顏色；外套可依當天溫度換成任何一件。</p></div>
+      <div class="filters" id="lookFilters"></div></div>
     <div class="outfits" id="outfits"></div>
   </div>
 </section>
 
 <section id="coats">
   <div class="wrap">
-    <div class="sec-head"><div><div class="eyebrow">Outerwear</div><h2>2 件主力外套</h2>
-      <p>一件休閒、一件正式，涵蓋高雄冬天全部溫度帶。</p></div></div>
+    <div class="sec-head"><div><div class="eyebrow">Outerwear</div><h2>10 件外套推薦</h2>
+      <p>依高雄冬天溫度帶排列。全部是深藍／炭灰／黑／咖啡／米，和衣櫥任何一套都能互換。</p></div></div>
     <div class="coats" id="coatList"></div>
-    <div class="alt" id="altCoat"></div>
   </div>
 </section>
 
@@ -270,7 +308,7 @@ footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
       <div class="step"><h3>代購品牌</h3><p>COOR、UNIFORM BRIDGE、STEADY EVERY WEAR、SPAO、8seconds 在台灣站不販售，需透過代購。</p></div>
       <div class="step"><h3>匯率參考</h3><p>1 TWD ≈ 40.8 KRW（2026-10-22）。韓幣標價 ÷ 40.8 ≈ 台幣。</p></div>
     </div>
-    <p class="note" style="margin-top:20px">未查證：COOR、UNIFORM BRIDGE、LAFUDGESTORE、SPAO、8seconds 價格；LMOOD、FILLUMINATE、PLAC、OUTSTANDING 以 MUSINSA 品牌頁代替官網。T4 為 2 入組價格。本站僅為個人選物整理，與各品牌無合作關係。</p>
+    <p class="note" style="margin-top:20px">未查證：COOR、UNIFORM BRIDGE、LAFUDGESTORE、SPAO、8seconds 價格；LMOOD、FILLUMINATE、PLAC、OUTSTANDING 以 MUSINSA 品牌頁代替官網。T4 為 2 入組價格。建議尺寸依 MUSINSA 實測尺寸表推算（肩 45、胸 95、腰 87），各款誤差約 ±2cm。本站僅為個人選物整理，與各品牌無合作關係。</p>
   </div>
 </section>
 </main>
@@ -299,16 +337,19 @@ const num = s => +String(s).replace(/[^\d]/g, '');
 const fmt = n => 'NT$' + n.toLocaleString('en-US');
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const $ = id => document.getElementById(id);
+const sizeTag = i => `<span>尺寸 ${esc(i.size)}</span><span><i class="dot" style="background:${i.hex}"></i>${esc(i.color)}</span>`;
 
 // cart
-let cart = JSON.parse(localStorage.getItem('kcloth-cart') || '[]');
+let cart = JSON.parse(localStorage.getItem('kcloth-cart') || '[]').filter(id => byId[id]);
 const save = () => { localStorage.setItem('kcloth-cart', JSON.stringify(cart)); renderCart(); syncBtns(); };
 const toggle = id => { cart = cart.includes(id) ? cart.filter(x => x !== id) : [...cart, id]; save(); };
+const addMany = ids => { ids.forEach(id => { if (!cart.includes(id)) cart.push(id); }); save(); openCart(true); };
 function renderCart(){
   $('cartCount').textContent = cart.length;
   const tot = cart.reduce((s, id) => s + num(byId[id].price), 0);
   $('cartList').innerHTML = cart.length ? cart.map(id => { const i = byId[id]; return `
     <div class="ci"><img src="${i.img}" alt=""><div><b>${esc(i.name)}</b><br>
+    <span class="note">尺寸 <b>${esc(i.size)}</b>・${esc(i.color)}</span><br>
     <a href="${i.url}" target="_blank" rel="noopener">${i.price} · 商品頁 ↗</a></div>
     <button data-rm="${id}" aria-label="移除">移除</button></div>`}).join('') : '<p class="note">還沒有加入任何單品。</p>';
   $('cartTotal').textContent = fmt(tot);
@@ -329,12 +370,12 @@ document.addEventListener('click', e => {
   const a = e.target.closest('[data-add]'); if (a) toggle(a.dataset.add);
   const r = e.target.closest('[data-rm]'); if (r) toggle(r.dataset.rm);
   const o = e.target.closest('[data-look]');
-  if (o) { D.outfits[+o.dataset.look][2].concat(D.outfits[+o.dataset.look][3] || []).forEach(id => { if (!cart.includes(id)) cart.push(id); }); save(); openCart(true); }
+  if (o) { const L = D.outfits[+o.dataset.look]; addMany(L.items.concat(L.coats)); }
 });
 
 // hero
-$('collage').innerHTML = ['K1','J1','S3','K4','J2','P4'].map(id => `<img src="${byId[id].img}" alt="${esc(byId[id].name)}" loading="eager">`).join('');
-$('totalAll').textContent = fmt(D.items.filter(i => i.id !== 'J3').reduce((s, i) => s + num(i.price), 0));
+$('collage').innerHTML = ['K1','J1','S3','K4','J7','P4'].map(id => `<img src="${byId[id].img}" alt="${esc(byId[id].name)}" loading="eager">`).join('');
+$('totalAll').textContent = fmt(D.items.reduce((s, i) => s + num(i.price), 0));
 
 // shop
 const cats = ['全部', 'T-shirt', '針織衫', '襯衫', '褲子', '外套'];
@@ -346,38 +387,82 @@ function card(i){
   const o = num(i.orig), p = num(i.price), off = o > p ? Math.round((1 - p / o) * 100) : 0;
   return `<article class="card"><a class="ph" href="${i.url}" target="_blank" rel="noopener">
     <img src="${i.img}" alt="${esc(i.en)}" loading="lazy"><span class="tag">${i.id}</span>${off?`<span class="off">-${off}%</span>`:''}</a>
-    <div class="body"><div class="brand">${esc(i.brand)}</div><h3>${esc(i.name)}</h3><p class="why">${esc(i.why)}</p>
+    <div class="body"><div class="brand">${esc(i.brand)}${i.temp?' · '+i.temp:''}</div><h3>${esc(i.name)}</h3><p class="why">${esc(i.why)}</p>
+    <div class="sizebox">${sizeTag(i)}</div><p class="sizewhy">實測：${esc(i.sizeWhy)} cm</p>
     <div class="price"><b>${i.price}</b>${off?`<s>${i.orig}</s>`:''}</div>
     <div class="acts"><a href="${i.url}" target="_blank" rel="noopener">去購買 ↗</a><button data-add="${i.id}">加入清單</button></div></div></article>`;
 }
 function renderGrid(){ $('grid').innerHTML = D.items.filter(i => cur === '全部' || i.cat === cur).map(card).join(''); syncBtns(); }
 renderGrid();
 
+// capsule builder
+const pool = {
+  top: D.items.filter(i => ['T-shirt','襯衫','針織衫'].includes(i.cat)),
+  layer: [null, ...D.items.filter(i => ['T-shirt','襯衫','針織衫'].includes(i.cat))],
+  pants: D.items.filter(i => i.cat === '褲子'),
+  coat: [null, ...D.items.filter(i => i.cat === '外套')],
+};
+const pick = { top: byId.S1, layer: byId.K1, pants: byId.P2, coat: byId.J2 };
+function renderSlot(name){
+  const el = document.querySelector(`.slot[data-slot="${name}"]`), it = pick[name];
+  el.querySelector('.slot-pick').style.backgroundImage = it ? `url(${it.img})` : 'none';
+  el.querySelector('.slot-pick').innerHTML = `<div class="lbl">${it ? `${it.id} ${esc(it.name)}<br>尺寸 ${esc(it.size)}・${esc(it.color)}` : '不穿'}</div>`;
+  el.querySelector('.slot-row').innerHTML = pool[name].map(x => x
+    ? `<button title="${esc(x.name)}" data-slotpick="${name}:${x.id}" class="${it&&it.id===x.id?'on':''}" style="background-image:url(${x.img})"></button>`
+    : `<button data-slotpick="${name}:" class="${!it?'on':''}">無</button>`).join('');
+}
+function renderBuild(){
+  Object.keys(pool).forEach(renderSlot);
+  const parts = [pick.top, pick.layer, pick.pants, pick.coat].filter(Boolean);
+  const tot = parts.reduce((s, i) => s + num(i.price), 0);
+  $('buildSum').innerHTML = `<b>${parts.map(i => i.id).join(' + ')}</b> · ${fmt(tot)}<br><span class="note">${pick.coat ? '外套適合 '+pick.coat.temp : '不穿外套：約 20°C 以上'}</span>`;
+}
+document.querySelector('.builder').addEventListener('click', e => {
+  const b = e.target.closest('[data-slotpick]'); if (!b) return;
+  const [slot, id] = b.dataset.slotpick.split(':');
+  if (id && slot === 'layer' && pick.top && pick.top.id === id) return;
+  pick[slot] = id ? byId[id] : null; renderBuild();
+});
+const rnd = a => a[Math.floor(Math.random() * a.length)];
+$('shuffle').onclick = () => {
+  pick.top = rnd(pool.top);
+  const kinds = { 'T-shirt': ['襯衫','針織衫'], '襯衫': ['針織衫'], '針織衫': ['T-shirt','襯衫'] }[pick.top.cat];
+  pick.layer = Math.random() < .6 ? rnd(pool.layer.filter(x => x && kinds.includes(x.cat))) : null;
+  pick.pants = rnd(pool.pants); pick.coat = rnd(pool.coat); renderBuild();
+};
+$('addBuild').onclick = () => addMany([pick.top, pick.layer, pick.pants, pick.coat].filter(Boolean).map(i => i.id));
+renderBuild();
+$('palette').innerHTML = D.items.map(i => `<a class="pal" href="${i.url}" target="_blank" rel="noopener" style="text-decoration:none"><i style="background:${i.hex}"></i><span><b>${i.id}</b> ${esc(i.color)}<br>尺寸 ${esc(i.size)}</span></a>`).join('');
+
 // outfits
-$('outfits').innerHTML = D.outfits.map(([occ, title, ids, coat, note], n) => {
-  const all = ids.concat(coat || []);
-  const tot = all.reduce((s, id) => s + num(byId[id].price), 0);
-  return `<article class="look"><div class="look-top"><span class="n">${String(n+1).padStart(2,'0')}</span><span class="occ">${occ}</span></div>
-    <h3>${esc(title)}</h3>
-    <div class="look-imgs">${all.map(id => `<a href="${byId[id].url}" target="_blank" rel="noopener" title="${esc(byId[id].name)}"><img src="${byId[id].img}" alt="" loading="lazy"><span>${id}</span></a>`).join('')}</div>
-    <p>${esc(note)}</p>
-    <ul>${all.map(id => `<li><span>${id} ${esc(byId[id].name)}</span><span>${byId[id].price}</span></li>`).join('')}</ul>
-    <div class="tot"><span>${coat ? '含外套' : '不需外套'}</span><span>${fmt(tot)}</span></div>
-    <button class="addall" data-look="${n}">整套加入清單</button></article>`;
-}).join('');
+const occs = ['全部', ...new Set(D.outfits.map(o => o.occ))];
+let occ = '全部';
+$('lookFilters').innerHTML = occs.map(c => `<button data-occ="${c}" class="${c===occ?'on':''}">${c}</button>`).join('');
+$('lookFilters').onclick = e => { const b = e.target.closest('button'); if (!b) return; occ = b.dataset.occ;
+  document.querySelectorAll('#lookFilters button').forEach(x => x.classList.toggle('on', x === b)); renderLooks(); };
+function renderLooks(){
+  $('outfits').innerHTML = D.outfits.map((o, n) => [o, n]).filter(([o]) => occ === '全部' || o.occ === occ).map(([o, n]) => {
+    const all = o.items.concat(o.coats);
+    const tot = all.reduce((s, id) => s + num(byId[id].price), 0);
+    return `<article class="look"><div class="look-top"><span class="n">${String(n+1).padStart(2,'0')}</span><span class="occ">${o.occ}</span></div>
+      <h3>${esc(o.title)}</h3>
+      <div class="look-imgs">${all.map(id => `<a href="${byId[id].url}" target="_blank" rel="noopener" title="${esc(byId[id].name)}"><img src="${byId[id].img}" alt="" loading="lazy"><span>${id}</span></a>`).join('')}</div>
+      <p>${esc(o.note)}</p>
+      <ul>${all.map(id => { const i = byId[id]; return `<li><span>${id} ${esc(i.name)}<br><small>尺寸 <b>${esc(i.size)}</b>・<i class="dot" style="display:inline-block;width:9px;height:9px;border-radius:50%;background:${i.hex};border:1px solid rgba(0,0,0,.15)"></i> ${esc(i.color)}</small></span><span>${i.price}</span></li>`}).join('')}</ul>
+      <div class="tot"><span>${o.coats.length ? '含外套・'+byId[o.coats[0]].temp : '不需外套・20°C+'}</span><span>${fmt(tot)}</span></div>
+      <button class="addall" data-look="${n}">整套加入清單</button></article>`;
+  }).join('');
+}
+renderLooks();
 
 // coats
-const coatInfo = {J1:['15–20°C','休閒主力。咖啡色燈芯絨最襯小麥膚色，配丹寧、燈芯絨褲、米色寬褲都好看。'],
-                  J2:['10–15°C','寒流主力。黑色羊毛感 Car Coat，西褲、牛仔褲、高領都能撐場。']};
-$('coatList').innerHTML = ['J1','J2'].map(id => { const i = byId[id]; return `
-  <div class="coat"><a href="${i.url}" target="_blank" rel="noopener"><img src="${i.img}" alt="${esc(i.en)}"></a>
-  <div><div class="brand">${esc(i.brand)} · ${id}</div><h3 style="font-size:20px;margin-top:4px">${esc(i.name)}</h3>
-  <span class="temp">${coatInfo[id][0]}</span><p>${coatInfo[id][1]}</p>
+$('coatList').innerHTML = D.items.filter(i => i.cat === '外套').map(i => `
+  <div class="coat"><a href="${i.url}" target="_blank" rel="noopener"><img src="${i.img}" alt="${esc(i.en)}" loading="lazy"></a>
+  <div><div class="brand">${esc(i.brand)} · ${i.id}</div><h3 style="font-size:19px;margin-top:4px">${esc(i.name)}</h3>
+  <span class="temp">${i.temp}</span><p style="margin:4px 0 8px">${esc(i.why)}</p>
+  <div class="sizebox">${sizeTag(i)}</div><p class="sizewhy">實測：${esc(i.sizeWhy)} cm</p>
   <div class="price"><b>${i.price}</b><s>${i.orig}</s></div>
-  <div class="acts"><a href="${i.url}" target="_blank" rel="noopener">去購買 ↗</a><button data-add="${id}">加入清單</button></div></div></div>`}).join('');
-const j3 = byId.J3;
-$('altCoat').innerHTML = `<img src="${j3.img}" alt=""><div><b>寒流備案：${esc(j3.name)}</b> · ${j3.price}<br>
-  <span class="note">低於 10°C 時內搭在 J2 大衣裡，或單穿。</span> <a href="${j3.url}" target="_blank" rel="noopener">商品頁 ↗</a></div>`;
+  <div class="acts"><a href="${i.url}" target="_blank" rel="noopener">去購買 ↗</a><button data-add="${i.id}">加入清單</button></div></div></div>`).join('');
 
 // brands
 $('brandRows').innerHTML = D.brands.map(([n, price, mat, must, url, how, direct], k) => `
