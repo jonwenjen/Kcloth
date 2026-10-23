@@ -381,7 +381,7 @@ footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
 <section id="coats">
   <div class="wrap">
     <div class="sec-head"><div><div class="eyebrow">Outerwear</div><h2>10 件外套推薦</h2>
-      <p>依高雄冬天 15–25°C 由薄到厚排列：薄外套 3 件、中間層 5 件、冷鋒 2 件。顏色都能和衣櫥互換。</p></div></div>
+      <p>外套預算上限調整為單件 NT$5,000，依高雄冬天 15–25°C 由薄到厚排列；材質以純棉、羊毛、喀什米爾混紡為主。</p></div></div>
     <div class="coats" id="coatList"></div>
   </div>
 </section>
@@ -466,7 +466,7 @@ footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
   </footer>
 </aside>
 
-<script src="data.js?v=7"></script>
+<script src="data.js?v=8"></script>
 <script>
 (() => {
 const D = window.KCLOTH;
@@ -605,7 +605,7 @@ const best = D.items.filter(i => i.q.overall >= 4).map(i => i.id);
 const fake = D.items.filter(i => i.replaced).map(i => i.id);
 $('qFlags').innerHTML = `
   <div class="qflag"><h4>🏆 質感最好（綜合 ≥ 4）</h4>${best.map(id => `<b>${id}</b>`).join('、')}<br><span class="note">Supima 棉、美麗諾羊毛、純棉燈芯絨／牛津／Moleskin 為主</span></div>
-  <div class="qflag"><h4>🔁 本次依評分替換（${fake.length} 件）</h4>${fake.map(id => `<b>${id}</b> ${esc(byId[id].q.fabric)}<br><span class="note">取代：${esc(byId[id].replaced)}</span>`).join('<br>')}</div>
+  <div class="qflag"><h4>🔁 外套預算 NT$5,000 升級（${fake.length} 件）</h4>${fake.map(id => `<b>${id}</b> ${esc(byId[id].q.fabric)}<br><span class="note">取代：${esc(byId[id].replaced)}</span>`).join('<br>')}</div>
   <div class="qflag"><h4>🧺 要送乾洗</h4>${D.items.filter(i => /乾洗/.test(i.q.careTxt) && !/實務|實際/.test(i.q.careTxt)).map(i => i.id).join('、')}<br><span class="note">美麗諾、羊毛混紡西褲、風衣與大衣；其餘可在家洗。</span></div>`;
 $('qNote').textContent = D.qualityNote;
 renderQuality();
@@ -656,7 +656,7 @@ function analyze(L){
   if (pants.length && lightPants < 2) add('warn','淺色褲子不足',`${pants.length} 條褲子裡只有 ${lightPants} 條非深色，深色上衣缺對比。`, 'lightpants');
   // 5 formality
   const formal = L.filter(i => i.a.formal === 3).length;
-  if (!L.some(i => i.id === 'X3') ) add('warn','缺西裝外套','喜宴、見客戶時，現有外套都偏休閒；一件燈芯絨西裝外套最萬用。', 'blazer');
+  if (!L.some(i => i.id === 'X3' || (i.a.role !== 'mid' && i.cat === '外套' && i.a.formal === 3 && i.id !== 'J2'))) add('warn','缺西裝外套','喜宴、見客戶時，現有外套都偏休閒；一件燈芯絨西裝外套最萬用。', 'blazer');
   if (formal < 3) add('warn','正式單品少',`可上班的正式單品只有 ${formal} 件。`, null, [['S1'],['P1']]);
   // 6 care burden & quality
   const dry = L.filter(i => /乾洗/.test(i.q.careTxt) && !/實務|實際|可冷水/.test(i.q.careTxt));
