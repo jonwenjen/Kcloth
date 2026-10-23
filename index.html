@@ -281,6 +281,17 @@ footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
 .site .tot .big{font-size:22px;font-weight:800}
 .site .go{display:block;text-align:center;padding:12px;border-radius:10px;background:var(--ink,#1f2a44);color:#fff;text-decoration:none;font-weight:700}
 @media (max-width:1000px){.sites{grid-template-columns:1fr}}
+
+.ciopt{display:flex;flex-wrap:wrap;gap:6px 10px;margin:6px 0 4px}
+.ciopt label{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600}
+.ciopt select,.ciopt input{font:inherit;font-size:14px;padding:7px 9px;border:1.5px solid var(--accent);border-radius:8px;background:var(--card);color:inherit;min-width:70px;max-width:190px}
+.ciopt input[data-sel$=":color"]{min-width:150px}
+.lnk{background:none;border:0;color:var(--accent);text-decoration:underline;cursor:pointer;font-size:12px;padding:0}
+.dlrow{display:grid;gap:8px;margin-top:10px}.dlrow.two{grid-template-columns:1fr 1fr}
+.dlrow button{font:inherit;font-weight:700;font-size:15px;padding:13px;border-radius:10px;border:1.5px solid var(--accent);background:var(--card);color:inherit;cursor:pointer}
+.dlrow .dl{background:var(--accent);color:#fff;font-size:16px;padding:15px}
+.dlrow .line{background:#06C755;border-color:#06C755;color:#fff}
+.dlrow button:disabled{opacity:.4;cursor:not-allowed}
 </style>
 </head>
 <body>
@@ -524,12 +535,14 @@ footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
     <div style="display:flex;justify-content:space-between;font-weight:700"><span>合計</span><span id="cartTotal">NT$0</span></div>
     <div class="ship"><i id="shipBar" style="width:0"></i></div>
     <div class="note" id="shipNote"></div>
+    <div class="dlrow"><button id="dlTxt" class="dl">⬇ 下載清單（LINE 可開）</button></div>
+    <div class="dlrow two"><button id="lineShare" class="line">💬 分享到 LINE</button><button id="copyList">📋 複製文字</button></div>
     <a class="go" href="https://global.musinsa.com/tw" target="_blank" rel="noopener">前往 MUSINSA 台灣站</a>
-    <p class="note" style="margin:8px 0 0">清單存在本機瀏覽器，點各商品連結加入 MUSINSA 購物車。</p>
+    <p class="note" style="margin:8px 0 0">尺寸、顏色可直接修改，會一起寫進下載檔。清單存在本機瀏覽器。</p>
   </footer>
 </aside>
 
-<script src="data.js?v=13"></script>
+<script src="data.js?v=14"></script>
 <script>
 (() => {
 const D = window.KCLOTH;
@@ -551,19 +564,46 @@ const save = () => { localStorage.setItem('kcloth-cart', JSON.stringify(cart)); 
   if (typeof renderProxy==='function') renderProxy(); };
 const toggle = id => { cart = cart.includes(id) ? cart.filter(x => x !== id) : [...cart, id]; save(); };
 const addMany = ids => { ids.forEach(id => { if (!cart.includes(id)) cart.push(id); }); save(); openCart(true); };
+let sel = JSON.parse(localStorage.getItem('kcloth-sel') || '{}');
+const selOf = i => ({ size: (sel[i.id] && sel[i.id].size) || i.size, color: (sel[i.id] && sel[i.id].color) || i.color });
+const saveSel = () => localStorage.setItem('kcloth-sel', JSON.stringify(sel));
+function optList(id, arr){ return `<datalist id="${id}">${(arr||[]).map(v => `<option value="${esc(v)}">`).join('')}</datalist>`; }
 function renderCart(){
   $('cartCount').textContent = cart.length;
   const tot = cart.filter(id => !byId[id].proxy).reduce((s, id) => s + num(byId[id].price), 0);
   const ptot = cart.filter(id => byId[id].proxy).reduce((s, id) => s + num(byId[id].price), 0);
-  $('cartList').innerHTML = cart.length ? cart.map(id => { const i = byId[id]; return `
-    <div class="ci"><img src="${i.img}" alt=""><div><b>${esc(i.name)}</b><br>
-    <span class="note">尺寸 <b>${esc(i.size)}</b>・${esc(i.color)}</span><br>
-    <a href="${i.url}" target="_blank" rel="noopener">${i.price} · ${i.proxy?'代購・'+esc(i.proxy):'MUSINSA'} ↗</a><br><span class="note">🇰🇷 ₩${i.krw.toLocaleString()}</span></div>
+  $('cartList').innerHTML = cart.length ? cart.map(id => { const i = byId[id], s = selOf(i), o = i.opts || {sizes:[i.size],colors:[i.color]};
+    const sizeCtl = o.sizes.length > 1
+      ? `<select data-sel="${id}:size">${o.sizes.map(v => `<option${v===s.size?' selected':''}>${esc(v)}</option>`).join('')}${o.sizes.includes(s.size)?'':`<option selected>${esc(s.size)}</option>`}</select>`
+      : `<input data-sel="${id}:size" value="${esc(s.size)}" list="dl-s-${id}">${optList('dl-s-'+id, o.sizes)}`;
+    const colorCtl = `<input data-sel="${id}:color" value="${esc(s.color)}" list="dl-c-${id}">${optList('dl-c-'+id, o.colors)}`;
+    const changed = s.size !== i.size || s.color !== i.color;
+    return `
+    <div class="ci"><img src="${i.img}" alt=""><div><b>${i.id}</b> ${esc(i.name)}<br>
+    <div class="ciopt"><label>尺寸 ${sizeCtl}</label><label><i class="dot" style="background:${i.hex}"></i>顏色 ${colorCtl}</label></div>
+    <span class="note">建議：${esc(i.size)}・${esc(i.color)}${changed ? ` <button class="lnk" data-reset="${id}">還原建議</button>` : ''}</span><br>
+    <a href="${i.url}" target="_blank" rel="noopener">${i.price} · ${i.proxy?'代購・'+esc(i.proxy):'MUSINSA'} ↗</a><span class="note"> 🇰🇷 ₩${i.krw.toLocaleString()}</span></div>
     <button data-rm="${id}" aria-label="移除">移除</button></div>`}).join('') : '<p class="note">還沒有加入任何單品。</p>';
   $('cartTotal').textContent = fmt(tot + ptot) + (ptot ? `（MUSINSA ${fmt(tot)}＋代購 ${fmt(ptot)}）` : '');
   const free = 6380;
   $('shipBar').style.width = Math.min(100, tot / free * 100) + '%';
   $('shipNote').textContent = (tot >= free ? '✓ 已達 MUSINSA 免運門檻' : `MUSINSA 再 ${fmt(free - tot)} 免運（未達運費 NT$320）`) + (ptot ? '；代購品另計代購費與集運，見「代購 3 站」' : '');
+  ['dlTxt','lineShare','copyList'].forEach(b => $(b).disabled = !cart.length);
+}
+$('cartList').addEventListener('change', e => { const t = e.target.closest('[data-sel]'); if (!t) return;
+  const [id, k] = t.dataset.sel.split(':'); sel[id] = Object.assign(selOf(byId[id]), { [k]: t.value.trim() || byId[id][k] }); saveSel(); renderCart(); });
+$('cartList').addEventListener('click', e => { const b = e.target.closest('[data-reset]'); if (!b) return; delete sel[b.dataset.reset]; saveSel(); renderCart(); });
+function listText(){
+  const d = new Date(), ds = `${d.getFullYear()}/${d.getMonth()+1}/${d.getDate()}`;
+  const groups = [['MUSINSA 台灣站', cart.filter(id => !byId[id].proxy)], ...['29CM','W Concept','SSF SHOP'].map(s => ['代購・' + s, cart.filter(id => byId[id].proxy === s)])].filter(g => g[1].length);
+  let n = 0, out = [`🛒 KCLOTH 購物清單（${ds}）`, `共 ${cart.length} 件・合計 ${$('cartTotal').textContent}`, ''];
+  groups.forEach(([g, ids]) => {
+    out.push(`【${g}】`);
+    ids.forEach(id => { const i = byId[id], s = selOf(i); n++;
+      out.push(`${n}. ${i.name}`, `尺寸：${s.size}`, `顏色：${s.color}`, `價格：${i.price}（₩${i.krw.toLocaleString()}）`, i.url, ''); });
+  });
+  out.push('身形：175cm／75kg・肩 52・胸 95・腰 87', '清單網站：' + location.origin + location.pathname);
+  return out.join('\n');
 }
 function syncBtns(){
   document.querySelectorAll('[data-add]').forEach(b => {
@@ -955,6 +995,16 @@ $('brandRows').innerHTML = D.brands.map(([n, price, mat, must, url, how, direct]
   <tr><td>${k < 5 ? '<span class="top">★'+(k+1)+'</span>' : k+1}</td><td><b>${esc(n)}</b></td><td>${esc(price)}</td><td>${esc(mat)}</td><td>${esc(must)}</td>
   <td><a href="${url}" target="_blank" rel="noopener">官網 ↗</a><br><span class="pill ${direct?'ok':'no'}">${how}</span></td></tr>`).join('');
 
+
+$('dlTxt').onclick = () => { const t = listText(), d = new Date();
+  const blob = new Blob(['\ufeff' + t], { type: 'text/plain;charset=utf-8' });
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+  a.download = `KCLOTH購物清單_${d.getMonth()+1}${String(d.getDate()).padStart(2,'0')}.txt`; document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 2000); };
+$('lineShare').onclick = () => { window.open('https://line.me/R/share?text=' + encodeURIComponent(listText()), '_blank'); };
+$('copyList').onclick = async () => { const t = listText();
+  try { await navigator.clipboard.writeText(t); } catch (e) { const ta = document.createElement('textarea'); ta.value = t; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); }
+  $('copyList').textContent = '✓ 已複製，貼到 LINE'; setTimeout(() => $('copyList').textContent = '📋 複製文字', 2000); };
 renderCompare(); renderCart(); renderProxy(); syncBtns();
 })();
 </script>
