@@ -181,6 +181,32 @@ footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
 .pal i{width:26px;height:26px;border-radius:50%;flex:0 0 26px;border:1px solid rgba(0,0,0,.12)}
 .look-imgs{grid-template-columns:repeat(5,1fr)}
 @media (max-width:900px){.builder{grid-template-columns:1fr 1fr}.coats{grid-template-columns:1fr}}
+
+.verdict{background:var(--navy);color:#fff;border-radius:var(--r);padding:20px 24px;margin-bottom:18px;font-size:15px}
+.verdict b{color:#ffd7a8}
+.verdict ol{margin:8px 0 0;padding-left:20px}
+.calc{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px 18px;font-size:14px}
+.calc label{display:flex;align-items:center;gap:6px;font-weight:600}
+.calc input[type=number]{width:76px;padding:9px 8px;border:1.5px solid var(--line);border-radius:8px;font:600 14px inherit;font-family:inherit;background:#fff}
+.calc .chk input{width:20px;height:20px}
+.seg{display:flex;border:1.5px solid var(--ink);border-radius:999px;overflow:hidden;margin-left:auto}
+.seg button{border:0;background:transparent;padding:10px 16px;font:700 13px inherit;font-family:inherit;cursor:pointer}
+.seg button.on{background:var(--ink);color:#fff}
+.sumgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+.sum{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px}
+.sum h4{margin:0 0 6px;font-size:14px;color:var(--mute)}
+.sum .big{font:700 26px "Noto Serif TC",serif}
+.sum .sub{font-size:12.5px;color:var(--mute);margin-top:4px;line-height:1.5}
+.sum.win{border:2px solid var(--olive)}
+.cmp td{white-space:nowrap}.cmp td:nth-child(2){white-space:normal;min-width:200px}
+.cmp tr.kr{background:#eef3e8}
+.v{display:inline-block;font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:999px}
+.v.kr{background:#3e5a2a;color:#fff}.v.gl{background:#efe8dc;color:#5a4a3a}.v.eq{background:#f0f0f0;color:#666}
+.up{color:var(--sale);font-weight:700}.dn{color:#3e5a2a;font-weight:700}
+.howto{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+.krp{font-size:12px;color:var(--mute);display:flex;justify-content:space-between;gap:6px;border-top:1px dashed var(--line);padding-top:6px;margin-top:2px}
+.krp b{color:var(--ink)}
+@media (max-width:900px){.sumgrid,.howto{grid-template-columns:1fr}.seg{margin-left:0}}
 </style>
 </head>
 <body>
@@ -190,7 +216,7 @@ footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
     <a class="logo" href="#top">K<span>·</span>CLOTH</a>
     <nav>
       <a href="#intro">介紹</a><a href="#shop">選物</a><a href="#capsule">膠囊</a><a href="#looks">30 套穿搭</a>
-      <a href="#coats">外套</a><a href="#brands">20 品牌</a><a href="#guide">購買</a>
+      <a href="#coats">外套</a><a href="#compare">韓國價差</a><a href="#brands">20 品牌</a><a href="#guide">購買</a>
     </nav>
     <button class="cart-btn" id="openCart">購物清單 <b id="cartCount">0</b></button>
   </div>
@@ -289,6 +315,47 @@ footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
   </div>
 </section>
 
+<section id="compare">
+  <div class="wrap">
+    <div class="sec-head"><div><div class="eyebrow">Global vs Korea</div><h2>韓國版 vs Global 台灣站：哪邊買划算？</h2>
+      <p>同一件商品在 MUSINSA 韓國站（musinsa.com，韓元）和 Global 台灣站（台幣）價格不同。韓國站便宜，但要加上<b>代購＋集運</b>才能到台灣。下面每件都算到「到手價」。</p></div></div>
+
+    <div class="verdict" id="verdict"></div>
+
+    <div class="calc">
+      <label>匯率 1 TWD =<input type="number" id="cRate" step="0.1"> KRW</label>
+      <label>集運每公斤<input type="number" id="cKg"> NT$</label>
+      <label>代購手續費<input type="number" id="cFee" step="0.5"> %</label>
+      <label>刷卡海外手續費<input type="number" id="cCard" step="0.5"> %</label>
+      <label class="chk"><input type="checkbox" id="cCoupon"> Global 套用首購 8 折券</label>
+      <div class="seg" id="cScope"><button data-scope="all" class="on">全部 30 件</button><button data-scope="cart">只算購物清單</button></div>
+    </div>
+    <div class="sumgrid" id="sumgrid"></div>
+
+    <div class="matrix" style="margin-top:20px"><table class="cmp">
+      <thead><tr><th>#</th><th>單品</th><th>Global 台灣站</th><th>韓國站（韓元）</th><th>≈ 台幣</th><th>表面價差</th><th>集運分攤</th><th>韓國到手價</th><th>結論</th></tr></thead>
+      <tbody id="cmpRows"></tbody></table></div>
+
+    <div class="howto">
+      <div class="panel"><h3>🇹🇼 Global 台灣站</h3><ul>
+        <li>台灣信用卡、PayPal、Apple Pay 直接付</li>
+        <li><b>DDP 含稅</b>：關稅、營業稅已含在價格內</li>
+        <li>運費 NT$320，<b>滿 NT$6,380 免運</b>（DPEX 配送）</li>
+        <li>可退換貨，尺寸不合比較好處理</li></ul></div>
+      <div class="panel"><h3>🇰🇷 韓國站＋代購＋集運</h3><ul>
+        <li>韓國站要韓國手機實名認證，<b>不收海外信用卡</b> → 須找代購代下單</li>
+        <li>集運空運約 NT$195–220／公斤，最低 2 公斤（例：<a href="https://planets.com.tw/kr/" target="_blank" rel="noopener">星球集運</a>，包稅）</li>
+        <li>非包稅方案：單批完稅價 &gt; NT$2,000 要繳關稅＋營業稅；半年第 7 次起不免稅</li>
+        <li><b>幾乎無法退換</b>，尺寸錯了只能自己轉賣</li></ul></div>
+      <div class="panel"><h3>🧮 計算方式</h3><ul>
+        <li>韓國價 = 韓國站今日售價 ÷ 匯率 × (1＋刷卡費)</li>
+        <li>集運 = 總重量（估）無條件進位 × 每公斤費率，按重量分攤到每件</li>
+        <li>重量為估計：T 恤約 0.3kg、褲子 0.6–0.8kg、大衣 1.6–2.2kg</li>
+        <li>韓國價格擷取自 musinsa.com 商品 API（2026-10-22），會變動</li></ul></div>
+    </div>
+  </div>
+</section>
+
 <section id="brands">
   <div class="wrap">
     <div class="sec-head"><div><div class="eyebrow">20 Brands</div><h2>韓國男裝品牌 20 選</h2>
@@ -341,7 +408,7 @@ const sizeTag = i => `<span>尺寸 ${esc(i.size)}</span><span><i class="dot" sty
 
 // cart
 let cart = JSON.parse(localStorage.getItem('kcloth-cart') || '[]').filter(id => byId[id]);
-const save = () => { localStorage.setItem('kcloth-cart', JSON.stringify(cart)); renderCart(); syncBtns(); };
+const save = () => { localStorage.setItem('kcloth-cart', JSON.stringify(cart)); renderCart(); syncBtns(); if (typeof renderCompare==='function' && S.scope==='cart') renderCompare(); };
 const toggle = id => { cart = cart.includes(id) ? cart.filter(x => x !== id) : [...cart, id]; save(); };
 const addMany = ids => { ids.forEach(id => { if (!cart.includes(id)) cart.push(id); }); save(); openCart(true); };
 function renderCart(){
@@ -350,7 +417,7 @@ function renderCart(){
   $('cartList').innerHTML = cart.length ? cart.map(id => { const i = byId[id]; return `
     <div class="ci"><img src="${i.img}" alt=""><div><b>${esc(i.name)}</b><br>
     <span class="note">尺寸 <b>${esc(i.size)}</b>・${esc(i.color)}</span><br>
-    <a href="${i.url}" target="_blank" rel="noopener">${i.price} · 商品頁 ↗</a></div>
+    <a href="${i.url}" target="_blank" rel="noopener">${i.price} · 商品頁 ↗</a><br><span class="note">🇰🇷 ₩${i.krw.toLocaleString()}</span></div>
     <button data-rm="${id}" aria-label="移除">移除</button></div>`}).join('') : '<p class="note">還沒有加入任何單品。</p>';
   $('cartTotal').textContent = fmt(tot);
   const free = 6380;
@@ -373,6 +440,71 @@ document.addEventListener('click', e => {
   if (o) { const L = D.outfits[+o.dataset.look]; addMany(L.items.concat(L.coats)); }
 });
 
+// ---- Korea vs Global comparison ----
+const FX = D.fx;
+const S = { rate: FX.rate, kg: FX.perKg, fee: 0, card: FX.cardFee, coupon: false, scope: 'all' };
+const krUrl = i => `https://www.musinsa.com/products/${i.no}`;
+const krTwd = i => Math.round(i.krw / S.rate * (1 + S.card / 100));
+const shipFor = kg => Math.max(FX.minKg, Math.ceil(kg - 1e-9)) * (Math.ceil(kg) <= 5 ? FX.perKgSmall : S.kg);
+const globalPrice = i => Math.round(num(i.price) * (S.coupon ? 0.8 : 1));
+function calc(list){
+  const kg = list.reduce((s, i) => s + i.w, 0);
+  const ship = list.length ? shipFor(kg) : 0;
+  const per = Object.fromEntries(list.map(i => {
+    const share = kg ? ship * i.w / kg : 0;
+    const k = krTwd(i), fee = k * S.fee / 100, landed = Math.round(k + share + fee), g = globalPrice(i);
+    return [i.id, { k, share: Math.round(share), fee: Math.round(fee), landed, g, save: g - landed }];
+  }));
+  const g = list.reduce((s, i) => s + globalPrice(i), 0);
+  const gShip = g >= FX.globalFreeShip || !list.length ? 0 : FX.globalShip;
+  const kSum = list.reduce((s, i) => s + per[i.id].k, 0);
+  const fee = Math.round(kSum * S.fee / 100);
+  return { per, kg, ship, g, gShip, kSum, fee, landedAll: kSum + ship + fee };
+}
+function krLine(i){
+  const r = calc(D.items).per[i.id];
+  const pct = Math.round((num(i.price) - r.k) / r.k * 100);
+  return `<div class="krp"><span>🇰🇷 韓國 <b>₩${i.krw.toLocaleString()}</b> ≈ NT$${r.k.toLocaleString()}</span>
+    <span class="${pct>0?'up':'dn'}">${pct>0?'Global 貴 '+pct+'%':'Global 便宜 '+(-pct)+'%'}</span></div>`;
+}
+function renderCompare(){
+  const all = calc(D.items);
+  const list = S.scope === 'cart' ? cart.map(id => byId[id]) : D.items;
+  const c = calc(list);
+  const winners = D.items.filter(i => all.per[i.id].save >= 150);
+  const sel = calc(winners);
+  const selG = winners.reduce((s,i)=>s+globalPrice(i),0);
+  const rest = D.items.filter(i => !winners.includes(i));
+  const restG = rest.reduce((s,i)=>s+globalPrice(i),0);
+  $('verdict').innerHTML = `<b>結論：</b>整批 30 件改走韓國，到手只省 <b>${fmt(all.g + all.gShip - all.landedAll)}</b>（約 ${Math.round((all.g - all.landedAll)/all.g*100)}%），代購費只要超過 ~2.5% 就變成 Global 比較便宜，還失去退換貨。
+    <ol><li><b>建議：大部分在 Global 台灣站買</b>（${rest.length} 件 ${fmt(restG)}，已過 ${fmt(FX.globalFreeShip)} 免運、含稅、可退換）。</li>
+    <li>只有 <b>${winners.length} 件</b>韓國價差夠大值得集運：${winners.map(i=>i.id).join('、')}。這批 Global ${fmt(selG)} → 韓國到手 ${fmt(sel.landedAll)}，<b>省 ${fmt(selG - sel.landedAll)}</b>（${sel.kg.toFixed(1)} kg、集運 ${fmt(sel.ship)}）。</li>
+    <li>韓國站常有限時折扣，價差會變；Global 首購 8 折券一用，<b>全部改在 Global 買反而最便宜</b>（打勾上方選項看看）。</li></ol>`;
+  const winG = c.g + c.gShip, winK = c.landedAll;
+  $('sumgrid').innerHTML = `
+    <div class="sum ${winG<=winK?'win':''}"><h4>🇹🇼 Global 台灣站</h4><div class="big">${fmt(winG)}</div>
+      <div class="sub">商品 ${fmt(c.g)}${S.coupon?'（已套 8 折）':''}＋運費 ${fmt(c.gShip)}<br>含關稅營業稅・可退換</div></div>
+    <div class="sum ${winK<winG?'win':''}"><h4>🇰🇷 韓國站＋代購＋集運</h4><div class="big">${fmt(winK)}</div>
+      <div class="sub">商品 ${fmt(c.kSum)}＋集運 ${fmt(c.ship)}（${c.kg.toFixed(1)} kg）＋代購費 ${fmt(c.fee)}<br>不可退換・約 1–2 週</div></div>
+    <div class="sum"><h4>${S.scope==='cart'?'購物清單 '+list.length+' 件':'全部 30 件'}：差額</h4><div class="big ${winK<winG?'dn':'up'}">${winK<winG?'韓國省 ':'Global 省 '}${fmt(Math.abs(winG-winK))}</div>
+      <div class="sub">${list.length ? '每件 ' + fmt(Math.round(Math.abs(winG-winK)/list.length)) + '，' + (Math.abs(winG-winK)/list.length < 150 ? '差距不大，建議 Global 省事' : '有感差距') : '清單是空的'}</div></div>`;
+  $('cmpRows').innerHTML = list.map(i => {
+    const r = c.per[i.id], pct = Math.round((r.g - r.k) / r.k * 100);
+    const v = r.save >= 150 ? '<span class="v kr">韓國划算</span>' : r.save <= -50 ? '<span class="v gl">Global 划算</span>' : '<span class="v eq">差不多→Global</span>';
+    return `<tr class="${r.save>=150?'kr':''}"><td><b>${i.id}</b></td><td>${esc(i.name)}</td>
+      <td><a href="${i.url}" target="_blank" rel="noopener">${fmt(r.g)}</a></td>
+      <td><a href="${krUrl(i)}" target="_blank" rel="noopener">₩${i.krw.toLocaleString()}</a>${i.krwN>i.krw?`<br><s class="note">₩${i.krwN.toLocaleString()}</s>`:''}</td>
+      <td>${fmt(r.k)}</td><td class="${pct>0?'up':'dn'}">${pct>0?'+':''}${pct}%</td>
+      <td>${fmt(r.share)}${r.fee?`<br><span class="note">+代購 ${fmt(r.fee)}</span>`:''}</td><td><b>${fmt(r.landed)}</b></td>
+      <td>${v}<br><span class="${r.save>0?'dn':'up'}">${r.save>0?'省':'貴'} ${fmt(Math.abs(r.save))}</span></td></tr>`;
+  }).join('') || '<tr><td colspan="9" class="note">購物清單是空的，先加入單品。</td></tr>';
+}
+$('cRate').value = S.rate; $('cKg').value = S.kg; $('cFee').value = S.fee; $('cCard').value = S.card;
+[['cRate','rate'],['cKg','kg'],['cFee','fee'],['cCard','card']].forEach(([id,k]) => $(id).oninput = e => { S[k] = +e.target.value || 0; renderCompare(); renderGrid(); });
+$('cCoupon').onchange = e => { S.coupon = e.target.checked; renderCompare(); };
+$('cScope').onclick = e => { const b = e.target.closest('button'); if (!b) return; S.scope = b.dataset.scope;
+  document.querySelectorAll('#cScope button').forEach(x => x.classList.toggle('on', x === b)); renderCompare(); };
+
 // hero
 $('collage').innerHTML = ['K1','J1','S3','K4','J7','P4'].map(id => `<img src="${byId[id].img}" alt="${esc(byId[id].name)}" loading="eager">`).join('');
 $('totalAll').textContent = fmt(D.items.reduce((s, i) => s + num(i.price), 0));
@@ -390,6 +522,7 @@ function card(i){
     <div class="body"><div class="brand">${esc(i.brand)}${i.temp?' · '+i.temp:''}</div><h3>${esc(i.name)}</h3><p class="why">${esc(i.why)}</p>
     <div class="sizebox">${sizeTag(i)}</div><p class="sizewhy">實測：${esc(i.sizeWhy)} cm</p>
     <div class="price"><b>${i.price}</b>${off?`<s>${i.orig}</s>`:''}</div>
+    ${krLine(i)}
     <div class="acts"><a href="${i.url}" target="_blank" rel="noopener">去購買 ↗</a><button data-add="${i.id}">加入清單</button></div></div></article>`;
 }
 function renderGrid(){ $('grid').innerHTML = D.items.filter(i => cur === '全部' || i.cat === cur).map(card).join(''); syncBtns(); }
@@ -461,7 +594,7 @@ $('coatList').innerHTML = D.items.filter(i => i.cat === '外套').map(i => `
   <div><div class="brand">${esc(i.brand)} · ${i.id}</div><h3 style="font-size:19px;margin-top:4px">${esc(i.name)}</h3>
   <span class="temp">${i.temp}</span><p style="margin:4px 0 8px">${esc(i.why)}</p>
   <div class="sizebox">${sizeTag(i)}</div><p class="sizewhy">實測：${esc(i.sizeWhy)} cm</p>
-  <div class="price"><b>${i.price}</b><s>${i.orig}</s></div>
+  <div class="price"><b>${i.price}</b><s>${i.orig}</s></div>${krLine(i)}
   <div class="acts"><a href="${i.url}" target="_blank" rel="noopener">去購買 ↗</a><button data-add="${i.id}">加入清單</button></div></div></div>`).join('');
 
 // brands
@@ -469,7 +602,7 @@ $('brandRows').innerHTML = D.brands.map(([n, price, mat, must, url, how, direct]
   <tr><td>${k < 5 ? '<span class="top">★'+(k+1)+'</span>' : k+1}</td><td><b>${esc(n)}</b></td><td>${esc(price)}</td><td>${esc(mat)}</td><td>${esc(must)}</td>
   <td><a href="${url}" target="_blank" rel="noopener">官網 ↗</a><br><span class="pill ${direct?'ok':'no'}">${how}</span></td></tr>`).join('');
 
-renderCart(); syncBtns();
+renderCompare(); renderCart(); syncBtns();
 })();
 </script>
 </body>
