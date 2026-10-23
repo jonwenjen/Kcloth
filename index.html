@@ -478,7 +478,7 @@ function renderCompare(){
   const selG = winners.reduce((s,i)=>s+globalPrice(i),0);
   const rest = D.items.filter(i => !winners.includes(i));
   const restG = rest.reduce((s,i)=>s+globalPrice(i),0);
-  $('verdict').innerHTML = `<b>結論：</b>整批 30 件改走韓國，到手只省 <b>${fmt(all.g + all.gShip - all.landedAll)}</b>（約 ${Math.round((all.g - all.landedAll)/all.g*100)}%），代購費只要超過 ~2.5% 就變成 Global 比較便宜，還失去退換貨。
+  $('verdict').innerHTML = `<b>結論：</b>整批 30 件改走韓國，到手只省 <b>${fmt(all.g + all.gShip - all.landedAll)}</b>（約 ${Math.round((all.g - all.landedAll)/all.g*100)}%），代購費只要超過 ~${((all.g + all.gShip - all.landedAll) / all.kSum * 100 + S.fee).toFixed(1)}% 就變成 Global 比較便宜，還失去退換貨。
     <ol><li><b>建議：大部分在 Global 台灣站買</b>（${rest.length} 件 ${fmt(restG)}，已過 ${fmt(FX.globalFreeShip)} 免運、含稅、可退換）。</li>
     <li>只有 <b>${winners.length} 件</b>韓國價差夠大值得集運：${winners.map(i=>i.id).join('、')}。這批 Global ${fmt(selG)} → 韓國到手 ${fmt(sel.landedAll)}，<b>省 ${fmt(selG - sel.landedAll)}</b>（${sel.kg.toFixed(1)} kg、集運 ${fmt(sel.ship)}）。</li>
     <li>韓國站常有限時折扣，價差會變；Global 首購 8 折券若能全額套用，<b>全部改在 Global 買反而最便宜</b>（打勾上方選項看看；實際券常有折抵上限，以結帳頁為準）。</li></ol>`;
