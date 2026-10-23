@@ -207,6 +207,21 @@ footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
 .krp{font-size:12px;color:var(--mute);display:flex;justify-content:space-between;gap:6px;border-top:1px dashed var(--line);padding-top:6px;margin-top:2px}
 .krp b{color:var(--ink)}
 @media (max-width:900px){.sumgrid,.howto{grid-template-columns:1fr}.seg{margin-left:0}}
+
+.stars{color:#c98a2b;letter-spacing:1px;white-space:nowrap;font-size:14px}
+.stars .off{color:#d9d2c5}
+.qt td{vertical-align:middle}.qt td:nth-child(2){min-width:190px}.qt td:nth-child(9){min-width:210px;font-size:12.5px}.qt td:nth-child(10){min-width:240px;font-size:13px}
+.qt th[data-sort]{cursor:pointer;user-select:none}.qt th[data-sort]:hover{background:#e4dccd}
+.qt .ov{font:700 18px "Noto Serif TC",serif}
+.qt tr.top td{background:#eef3e8}.qt tr.low td{background:#fbefe9}
+.qflags{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:16px}
+.qflag{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;font-size:13.5px}
+.qflag h4{margin:0 0 6px;font-size:15px}
+.qcard{display:grid;grid-template-columns:auto 1fr;gap:2px 8px;font-size:11.5px;color:var(--mute);border-top:1px dashed var(--line);padding-top:6px}
+.qcard .stars{font-size:11.5px}
+.qcard .ovr{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;color:var(--ink);font-weight:700;font-size:13px;margin-bottom:2px}
+.fab{font-size:11.5px;color:var(--mute);margin:0}
+@media (max-width:900px){.qflags{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -215,7 +230,7 @@ footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
   <div class="wrap">
     <a class="logo" href="#top">K<span>·</span>CLOTH</a>
     <nav>
-      <a href="#intro">介紹</a><a href="#shop">選物</a><a href="#capsule">膠囊</a><a href="#looks">30 套穿搭</a>
+      <a href="#intro">介紹</a><a href="#shop">選物</a><a href="#quality">質感評比</a><a href="#capsule">膠囊</a><a href="#looks">30 套穿搭</a>
       <a href="#coats">外套</a><a href="#compare">韓國價差</a><a href="#brands">20 品牌</a><a href="#guide">購買</a>
     </nav>
     <button class="cart-btn" id="openCart">購物清單 <b id="cartCount">0</b></button>
@@ -281,6 +296,19 @@ footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
       <p>價格為 2026-10-22 MUSINSA 台灣站含折扣價，會隨活動變動，以點進去的商品頁為準。</p></div>
       <div class="filters" id="filters"></div></div>
     <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section id="quality">
+  <div class="wrap">
+    <div class="sec-head"><div><div class="eyebrow">Quality Review</div><h2>質感與材質評比</h2>
+      <p>五個面向各 1–5 星，再加權成綜合評價。點欄位標題可排序。<b>保養</b>：星越多越好照顧。</p></div>
+      <div class="filters" id="qFilters"></div></div>
+    <div class="qflags" id="qFlags"></div>
+    <div class="matrix"><table class="qt">
+      <thead><tr><th data-sort="id">#</th><th>單品</th><th data-sort="mat">材質布料</th><th data-sort="fit">版型剪裁</th><th data-sort="func">機能實用</th><th data-sort="care">保養洗滌</th><th data-sort="make">車工細節</th><th data-sort="overall">綜合 ▼</th><th>官方材質・產地・洗標</th><th>評語</th></tr></thead>
+      <tbody id="qRows"></tbody></table></div>
+    <p class="note" id="qNote" style="margin-top:12px"></p>
   </div>
 </section>
 
@@ -397,7 +425,7 @@ footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
   </footer>
 </aside>
 
-<script src="data.js?v=4"></script>
+<script src="data.js?v=5"></script>
 <script>
 (() => {
 const D = window.KCLOTH;
@@ -507,6 +535,40 @@ $('cCoupon').onchange = e => { S.coupon = e.target.checked; renderCompare(); };
 $('cScope').onclick = e => { const b = e.target.closest('button'); if (!b) return; S.scope = b.dataset.scope;
   document.querySelectorAll('#cScope button').forEach(x => x.classList.toggle('on', x === b)); renderCompare(); };
 
+// ---- quality ----
+const star = (n, big) => { const f = Math.floor(n), half = n - f >= .5; return `<span class="stars">${'★'.repeat(f)}${half?'⯪':''}<span class="off">${'★'.repeat(5 - f - (half?1:0))}</span></span>`; };
+const Q = [['mat','材質'],['fit','版型'],['func','機能'],['care','保養'],['make','車工']];
+function qCard(i){
+  const q = i.q; if (!q) return '';
+  return `<div class="qcard"><div class="ovr"><span>綜合評價</span><span>${star(q.overall)} ${q.overall.toFixed(1)}</span></div>
+    ${Q.map(([k,l]) => `<span>${l}</span>${star(q[k])}`).join('')}</div><p class="fab">🧵 ${esc(q.fabric)}</p>`;
+}
+let qSort = 'overall', qCat = '全部';
+function renderQuality(){
+  const list = D.items.filter(i => qCat === '全部' || i.cat === qCat).slice()
+    .sort((a,b) => qSort === 'id' ? 0 : (b.q[qSort] - a.q[qSort]) || (b.q.overall - a.q.overall));
+  $('qRows').innerHTML = list.map(i => { const q = i.q; return `<tr class="${q.overall>=4.5?'top':q.overall<=3?'low':''}">
+    <td><b>${i.id}</b></td><td><a href="${i.url}" target="_blank" rel="noopener">${esc(i.name)}</a><br><span class="note">${i.price}</span></td>
+    ${Q.map(([k]) => `<td>${star(q[k])}</td>`).join('')}
+    <td><span class="ov">${q.overall.toFixed(1)}</span><br>${star(q.overall)}</td>
+    <td>${esc(q.fabric)}<br><span class="note">${esc(q.origin)}製・${esc(q.careTxt)}${q.review?`・評價 ${q.review}（${(q.reviews||0).toLocaleString()}）`:''}</span></td>
+    <td>${esc(q.note)}</td></tr>`; }).join('');
+  document.querySelectorAll('.qt th[data-sort]').forEach(th => th.textContent = th.textContent.replace(/ ▼$/,'') + (th.dataset.sort === qSort ? ' ▼' : ''));
+}
+const qcats = ['全部','T-shirt','針織衫','襯衫','褲子','外套'];
+$('qFilters').innerHTML = qcats.map(c => `<button data-qcat="${c}" class="${c===qCat?'on':''}">${c}</button>`).join('');
+$('qFilters').onclick = e => { const b = e.target.closest('button'); if (!b) return; qCat = b.dataset.qcat;
+  document.querySelectorAll('#qFilters button').forEach(x => x.classList.toggle('on', x === b)); renderQuality(); };
+document.querySelector('.qt thead').onclick = e => { const th = e.target.closest('th[data-sort]'); if (!th) return; qSort = th.dataset.sort; renderQuality(); };
+const best = D.items.filter(i => i.q.overall >= 4).map(i => i.id);
+const fake = ['K3','J8','J1','J2'].filter(id => byId[id]);
+$('qFlags').innerHTML = `
+  <div class="qflag"><h4>🏆 質感最好（綜合 ≥ 4）</h4>${best.map(id => `<b>${id}</b> ${esc(byId[id].name.replace(/^\S+ /,''))}`).join('、')}</div>
+  <div class="qflag"><h4>⚠️ 名稱和材質不符</h4>${fake.map(id => `<b>${id}</b> ${esc(byId[id].q.fabric)}`).join('<br>')}</div>
+  <div class="qflag"><h4>🧺 要送乾洗</h4>${D.items.filter(i => /乾洗/.test(i.q.careTxt) && !/實務|實際/.test(i.q.careTxt)).map(i => i.id).join('、')}<br><span class="note">美麗諾、羊毛混紡西褲、風衣與大衣；其餘可在家洗。</span></div>`;
+$('qNote').textContent = D.qualityNote;
+renderQuality();
+
 // hero
 $('collage').innerHTML = ['S1','J5','S3','K1','J7','P4'].map(id => `<img src="${byId[id].img}" alt="${esc(byId[id].name)}" loading="eager">`).join('');
 $('totalAll').textContent = fmt(D.items.reduce((s, i) => s + num(i.price), 0));
@@ -523,6 +585,7 @@ function card(i){
     <img src="${i.img}" alt="${esc(i.en)}" loading="lazy"><span class="tag">${i.id}</span>${off?`<span class="off">-${off}%</span>`:''}</a>
     <div class="body"><div class="brand">${esc(i.brand)}${i.temp?' · '+i.temp:''}</div><h3>${esc(i.name)}</h3><p class="why">${esc(i.why)}</p>
     <div class="sizebox">${sizeTag(i)}</div><p class="sizewhy">實測：${esc(i.sizeWhy)} cm</p>
+    ${qCard(i)}
     <div class="price"><b>${i.price}</b>${off?`<s>${i.orig}</s>`:''}</div>
     ${krLine(i)}
     <div class="acts"><a href="${i.url}" target="_blank" rel="noopener">去購買 ↗</a><button data-add="${i.id}">加入清單</button></div></div></article>`;
