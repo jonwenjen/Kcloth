@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>KCLOTH — 韓系質感男裝選物｜高雄冬季衣櫥</title>
-<meta name="description" content="韓國男裝品牌 20 選、30 件膠囊衣櫥、30 套穿搭與 10 件外套。30–40 歲、175cm/75kg、高雄冬天 10–20°C。">
+<meta name="description" content="韓國男裝品牌 20 選、30 件膠囊衣櫥、30 套穿搭與 10 件外套。30–40 歲、175cm/75kg、高雄冬天 15–25°C。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
 <style>
@@ -230,7 +230,7 @@ footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
       <h1>韓系質感，<br>剛好適合高雄的冬天。</h1>
       <p class="lead">為 30–40 歲男性挑選的韓國男裝衣櫥：20 個品牌、30 件膠囊單品（20 件上衣褲子＋10 件外套）、30 套穿搭，件件互搭。每件單價 NT$1,000–3,000 上下，全部可在 MUSINSA 台灣站直送。</p>
       <div class="chips">
-        <span class="chip">🌡 高雄冬天 10–20°C</span><span class="chip">📏 175cm / 75kg</span>
+        <span class="chip">🌡 高雄冬天 15–25°C</span><span class="chip">📏 175cm / 75kg</span>
         <span class="chip">腰 87 · 胸 95 · 肩 45</span><span class="chip">膚色偏小麥</span>
       </div>
       <a class="btn" href="#shop">逛選物</a><a class="btn ghost" href="#looks">看 30 套穿搭</a>
@@ -264,10 +264,12 @@ footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
           <span class="sw"><i style="background:#6d2232"></i>酒紅</span></div>
         <p class="bad" style="margin:12px 0 0;font-size:13px">✕ 避開：粉嫩色、與膚色相近的土黃 / 淺卡其、Crop 短版</p></div>
       <div class="panel"><h3>🌡 高雄冬天怎麼穿</h3><ul>
-        <li><b>20°C 以上</b>：長袖 T＋開襟衫</li>
-        <li><b>15–20°C</b>：襯衫／針織＋燈芯絨夾克</li>
-        <li><b>10–15°C 寒流</b>：高領針織＋羊毛大衣</li>
-        <li><b>低於 10°C</b>：大衣內加輕羽絨</li>
+        <li><b>22–25°C 白天</b>：襯衫或 T 恤單穿，不用外套</li>
+        <li><b>20–25°C 早晚／騎車</b>：加防風外套或襯衫外套</li>
+        <li><b>17–23°C</b>：薄針織＋棉質夾克、風衣、麂皮</li>
+        <li><b>15–20°C</b>：燈芯絨、羊毛混紡夾克</li>
+        <li><b>15°C 左右冷鋒</b>（偶爾幾天）：羊毛感大衣</li>
+        <li>不需要羽絨、長大衣：高雄冬天穿不到</li>
         <li>上身深藍/灰/白/綠/咖，下身黑/灰/米/丹寧 → 任意互搭</li></ul></div>
     </div>
   </div>
@@ -301,7 +303,7 @@ footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
 <section id="looks">
   <div class="wrap">
     <div class="sec-head"><div><div class="eyebrow">30 Looks</div><h2>30 套穿搭，件件互搭</h2>
-      <p>點單品圖到商品頁。每張卡標了建議尺寸與顏色；外套可依當天溫度換成任何一件。</p></div>
+      <p>依溫度帶分組（篩選按鈕）。點單品圖到商品頁；每件標建議尺寸與顏色，外套可依當天溫度互換。</p></div>
       <div class="filters" id="lookFilters"></div></div>
     <div class="outfits" id="outfits"></div>
   </div>
@@ -310,7 +312,7 @@ footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
 <section id="coats">
   <div class="wrap">
     <div class="sec-head"><div><div class="eyebrow">Outerwear</div><h2>10 件外套推薦</h2>
-      <p>依高雄冬天溫度帶排列。全部是深藍／炭灰／黑／咖啡／米，和衣櫥任何一套都能互換。</p></div></div>
+      <p>依高雄冬天 15–25°C 由薄到厚排列：薄外套 3 件、中間層 5 件、冷鋒 2 件。顏色都能和衣櫥互換。</p></div></div>
     <div class="coats" id="coatList"></div>
   </div>
 </section>
@@ -395,7 +397,7 @@ footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
   </footer>
 </aside>
 
-<script src="data.js?v=3"></script>
+<script src="data.js?v=4"></script>
 <script>
 (() => {
 const D = window.KCLOTH;
@@ -506,7 +508,7 @@ $('cScope').onclick = e => { const b = e.target.closest('button'); if (!b) retur
   document.querySelectorAll('#cScope button').forEach(x => x.classList.toggle('on', x === b)); renderCompare(); };
 
 // hero
-$('collage').innerHTML = ['K1','J1','S3','K4','J7','P4'].map(id => `<img src="${byId[id].img}" alt="${esc(byId[id].name)}" loading="eager">`).join('');
+$('collage').innerHTML = ['S1','J5','S3','K1','J7','P4'].map(id => `<img src="${byId[id].img}" alt="${esc(byId[id].name)}" loading="eager">`).join('');
 $('totalAll').textContent = fmt(D.items.reduce((s, i) => s + num(i.price), 0));
 
 // shop
@@ -535,7 +537,7 @@ const pool = {
   pants: D.items.filter(i => i.cat === '褲子'),
   coat: [null, ...D.items.filter(i => i.cat === '外套')],
 };
-const pick = { top: byId.S1, layer: byId.K1, pants: byId.P2, coat: byId.J2 };
+const pick = { top: byId.S1, layer: null, pants: byId.P2, coat: byId.J3 };
 function renderSlot(name){
   const el = document.querySelector(`.slot[data-slot="${name}"]`), it = pick[name];
   el.querySelector('.slot-pick').style.backgroundImage = it ? `url(${it.img})` : 'none';
@@ -548,7 +550,7 @@ function renderBuild(){
   Object.keys(pool).forEach(renderSlot);
   const parts = [pick.top, pick.layer, pick.pants, pick.coat].filter(Boolean);
   const tot = parts.reduce((s, i) => s + num(i.price), 0);
-  $('buildSum').innerHTML = `<b>${parts.map(i => i.id).join(' + ')}</b> · ${fmt(tot)}<br><span class="note">${pick.coat ? '外套適合 '+pick.coat.temp : '不穿外套：約 20°C 以上'}</span>`;
+  $('buildSum').innerHTML = `<b>${parts.map(i => i.id).join(' + ')}</b> · ${fmt(tot)}<br><span class="note">${pick.coat ? '外套適合 '+pick.coat.temp : '不穿外套：約 22°C 以上'}</span>`;
 }
 document.querySelector('.builder').addEventListener('click', e => {
   const b = e.target.closest('[data-slotpick]'); if (!b) return;
@@ -582,7 +584,7 @@ function renderLooks(){
       <div class="look-imgs">${all.map(id => `<a href="${byId[id].url}" target="_blank" rel="noopener" title="${esc(byId[id].name)}"><img src="${byId[id].img}" alt="" loading="lazy"><span>${id}</span></a>`).join('')}</div>
       <p>${esc(o.note)}</p>
       <ul>${all.map(id => { const i = byId[id]; return `<li><span>${id} ${esc(i.name)}<br><small>尺寸 <b>${esc(i.size)}</b>・<i class="dot" style="display:inline-block;width:9px;height:9px;border-radius:50%;background:${i.hex};border:1px solid rgba(0,0,0,.15)"></i> ${esc(i.color)}</small></span><span>${i.price}</span></li>`}).join('')}</ul>
-      <div class="tot"><span>${o.coats.length ? '含外套・'+byId[o.coats[0]].temp : '不需外套・20°C+'}</span><span>${fmt(tot)}</span></div>
+      <div class="tot"><span>${o.coats.length ? '含外套・'+byId[o.coats[0]].temp : '不需外套・22°C+'}</span><span>${fmt(tot)}</span></div>
       <button class="addall" data-look="${n}">整套加入清單</button></article>`;
   }).join('');
 }
