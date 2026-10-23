@@ -248,6 +248,19 @@ footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
 .bar .track i{display:block;height:100%;background:var(--navy);border-radius:99px}
 .bar .track i.w{background:#c98a2b}.bar .track i.b{background:var(--sale)}
 @media (max-width:900px){.angrid,.anbars{grid-template-columns:1fr}.anscore{grid-template-columns:1fr 1fr}}
+
+.szt td{vertical-align:top;font-size:13px}.szt td:nth-child(2){min-width:170px}.szt td:nth-child(6){min-width:320px}
+.szbig{font:700 20px "Noto Serif TC",serif}
+.szfin{background:#eef3e8}
+.q1{border-left:3px solid var(--line);padding:2px 0 2px 8px;margin:4px 0;font-size:12.5px}
+.q1 .who{font-weight:700;color:var(--ink)}
+.q1 .fl{font-size:11px;padding:1px 6px;border-radius:99px;background:#efe8dc;margin-left:4px}
+.q1 .fl.big{background:#f4dfd6;color:#8b3a1c}.q1 .fl.small{background:#dfe7f4;color:#24406b}
+.fitbox{border-top:1px dashed var(--line);padding-top:6px;font-size:12px;color:var(--mute)}
+.fitbox .opts{display:flex;gap:6px;flex-wrap:wrap;margin:4px 0}
+.fitbox .opts span{background:#f3efe7;border-radius:6px;padding:3px 7px}
+.fitbox .opts span.fin{background:var(--ink);color:#fff;font-weight:700}
+.fitbox details summary{cursor:pointer;color:var(--ink);font-weight:600;padding:4px 0}
 </style>
 </head>
 <body>
@@ -256,7 +269,7 @@ footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
   <div class="wrap">
     <a class="logo" href="#top">K<span>·</span>CLOTH</a>
     <nav>
-      <a href="#intro">介紹</a><a href="#shop">選物</a><a href="#quality">質感評比</a><a href="#analyze">衣櫥分析</a><a href="#capsule">膠囊</a><a href="#looks">30 套穿搭</a>
+      <a href="#intro">介紹</a><a href="#shop">選物</a><a href="#sizing">尺寸建議</a><a href="#quality">質感評比</a><a href="#analyze">衣櫥分析</a><a href="#capsule">膠囊</a><a href="#looks">30 套穿搭</a>
       <a href="#coats">外套</a><a href="#compare">韓國價差</a><a href="#brands">20 品牌</a><a href="#guide">購買</a>
     </nav>
     <button class="cart-btn" id="openCart">購物清單 <b id="cartCount">0</b></button>
@@ -297,7 +310,7 @@ footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
         <li><b>T 恤、針織：肩寬 ≥ 50</b>（有彈性），合身款常要 XL–2XL</li>
         <li>寬肩體型：優先選落肩／寬版剪裁，合身剪裁容易肩緊胸鬆</li>
         <li><b>褲子：34 號或 L／XL</b>（腰平量 ≥ 44cm）</li>
-        <li>每件商品卡已依 MUSINSA 實測尺寸表標好建議尺寸與顏色</li></ul></div>
+        <li>每件附兩種尺寸建議：尺寸表 vs 同身形（175/75 上下）真實評論</li></ul></div>
       <div class="panel"><h3>🎨 襯小麥膚色的顏色</h3>
         <div class="swatches">
           <span class="sw"><i style="background:#1f2a44"></i>深藍</span><span class="sw"><i style="background:#3a3a3c"></i>炭灰</span>
@@ -323,6 +336,18 @@ footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
       <p>價格為 2026-10-22 MUSINSA 台灣站含折扣價，會隨活動變動，以點進去的商品頁為準。</p></div>
       <div class="filters" id="filters"></div></div>
     <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section id="sizing">
+  <div class="wrap">
+    <div class="sec-head"><div><div class="eyebrow">Size Guide</div><h2>尺寸建議：尺寸表 × 真實評論</h2>
+      <p>每件給兩種建議：<b>A｜尺寸表</b>（依你的肩 52／胸 95／腰 87 對照實測）、<b>B｜同身形評論</b>（175cm/75kg 上下的韓國男性實際買什麼、說大說小），兩者衝突時以「不要買太大」為原則給出 <b>最終建議</b>。</p></div>
+      <div class="filters" id="szFilters"></div></div>
+    <div class="matrix"><table class="szt">
+      <thead><tr><th>#</th><th>單品</th><th>A｜尺寸表</th><th>B｜同身形評論</th><th>✅ 最終建議</th><th>真實反饋（中文摘譯）</th></tr></thead>
+      <tbody id="szRows"></tbody></table></div>
+    <p class="note" id="szNote" style="margin-top:12px"></p>
   </div>
 </section>
 
@@ -467,7 +492,7 @@ footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
   </footer>
 </aside>
 
-<script src="data.js?v=9"></script>
+<script src="data.js?v=10"></script>
 <script>
 (() => {
 const D = window.KCLOTH;
@@ -716,6 +741,30 @@ $('anSrc').onclick = e => { const b = e.target.closest('button'); if (!b) return
   document.querySelectorAll('#anSrc button').forEach(x => x.classList.toggle('on', x === b)); renderAnalyze(); };
 renderAnalyze();
 
+// ---- sizing (chart vs reviews) ----
+function flCls(f){ return /大/.test(f) ? 'big' : /小/.test(f) ? 'small' : ''; }
+function qHtml(q){ return `<div class="q1"><span class="who">${q.h}cm/${q.w}kg・買 ${esc(q.size)}</span>${q.fit && q.fit!=='—' ? `<span class="fl ${flCls(q.fit)}">${esc(q.fit)}</span>` : ''}<br>「${esc(q.zh)}」</div>`; }
+function fitBox(i){
+  const f = i.fitrec; if (!f) return '';
+  return `<div class="fitbox"><div class="opts"><span>A 尺寸表 ${esc(f.A)}</span><span>B 評論 ${esc(f.B)}</span><span class="fin">建議 ${esc(f.final)}</span></div>
+    ${f.quotes.length ? `<details><summary>同身形真實反饋（${f.Bn} 筆）</summary>${f.quotes.map(qHtml).join('')}<a href="${f.reviewUrl}" target="_blank" rel="noopener">看全部韓文評論 ↗</a></details>` : '<span>同身形評論不足，依尺寸表</span>'}</div>`;
+}
+let szCat = '全部';
+function renderSizing(){
+  $('szRows').innerHTML = D.items.concat(D.addons || []).filter(i => szCat === '全部' || (szCat === '建議補充' ? /^X/.test(i.id) : i.cat === szCat)).map(i => { const f = i.fitrec; if (!f) return ''; return `<tr>
+    <td><b>${i.id}</b></td><td><a href="${i.url}" target="_blank" rel="noopener">${esc(i.name)}</a><br><span class="note">${esc(i.color)}</span></td>
+    <td><span class="szbig">${esc(f.A)}</span><br><span class="note">${esc(f.Achart)}</span></td>
+    <td><span class="szbig">${esc(f.B)}</span><br><span class="note">${f.Bn ? `${f.Bn} 筆（${esc(f.Brange)}）<br>${esc(f.Bdist)}` : '無同身形評論'}</span></td>
+    <td class="szfin"><span class="szbig">${esc(f.final)}</span><br><span class="note">${esc(f.Fchart)}</span><br>${esc(f.why)}</td>
+    <td>${f.quotes.map(qHtml).join('') || '<span class="note">—</span>'}<a class="note" href="${f.reviewUrl}" target="_blank" rel="noopener">全部評論 ↗</a></td></tr>`; }).join('');
+}
+const szcats = ['全部','T-shirt','針織衫','襯衫','褲子','外套','建議補充'];
+$('szFilters').innerHTML = szcats.map(c => `<button data-szc="${c}" class="${c===szCat?'on':''}">${c}</button>`).join('');
+$('szFilters').onclick = e => { const b = e.target.closest('button'); if (!b) return; szCat = b.dataset.szc;
+  document.querySelectorAll('#szFilters button').forEach(x => x.classList.toggle('on', x === b)); renderSizing(); };
+$('szNote').textContent = D.fitNote;
+renderSizing();
+
 // hero
 $('collage').innerHTML = ['S1','J5','S3','K1','J7','P4'].map(id => `<img src="${byId[id].img}" alt="${esc(byId[id].name)}" loading="eager">`).join('');
 $('totalAll').textContent = fmt(D.items.reduce((s, i) => s + num(i.price), 0));
@@ -732,6 +781,7 @@ function card(i){
     <img src="${i.img}" alt="${esc(i.en)}" loading="lazy"><span class="tag">${i.id}</span>${off?`<span class="off">-${off}%</span>`:''}</a>
     <div class="body"><div class="brand">${esc(i.brand)}${i.temp?' · '+i.temp:''}</div><h3>${esc(i.name)}</h3><p class="why">${esc(i.why)}</p>
     <div class="sizebox">${sizeTag(i)}</div><p class="sizewhy">實測：${esc(i.sizeWhy)} cm</p>
+    ${fitBox(i)}
     ${qCard(i)}
     <div class="price"><b>${i.price}</b>${off?`<s>${i.orig}</s>`:''}</div>
     ${krLine(i)}
