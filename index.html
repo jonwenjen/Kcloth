@@ -222,6 +222,32 @@ footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
 .qcard .ovr{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;color:var(--ink);font-weight:700;font-size:13px;margin-bottom:2px}
 .fab{font-size:11.5px;color:var(--mute);margin:0}
 @media (max-width:900px){.qflags{grid-template-columns:1fr}}
+
+.anpick{display:none;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.anpick.show{display:flex}
+.anpick label{display:flex;align-items:center;gap:6px;background:var(--card);border:1.5px solid var(--line);border-radius:10px;padding:6px 10px 6px 6px;font-size:12.5px;cursor:pointer}
+.anpick label.on{border-color:var(--ink)}
+.anpick img{width:34px;height:34px;object-fit:cover;border-radius:6px}
+.anpick input{width:18px;height:18px}
+.anscore{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}
+.anscore .sum .big{font-size:24px}
+.angrid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.chk{display:flex;gap:10px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:8px;font-size:14px}
+.chk .ic{font-size:18px;line-height:1.2}
+.chk b{display:block}
+.chk.ok{border-left:4px solid #3e5a2a}.chk.warn{border-left:4px solid #c98a2b}.chk.bad{border-left:4px solid var(--sale)}
+.addc{display:grid;grid-template-columns:76px 1fr;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:10px}
+.addc img{width:76px;height:76px;object-fit:cover;border-radius:8px}
+.addc .tag2{display:inline-block;font-size:11px;font-weight:700;background:#efe8dc;padding:2px 8px;border-radius:999px;margin-right:4px}
+.addc .acts{margin-top:6px}
+.anbars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+.bar{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}
+.bar h4{margin:0 0 8px;font-size:14px}
+.bar .row{display:grid;grid-template-columns:70px 1fr 28px;gap:8px;align-items:center;font-size:12.5px;margin:4px 0}
+.bar .track{height:10px;background:#eee;border-radius:99px;overflow:hidden}
+.bar .track i{display:block;height:100%;background:var(--navy);border-radius:99px}
+.bar .track i.w{background:#c98a2b}.bar .track i.b{background:var(--sale)}
+@media (max-width:900px){.angrid,.anbars{grid-template-columns:1fr}.anscore{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
@@ -230,7 +256,7 @@ footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
   <div class="wrap">
     <a class="logo" href="#top">K<span>·</span>CLOTH</a>
     <nav>
-      <a href="#intro">介紹</a><a href="#shop">選物</a><a href="#quality">質感評比</a><a href="#capsule">膠囊</a><a href="#looks">30 套穿搭</a>
+      <a href="#intro">介紹</a><a href="#shop">選物</a><a href="#quality">質感評比</a><a href="#analyze">衣櫥分析</a><a href="#capsule">膠囊</a><a href="#looks">30 套穿搭</a>
       <a href="#coats">外套</a><a href="#compare">韓國價差</a><a href="#brands">20 品牌</a><a href="#guide">購買</a>
     </nav>
     <button class="cart-btn" id="openCart">購物清單 <b id="cartCount">0</b></button>
@@ -309,6 +335,21 @@ footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
       <thead><tr><th data-sort="id">#</th><th>單品</th><th data-sort="mat">材質布料</th><th data-sort="fit">版型剪裁</th><th data-sort="func">機能實用</th><th data-sort="care">保養洗滌</th><th data-sort="make">車工細節</th><th data-sort="overall">綜合 ▼</th><th>官方材質・產地・洗標</th><th>評語</th></tr></thead>
       <tbody id="qRows"></tbody></table></div>
     <p class="note" id="qNote" style="margin-top:12px"></p>
+  </div>
+</section>
+
+<section id="analyze">
+  <div class="wrap">
+    <div class="sec-head"><div><div class="eyebrow">Wardrobe Analyzer</div><h2>衣櫥分析：還缺什麼？</h2>
+      <p>勾選你已經有或打算買的單品，系統依「溫度覆蓋、層次結構、色彩平衡、正式度、保養負擔、質感」6 項檢查，告訴你哪一類型該補，並推薦對應單品。</p></div>
+      <div class="seg" id="anSrc"><button data-src="all" class="on">全部 30 件</button><button data-src="cart">用購物清單</button><button data-src="pick">自己勾選</button></div></div>
+    <div class="anpick" id="anPick"></div>
+    <div class="anscore" id="anScore"></div>
+    <div class="angrid">
+      <div><h3 style="margin:0 0 10px">檢查結果</h3><div id="anChecks"></div></div>
+      <div><h3 style="margin:0 0 10px">建議增加</h3><div id="anAdd"></div></div>
+    </div>
+    <div class="anbars" id="anBars"></div>
   </div>
 </section>
 
@@ -425,7 +466,7 @@ footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
   </footer>
 </aside>
 
-<script src="data.js?v=6"></script>
+<script src="data.js?v=7"></script>
 <script>
 (() => {
 const D = window.KCLOTH;
@@ -438,7 +479,7 @@ const sizeTag = i => `<span>尺寸 ${esc(i.size)}</span><span><i class="dot" sty
 
 // cart
 let cart = JSON.parse(localStorage.getItem('kcloth-cart') || '[]').filter(id => byId[id]);
-const save = () => { localStorage.setItem('kcloth-cart', JSON.stringify(cart)); renderCart(); syncBtns(); if (typeof renderCompare==='function' && S.scope==='cart') renderCompare(); };
+const save = () => { localStorage.setItem('kcloth-cart', JSON.stringify(cart)); renderCart(); syncBtns(); if (typeof renderCompare==='function' && S.scope==='cart') renderCompare(); if (typeof renderAnalyze==='function' && anSrc==='cart') renderAnalyze(); };
 const toggle = id => { cart = cart.includes(id) ? cart.filter(x => x !== id) : [...cart, id]; save(); };
 const addMany = ids => { ids.forEach(id => { if (!cart.includes(id)) cart.push(id); }); save(); openCart(true); };
 function renderCart(){
@@ -561,13 +602,118 @@ $('qFilters').onclick = e => { const b = e.target.closest('button'); if (!b) ret
   document.querySelectorAll('#qFilters button').forEach(x => x.classList.toggle('on', x === b)); renderQuality(); };
 document.querySelector('.qt thead').onclick = e => { const th = e.target.closest('th[data-sort]'); if (!th) return; qSort = th.dataset.sort; renderQuality(); };
 const best = D.items.filter(i => i.q.overall >= 4).map(i => i.id);
-const fake = ['K3','J8','J1','J2'].filter(id => byId[id]);
+const fake = D.items.filter(i => i.replaced).map(i => i.id);
 $('qFlags').innerHTML = `
   <div class="qflag"><h4>🏆 質感最好（綜合 ≥ 4）</h4>${best.map(id => `<b>${id}</b>`).join('、')}<br><span class="note">Supima 棉、美麗諾羊毛、純棉燈芯絨／牛津／Moleskin 為主</span></div>
-  <div class="qflag"><h4>⚠️ 名稱和材質不符</h4>${fake.map(id => `<b>${id}</b> ${esc(byId[id].q.fabric)}`).join('<br>')}</div>
+  <div class="qflag"><h4>🔁 本次依評分替換（${fake.length} 件）</h4>${fake.map(id => `<b>${id}</b> ${esc(byId[id].q.fabric)}<br><span class="note">取代：${esc(byId[id].replaced)}</span>`).join('<br>')}</div>
   <div class="qflag"><h4>🧺 要送乾洗</h4>${D.items.filter(i => /乾洗/.test(i.q.careTxt) && !/實務|實際/.test(i.q.careTxt)).map(i => i.id).join('、')}<br><span class="note">美麗諾、羊毛混紡西褲、風衣與大衣；其餘可在家洗。</span></div>`;
 $('qNote').textContent = D.qualityNote;
 renderQuality();
+
+// ---- wardrobe analyzer ----
+let anSrc = 'all';
+let anSel = new Set(JSON.parse(localStorage.getItem('kcloth-an') || 'null') || D.items.map(i => i.id));
+const BANDS = [[15,17,'15–17°C'],[17,20,'17–20°C'],[20,22,'20–22°C'],[22,25,'22–25°C']];
+const addonBy = Object.fromEntries((D.addons || []).map(a => [a.gap, a]));
+function anList(){
+  if (anSrc === 'cart') return cart.map(id => byId[id]).filter(Boolean);
+  if (anSrc === 'pick') return D.items.filter(i => anSel.has(i.id));
+  return D.items;
+}
+function analyze(L){
+  const by = r => L.filter(i => i.a.role === r);
+  const tops = L.filter(i => ['base','shirt','mid'].includes(i.a.role)), pants = by('pants');
+  const outer = L.filter(i => ['light','warm'].includes(i.a.role));
+  const checks = [], recs = [];
+  const add = (lvl, title, msg, gap, alt) => { checks.push({lvl, title, msg}); if (gap) recs.push({gap, lvl, why: msg, alt}); };
+  // 1 basics present
+  if (!tops.length) add('bad','沒有上衣','至少需要 3 件上衣（T 恤／襯衫）。', 'base', [['T4'],['S1']]);
+  if (!pants.length) add('bad','沒有褲子','至少需要 2 條褲子：一深一淺。', 'pants', [['P1'],['P4']]);
+  // 2 temperature coverage
+  const cov = BANDS.map(([lo,hi,l]) => {
+    const t = tops.filter(i => i.a.lo <= lo && i.a.hi >= hi).length;
+    const o = outer.filter(i => i.a.lo <= lo && i.a.hi >= hi).length;
+    return { l, lo, hi, t, o };
+  });
+  cov.forEach(c => {
+    if (c.lo < 20 && c.o === 0) add('bad', `${c.l} 沒有外套`, `這個溫度早晚需要外層，目前 0 件。`, c.lo < 17 ? 'warm' : 'light', c.lo < 17 ? [['J4'],['J2']] : [['J6'],['J7']]);
+    else if (c.lo >= 20 && c.lo < 22 && c.o === 0) add('warn', `${c.l} 缺薄外套`, '騎車、冷氣房需要一件可收的薄外套。', 'light', [['J3'],['J7']]);
+  });
+  const shortN = L.filter(i => i.id === 'T4' || i.id === 'X1').length;
+  if (shortN < 2 && L.length) add('warn','短袖不足','高雄冬天午後常到 25°C，目前短袖只有 ' + shortN + ' 件（T4 為 2 入）；多一組短袖 T 打底更實用。','short');
+  // 3 layering structure
+  const base = by('base').length, shirt = by('shirt').length, mid = by('mid').length;
+  if (base < 3) add('warn','打底層不足',`T 恤只有 ${base} 件，一週換洗建議至少 4 件。`, 'lightbase');
+  if (mid < 2) add('warn','中間層不足',`針織／開襟只有 ${mid} 件，15–20°C 疊穿選擇少。`, 'mid', [['K5'],['K1']]);
+  if (shirt < 2) add('warn','襯衫不足',`襯衫只有 ${shirt} 件，上班輪替不夠。`, 'shirt', [['S1'],['S5']]);
+  // 4 colour balance
+  const tone = t => L.filter(i => i.a.tone === t).length, n = L.length || 1;
+  const dark = tone('dark'), light = tone('light'), earth = tone('earth');
+  if (dark / n > .6) add('warn','深色過多',`深色佔 ${Math.round(dark/n*100)}%，整體偏沉；小麥膚色加淺色下身會更有精神。`, pants.some(i => i.a.tone !== 'dark') && pants.filter(i=>i.a.tone!=='dark').length >= 2 ? null : 'lightpants');
+  if (light < 2) add('warn','淺色不足','白／象牙色上衣少於 2 件，臉部附近缺提亮色。', 'lightbase', [['S1'],['T2']]);
+  if (earth === 0) add('warn','沒有大地色','咖啡／橄欖／米色最襯小麥膚色，建議至少 1–2 件。', null, [['K4'],['P4']]);
+  const lightPants = pants.filter(i => i.a.tone !== 'dark').length;
+  if (pants.length && lightPants < 2) add('warn','淺色褲子不足',`${pants.length} 條褲子裡只有 ${lightPants} 條非深色，深色上衣缺對比。`, 'lightpants');
+  // 5 formality
+  const formal = L.filter(i => i.a.formal === 3).length;
+  if (!L.some(i => i.id === 'X3') ) add('warn','缺西裝外套','喜宴、見客戶時，現有外套都偏休閒；一件燈芯絨西裝外套最萬用。', 'blazer');
+  if (formal < 3) add('warn','正式單品少',`可上班的正式單品只有 ${formal} 件。`, null, [['S1'],['P1']]);
+  // 6 care burden & quality
+  const dry = L.filter(i => /乾洗/.test(i.q.careTxt) && !/實務|實際|可冷水/.test(i.q.careTxt));
+  if (dry.length / n > .3) add('warn','乾洗負擔高',`${dry.length} 件需送乾洗（${Math.round(dry.length/n*100)}%），維護費用與時間偏高；補可水洗的休閒上衣分散穿著次數。`, 'sweat');
+  const avgQ = L.reduce((s,i) => s + i.q.overall, 0) / n;
+  const weak = L.filter(i => i.q.overall <= 3);
+  if (weak.length) add('warn','有低分單品', `${weak.map(i=>i.id).join('、')} 綜合 ≤ 3 星，建議替換。`);
+  const casualOnly = L.filter(i => i.a.formal === 1).length;
+  if (!checks.some(c => c.lvl !== 'ok')) checks.push({lvl:'ok', title:'結構完整', msg:'溫度、層次、色彩、正式度都已涵蓋。'});
+  const okList = [];
+  if (cov.every(c => c.o > 0 || c.lo >= 22)) okList.push(['溫度覆蓋', '15–25°C 每段都有對應外層']);
+  if (base >= 3 && mid >= 2 && shirt >= 2) okList.push(['層次結構', `打底 ${base}・襯衫 ${shirt}・中間層 ${mid}`]);
+  if (earth >= 2 && light >= 2) okList.push(['色彩', `深 ${dark}・淺 ${light}・大地 ${earth}`]);
+  okList.forEach(([t,m]) => checks.push({lvl:'ok', title:t+' ✓', msg:m}));
+  // combos
+  const outfitsN = tops.length * pants.length * (outer.length + 1);
+  return { checks, recs, cov, base, shirt, mid, dark, light, earth, n: L.length, avgQ, dry: dry.length, outfitsN, formal, outer: outer.length, pants: pants.length };
+}
+function renderAnalyze(){
+  const L = anList(), r = analyze(L);
+  $('anPick').classList.toggle('show', anSrc === 'pick');
+  $('anScore').innerHTML = `
+    <div class="sum"><h4>單品數</h4><div class="big">${r.n}</div><div class="sub">上衣 ${r.base+r.shirt+r.mid}・褲 ${r.pants}・外套 ${r.outer}</div></div>
+    <div class="sum"><h4>可搭配組合</h4><div class="big">${r.outfitsN.toLocaleString()}</div><div class="sub">上衣 × 褲 × (外套＋不穿)</div></div>
+    <div class="sum"><h4>平均質感</h4><div class="big">${r.n ? r.avgQ.toFixed(2) : '—'}</div><div class="sub">${r.n ? star(Math.round(r.avgQ*2)/2) : ''}</div></div>
+    <div class="sum"><h4>需乾洗</h4><div class="big">${r.dry} 件</div><div class="sub">${r.n ? Math.round(r.dry/r.n*100) : 0}% 的衣櫥</div></div>`;
+  const ic = {ok:'✅', warn:'⚠️', bad:'❌'};
+  const order = {bad:0, warn:1, ok:2};
+  $('anChecks').innerHTML = r.checks.sort((a,b) => order[a.lvl]-order[b.lvl]).map(c => `<div class="chk ${c.lvl}"><span class="ic">${ic[c.lvl]}</span><div><b>${esc(c.title)}</b>${esc(c.msg)}</div></div>`).join('');
+  // recommendations: dedupe by gap; addon product or alternative from catalogue not owned
+  const seen = new Set(), have = new Set(L.map(i => i.id)), cards = [];
+  r.recs.sort((a,b) => order[a.lvl]-order[b.lvl]).forEach(x => {
+    if (seen.has(x.gap)) return; seen.add(x.gap);
+    let prod = addonBy[x.gap];
+    if (!prod && x.alt) { const id = x.alt.map(a => a[0]).find(id => !have.has(id)); if (id) prod = { ...byId[id], qo: byId[id].q.overall }; }
+    if (!prod || have.has(prod.id)) return;
+    cards.push(`<div class="addc"><a href="${prod.url}" target="_blank" rel="noopener"><img src="${prod.img}" alt=""></a><div>
+      <span class="tag2">${x.lvl==='bad'?'必補':'建議'}</span><span class="tag2">${prod.id}</span><b>${esc(prod.name)}</b><br>
+      <span class="note">${esc(prod.why || x.why)}</span><br>
+      <span class="note">🧵 ${esc(prod.fabric || (prod.q && prod.q.fabric) || '')}・尺寸 <b>${esc(prod.size)}</b>・${esc(prod.color)}・質感 ${star(prod.qo)} ${prod.qo}</span>
+      <div class="price"><b>${prod.price}</b>${prod.orig && prod.orig!==prod.price?`<s>${prod.orig}</s>`:''} <span class="note">🇰🇷 ₩${(prod.krw||0).toLocaleString()}</span></div>
+      <div class="acts"><a href="${prod.url}" target="_blank" rel="noopener">去購買 ↗</a></div></div></div>`);
+  });
+  $('anAdd').innerHTML = cards.join('') || '<div class="chk ok"><span class="ic">✅</span><div><b>不需要再增加</b>目前組合已涵蓋主要需求。</div></div>';
+  const mx = Math.max(1, ...r.cov.map(c => Math.max(c.t, c.o)));
+  const tr = (l, v, m, cls='') => `<div class="row"><span>${l}</span><div class="track"><i class="${cls}" style="width:${Math.min(100, v/m*100)}%"></i></div><b>${v}</b></div>`;
+  $('anBars').innerHTML = `
+    <div class="bar"><h4>🌡 溫度覆蓋（外套件數）</h4>${r.cov.map(c => tr(c.l, c.o, Math.max(1,...r.cov.map(x=>x.o)), c.o===0&&c.lo<22?'b':'')).join('')}</div>
+    <div class="bar"><h4>🧥 層次結構</h4>${tr('打底 T', r.base, 6, r.base<3?'w':'')}${tr('襯衫', r.shirt, 6, r.shirt<2?'w':'')}${tr('針織', r.mid, 6, r.mid<2?'w':'')}${tr('褲子', r.pants, 6, r.pants<2?'b':'')}${tr('外套', r.outer, 10)}</div>
+    <div class="bar"><h4>🎨 色彩平衡</h4>${tr('深色', r.dark, r.n||1, r.dark/(r.n||1)>.6?'w':'')}${tr('淺色', r.light, r.n||1, r.light<2?'w':'')}${tr('大地色', r.earth, r.n||1, r.earth===0?'w':'')}</div>`;
+}
+$('anPick').innerHTML = D.items.map(i => `<label class="${anSel.has(i.id)?'on':''}"><input type="checkbox" data-an="${i.id}" ${anSel.has(i.id)?'checked':''}><img src="${i.img}" alt="">${i.id}</label>`).join('');
+$('anPick').onchange = e => { const id = e.target.dataset.an; if (!id) return; e.target.checked ? anSel.add(id) : anSel.delete(id);
+  e.target.parentElement.classList.toggle('on', e.target.checked); localStorage.setItem('kcloth-an', JSON.stringify([...anSel])); renderAnalyze(); };
+$('anSrc').onclick = e => { const b = e.target.closest('button'); if (!b) return; anSrc = b.dataset.src;
+  document.querySelectorAll('#anSrc button').forEach(x => x.classList.toggle('on', x === b)); renderAnalyze(); };
+renderAnalyze();
 
 // hero
 $('collage').innerHTML = ['S1','J5','S3','K1','J7','P4'].map(id => `<img src="${byId[id].img}" alt="${esc(byId[id].name)}" loading="eager">`).join('');
