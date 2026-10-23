@@ -292,6 +292,16 @@ footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
 .dlrow .dl{background:var(--accent);color:#fff;font-size:16px;padding:15px}
 .dlrow .line{background:#06C755;border-color:#06C755;color:#fff}
 .dlrow button:disabled{opacity:.4;cursor:not-allowed}
+
+.verd{font-size:12.5px;line-height:1.5;padding:7px 9px;border-radius:8px;margin:8px 0 2px;background:var(--card);border-left:4px solid #999}
+.verd b{margin-right:4px}
+.v-必買{border-color:#b8452a!important}.verd.v-必買 b{color:#b8452a}
+.v-推薦{border-color:#2f6b4f!important}.verd.v-推薦 b{color:#2f6b4f}
+.v-可選{border-color:#9a8a5a!important}.verd.v-可選 b{color:#8a7a4a}
+.v-不推薦{border-color:#777!important}.verd.v-不推薦 b{color:#777}
+.vb{display:inline-block;padding:3px 10px;border-radius:999px;font-weight:700;font-size:13px;border:2px solid;white-space:nowrap}
+.vb.v-必買{background:#b8452a;color:#fff}.vb.v-推薦{color:#2f6b4f}.vb.v-可選{color:#8a7a4a}.vb.v-不推薦{color:#777}
+.stip{font-size:12.5px;line-height:1.55;margin:6px 0 0;padding:7px 9px;border-radius:8px;background:rgba(160,120,60,.08)}
 </style>
 </head>
 <body>
@@ -386,11 +396,11 @@ footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
 <section id="quality">
   <div class="wrap">
     <div class="sec-head"><div><div class="eyebrow">Quality Review</div><h2>質感與材質評比</h2>
-      <p>五個面向各 1–5 星，再加權成綜合評價。點欄位標題可排序。<b>保養</b>：星越多越好照顧。</p></div>
+      <p>由<b>五人專家小組</b>（面料紡織・版型打版・男裝買手・造型色彩・品質實用）依同一標準投票：每項取五人平均，再加權成綜合星數並給出購買建議；每件附上針對 175cm／肩 52／腰 87、小麥膚色的穿搭建議。點欄位標題可排序。</p></div>
       <div class="filters" id="qFilters"></div></div>
     <div class="qflags" id="qFlags"></div>
     <div class="matrix"><table class="qt">
-      <thead><tr><th data-sort="id">#</th><th>單品</th><th data-sort="mat">材質布料</th><th data-sort="fit">版型剪裁</th><th data-sort="func">機能實用</th><th data-sort="care">保養洗滌</th><th data-sort="make">車工細節</th><th data-sort="overall">綜合 ▼</th><th>官方材質・產地・洗標</th><th>評語</th></tr></thead>
+      <thead><tr><th data-sort="id">#</th><th>單品</th><th data-sort="mat">材質布料</th><th data-sort="fit">版型剪裁</th><th data-sort="func">機能實用</th><th data-sort="care">保養洗滌</th><th data-sort="make">車工細節</th><th data-sort="overall">綜合 ▼</th><th>專家建議</th><th>穿搭建議（身形＋膚色）</th><th>官方材質・產地・洗標</th></tr></thead>
       <tbody id="qRows"></tbody></table></div>
     <p class="note" id="qNote" style="margin-top:12px"></p>
   </div>
@@ -542,7 +552,7 @@ footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
   </footer>
 </aside>
 
-<script src="data.js?v=14"></script>
+<script src="data.js?v=15"></script>
 <script>
 (() => {
 const D = window.KCLOTH;
@@ -600,7 +610,7 @@ function listText(){
   groups.forEach(([g, ids]) => {
     out.push(`【${g}】`);
     ids.forEach(id => { const i = byId[id], s = selOf(i); n++;
-      out.push(`${n}. ${i.name}`, `尺寸：${s.size}`, `顏色：${s.color}`, `價格：${i.price}（₩${i.krw.toLocaleString()}）`, i.url, ''); });
+      out.push(`${n}. ${i.name}`, `尺寸：${s.size}`, `顏色：${s.color}`, `專家：${i.q.panel ? i.q.panel.buy + '・' + i.q.overall.toFixed(1) + '★' : ''}`, `穿搭：${i.style || ''}`, `價格：${i.price}（₩${i.krw.toLocaleString()}）`, i.url, ''); });
   });
   out.push('身形：175cm／75kg・肩 52・胸 95・腰 87', '清單網站：' + location.origin + location.pathname);
   return out.join('\n');
@@ -728,21 +738,22 @@ const Q = [['mat','材質'],['fit','版型'],['func','機能'],['care','保養']
 function qCard(i){
   const q = i.q; if (!q) return '';
   return `<div class="qcard"><div class="ovr"><span>綜合評價</span><span>${star(q.overall)} ${q.overall.toFixed(1)}</span></div>
-    ${Q.map(([k,l]) => `<span>${l}</span>${star(q[k])}`).join('')}</div><p class="fab">🧵 ${esc(q.fabric)}</p>`;
+    ${Q.map(([k,l]) => `<span>${l}</span>${star(q[k])}`).join('')}</div>${q.panel?`<div class="verd v-${q.panel.buy}"><b>專家：${q.panel.buy}</b> ${esc(q.panel.why)}</div>`:''}<p class="fab">🧵 ${esc(q.fabric)}</p>${i.style?`<p class="stip">👔 ${esc(i.style)}</p>`:''}`;
 }
 let qSort = 'overall', qCat = '全部';
 function renderQuality(){
-  const list = D.items.filter(i => qCat === '全部' || (qCat === '🛒 購物清單' ? cart.includes(i.id) : i.cat === qCat)).slice()
+  const list = D.items.filter(i => qCat === '全部' || (qCat === '🛒 購物清單' ? cart.includes(i.id) : ['必買','推薦','可選','不推薦'].includes(qCat) ? i.q.panel && i.q.panel.buy === qCat : i.cat === qCat)).slice()
     .sort((a,b) => qSort === 'id' ? 0 : (b.q[qSort] - a.q[qSort]) || (b.q.overall - a.q.overall));
   $('qRows').innerHTML = list.map(i => { const q = i.q; return `<tr class="${q.overall>=4.5?'qtop':q.overall<=3?'qlow':''}">
     <td><b>${i.id}</b></td><td><a href="${i.url}" target="_blank" rel="noopener">${esc(i.name)}</a><br><span class="note">${i.price}</span></td>
     ${Q.map(([k]) => `<td>${star(q[k])}</td>`).join('')}
-    <td><span class="ov">${q.overall.toFixed(1)}</span><br>${star(q.overall)}</td>
-    <td>${esc(q.fabric)}<br><span class="note">${esc(q.origin)}製・${esc(q.careTxt)}${q.review?`・評價 ${q.review}（${(q.reviews||0).toLocaleString()}）`:''}</span></td>
-    <td>${esc(q.note)}</td></tr>`; }).join('') || '<tr><td colspan="10" class="note">購物清單是空的，先在選物區按「加入清單」。</td></tr>';
+    <td><span class="ov">${q.overall.toFixed(1)}</span><br>${star(q.overall)}${q.prev!=null&&q.prev!==q.overall?`<br><span class="note">原 ${q.prev.toFixed(1)}</span>`:''}</td>
+    <td>${q.panel?`<span class="vb v-${q.panel.buy}">${q.panel.buy}</span><br><span class="note">${esc(q.panel.why)}</span><br><span class="note">${q.panel.votes.map(v=>v.p+' '+v.o.toFixed(1)).join('・')}</span>`:''}</td>
+    <td>${esc(i.style||'')}</td>
+    <td>${esc(q.fabric)}<br><span class="note">${esc(q.origin)}製・${esc(q.careTxt)}${q.review?`・評價 ${q.review}（${(q.reviews||0).toLocaleString()}）`:''}</span></td></tr>`; }).join('') || '<tr><td colspan="11" class="note">購物清單是空的，先在選物區按「加入清單」。</td></tr>';
   document.querySelectorAll('.qt th[data-sort]').forEach(th => th.textContent = th.textContent.replace(/ ▼$/,'') + (th.dataset.sort === qSort ? ' ▼' : ''));
 }
-const qcats = ['全部','🛒 購物清單','T-shirt','針織衫','襯衫','褲子','外套'];
+const qcats = ['全部','🛒 購物清單','必買','推薦','可選','不推薦','T-shirt','針織衫','襯衫','褲子','外套'];
 $('qFilters').innerHTML = qcats.map(c => `<button data-qcat="${c}" class="${c===qCat?'on':''}">${c}</button>`).join('');
 $('qFilters').onclick = e => { const b = e.target.closest('button'); if (!b) return; qCat = b.dataset.qcat;
   document.querySelectorAll('#qFilters button').forEach(x => x.classList.toggle('on', x === b)); renderQuality(); };
@@ -753,7 +764,7 @@ $('qFlags').innerHTML = `
   <div class="qflag"><h4>🏆 質感最好（綜合 ≥ 4）</h4>${best.map(id => `<b>${id}</b>`).join('、')}<br><span class="note">Supima 棉、美麗諾羊毛、純棉燈芯絨／牛津／Moleskin 為主</span></div>
   <div class="qflag"><h4>🔁 外套預算 NT$5,000 升級（${fake.length} 件）</h4>${fake.map(id => `<b>${id}</b> ${esc(byId[id].q.fabric)}<br><span class="note">取代：${esc(byId[id].replaced)}</span>`).join('<br>')}</div>
   <div class="qflag"><h4>🧺 要送乾洗</h4>${D.items.filter(i => /乾洗/.test(i.q.careTxt) && !/實務|實際/.test(i.q.careTxt)).map(i => i.id).join('、')}<br><span class="note">美麗諾、羊毛混紡西褲、風衣與大衣；其餘可在家洗。</span></div>`;
-$('qNote').textContent = D.qualityNote;
+$('qNote').textContent = (D.panelNote ? D.panelNote + ' ' : '') + D.qualityNote;
 renderQuality();
 
 // ---- wardrobe analyzer ----

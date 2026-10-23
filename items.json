@@ -20,8 +20,8 @@
   "w": 0.35,
   "q": {
    "mat": 4,
-   "fit": 4,
-   "func": 4,
+   "fit": 4.2,
+   "func": 4.2,
    "care": 4,
    "make": 3,
    "overall": 4.0,
@@ -30,7 +30,35 @@
    "careTxt": "標示手洗；實際冷水洗衣袋可",
    "origin": "越南",
    "review": 4.8,
-   "reviews": 421
+   "reviews": 421,
+   "prev": 4.0,
+   "panel": {
+    "buy": "推薦",
+    "raw": 3.93,
+    "why": "尺寸表與評論一致、CP 值高",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 4.0
+     },
+     {
+      "p": "版型打版",
+      "o": 4.0
+     },
+     {
+      "p": "男裝買手",
+      "o": 4.0
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.0
+     },
+     {
+      "p": "品質實用",
+      "o": 4.0
+     }
+    ]
+   }
   },
   "a": {
    "tone": "dark",
@@ -66,7 +94,21 @@
     }
    ],
    "reviewUrl": "https://www.musinsa.com/review/goods/1864004"
-  }
+  },
+  "opts": {
+   "colors": [
+    "深灰 Dark Gray"
+   ],
+   "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "2XL",
+    "3XL"
+   ]
+  },
+  "style": "深灰貼近膚色不顯髒，當 K1/K5 開襟內搭；下擺別紮，蓋住腰線修飾小腹"
  },
  {
   "id": "T2",
@@ -90,16 +132,44 @@
   "q": {
    "mat": 4,
    "fit": 4,
-   "func": 3,
+   "func": 3.2,
    "care": 4,
-   "make": 4,
+   "make": 3.8,
    "overall": 4.0,
    "note": "羅紋含彈性，修身好看；禁烘乾、價格偏高。",
    "fabric": "棉 97%・彈性纖維 3%（羅紋）",
    "careTxt": "手洗、禁烘乾",
    "origin": "中國",
    "review": 4.8,
-   "reviews": 9
+   "reviews": 9,
+   "prev": 4.0,
+   "panel": {
+    "buy": "推薦",
+    "raw": 3.81,
+    "why": "顏色襯小麥膚色；扣分：評價僅 9 則",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 4.0
+     },
+     {
+      "p": "版型打版",
+      "o": 4.0
+     },
+     {
+      "p": "男裝買手",
+      "o": 3.5
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.0
+     },
+     {
+      "p": "品質實用",
+      "o": 4.0
+     }
+    ]
+   }
   },
   "a": {
    "tone": "light",
@@ -135,7 +205,19 @@
     }
    ],
    "reviewUrl": "https://www.musinsa.com/review/goods/6991015"
-  }
+  },
+  "opts": {
+   "colors": [
+    "象牙白 Ivory"
+   ],
+   "sizes": [
+    "095",
+    "100",
+    "105",
+    "110"
+   ]
+  },
+  "style": "象牙白比純白柔和、襯小麥膚色；修身羅紋會貼腹，建議外罩 K5 開襟或 J7"
  },
  {
   "id": "T3",
@@ -161,14 +243,42 @@
    "fit": 4,
    "func": 4,
    "care": 4,
-   "make": 5,
+   "make": 4.8,
    "overall": 4.0,
    "note": "韓國本地工廠製作的細條紋純棉，布面與車工都是衣櫥裡最細的 T 恤之一。",
    "fabric": "棉 100%（韓國製）",
    "careTxt": "依洗標；純棉可冷水洗",
    "origin": "韓國",
    "review": 5.0,
-   "reviews": 5
+   "reviews": 5,
+   "prev": 4.0,
+   "panel": {
+    "buy": "推薦",
+    "raw": 4.12,
+    "why": "韓國製；扣分：評價僅 5 則",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 4.0
+     },
+     {
+      "p": "版型打版",
+      "o": 4.0
+     },
+     {
+      "p": "男裝買手",
+      "o": 4.0
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.0
+     },
+     {
+      "p": "品質實用",
+      "o": 4.0
+     }
+    ]
+   }
   },
   "a": {
    "tone": "dark",
@@ -190,7 +300,19 @@
    "why": "此款同身形評論 0 筆，只能依尺寸表",
    "quotes": [],
    "reviewUrl": "https://www.musinsa.com/review/goods/5932762"
-  }
+  },
+  "opts": {
+   "colors": [
+    "深藍條紋 Dark Blue"
+   ],
+   "sizes": [
+    "1",
+    "2",
+    "3",
+    "4"
+   ]
+  },
+  "style": "深藍細條紋有直線拉長效果；單穿配 P4 米褲＋白鞋，週末最省事"
  },
  {
   "id": "T4",
@@ -213,17 +335,45 @@
   "w": 0.45,
   "q": {
    "mat": 5,
-   "fit": 4,
-   "func": 4,
+   "fit": 4.2,
+   "func": 3.8,
    "care": 5,
-   "make": 4,
+   "make": 4.2,
    "overall": 4.5,
    "note": "Supima 長纖棉光澤細、耐洗不起毛，衣櫥裡最好的 T 恤。",
    "fabric": "美國 Supima 長纖棉 100%",
    "careTxt": "可機洗",
    "origin": "越南",
    "review": 4.9,
-   "reviews": 3969
+   "reviews": 3969,
+   "prev": 4.5,
+   "panel": {
+    "buy": "必買",
+    "raw": 4.48,
+    "why": "頂級天然纖維、3,969 則評價背書、尺寸表與評論一致",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 4.5
+     },
+     {
+      "p": "版型打版",
+      "o": 4.5
+     },
+     {
+      "p": "男裝買手",
+      "o": 4.5
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.0
+     },
+     {
+      "p": "品質實用",
+      "o": 4.5
+     }
+    ]
+   }
   },
   "a": {
    "tone": "light",
@@ -266,7 +416,123 @@
     }
    ],
    "reviewUrl": "https://www.musinsa.com/review/goods/3206068"
-  }
+  },
+  "opts": {
+   "colors": [
+    "選「BLACK - WHITE」黑白各一",
+    "BLACK - BLACK",
+    "BLACK - WHITE",
+    "BLACK - DARK GREY",
+    "BLACK - CHOCOLATE BROWN",
+    "BLACK - LIGHT BUTTER",
+    "BLACK - ASH BLUE",
+    "BLACK - BLUE GREY",
+    "BLACK - GREY",
+    "BLACK - PASTEL GREY",
+    "BLACK - MINT GREY",
+    "BLACK - DARK BLUE",
+    "BLACK - SAGE GREEN",
+    "BLACK - BEIGE",
+    "BLACK - SPRING GREEN",
+    "WHITE - WHITE",
+    "WHITE - DARK GREY",
+    "WHITE - CHOCOLATE BROWN",
+    "WHITE - LIGHT BUTTER",
+    "WHITE - ASH BLUE",
+    "WHITE - BLUE GREY",
+    "WHITE - GREY",
+    "WHITE - PASTEL GREY",
+    "WHITE - MINT GREY",
+    "WHITE - DARK BLUE",
+    "WHITE - SAGE GREEN",
+    "WHITE - BEIGE",
+    "WHITE - SPRING GREEN",
+    "DARK GREY - DARK GREY",
+    "DARK GREY - CHOCOLATE BROWN",
+    "DARK GREY - LIGHT BUTTER",
+    "DARK GREY - ASH BLUE",
+    "DARK GREY - BLUE GREY",
+    "DARK GREY - GREY",
+    "DARK GREY - PASTEL GREY",
+    "DARK GREY - MINT GREY",
+    "DARK GREY - DARK BLUE",
+    "DARK GREY - SAGE GREEN",
+    "DARK GREY - BEIGE",
+    "DARK GREY - SPRING GREEN",
+    "CHOCOLATE BROWN - CHOCOLATE BROWN",
+    "CHOCOLATE BROWN - LIGHT BUTTER",
+    "CHOCOLATE BROWN - ASH BLUE",
+    "CHOCOLATE BROWN - BLUE GREY",
+    "CHOCOLATE BROWN - GREY",
+    "CHOCOLATE BROWN - PASTEL GREY",
+    "CHOCOLATE BROWN - MINT GREY",
+    "CHOCOLATE BROWN - DARK BLUE",
+    "CHOCOLATE BROWN - SAGE GREEN",
+    "CHOCOLATE BROWN - BEIGE",
+    "CHOCOLATE BROWN - SPRING GREEN",
+    "LIGHT BUTTER - LIGHT BUTTER",
+    "LIGHT BUTTER - ASH BLUE",
+    "LIGHT BUTTER - BLUE GREY",
+    "LIGHT BUTTER - GREY",
+    "LIGHT BUTTER - PASTEL GREY",
+    "LIGHT BUTTER - MINT GREY",
+    "LIGHT BUTTER - DARK BLUE",
+    "LIGHT BUTTER - SAGE GREEN",
+    "LIGHT BUTTER - BEIGE",
+    "LIGHT BUTTER - SPRING GREEN",
+    "ASH BLUE - ASH BLUE",
+    "ASH BLUE - BLUE GREY",
+    "ASH BLUE - GREY",
+    "ASH BLUE - PASTEL GREY",
+    "ASH BLUE - MINT GREY",
+    "ASH BLUE - DARK BLUE",
+    "ASH BLUE - SAGE GREEN",
+    "ASH BLUE - BEIGE",
+    "ASH BLUE - SPRING GREEN",
+    "BLUE GREY - BLUE GREY",
+    "BLUE GREY - GREY",
+    "BLUE GREY - PASTEL GREY",
+    "BLUE GREY - MINT GREY",
+    "BLUE GREY - DARK BLUE",
+    "BLUE GREY - SAGE GREEN",
+    "BLUE GREY - BEIGE",
+    "BLUE GREY - SPRING GREEN",
+    "GREY - GREY",
+    "GREY - PASTEL GREY",
+    "GREY - MINT GREY",
+    "GREY - DARK BLUE",
+    "GREY - SAGE GREEN",
+    "GREY - BEIGE",
+    "GREY - SPRING GREEN",
+    "PASTEL GREY - PASTEL GREY",
+    "PASTEL GREY - MINT GREY",
+    "PASTEL GREY - DARK BLUE",
+    "PASTEL GREY - SAGE GREEN",
+    "PASTEL GREY - BEIGE",
+    "PASTEL GREY - SPRING GREEN",
+    "MINT GREY - MINT GREY",
+    "MINT GREY - DARK BLUE",
+    "MINT GREY - SAGE GREEN",
+    "MINT GREY - BEIGE",
+    "MINT GREY - SPRING GREEN",
+    "DARK BLUE - DARK BLUE",
+    "DARK BLUE - SAGE GREEN",
+    "DARK BLUE - BEIGE",
+    "DARK BLUE - SPRING GREEN",
+    "SAGE GREEN - SAGE GREEN",
+    "SAGE GREEN - BEIGE",
+    "SAGE GREEN - SPRING GREEN",
+    "BEIGE - BEIGE",
+    "BEIGE - SPRING GREEN",
+    "SPRING GREEN - SPRING GREEN"
+   ],
+   "sizes": [
+    "S",
+    "M",
+    "L"
+   ]
+  },
+  "style": "黑白兩件當打底：白配 J10 丹寧、黑配 J4；高雄 25°C 午後可單穿"
  },
  {
   "id": "N5",
@@ -297,17 +563,45 @@
   },
   "q": {
    "mat": 4,
-   "fit": 4,
-   "func": 4,
+   "fit": 4.2,
+   "func": 4.2,
    "care": 4,
-   "make": 4,
+   "make": 4.2,
    "overall": 4.0,
    "note": "重磅純棉不起毛，131 則評價 4.8；可取代要乾洗的針織。",
    "fabric": "棉 99%・嫘縈 1%（韓國／中國製）",
    "careTxt": "可水洗",
    "origin": "韓國／中國",
    "review": 4.8,
-   "reviews": 131
+   "reviews": 131,
+   "prev": 4.0,
+   "panel": {
+    "buy": "推薦",
+    "raw": 4.11,
+    "why": "韓國製、顏色襯小麥膚色、尺寸表與評論一致",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 4.0
+     },
+     {
+      "p": "版型打版",
+      "o": 4.0
+     },
+     {
+      "p": "男裝買手",
+      "o": 4.0
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.0
+     },
+     {
+      "p": "品質實用",
+      "o": 4.0
+     }
+    ]
+   }
   },
   "fitrec": {
    "A": "L",
@@ -336,7 +630,27 @@
     }
    ],
    "reviewUrl": "https://www.musinsa.com/review/goods/5418777"
-  }
+  },
+  "opts": {
+   "colors": [
+    "選「오트밀」燕麥",
+    "炭灰（Pigment Charcoal）",
+    "燕麥（Oatmeal）",
+    "麻花灰（Melange Grey）",
+    "霧灰（Heather Grey）",
+    "深藍（Navy）",
+    "綠（Green）",
+    "水洗黑（Washed Black）"
+   ],
+   "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "2XL"
+   ]
+  },
+  "style": "燕麥色衛衣讓膚色更亮；配 P3 深藍錐形褲上淺下深，視覺收斂下半身"
  },
  {
   "id": "A5",
@@ -369,17 +683,45 @@
   },
   "q": {
    "mat": 4,
-   "fit": 4,
-   "func": 4,
+   "fit": 3.8,
+   "func": 4.2,
    "care": 4,
-   "make": 4,
+   "make": 4.2,
    "overall": 4.0,
    "note": "韓製重磅純棉、羅紋紮實；有評論反映不同色批尺寸略有差異。",
    "fabric": "棉 100%",
    "careTxt": "可乾洗或水洗，攤平陰乾",
    "origin": "韓國",
    "review": 5.0,
-   "reviews": 473
+   "reviews": 473,
+   "prev": 4.0,
+   "panel": {
+    "buy": "推薦",
+    "raw": 4.03,
+    "why": "韓國製、顏色襯小麥膚色、尺寸表與評論一致；扣分：落肩加寬肩線",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 4.0
+     },
+     {
+      "p": "版型打版",
+      "o": 4.0
+     },
+     {
+      "p": "男裝買手",
+      "o": 4.0
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.0
+     },
+     {
+      "p": "品質實用",
+      "o": 4.0
+     }
+    ]
+   }
   },
   "fitrec": {
    "A": "L（肩 52、胸平量 61.5）",
@@ -415,7 +757,16 @@
     }
    ],
    "reviewUrl": "https://www.29cm.co.kr/products/2816996"
-  }
+  },
+  "opts": {
+   "colors": [
+    "燕麥白 Oatmeal（另有 Navy、Forest Green、Melange Grey、Black）"
+   ],
+   "sizes": [
+    "L"
+   ]
+  },
+  "style": "燕麥重磅衛衣，落肩會再加寬肩線，配 A7 寬褲平衡上下比例"
  },
  {
   "id": "W5",
@@ -448,17 +799,45 @@
   },
   "q": {
    "mat": 3,
-   "fit": 4,
-   "func": 4,
+   "fit": 3.8,
+   "func": 4.2,
    "care": 3,
-   "make": 4,
+   "make": 3.8,
    "overall": 3.5,
    "note": "棉聚混紡好照顧也有機能，但不是全天然纖維。",
    "fabric": "棉 60%・聚酯纖維 40%",
    "careTxt": "冷水中性洗劑單獨手洗或乾洗；避免與其他衣物同洗以防染色",
    "origin": "未標示（頁面寫「내용없음」）",
    "review": 5.0,
-   "reviews": 17
+   "reviews": 17,
+   "prev": 3.5,
+   "panel": {
+    "buy": "可選",
+    "raw": 3.52,
+    "why": "16–25°C 都能穿；扣分：天然纖維比例低／未標、評價僅 17 則、代購不能退、尺寸風險高",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 3.5
+     },
+     {
+      "p": "版型打版",
+      "o": 3.5
+     },
+     {
+      "p": "男裝買手",
+      "o": 3.0
+     },
+     {
+      "p": "造型色彩",
+      "o": 3.5
+     },
+     {
+      "p": "品質實用",
+      "o": 4.0
+     }
+    ]
+   }
   },
   "fitrec": {
    "A": "L（肩 54、胸平量 62）",
@@ -494,7 +873,17 @@
     }
    ],
    "reviewUrl": "https://www.wconcept.co.kr/Product/302300790"
-  }
+  },
+  "opts": {
+   "colors": [
+    "深海軍藍 Dark Navy"
+   ],
+   "sizes": [
+    "L",
+    "L／XL 各半"
+   ]
+  },
+  "style": "深海軍藍衛衣顯瘦又耐髒；配 W7 象牙白燈芯絨褲做反差"
  },
  {
   "id": "F5",
@@ -527,8 +916,8 @@
   },
   "q": {
    "mat": 3,
-   "fit": 4,
-   "func": 4,
+   "fit": 3.6,
+   "func": 4.4,
    "care": 3,
    "make": 4,
    "overall": 3.5,
@@ -537,7 +926,35 @@
    "careTxt": "必須手洗；深淺色分開；陰涼處平放晾乾",
    "origin": "越南",
    "review": 4.5,
-   "reviews": 20
+   "reviews": 20,
+   "prev": 3.5,
+   "panel": {
+    "buy": "可選",
+    "raw": 3.55,
+    "why": "16–25°C 都能穿、顏色襯小麥膚色；扣分：天然纖維比例低／未標、落肩加寬肩線",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 3.5
+     },
+     {
+      "p": "版型打版",
+      "o": 3.5
+     },
+     {
+      "p": "男裝買手",
+      "o": 3.5
+     },
+     {
+      "p": "造型色彩",
+      "o": 3.5
+     },
+     {
+      "p": "品質實用",
+      "o": 4.0
+     }
+    ]
+   }
   },
   "fitrec": {
    "A": "M：肩 54 ≥ 52、胸平量 59 ≥ 54",
@@ -573,7 +990,17 @@
     }
    ],
    "reviewUrl": "https://www.ssfshop.com/BEANPOLE-MEN/GM0025072369489/good"
-  }
+  },
+  "opts": {
+   "colors": [
+    "象牙白（아이보리）——多位評論者說實物比較接近淺灰"
+   ],
+   "sizes": [
+    "L",
+    "M"
+   ]
+  },
+  "style": "翻領大學T 比圓領正式，適合辦公日；淺色上身配 F6 海軍褲收腰"
  },
  {
   "id": "K1",
@@ -606,7 +1033,35 @@
    "careTxt": "標示乾洗；易起毛球",
    "origin": "越南",
    "review": 5.0,
-   "reviews": 70
+   "reviews": 70,
+   "prev": 4.0,
+   "panel": {
+    "buy": "推薦",
+    "raw": 4.0,
+    "why": "頂級天然纖維；扣分：需乾洗",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 4.0
+     },
+     {
+      "p": "版型打版",
+      "o": 4.0
+     },
+     {
+      "p": "男裝買手",
+      "o": 4.0
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.0
+     },
+     {
+      "p": "品質實用",
+      "o": 4.0
+     }
+    ]
+   }
   },
   "a": {
    "tone": "dark",
@@ -642,7 +1097,20 @@
     }
    ],
    "reviewUrl": "https://www.musinsa.com/review/goods/6639861"
-  }
+  },
+  "opts": {
+   "colors": [
+    "深藍 Navy"
+   ],
+   "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "2XL"
+   ]
+  },
+  "style": "V 領拉長頸線、讓寬肩看起來較窄；內搭白 T 露一點領口更顯精神"
  },
  {
   "id": "K2",
@@ -666,16 +1134,44 @@
   "q": {
    "mat": 5,
    "fit": 4,
-   "func": 3,
-   "care": 2,
-   "make": 4,
+   "func": 3.2,
+   "care": 1.8,
+   "make": 3.6,
    "overall": 4.0,
    "note": "同 K1 材質；高領在 20°C 以上會熱，使用天數較少。",
    "fabric": "美麗諾羊毛 100%（細針）",
    "careTxt": "標示乾洗；易起毛球",
    "origin": "越南",
    "review": 5.0,
-   "reviews": 9
+   "reviews": 9,
+   "prev": 4.0,
+   "panel": {
+    "buy": "推薦",
+    "raw": 3.75,
+    "why": "頂級天然纖維、CP 值高；扣分：評價僅 9 則、洗後易縮、需乾洗",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 3.5
+     },
+     {
+      "p": "版型打版",
+      "o": 4.0
+     },
+     {
+      "p": "男裝買手",
+      "o": 4.0
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.0
+     },
+     {
+      "p": "品質實用",
+      "o": 3.5
+     }
+    ]
+   }
   },
   "a": {
    "tone": "dark",
@@ -704,7 +1200,20 @@
     }
    ],
    "reviewUrl": "https://www.musinsa.com/review/goods/6639864"
-  }
+  },
+  "opts": {
+   "colors": [
+    "炭灰 Charcoal Gray"
+   ],
+   "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "2XL"
+   ]
+  },
+  "style": "炭灰高領襯膚色乾淨；肩寬者高領易顯頭小，外罩 J4 Blouson 平衡"
  },
  {
   "id": "K3",
@@ -727,7 +1236,7 @@
   "w": 0.4,
   "q": {
    "mat": 5,
-   "fit": 4,
+   "fit": 3.6,
    "func": 5,
    "care": 4,
    "make": 4,
@@ -737,7 +1246,35 @@
    "careTxt": "可水洗，翻面＋洗衣袋",
    "origin": "越南",
    "review": 4.9,
-   "reviews": 187
+   "reviews": 187,
+   "prev": 4.5,
+   "panel": {
+    "buy": "必買",
+    "raw": 4.42,
+    "why": "頂級天然纖維、CP 值高；扣分：落肩加寬肩線",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 4.5
+     },
+     {
+      "p": "版型打版",
+      "o": 4.5
+     },
+     {
+      "p": "男裝買手",
+      "o": 4.5
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.5
+     },
+     {
+      "p": "品質實用",
+      "o": 4.5
+     }
+    ]
+   }
   },
   "a": {
    "tone": "dark",
@@ -774,7 +1311,20 @@
     }
    ],
    "reviewUrl": "https://www.musinsa.com/review/goods/5662177"
-  }
+  },
+  "opts": {
+   "colors": [
+    "黑 Black"
+   ],
+   "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "2XL"
+   ]
+  },
+  "style": "黑色針織 Polo 是通勤主力；配 P2 炭灰西褲，最低成本的商務休閒"
  },
  {
   "id": "K4",
@@ -796,7 +1346,7 @@
   "krwN": 49900,
   "w": 0.4,
   "q": {
-   "mat": 5,
+   "mat": 4.8,
    "fit": 4,
    "func": 4,
    "care": 2,
@@ -807,7 +1357,35 @@
    "careTxt": "標示乾洗；易起毛球",
    "origin": "越南",
    "review": 4.9,
-   "reviews": 43
+   "reviews": 43,
+   "prev": 4.0,
+   "panel": {
+    "buy": "推薦",
+    "raw": 3.94,
+    "why": "頂級天然纖維、顏色襯小麥膚色；扣分：布料偏薄、需乾洗",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 3.5
+     },
+     {
+      "p": "版型打版",
+      "o": 4.0
+     },
+     {
+      "p": "男裝買手",
+      "o": 4.0
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.0
+     },
+     {
+      "p": "品質實用",
+      "o": 4.0
+     }
+    ]
+   }
   },
   "a": {
    "tone": "earth",
@@ -844,7 +1422,20 @@
     }
    ],
    "reviewUrl": "https://www.musinsa.com/review/goods/6639875"
-  }
+  },
+  "opts": {
+   "colors": [
+    "深咖啡 Dark Brown"
+   ],
+   "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "2XL"
+   ]
+  },
+  "style": "深咖啡最襯小麥膚色；配 P4 米褲同色系漸層，溫潤不顯黑"
  },
  {
   "id": "K5",
@@ -866,8 +1457,8 @@
   "krwN": 59900,
   "w": 0.5,
   "q": {
-   "mat": 5,
-   "fit": 4,
+   "mat": 4.8,
+   "fit": 4.2,
    "func": 5,
    "care": 4,
    "make": 4,
@@ -877,7 +1468,35 @@
    "careTxt": "可水洗，需洗衣袋",
    "origin": "越南",
    "review": 4.9,
-   "reviews": 195
+   "reviews": 195,
+   "prev": 4.5,
+   "panel": {
+    "buy": "必買",
+    "raw": 4.48,
+    "why": "頂級天然纖維、尺寸表與評論一致；扣分：布料偏薄",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 4.0
+     },
+     {
+      "p": "版型打版",
+      "o": 4.5
+     },
+     {
+      "p": "男裝買手",
+      "o": 4.5
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.5
+     },
+     {
+      "p": "品質實用",
+      "o": 4.5
+     }
+    ]
+   }
   },
   "a": {
    "tone": "dark",
@@ -913,7 +1532,20 @@
     }
    ],
    "reviewUrl": "https://www.musinsa.com/review/goods/5662153"
-  }
+  },
+  "opts": {
+   "colors": [
+    "深藍 Navy"
+   ],
+   "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "2XL"
+   ]
+  },
+  "style": "開襟衫可當薄外套，扣子扣兩顆形成 V 線，修飾胸肩寬度"
  },
  {
   "id": "N1",
@@ -945,16 +1577,44 @@
   "q": {
    "mat": 5,
    "fit": 4,
-   "func": 4,
+   "func": 4.2,
    "care": 2,
-   "make": 3,
+   "make": 3.4,
    "overall": 4.0,
    "note": "韓國品牌 ECORR，984 則評價 4.8；有人反映耐用度稍弱。",
    "fabric": "美麗諾羊毛 100%",
    "careTxt": "建議乾洗",
    "origin": "韓國／中國",
    "review": 4.8,
-   "reviews": 984
+   "reviews": 984,
+   "prev": 4.0,
+   "panel": {
+    "buy": "推薦",
+    "raw": 3.95,
+    "why": "頂級天然纖維、韓國製、984 則評價背書；扣分：需乾洗",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 4.0
+     },
+     {
+      "p": "版型打版",
+      "o": 4.0
+     },
+     {
+      "p": "男裝買手",
+      "o": 4.0
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.0
+     },
+     {
+      "p": "品質實用",
+      "o": 3.5
+     }
+    ]
+   }
   },
   "fitrec": {
    "A": "3(XL)",
@@ -983,7 +1643,28 @@
     }
    ],
    "reviewUrl": "https://www.musinsa.com/review/goods/4419402"
-  }
+  },
+  "opts": {
+   "colors": [
+    "選「아이보리」象牙白",
+    "象牙白（Ivory）",
+    "淺米（Light Beige）",
+    "米（Beige）",
+    "咖啡（Brown）",
+    "天藍（Sky）",
+    "灰（Grey）",
+    "綠（Green）",
+    "深藍（Navy）",
+    "黑（Black）"
+   ],
+   "sizes": [
+    "XS",
+    "1(M)",
+    "2(L)",
+    "3(XL)"
+   ]
+  },
+  "style": "象牙白美麗諾讓臉色提亮；外罩深色外套（J5/J6）收住上身份量"
  },
  {
   "id": "N2",
@@ -1014,17 +1695,45 @@
   },
   "q": {
    "mat": 4,
-   "fit": 4,
-   "func": 4,
+   "fit": 3.4,
+   "func": 3.8,
    "care": 2,
-   "make": 4,
+   "make": 4.2,
    "overall": 3.5,
    "note": "米蘭諾織法，766 則評價 4.9；落肩、衣長偏短。",
    "fabric": "羊毛 50%・棉 50%",
    "careTxt": "建議乾洗",
    "origin": "中國",
    "review": 4.9,
-   "reviews": 766
+   "reviews": 766,
+   "prev": 3.5,
+   "panel": {
+    "buy": "可選",
+    "raw": 3.57,
+    "why": "766 則評價背書；扣分：衣長偏短、落肩加寬肩線、需乾洗",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 3.5
+     },
+     {
+      "p": "版型打版",
+      "o": 3.5
+     },
+     {
+      "p": "男裝買手",
+      "o": 4.0
+     },
+     {
+      "p": "造型色彩",
+      "o": 3.5
+     },
+     {
+      "p": "品質實用",
+      "o": 3.5
+     }
+    ]
+   }
   },
   "fitrec": {
    "A": "48",
@@ -1053,7 +1762,23 @@
     }
    ],
    "reviewUrl": "https://www.musinsa.com/review/goods/4278935"
-  }
+  },
+  "opts": {
+   "colors": [
+    "選「그레이」灰",
+    "黑（Black）",
+    "灰（Grey）",
+    "象牙白（Ivory）",
+    "深藍（Navy）",
+    "紅（Red）"
+   ],
+   "sizes": [
+    "44",
+    "46",
+    "48"
+   ]
+  },
+  "style": "灰色落肩米蘭諾，肩線會更寬，下身配 P4 寬褲平衡"
  },
  {
   "id": "N3",
@@ -1083,7 +1808,7 @@
    "formal": 2
   },
   "q": {
-   "mat": 5,
+   "mat": 4.8,
    "fit": 4,
    "func": 5,
    "care": 4,
@@ -1094,7 +1819,35 @@
    "careTxt": "可水洗，翻面＋洗衣袋",
    "origin": "越南",
    "review": 4.9,
-   "reviews": 185
+   "reviews": 185,
+   "prev": 4.5,
+   "panel": {
+    "buy": "必買",
+    "raw": 4.44,
+    "why": "頂級天然纖維；扣分：布料偏薄",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 4.0
+     },
+     {
+      "p": "版型打版",
+      "o": 4.5
+     },
+     {
+      "p": "男裝買手",
+      "o": 4.5
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.5
+     },
+     {
+      "p": "品質實用",
+      "o": 4.5
+     }
+    ]
+   }
   },
   "fitrec": {
    "A": "2XL",
@@ -1130,7 +1883,20 @@
     }
    ],
    "reviewUrl": "https://www.musinsa.com/review/goods/5662175"
-  }
+  },
+  "opts": {
+   "colors": [
+    "中灰 Medium Gray"
+   ],
+   "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "2XL"
+   ]
+  },
+  "style": "中灰亨利領，扣子打開一顆露 V 區；配 P5 牛仔褲週末穿"
  },
  {
   "id": "N4",
@@ -1162,7 +1928,7 @@
   "q": {
    "mat": 3,
    "fit": 4,
-   "func": 4,
+   "func": 3.8,
    "care": 2,
    "make": 4,
    "overall": 3.5,
@@ -1171,7 +1937,35 @@
    "careTxt": "限乾洗",
    "origin": "越南",
    "review": 4.9,
-   "reviews": 44
+   "reviews": 44,
+   "prev": 3.5,
+   "panel": {
+    "buy": "可選",
+    "raw": 3.36,
+    "why": "顏色襯小麥膚色；扣分：天然纖維比例低／未標、會刺需內搭、需乾洗",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 3.0
+     },
+     {
+      "p": "版型打版",
+      "o": 3.5
+     },
+     {
+      "p": "男裝買手",
+      "o": 3.5
+     },
+     {
+      "p": "造型色彩",
+      "o": 3.5
+     },
+     {
+      "p": "品質實用",
+      "o": 3.0
+     }
+    ]
+   }
   },
   "fitrec": {
    "A": "2XL",
@@ -1200,7 +1994,20 @@
     }
    ],
    "reviewUrl": "https://www.musinsa.com/review/goods/6585170"
-  }
+  },
+  "opts": {
+   "colors": [
+    "奶油 Cream"
+   ],
+   "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "2XL"
+   ]
+  },
+  "style": "奶油羅紋提亮膚色；羅紋會貼腹，衣長足夠就別紮，外罩 J7 遮腰"
  },
  {
   "id": "A1",
@@ -1233,17 +2040,45 @@
   },
   "q": {
    "mat": 5,
-   "fit": 4,
-   "func": 3,
+   "fit": 3.4,
+   "func": 2.6,
    "care": 2,
-   "make": 4,
-   "overall": 4.0,
+   "make": 4.2,
+   "overall": 3.5,
    "note": "真 100% 羊毛、韓製；刷毛會刺需內搭、且建議乾洗。",
    "fabric": "羊毛 100%（刷毛 shaggy 處理，會起毛球屬設計）",
    "careTxt": "建議乾洗",
    "origin": "韓國",
    "review": 5.0,
-   "reviews": 433
+   "reviews": 433,
+   "prev": 4.0,
+   "panel": {
+    "buy": "可選",
+    "raw": 3.63,
+    "why": "頂級天然纖維、韓國製；扣分：肩或腰偏緊、落肩加寬肩線、會刺需內搭",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 3.5
+     },
+     {
+      "p": "版型打版",
+      "o": 3.5
+     },
+     {
+      "p": "男裝買手",
+      "o": 4.0
+     },
+     {
+      "p": "造型色彩",
+      "o": 3.5
+     },
+     {
+      "p": "品質實用",
+      "o": 3.5
+     }
+    ]
+   }
   },
   "fitrec": {
    "A": "2（胸平量 60 ≥ 54.5；但衣長 68 略短）",
@@ -1279,7 +2114,17 @@
     }
    ],
    "reviewUrl": "https://www.29cm.co.kr/products/2178308"
-  }
+  },
+  "opts": {
+   "colors": [
+    "深綠 Green（另有 Gray 僅剩 2 號；Dust Pink 不建議）"
+   ],
+   "sizes": [
+    "2",
+    "3"
+   ]
+  },
+  "style": "深綠刷毛羊毛，大地綠對小麥膚色很加分；內搭 T 防刺，配 P3 深藍褲"
  },
  {
   "id": "A2",
@@ -1312,7 +2157,7 @@
   },
   "q": {
    "mat": 3,
-   "fit": 4,
+   "fit": 3.6,
    "func": 4,
    "care": 3,
    "make": 4,
@@ -1322,7 +2167,35 @@
    "careTxt": "標示「詳見商品頁」，頁面文字未載明（建議以手洗/乾洗處理）",
    "origin": "韓國",
    "review": 5.0,
-   "reviews": 53
+   "reviews": 53,
+   "prev": 3.5,
+   "panel": {
+    "buy": "可選",
+    "raw": 3.47,
+    "why": "韓國製、顏色襯小麥膚色；扣分：天然纖維比例低／未標、落肩加寬肩線、會刺需內搭",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 3.5
+     },
+     {
+      "p": "版型打版",
+      "o": 3.5
+     },
+     {
+      "p": "男裝買手",
+      "o": 3.5
+     },
+     {
+      "p": "造型色彩",
+      "o": 3.5
+     },
+     {
+      "p": "品質實用",
+      "o": 3.5
+     }
+    ]
+   }
   },
   "fitrec": {
    "A": "S（肩 54 落肩、胸平量 57 ≥ 54.5）但 S 已售完 → M",
@@ -1358,7 +2231,17 @@
     }
    ],
    "reviewUrl": "https://www.29cm.co.kr/products/2443549"
-  }
+  },
+  "opts": {
+   "colors": [
+    "胡桃棕 Walnut Brown（棕白混色）"
+   ],
+   "sizes": [
+    "S",
+    "M"
+   ]
+  },
+  "style": "胡桃棕粗花呢有紋理感，適合冷鋒；配 W7 象牙白褲上深下淺"
  },
  {
   "id": "W1",
@@ -1391,17 +2274,45 @@
   },
   "q": {
    "mat": 5,
-   "fit": 4,
+   "fit": 3.6,
    "func": 3,
    "care": 2,
    "make": 4,
-   "overall": 4.0,
+   "overall": 3.5,
    "note": "純美麗諾＋韓國製最紮實，但需乾洗／手洗，且少數人覺得刺。",
    "fabric": "羊毛 100%（澳洲美麗諾）",
    "careTxt": "建議乾洗；手洗限 30°C 以下中性洗劑；勿烘乾、勿用漂白／螢光劑",
    "origin": "韓國",
    "review": 5.0,
-   "reviews": 4
+   "reviews": 4,
+   "prev": 4.0,
+   "panel": {
+    "buy": "可選",
+    "raw": 3.72,
+    "why": "頂級天然纖維、韓國製、12–22°C 都能穿；扣分：評價僅 4 則、代購不能退、尺寸風險高、落肩加寬肩線",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 3.5
+     },
+     {
+      "p": "版型打版",
+      "o": 4.0
+     },
+     {
+      "p": "男裝買手",
+      "o": 3.5
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.0
+     },
+     {
+      "p": "品質實用",
+      "o": 4.0
+     }
+    ]
+   }
   },
   "fitrec": {
    "A": "L（肩 51 對針織可接受 ≥50、胸平量 59 ≥54；品牌標示「偏大」）",
@@ -1437,7 +2348,16 @@
     }
    ],
    "reviewUrl": "https://www.wconcept.co.kr/Product/301013806"
-  }
+  },
+  "opts": {
+   "colors": [
+    "棕色 BROWN"
+   ],
+   "sizes": [
+    "L"
+   ]
+  },
+  "style": "棕色美麗諾與膚色同調、氣色好；配 P2 炭灰西褲即可上班"
  },
  {
   "id": "W2",
@@ -1470,17 +2390,45 @@
   },
   "q": {
    "mat": 3,
-   "fit": 4,
+   "fit": 3.6,
    "func": 4,
-   "care": 2,
-   "make": 4,
-   "overall": 3.5,
+   "care": 1.8,
+   "make": 3.6,
+   "overall": 3.0,
    "note": "版型與做工好，但羊毛只有 50%，且建議乾洗。",
    "fabric": "細羊毛 50%・尼龍（Hi-cash）35%・聚酯纖維 15%（名稱為 Knit Sweater，羊毛僅五成）",
    "careTxt": "建議乾洗；手洗用 30°C 以下水＋中性／羊毛洗劑輕揉；機洗可能縮水",
    "origin": "韓國",
    "review": 5.0,
-   "reviews": 16
+   "reviews": 16,
+   "prev": 3.5,
+   "panel": {
+    "buy": "不推薦",
+    "raw": 3.23,
+    "why": "韓國製、12–22°C 都能穿；扣分：天然纖維比例低／未標、評價僅 16 則、代購不能退、尺寸風險高",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 3.0
+     },
+     {
+      "p": "版型打版",
+      "o": 3.0
+     },
+     {
+      "p": "男裝買手",
+      "o": 3.0
+     },
+     {
+      "p": "造型色彩",
+      "o": 3.5
+     },
+     {
+      "p": "品質實用",
+      "o": 3.0
+     }
+    ]
+   }
   },
   "fitrec": {
    "A": "3（肩 50 對針織 OK、胸平量 61）",
@@ -1516,7 +2464,16 @@
     }
    ],
    "reviewUrl": "https://www.wconcept.co.kr/Product/306107528"
-  }
+  },
+  "opts": {
+   "colors": [
+    "海軍藍 Navy"
+   ],
+   "sizes": [
+    "3"
+   ]
+  },
+  "style": "海軍翻領針織比 T 恤正式、比襯衫輕鬆；配 F6 海軍褲同色系拉長身形"
  },
  {
   "id": "F1",
@@ -1549,17 +2506,45 @@
   },
   "q": {
    "mat": 5,
-   "fit": 3,
-   "func": 4,
+   "fit": 2.4,
+   "func": 3.8,
    "care": 2,
    "make": 4,
-   "overall": 4.0,
+   "overall": 3.5,
    "note": "材質是這次最好的一件；缺點是只能乾洗、肩線偏窄、衣長略短。",
    "fabric": "表布：羊毛 71%・喀什米爾 29%（此色標示；黑色款為 羊毛69%・喀什米爾31%）",
    "careTxt": "限專業乾洗；陰涼處平放晾乾；注意摩擦起毛球",
    "origin": "中國（製造商 ERDOS JAPAN）",
    "review": 4.5,
-   "reviews": 121
+   "reviews": 121,
+   "prev": 4.0,
+   "panel": {
+    "buy": "可選",
+    "raw": 3.64,
+    "why": "頂級天然纖維、12–22°C 都能穿；扣分：肩或腰偏緊、落肩加寬肩線、需乾洗",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 4.0
+     },
+     {
+      "p": "版型打版",
+      "o": 3.5
+     },
+     {
+      "p": "男裝買手",
+      "o": 4.0
+     },
+     {
+      "p": "造型色彩",
+      "o": 3.5
+     },
+     {
+      "p": "品質實用",
+      "o": 4.0
+     }
+    ]
+   }
   },
   "fitrec": {
    "A": "105(L)：胸平量 57.5 ≥ 54；肩 48 低於 52，但針織有彈性（110(XL) 肩也只有 50）",
@@ -1595,7 +2580,16 @@
     }
    ],
    "reviewUrl": "https://www.ssfshop.com/GLXY-(GALAXY-LIFESTYLE)/GM0025062628597/good"
-  }
+  },
+  "opts": {
+   "colors": [
+    "淺灰（라이트 그레이／標示 밝은회색(실버)）；黑色僅剩 S/M、L 以上目前只有淺灰與寶藍可選"
+   ],
+   "sizes": [
+    "105(L)"
+   ]
+  },
+  "style": "淺灰喀什米爾 Polo 質感最高；淺色上身配深色褲（P1/N9）壓住下半身"
  },
  {
   "id": "F2",
@@ -1628,17 +2622,45 @@
   },
   "q": {
    "mat": 5,
-   "fit": 4,
+   "fit": 3.6,
    "func": 4,
-   "care": 2,
-   "make": 3,
-   "overall": 4.0,
+   "care": 1.8,
+   "make": 2.6,
+   "overall": 3.5,
    "note": "純羊毛卻是平價品牌價格；只能乾洗，商品描述提到下擺是「短版輪廓」的羅紋，評論者也說衣長大約在腰線到骨盆上。",
    "fabric": "表布：羊毛（小羊毛）100%",
    "careTxt": "必須乾洗；水洗可能縮水；注意摩擦起毛球",
    "origin": "中國",
    "review": 5.0,
-   "reviews": 5
+   "reviews": 5,
+   "prev": 4.0,
+   "panel": {
+    "buy": "可選",
+    "raw": 3.68,
+    "why": "頂級天然纖維、顏色襯小麥膚色；扣分：評價僅 5 則、代購不能退、尺寸風險高、衣長偏短",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 3.5
+     },
+     {
+      "p": "版型打版",
+      "o": 3.5
+     },
+     {
+      "p": "男裝買手",
+      "o": 3.5
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.0
+     },
+     {
+      "p": "品質實用",
+      "o": 3.5
+     }
+    ]
+   }
   },
   "fitrec": {
    "A": "L：胸平量 56 ≥ 54；馬鞍肩（raglan）沒有肩寬限制",
@@ -1674,7 +2696,16 @@
     }
    ],
    "reviewUrl": "https://www.ssfshop.com/8-seconds/GM0026091825103/good"
-  }
+  },
+  "opts": {
+   "colors": [
+    "深咖啡（브라운／標示 진한갈색）"
+   ],
+   "sizes": [
+    "L"
+   ]
+  },
+  "style": "深咖啡羊毛圓領，冷鋒打底；內搭 S1 白牛津露領口最經典"
  },
  {
   "id": "S1",
@@ -1697,17 +2728,45 @@
   "w": 0.4,
   "q": {
    "mat": 4,
-   "fit": 4,
+   "fit": 3.8,
    "func": 5,
    "care": 4,
-   "make": 3,
+   "make": 3.2,
    "overall": 4.0,
    "note": "經典牛津布，2.9 萬則評價 4.8；布料普通但最百搭。",
    "fabric": "棉 100%（牛津布）",
    "careTxt": "標示手洗；冷水洗衣袋可",
    "origin": "印尼",
    "review": 4.8,
-   "reviews": 29070
+   "reviews": 29070,
+   "prev": 4.0,
+   "panel": {
+    "buy": "推薦",
+    "raw": 4.04,
+    "why": "29,070 則評價背書、尺寸表與評論一致、CP 值高；扣分：落肩加寬肩線",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 4.0
+     },
+     {
+      "p": "版型打版",
+      "o": 4.0
+     },
+     {
+      "p": "男裝買手",
+      "o": 4.0
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.0
+     },
+     {
+      "p": "品質實用",
+      "o": 4.0
+     }
+    ]
+   }
   },
   "a": {
    "tone": "light",
@@ -1743,7 +2802,23 @@
     }
    ],
    "reviewUrl": "https://www.musinsa.com/review/goods/854337"
-  }
+  },
+  "opts": {
+   "colors": [
+    "白 White"
+   ],
+   "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "2XL",
+    "3XL",
+    "XXL",
+    "XXXL"
+   ]
+  },
+  "style": "白牛津是百搭底；寬肩選 L 別再大，捲袖露前臂顯得精實"
  },
  {
   "id": "S2",
@@ -1765,8 +2840,8 @@
   "krwN": 106000,
   "w": 0.5,
   "q": {
-   "mat": 4,
-   "fit": 4,
+   "mat": 3.8,
+   "fit": 3.6,
    "func": 4,
    "care": 4,
    "make": 4,
@@ -1776,7 +2851,35 @@
    "careTxt": "一般水洗（已預洗）",
    "origin": "中國",
    "review": 5.0,
-   "reviews": 36
+   "reviews": 36,
+   "prev": 4.0,
+   "panel": {
+    "buy": "推薦",
+    "raw": 3.86,
+    "why": "；扣分：落肩加寬肩線、布料偏薄",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 3.5
+     },
+     {
+      "p": "版型打版",
+      "o": 4.0
+     },
+     {
+      "p": "男裝買手",
+      "o": 4.0
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.0
+     },
+     {
+      "p": "品質實用",
+      "o": 4.0
+     }
+    ]
+   }
   },
   "a": {
    "tone": "light",
@@ -1812,7 +2915,18 @@
     }
    ],
    "reviewUrl": "https://www.musinsa.com/review/goods/4822868"
-  }
+  },
+  "opts": {
+   "colors": [
+    "淺灰 Light Grey"
+   ],
+   "sizes": [
+    "M",
+    "L",
+    "XL"
+   ]
+  },
+  "style": "淺灰雙口袋牛津，胸袋會加強上身份量，配 P4 寬褲平衡"
  },
  {
   "id": "S3",
@@ -1845,7 +2959,35 @@
    "careTxt": "水洗，燈芯絨易沾毛屑",
    "origin": "中國",
    "review": 4.9,
-   "reviews": 60
+   "reviews": 60,
+   "prev": 4.0,
+   "panel": {
+    "buy": "推薦",
+    "raw": 3.8,
+    "why": "顏色襯小麥膚色；扣分：會刺需內搭",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 3.5
+     },
+     {
+      "p": "版型打版",
+      "o": 4.0
+     },
+     {
+      "p": "男裝買手",
+      "o": 4.0
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.0
+     },
+     {
+      "p": "品質實用",
+      "o": 4.0
+     }
+    ]
+   }
   },
   "a": {
    "tone": "earth",
@@ -1881,7 +3023,18 @@
     }
    ],
    "reviewUrl": "https://www.musinsa.com/review/goods/4480350"
-  }
+  },
+  "opts": {
+   "colors": [
+    "橄欖綠 Dark Olive"
+   ],
+   "sizes": [
+    "M",
+    "L",
+    "XL"
+   ]
+  },
+  "style": "橄欖燈芯絨最襯膚色；可敞開當襯衫外套，內搭 T4 白 T"
  },
  {
   "id": "S4",
@@ -1904,7 +3057,7 @@
   "w": 0.6,
   "q": {
    "mat": 4,
-   "fit": 4,
+   "fit": 3.6,
    "func": 4,
    "care": 4,
    "make": 5,
@@ -1914,7 +3067,35 @@
    "careTxt": "一般水洗（已預洗），反面冷水",
    "origin": "韓國",
    "review": 4.9,
-   "reviews": 1702
+   "reviews": 1702,
+   "prev": 4.0,
+   "panel": {
+    "buy": "推薦",
+    "raw": 4.07,
+    "why": "韓國製、1,702 則評價背書；扣分：落肩加寬肩線",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 4.0
+     },
+     {
+      "p": "版型打版",
+      "o": 4.0
+     },
+     {
+      "p": "男裝買手",
+      "o": 4.0
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.0
+     },
+     {
+      "p": "品質實用",
+      "o": 4.0
+     }
+    ]
+   }
   },
   "a": {
    "tone": "dark",
@@ -1951,7 +3132,18 @@
     }
    ],
    "reviewUrl": "https://www.musinsa.com/review/goods/2052991"
-  }
+  },
+  "opts": {
+   "colors": [
+    "水洗靛藍 Washed Indigo"
+   ],
+   "sizes": [
+    "M",
+    "L",
+    "XL"
+   ]
+  },
+  "style": "丹寧 Over Shirt 當薄外套；不要配同色丹寧褲，改配 P4 米褲"
  },
  {
   "id": "S5",
@@ -1974,17 +3166,45 @@
   "w": 0.35,
   "q": {
    "mat": 4,
-   "fit": 4,
-   "func": 4,
-   "care": 2,
+   "fit": 4.2,
+   "func": 4.2,
+   "care": 1.8,
    "make": 4,
-   "overall": 3.5,
+   "overall": 4.0,
    "note": "韓國製純棉條紋，車工細；吊牌標乾洗是缺點。",
    "fabric": "棉 100%（韓國製）",
    "careTxt": "標示乾洗",
    "origin": "韓國",
    "review": 4.7,
-   "reviews": 262
+   "reviews": 262,
+   "prev": 3.5,
+   "panel": {
+    "buy": "推薦",
+    "raw": 3.75,
+    "why": "韓國製、尺寸表與評論一致、CP 值高；扣分：洗後易縮、需乾洗",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 3.5
+     },
+     {
+      "p": "版型打版",
+      "o": 4.0
+     },
+     {
+      "p": "男裝買手",
+      "o": 4.0
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.0
+     },
+     {
+      "p": "品質實用",
+      "o": 3.5
+     }
+    ]
+   }
   },
   "a": {
    "tone": "light",
@@ -2020,7 +3240,21 @@
     }
    ],
    "reviewUrl": "https://www.musinsa.com/review/goods/4703183"
-  }
+  },
+  "opts": {
+   "colors": [
+    "選「SKY BLUE」藍白條",
+    "IVORY",
+    "SKY BLUE",
+    "BROWN"
+   ],
+   "sizes": [
+    "M",
+    "L",
+    "XL"
+   ]
+  },
+  "style": "藍白條紋帶清爽感；直條紋顯瘦，紮進 P2 西褲最正式"
  },
  {
   "id": "N6",
@@ -2050,9 +3284,9 @@
    "formal": 1
   },
   "q": {
-   "mat": 4,
-   "fit": 4,
-   "func": 4,
+   "mat": 3.8,
+   "fit": 3.8,
+   "func": 4.2,
    "care": 4,
    "make": 5,
    "overall": 4.0,
@@ -2061,7 +3295,35 @@
    "careTxt": "一般水洗",
    "origin": "韓國",
    "review": 4.9,
-   "reviews": 192
+   "reviews": 192,
+   "prev": 4.0,
+   "panel": {
+    "buy": "推薦",
+    "raw": 4.09,
+    "why": "韓國製、顏色襯小麥膚色；扣分：肩或腰偏緊、布料偏薄",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 4.0
+     },
+     {
+      "p": "版型打版",
+      "o": 4.0
+     },
+     {
+      "p": "男裝買手",
+      "o": 4.0
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.5
+     },
+     {
+      "p": "品質實用",
+      "o": 4.0
+     }
+    ]
+   }
   },
   "fitrec": {
    "A": "M",
@@ -2090,7 +3352,18 @@
     }
    ],
    "reviewUrl": "https://www.musinsa.com/review/goods/4731176"
-  }
+  },
+  "opts": {
+   "colors": [
+    "摩卡 Mocha"
+   ],
+   "sizes": [
+    "M",
+    "L",
+    "XL"
+   ]
+  },
+  "style": "摩卡燈芯絨與小麥膚色同色系；敞開穿疊 T1，配 P3 深藍褲"
  },
  {
   "id": "N7",
@@ -2121,7 +3394,7 @@
   },
   "q": {
    "mat": 4,
-   "fit": 4,
+   "fit": 4.2,
    "func": 4,
    "care": 4,
    "make": 4,
@@ -2131,7 +3404,35 @@
    "careTxt": "手洗",
    "origin": "越南",
    "review": 4.9,
-   "reviews": 70
+   "reviews": 70,
+   "prev": 4.0,
+   "panel": {
+    "buy": "推薦",
+    "raw": 4.04,
+    "why": "尺寸表與評論一致",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 4.0
+     },
+     {
+      "p": "版型打版",
+      "o": 4.0
+     },
+     {
+      "p": "男裝買手",
+      "o": 4.0
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.0
+     },
+     {
+      "p": "品質實用",
+      "o": 4.0
+     }
+    ]
+   }
   },
   "fitrec": {
    "A": "L",
@@ -2160,7 +3461,20 @@
     }
    ],
    "reviewUrl": "https://www.musinsa.com/review/goods/6556872"
-  }
+  },
+  "opts": {
+   "colors": [
+    "深藍格紋 Navy"
+   ],
+   "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "2XL"
+   ]
+  },
+  "style": "深藍格紋法蘭絨，小格紋比大格子顯瘦；配 P4 米褲"
  },
  {
   "id": "N8",
@@ -2191,8 +3505,8 @@
   },
   "q": {
    "mat": 4,
-   "fit": 4,
-   "func": 4,
+   "fit": 3.8,
+   "func": 4.4,
    "care": 4,
    "make": 3,
    "overall": 4.0,
@@ -2201,7 +3515,35 @@
    "careTxt": "手洗",
    "origin": "越南",
    "review": 4.9,
-   "reviews": 88
+   "reviews": 88,
+   "prev": 4.0,
+   "panel": {
+    "buy": "推薦",
+    "raw": 3.89,
+    "why": "顏色襯小麥膚色、尺寸表與評論一致、CP 值高；扣分：落肩加寬肩線",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 4.0
+     },
+     {
+      "p": "版型打版",
+      "o": 4.0
+     },
+     {
+      "p": "男裝買手",
+      "o": 4.0
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.0
+     },
+     {
+      "p": "品質實用",
+      "o": 4.0
+     }
+    ]
+   }
   },
   "fitrec": {
    "A": "L",
@@ -2230,7 +3572,19 @@
     }
    ],
    "reviewUrl": "https://www.musinsa.com/review/goods/5186940"
-  }
+  },
+  "opts": {
+   "colors": [
+    "奶油 Cream"
+   ],
+   "sizes": [
+    "M",
+    "L",
+    "XL",
+    "2XL"
+   ]
+  },
+  "style": "奶油燈芯絨提亮臉部，配深色褲（P5/N10）上淺下深"
  },
  {
   "id": "A3",
@@ -2263,17 +3617,45 @@
   },
   "q": {
    "mat": 4,
-   "fit": 4,
+   "fit": 3.6,
    "func": 4,
    "care": 5,
-   "make": 4,
+   "make": 4.4,
    "overall": 4.0,
    "note": "純棉牛津、可機洗、貝殼釦；寬鬆版要選小一號。",
    "fabric": "棉 100%（牛津布）",
    "careTxt": "可機洗",
    "origin": "韓國／越南",
    "review": 5.0,
-   "reviews": 1716
+   "reviews": 1716,
+   "prev": 4.0,
+   "panel": {
+    "buy": "推薦",
+    "raw": 4.13,
+    "why": "韓國製、1,716 則評價背書；扣分：落肩加寬肩線",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 4.5
+     },
+     {
+      "p": "版型打版",
+      "o": 4.0
+     },
+     {
+      "p": "男裝買手",
+      "o": 4.5
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.0
+     },
+     {
+      "p": "品質實用",
+      "o": 4.0
+     }
+    ]
+   }
   },
   "fitrec": {
    "A": "L (105)（肩 53.5 ≥ 52、胸平量 61）",
@@ -2309,7 +3691,18 @@
     }
    ],
    "reviewUrl": "https://www.29cm.co.kr/products/1678466"
-  }
+  },
+  "opts": {
+   "colors": [
+    "海軍藍細條紋 Navy"
+   ],
+   "sizes": [
+    "M (100)",
+    "L",
+    "M"
+   ]
+  },
+  "style": "海軍細條紋牛津，落肩版肩線會略寬；紮半邊（front tuck）收腰"
  },
  {
   "id": "A4",
@@ -2342,17 +3735,45 @@
   },
   "q": {
    "mat": 4,
-   "fit": 3,
-   "func": 4,
+   "fit": 2.8,
+   "func": 4.2,
    "care": 3,
-   "make": 4,
+   "make": 4.2,
    "overall": 3.5,
    "note": "韓製純棉牛津質感佳；最大號肩寬 51，寬肩者偏緊。",
    "fabric": "棉 100%（牛津布，成衣水洗）",
    "careTxt": "標示「依洗標」，頁面未寫明（成衣水洗，一般可水洗）",
    "origin": "韓國",
    "review": 5.0,
-   "reviews": 46
+   "reviews": 46,
+   "prev": 3.5,
+   "panel": {
+    "buy": "可選",
+    "raw": 3.68,
+    "why": "韓國製；扣分：肩或腰偏緊",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 4.0
+     },
+     {
+      "p": "版型打版",
+      "o": 3.5
+     },
+     {
+      "p": "男裝買手",
+      "o": 3.5
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.0
+     },
+     {
+      "p": "品質實用",
+      "o": 3.5
+     }
+    ]
+   }
   },
   "fitrec": {
    "A": "XL (110)（最大號；肩 51 比身體 52 少 1cm，胸平量 60.5 OK）",
@@ -2388,7 +3809,18 @@
     }
    ],
    "reviewUrl": "https://www.29cm.co.kr/products/2792691"
-  }
+  },
+  "opts": {
+   "colors": [
+    "白 White（另有 Blue、Blue Grey、Blue Stripe）"
+   ],
+   "sizes": [
+    "XL (110)",
+    "XL",
+    "L"
+   ]
+  },
+  "style": "白牛津鈕扣領較挺；肩寬 51 略緊，只適合不疊穿單穿"
  },
  {
   "id": "W3",
@@ -2422,8 +3854,8 @@
   "q": {
    "mat": 4,
    "fit": 3,
-   "func": 3,
-   "care": 3,
+   "func": 3.4,
+   "care": 2.8,
    "make": 3,
    "overall": 3.5,
    "note": "純棉有厚度但易縮、有起毛球回報。",
@@ -2431,7 +3863,35 @@
    "careTxt": "勿烘乾（易縮）；冷水單獨洗、用液體洗劑；勿浸泡超過 10 分鐘",
    "origin": "韓國",
    "review": 4.97,
-   "reviews": 29
+   "reviews": 29,
+   "prev": 3.5,
+   "panel": {
+    "buy": "可選",
+    "raw": 3.35,
+    "why": "韓國製、16–26°C 都能穿、CP 值高；扣分：洗後易縮",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 3.5
+     },
+     {
+      "p": "版型打版",
+      "o": 3.5
+     },
+     {
+      "p": "男裝買手",
+      "o": 3.5
+     },
+     {
+      "p": "造型色彩",
+      "o": 3.5
+     },
+     {
+      "p": "品質實用",
+      "o": 3.5
+     }
+    ]
+   }
   },
   "fitrec": {
    "A": "M（肩 57、胸平量 58 已足夠；落肩版）",
@@ -2467,7 +3927,17 @@
     }
    ],
    "reviewUrl": "https://www.wconcept.co.kr/Product/301436875"
-  }
+  },
+  "opts": {
+   "colors": [
+    "海軍藍格紋 Navy"
+   ],
+   "sizes": [
+    "M",
+    "L"
+   ]
+  },
+  "style": "海軍格紋，休閒週末用；洗後縮水，別選更小"
  },
  {
   "id": "W4",
@@ -2500,9 +3970,9 @@
   },
   "q": {
    "mat": 4,
-   "fit": 3,
-   "func": 4,
-   "care": 3,
+   "fit": 2.6,
+   "func": 4.6,
+   "care": 2.8,
    "make": 4,
    "overall": 3.5,
    "note": "布料厚挺耐穿，可疊穿當外套；屬寬鬆版。",
@@ -2510,7 +3980,35 @@
    "careTxt": "勿烘乾（易縮）；冷水單獨洗、用液體洗劑；勿浸泡超過 10 分鐘",
    "origin": "韓國／中國（商品資訊標示）",
    "review": 4.95,
-   "reviews": 37
+   "reviews": 37,
+   "prev": 3.5,
+   "panel": {
+    "buy": "可選",
+    "raw": 3.66,
+    "why": "韓國製、15–25°C 都能穿、顏色襯小麥膚色；扣分：落肩加寬肩線、洗後易縮",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 3.5
+     },
+     {
+      "p": "版型打版",
+      "o": 3.5
+     },
+     {
+      "p": "男裝買手",
+      "o": 4.0
+     },
+     {
+      "p": "造型色彩",
+      "o": 3.5
+     },
+     {
+      "p": "品質實用",
+      "o": 3.5
+     }
+    ]
+   }
   },
   "fitrec": {
    "A": "M（肩 52 剛好、胸平量 61）",
@@ -2546,7 +4044,17 @@
     }
    ],
    "reviewUrl": "https://www.wconcept.co.kr/Product/306062694"
-  }
+  },
+  "opts": {
+   "colors": [
+    "苔綠 Mossgreen"
+   ],
+   "sizes": [
+    "M",
+    "L"
+   ]
+  },
+  "style": "苔綠寬鬆襯衫襯膚色；敞開當外套內搭 T1 深灰"
  },
  {
   "id": "F3",
@@ -2579,8 +4087,8 @@
   },
   "q": {
    "mat": 4,
-   "fit": 4,
-   "func": 4,
+   "fit": 3.8,
+   "func": 4.4,
    "care": 3,
    "make": 4,
    "overall": 4.0,
@@ -2589,7 +4097,35 @@
    "careTxt": "可手洗或乾洗，不建議機洗；自然晾乾；不可漂白",
    "origin": "越南",
    "review": 4.5,
-   "reviews": 158
+   "reviews": 158,
+   "prev": 4.0,
+   "panel": {
+    "buy": "推薦",
+    "raw": 3.89,
+    "why": "15–25°C 都能穿、顏色襯小麥膚色；扣分：肩或腰偏緊",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 4.0
+     },
+     {
+      "p": "版型打版",
+      "o": 3.5
+     },
+     {
+      "p": "男裝買手",
+      "o": 4.0
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.0
+     },
+     {
+      "p": "品質實用",
+      "o": 4.0
+     }
+    ]
+   }
   },
   "fitrec": {
    "A": "XL：肩 52.5 ≥ 52（L 肩只有 50）",
@@ -2625,7 +4161,17 @@
     }
    ],
    "reviewUrl": "https://www.ssfshop.com/BEANPOLE-MEN/GM0025081241079/good"
-  }
+  },
+  "opts": {
+   "colors": [
+    "象牙白（아이보리）；綠色只剩 S，紅/橘色不建議"
+   ],
+   "sizes": [
+    "L",
+    "XL"
+   ]
+  },
+  "style": "象牙白燈芯絨，上淺下深原則配 F6 或 P5"
  },
  {
   "id": "F4",
@@ -2658,8 +4204,8 @@
   },
   "q": {
    "mat": 4,
-   "fit": 3,
-   "func": 4,
+   "fit": 2.6,
+   "func": 4.4,
    "care": 3,
    "make": 4,
    "overall": 3.5,
@@ -2668,7 +4214,35 @@
    "careTxt": "可手洗或乾洗，不建議機洗；自然晾乾",
    "origin": "中國",
    "review": 4.5,
-   "reviews": 40
+   "reviews": 40,
+   "prev": 3.5,
+   "panel": {
+    "buy": "可選",
+    "raw": 3.65,
+    "why": "15–24°C 都能穿、顏色襯小麥膚色；扣分：落肩加寬肩線",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 3.5
+     },
+     {
+      "p": "版型打版",
+      "o": 3.5
+     },
+     {
+      "p": "男裝買手",
+      "o": 3.5
+     },
+     {
+      "p": "造型色彩",
+      "o": 3.5
+     },
+     {
+      "p": "品質實用",
+      "o": 4.0
+     }
+    ]
+   }
   },
   "fitrec": {
    "A": "XL：肩 52.5 ≥ 52（胸平量 64）",
@@ -2704,7 +4278,16 @@
     }
    ],
    "reviewUrl": "https://www.ssfshop.com/BEANPOLE-MEN/GM0026081375918/good"
-  }
+  },
+  "opts": {
+   "colors": [
+    "深咖啡（브라운／標示 진한갈색）；也有海軍藍（네이비）"
+   ],
+   "sizes": [
+    "L"
+   ]
+  },
+  "style": "深咖啡變化組織襯衫，與膚色同調；配 P4 米褲"
  },
  {
   "id": "P1",
@@ -2728,16 +4311,44 @@
   "q": {
    "mat": 3,
    "fit": 4,
-   "func": 4,
+   "func": 4.2,
    "care": 2,
-   "make": 4,
+   "make": 4.2,
    "overall": 3.5,
    "note": "羊毛 50% 混紡＋內裡＋隱藏鬆緊腰，垂墜與抗皺佳；限乾洗。",
    "fabric": "羊毛 50%・聚酯 47%・彈性 3%，有內裡",
    "careTxt": "限乾洗（石油系）",
    "origin": "越南",
    "review": 4.8,
-   "reviews": 610
+   "reviews": 610,
+   "prev": 3.5,
+   "panel": {
+    "buy": "可選",
+    "raw": 3.47,
+    "why": "610 則評價背書、15–25°C 都能穿；扣分：天然纖維比例低／未標、肩或腰偏緊、需乾洗",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 3.5
+     },
+     {
+      "p": "版型打版",
+      "o": 3.0
+     },
+     {
+      "p": "男裝買手",
+      "o": 3.5
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.0
+     },
+     {
+      "p": "品質實用",
+      "o": 3.5
+     }
+    ]
+   }
   },
   "a": {
    "tone": "dark",
@@ -2773,7 +4384,28 @@
     }
    ],
    "reviewUrl": "https://www.musinsa.com/review/goods/2398627"
-  }
+  },
+  "opts": {
+   "colors": [
+    "黑 Black"
+   ],
+   "sizes": [
+    "26",
+    "27",
+    "28",
+    "29",
+    "30",
+    "31",
+    "32",
+    "33",
+    "34",
+    "36",
+    "38",
+    "40",
+    "42"
+   ]
+  },
+  "style": "黑西褲最正式；半寬版遮大腿，穿黑白配時上身選 F1 淺灰"
  },
  {
   "id": "P2",
@@ -2796,8 +4428,8 @@
   "w": 0.6,
   "q": {
    "mat": 3,
-   "fit": 4,
-   "func": 4,
+   "fit": 4.2,
+   "func": 4.2,
    "care": 2,
    "make": 4,
    "overall": 3.5,
@@ -2806,7 +4438,35 @@
    "careTxt": "限乾洗（石油系）",
    "origin": "越南",
    "review": 4.8,
-   "reviews": 168
+   "reviews": 168,
+   "prev": 3.5,
+   "panel": {
+    "buy": "可選",
+    "raw": 3.48,
+    "why": "15–25°C 都能穿；扣分：天然纖維比例低／未標、需乾洗",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 3.5
+     },
+     {
+      "p": "版型打版",
+      "o": 3.5
+     },
+     {
+      "p": "男裝買手",
+      "o": 3.5
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.0
+     },
+     {
+      "p": "品質實用",
+      "o": 3.5
+     }
+    ]
+   }
   },
   "a": {
    "tone": "dark",
@@ -2842,7 +4502,28 @@
     }
    ],
    "reviewUrl": "https://www.musinsa.com/review/goods/4052611"
-  }
+  },
+  "opts": {
+   "colors": [
+    "炭灰 Charcoal Gray"
+   ],
+   "sizes": [
+    "26",
+    "27",
+    "28",
+    "29",
+    "30",
+    "31",
+    "32",
+    "33",
+    "34",
+    "36",
+    "38",
+    "40",
+    "42"
+   ]
+  },
+  "style": "炭灰西褲比黑更柔和、更百搭；配任何針織都不會出錯"
  },
  {
   "id": "P3",
@@ -2866,16 +4547,44 @@
   "q": {
    "mat": 4,
    "fit": 4,
-   "func": 4,
+   "func": 4.4,
    "care": 4,
-   "make": 4,
+   "make": 4.2,
    "overall": 4.0,
    "note": "純棉通勤褲，取代聚酯嫘縈混紡、限乾洗的寬西褲。",
    "fabric": "棉 100%",
    "careTxt": "手洗、可在家洗",
    "origin": "越南",
    "review": 4.8,
-   "reviews": 727
+   "reviews": 727,
+   "prev": 4.0,
+   "panel": {
+    "buy": "推薦",
+    "raw": 4.11,
+    "why": "727 則評價背書、15–25°C 都能穿、CP 值高",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 4.0
+     },
+     {
+      "p": "版型打版",
+      "o": 4.0
+     },
+     {
+      "p": "男裝買手",
+      "o": 4.5
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.0
+     },
+     {
+      "p": "品質實用",
+      "o": 4.0
+     }
+    ]
+   }
   },
   "a": {
    "tone": "dark",
@@ -2912,7 +4621,28 @@
     }
    ],
    "reviewUrl": "https://www.musinsa.com/review/goods/4210127"
-  }
+  },
+  "opts": {
+   "colors": [
+    "深藍 Navy"
+   ],
+   "sizes": [
+    "26",
+    "27",
+    "28",
+    "29",
+    "30",
+    "31",
+    "32",
+    "33",
+    "34",
+    "36",
+    "38",
+    "40",
+    "42"
+   ]
+  },
+  "style": "深藍錐形褲收窄褲腳，修飾腿型；配所有淺色上衣"
  },
  {
   "id": "P4",
@@ -2935,17 +4665,45 @@
   "w": 0.75,
   "q": {
    "mat": 4,
-   "fit": 4,
-   "func": 4,
+   "fit": 4.2,
+   "func": 4.4,
    "care": 4,
-   "make": 4,
+   "make": 4.2,
    "overall": 4.0,
    "note": "厚棉斜紋＋褲襠拼接活動性好，美式軍褲版型耐穿好洗。",
    "fabric": "棉 100%（斜紋布）",
    "careTxt": "一般水洗",
    "origin": "中國",
    "review": 4.8,
-   "reviews": 2363
+   "reviews": 2363,
+   "prev": 4.0,
+   "panel": {
+    "buy": "推薦",
+    "raw": 4.15,
+    "why": "2,363 則評價背書、15–25°C 都能穿、顏色襯小麥膚色",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 4.0
+     },
+     {
+      "p": "版型打版",
+      "o": 4.0
+     },
+     {
+      "p": "男裝買手",
+      "o": 4.0
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.5
+     },
+     {
+      "p": "品質實用",
+      "o": 4.0
+     }
+    ]
+   }
   },
   "a": {
    "tone": "earth",
@@ -2981,7 +4739,18 @@
     }
    ],
    "reviewUrl": "https://www.musinsa.com/review/goods/2084435"
-  }
+  },
+  "opts": {
+   "colors": [
+    "米 Beige"
+   ],
+   "sizes": [
+    "M",
+    "L",
+    "XL"
+   ]
+  },
+  "style": "米色寬褲：淺色褲要選寬版才不顯腿粗；上身用深色壓住"
  },
  {
   "id": "P5",
@@ -3005,16 +4774,44 @@
   "q": {
    "mat": 4,
    "fit": 4,
-   "func": 4,
-   "care": 3,
-   "make": 3,
+   "func": 4.2,
+   "care": 2.8,
+   "make": 3.2,
    "overall": 3.5,
    "note": "標準純棉丹寧；褪色要單獨洗，韓國站價差最大的一件。",
    "fabric": "棉 100%（丹寧）",
    "careTxt": "手洗、會褪色",
    "origin": "越南",
    "review": 4.8,
-   "reviews": 6440
+   "reviews": 6440,
+   "prev": 3.5,
+   "panel": {
+    "buy": "可選",
+    "raw": 3.74,
+    "why": "6,440 則評價背書、15–25°C 都能穿；扣分：會掉色",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 3.5
+     },
+     {
+      "p": "版型打版",
+      "o": 3.5
+     },
+     {
+      "p": "男裝買手",
+      "o": 4.0
+     },
+     {
+      "p": "造型色彩",
+      "o": 3.5
+     },
+     {
+      "p": "品質實用",
+      "o": 4.0
+     }
+    ]
+   }
   },
   "a": {
    "tone": "dark",
@@ -3050,7 +4847,28 @@
     }
    ],
    "reviewUrl": "https://www.musinsa.com/review/goods/2028328"
-  }
+  },
+  "opts": {
+   "colors": [
+    "中藍 Medium Indigo"
+   ],
+   "sizes": [
+    "26",
+    "27",
+    "28",
+    "29",
+    "30",
+    "31",
+    "32",
+    "33",
+    "34",
+    "36",
+    "38",
+    "40",
+    "42"
+   ]
+  },
+  "style": "中藍直筒丹寧，週末主力；褲長可修到剛好碰鞋面"
  },
  {
   "id": "P6",
@@ -3083,7 +4901,35 @@
    "careTxt": "一般水洗（已鹽洗）",
    "origin": "中國",
    "review": 4.9,
-   "reviews": 40
+   "reviews": 40,
+   "prev": 4.0,
+   "panel": {
+    "buy": "推薦",
+    "raw": 3.95,
+    "why": "",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 4.0
+     },
+     {
+      "p": "版型打版",
+      "o": 4.0
+     },
+     {
+      "p": "男裝買手",
+      "o": 4.0
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.0
+     },
+     {
+      "p": "品質實用",
+      "o": 4.0
+     }
+    ]
+   }
   },
   "a": {
    "tone": "dark",
@@ -3119,7 +4965,18 @@
     }
    ],
    "reviewUrl": "https://www.musinsa.com/review/goods/5516452"
-  }
+  },
+  "opts": {
+   "colors": [
+    "洗舊深藍 Washed Navy"
+   ],
+   "sizes": [
+    "M",
+    "L",
+    "XL"
+   ]
+  },
+  "style": "洗舊深藍燈芯絨，冷鋒天穿；上身配 K4 咖啡色"
  },
  {
   "id": "N9",
@@ -3160,7 +5017,35 @@
    "careTxt": "限乾洗",
    "origin": "越南",
    "review": 4.9,
-   "reviews": 191
+   "reviews": 191,
+   "prev": 4.0,
+   "panel": {
+    "buy": "推薦",
+    "raw": 4.0,
+    "why": "頂級天然纖維；扣分：肩或腰偏緊、需乾洗",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 4.0
+     },
+     {
+      "p": "版型打版",
+      "o": 4.0
+     },
+     {
+      "p": "男裝買手",
+      "o": 4.0
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.5
+     },
+     {
+      "p": "品質實用",
+      "o": 4.0
+     }
+    ]
+   }
   },
   "fitrec": {
    "A": "34",
@@ -3189,7 +5074,28 @@
     }
    ],
    "reviewUrl": "https://www.musinsa.com/review/goods/2518492"
-  }
+  },
+  "opts": {
+   "colors": [
+    "炭灰 Charcoal Gray"
+   ],
+   "sizes": [
+    "26",
+    "27",
+    "28",
+    "29",
+    "30",
+    "31",
+    "32",
+    "33",
+    "34",
+    "36",
+    "38",
+    "40",
+    "42"
+   ]
+  },
+  "style": "炭灰羊毛法蘭絨寬褲，最高級的冬天西褲；配 F1 或 K1"
  },
  {
   "id": "N10",
@@ -3220,8 +5126,8 @@
   },
   "q": {
    "mat": 5,
-   "fit": 4,
-   "func": 4,
+   "fit": 4.2,
+   "func": 4.2,
    "care": 3,
    "make": 5,
    "overall": 4.5,
@@ -3230,7 +5136,35 @@
    "careTxt": "少洗；反面冷水手洗",
    "origin": "中國",
    "review": 4.9,
-   "reviews": 1205
+   "reviews": 1205,
+   "prev": 4.5,
+   "panel": {
+    "buy": "必買",
+    "raw": 4.38,
+    "why": "頂級天然纖維、1,205 則評價背書、15–25°C 都能穿",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 4.5
+     },
+     {
+      "p": "版型打版",
+      "o": 4.5
+     },
+     {
+      "p": "男裝買手",
+      "o": 4.5
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.5
+     },
+     {
+      "p": "品質實用",
+      "o": 4.5
+     }
+    ]
+   }
   },
   "fitrec": {
    "A": "XL",
@@ -3259,7 +5193,18 @@
     }
    ],
    "reviewUrl": "https://www.musinsa.com/review/goods/4398163"
-  }
+  },
+  "opts": {
+   "colors": [
+    "深靛藍 Dark Indigo"
+   ],
+   "sizes": [
+    "M",
+    "L",
+    "XL"
+   ]
+  },
+  "style": "深靛藍赤耳 Relaxed，大腿寬鬆對小肚子友善；配 J10 不同深淺的牛仔"
  },
  {
   "id": "N11",
@@ -3290,17 +5235,45 @@
   },
   "q": {
    "mat": 4,
-   "fit": 4,
+   "fit": 3.8,
    "func": 5,
    "care": 4,
-   "make": 4,
+   "make": 4.2,
    "overall": 4.0,
    "note": "純棉緞紋軍官褲，評價數最多的褲款之一。",
    "fabric": "棉 100%（緞紋）",
    "careTxt": "手洗",
    "origin": "越南",
    "review": 4.9,
-   "reviews": 3831
+   "reviews": 3831,
+   "prev": 4.0,
+   "panel": {
+    "buy": "推薦",
+    "raw": 4.19,
+    "why": "3,831 則評價背書、15–25°C 都能穿、顏色襯小麥膚色；扣分：肩或腰偏緊",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 4.0
+     },
+     {
+      "p": "版型打版",
+      "o": 4.0
+     },
+     {
+      "p": "男裝買手",
+      "o": 4.5
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.0
+     },
+     {
+      "p": "品質實用",
+      "o": 4.0
+     }
+    ]
+   }
   },
   "fitrec": {
    "A": "34",
@@ -3329,7 +5302,28 @@
     }
    ],
    "reviewUrl": "https://www.musinsa.com/review/goods/3304652"
-  }
+  },
+  "opts": {
+   "colors": [
+    "卡其 Khaki"
+   ],
+   "sizes": [
+    "26",
+    "27",
+    "28",
+    "29",
+    "30",
+    "31",
+    "32",
+    "33",
+    "34",
+    "36",
+    "38",
+    "40",
+    "42"
+   ]
+  },
+  "style": "卡其色偏淺，離臉遠所以不影響膚色；配深藍上衣（K1/N7）"
  },
  {
   "id": "N12",
@@ -3360,17 +5354,45 @@
   },
   "q": {
    "mat": 4,
-   "fit": 4,
+   "fit": 3.8,
    "func": 4,
    "care": 2,
-   "make": 4,
+   "make": 4.4,
    "overall": 3.5,
    "note": "1,383 則評價 4.9 的韓國設計師褲款；需乾洗。",
    "fabric": "天絲 54%・棉 46%（韓國／中國製）",
    "careTxt": "乾洗",
    "origin": "韓國／中國",
    "review": 4.9,
-   "reviews": 1383
+   "reviews": 1383,
+   "prev": 3.5,
+   "panel": {
+    "buy": "可選",
+    "raw": 3.72,
+    "why": "韓國製、1,383 則評價背書、16–25°C 都能穿；扣分：肩或腰偏緊、需乾洗",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 4.0
+     },
+     {
+      "p": "版型打版",
+      "o": 3.5
+     },
+     {
+      "p": "男裝買手",
+      "o": 4.0
+     },
+     {
+      "p": "造型色彩",
+      "o": 3.5
+     },
+     {
+      "p": "品質實用",
+      "o": 3.5
+     }
+    ]
+   }
   },
   "fitrec": {
    "A": "4",
@@ -3399,7 +5421,19 @@
     }
    ],
    "reviewUrl": "https://www.musinsa.com/review/goods/3837367"
-  }
+  },
+  "opts": {
+   "colors": [
+    "水洗黑 Washed Black"
+   ],
+   "sizes": [
+    "1",
+    "2",
+    "3",
+    "4"
+   ]
+  },
+  "style": "水洗黑錐形褲，天絲垂墜不貼腿；上班配 S1 白牛津"
  },
  {
   "id": "A6",
@@ -3432,17 +5466,45 @@
   },
   "q": {
    "mat": 5,
-   "fit": 4,
+   "fit": 3.8,
    "func": 3,
-   "care": 2,
-   "make": 4,
-   "overall": 4.0,
+   "care": 1.6,
+   "make": 3.8,
+   "overall": 3.5,
    "note": "真赤耳丹寧、做工好；原色硬挺、需乾洗且會掉色。",
    "fabric": "棉 100%（13oz 赤耳丹寧，原色生丹寧）",
    "careTxt": "建議送洗乾洗；原色布易掉色沾染淺色衣物",
    "origin": "標示 韓國／越南／中國（商品說明寫 made in korea）",
    "review": 5.0,
-   "reviews": 302
+   "reviews": 302,
+   "prev": 4.0,
+   "panel": {
+    "buy": "可選",
+    "raw": 3.67,
+    "why": "頂級天然纖維、12–25°C 都能穿；扣分：肩或腰偏緊、衣長偏短、洗後易縮",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 3.5
+     },
+     {
+      "p": "版型打版",
+      "o": 3.5
+     },
+     {
+      "p": "男裝買手",
+      "o": 4.0
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.0
+     },
+     {
+      "p": "品質實用",
+      "o": 3.5
+     }
+    ]
+   }
   },
   "fitrec": {
    "A": "XL（腰平量 45 ≥ 43.5；L 為 43 不足）",
@@ -3478,7 +5540,17 @@
     }
    ],
    "reviewUrl": "https://www.29cm.co.kr/products/1916694"
-  }
+  },
+  "opts": {
+   "colors": [
+    "深靛藍 Deep Indigo（原色未水洗）"
+   ],
+   "sizes": [
+    "XL",
+    "L"
+   ]
+  },
+  "style": "原色赤耳丹寧會隨穿著褪色出個人痕跡；配 N8 奶油色上衣"
  },
  {
   "id": "A7",
@@ -3512,7 +5584,7 @@
   "q": {
    "mat": 4,
    "fit": 3,
-   "func": 4,
+   "func": 4.4,
    "care": 4,
    "make": 4,
    "overall": 4.0,
@@ -3521,7 +5593,35 @@
    "careTxt": "同色冷水機洗、翻面洗、勿漂白、吊掛晾乾",
    "origin": "越南",
    "review": 4.5,
-   "reviews": 112
+   "reviews": 112,
+   "prev": 4.0,
+   "panel": {
+    "buy": "推薦",
+    "raw": 3.88,
+    "why": "12–22°C 都能穿、顏色襯小麥膚色；扣分：肩或腰偏緊",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 4.0
+     },
+     {
+      "p": "版型打版",
+      "o": 3.5
+     },
+     {
+      "p": "男裝買手",
+      "o": 4.0
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.0
+     },
+     {
+      "p": "品質實用",
+      "o": 4.0
+     }
+    ]
+   }
   },
   "fitrec": {
    "A": "XL (34)（腰平量 45.5；L 為 43 不足 43.5）",
@@ -3557,7 +5657,18 @@
     }
    ],
    "reviewUrl": "https://www.29cm.co.kr/products/3520543"
-  }
+  },
+  "opts": {
+   "colors": [
+    "橄欖夜綠 Olive Night"
+   ],
+   "sizes": [
+    "XL (34)",
+    "XL",
+    "L"
+   ]
+  },
+  "style": "橄欖夜綠雙褶寬褲，褶線增加腰部空間、修飾小腹；配 S1 白牛津"
  },
  {
   "id": "W6",
@@ -3590,9 +5701,9 @@
   },
   "q": {
    "mat": 3,
-   "fit": 4,
+   "fit": 3.8,
    "func": 3,
-   "care": 2,
+   "care": 1.8,
    "make": 5,
    "overall": 3.5,
    "note": "韓國製赤耳做工佳；成分未標、無彈性，會掉色。",
@@ -3600,7 +5711,35 @@
    "careTxt": "盡量乾洗；家洗請翻面、冷水中性洗劑單獨洗；勿用熱水或久泡；勿烘乾；會掉色染色",
    "origin": "韓國",
    "review": 4.86,
-   "reviews": 22
+   "reviews": 22,
+   "prev": 3.5,
+   "panel": {
+    "buy": "可選",
+    "raw": 3.28,
+    "why": "韓國製、12–25°C 都能穿；扣分：天然纖維比例低／未標、肩或腰偏緊、會掉色",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 3.5
+     },
+     {
+      "p": "版型打版",
+      "o": 3.0
+     },
+     {
+      "p": "男裝買手",
+      "o": 3.5
+     },
+     {
+      "p": "造型色彩",
+      "o": 3.5
+     },
+     {
+      "p": "品質實用",
+      "o": 3.0
+     }
+    ]
+   }
   },
   "fitrec": {
    "A": "XL（腰平量 45 ≥43.5；L 只有 42.5）",
@@ -3636,7 +5775,17 @@
     }
    ],
    "reviewUrl": "https://www.wconcept.co.kr/Product/301238892"
-  }
+  },
+  "opts": {
+   "colors": [
+    "深靛藍 Deep indigo"
+   ],
+   "sizes": [
+    "XL",
+    "L"
+   ]
+  },
+  "style": "深靛藍直筒，無彈性；腰 XL 45 剛好，坐下不壓肚"
  },
  {
   "id": "W7",
@@ -3668,9 +5817,9 @@
    "formal": 1
   },
   "q": {
-   "mat": 4,
+   "mat": 3.8,
    "fit": 3,
-   "func": 3,
+   "func": 3.6,
    "care": 3,
    "make": 3,
    "overall": 3.5,
@@ -3679,7 +5828,35 @@
    "careTxt": "頁面沒有洗標文字（只有燈芯絨保養圖，沒有逐字讀取）",
    "origin": "中國",
    "review": 4.91,
-   "reviews": 81
+   "reviews": 81,
+   "prev": 3.5,
+   "panel": {
+    "buy": "可選",
+    "raw": 3.36,
+    "why": "14–25°C 都能穿、顏色襯小麥膚色；扣分：肩或腰偏緊、布料偏薄",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 3.0
+     },
+     {
+      "p": "版型打版",
+      "o": 3.0
+     },
+     {
+      "p": "男裝買手",
+      "o": 3.5
+     },
+     {
+      "p": "造型色彩",
+      "o": 3.5
+     },
+     {
+      "p": "品質實用",
+      "o": 3.5
+     }
+    ]
+   }
   },
   "fitrec": {
    "A": "XL（腰平量 39 仍 <43.5，要靠後腰鬆緊）",
@@ -3715,7 +5892,18 @@
     }
    ],
    "reviewUrl": "https://www.wconcept.co.kr/Product/301497788"
-  }
+  },
+  "opts": {
+   "colors": [
+    "象牙白 IVORY（棕色 L 缺貨，XL 有貨）"
+   ],
+   "sizes": [
+    "XL",
+    "M",
+    "L"
+   ]
+  },
+  "style": "象牙白燈芯絨寬褲，淺色寬褲配深色上衣（W5/K1）"
  },
  {
   "id": "F6",
@@ -3748,7 +5936,7 @@
   },
   "q": {
    "mat": 4,
-   "fit": 4,
+   "fit": 3.8,
    "func": 5,
    "care": 3,
    "make": 4,
@@ -3758,7 +5946,35 @@
    "careTxt": "可手洗或乾洗，不建議機洗；自然晾乾（評論：洗後會有一點皺）",
    "origin": "越南",
    "review": 4.5,
-   "reviews": 79
+   "reviews": 79,
+   "prev": 4.0,
+   "panel": {
+    "buy": "推薦",
+    "raw": 4.01,
+    "why": "12–25°C 都能穿；扣分：肩或腰偏緊",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 4.0
+     },
+     {
+      "p": "版型打版",
+      "o": 4.0
+     },
+     {
+      "p": "男裝買手",
+      "o": 4.0
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.0
+     },
+     {
+      "p": "品質實用",
+      "o": 4.0
+     }
+    ]
+   }
   },
   "fitrec": {
    "A": "086：腰平量 43.5 = 43.5（088 腰平量 44.5）",
@@ -3794,7 +6010,17 @@
     }
    ],
    "reviewUrl": "https://www.ssfshop.com/GLXY-(GALAXY-LIFESTYLE)/GM0025080675198/good"
-  }
+  },
+  "opts": {
+   "colors": [
+    "海軍藍（네이비／標示 남색）"
+   ],
+   "sizes": [
+    "082～086",
+    "086"
+   ]
+  },
+  "style": "海軍彈力卡其褲，騎車、通勤最舒適；配 F5 象牙白翻領"
  },
  {
   "id": "F7",
@@ -3828,16 +6054,44 @@
   "q": {
    "mat": 4,
    "fit": 4,
-   "func": 4,
-   "care": 3,
-   "make": 4,
+   "func": 4.2,
+   "care": 2.8,
+   "make": 3.8,
    "overall": 4.0,
    "note": "原色牛仔、價格很好；評論只有 7 則，尺寸要看臀圍。",
    "fabric": "表布：棉 98%・聚氨酯 2%",
    "careTxt": "可手洗或乾洗；會掉色，請單獨洗；自然晾乾",
    "origin": "越南",
    "review": 5.0,
-   "reviews": 7
+   "reviews": 7,
+   "prev": 4.0,
+   "panel": {
+    "buy": "推薦",
+    "raw": 3.83,
+    "why": "12–25°C 都能穿；扣分：評價僅 7 則、代購不能退、尺寸風險高、衣長偏短",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 4.0
+     },
+     {
+      "p": "版型打版",
+      "o": 4.0
+     },
+     {
+      "p": "男裝買手",
+      "o": 3.5
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.0
+     },
+     {
+      "p": "品質實用",
+      "o": 4.0
+     }
+    ]
+   }
   },
   "fitrec": {
    "A": "084：腰平量 43.5（086 為 44.5）",
@@ -3873,7 +6127,17 @@
     }
    ],
    "reviewUrl": "https://www.ssfshop.com/ROGATIS/GM0025081853219/good"
-  }
+  },
+  "opts": {
+   "colors": [
+    "深海軍藍原色（네이비／標示 남색）"
+   ],
+   "sizes": [
+    "082～086",
+    "086"
+   ]
+  },
+  "style": "深海軍原色寬鬆牛仔，配 F3 象牙白燈芯絨"
  },
  {
   "id": "J3",
@@ -3900,14 +6164,42 @@
    "fit": 4,
    "func": 5,
    "care": 4,
-   "make": 3,
+   "make": 2.8,
    "overall": 3.5,
    "note": "尼龍防風、輕、快乾，高雄騎車與冷氣房最實用；材質談不上高級。",
    "fabric": "尼龍 88%・彈性 12%",
    "careTxt": "冷水手洗，快乾",
    "origin": "中國",
    "review": 5.0,
-   "reviews": 5
+   "reviews": 5,
+   "prev": 3.5,
+   "panel": {
+    "buy": "可選",
+    "raw": 3.42,
+    "why": "；扣分：天然纖維比例低／未標、評價僅 5 則",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 3.5
+     },
+     {
+      "p": "版型打版",
+      "o": 3.5
+     },
+     {
+      "p": "男裝買手",
+      "o": 3.5
+     },
+     {
+      "p": "造型色彩",
+      "o": 3.5
+     },
+     {
+      "p": "品質實用",
+      "o": 3.5
+     }
+    ]
+   }
   },
   "a": {
    "tone": "dark",
@@ -3943,7 +6235,22 @@
     }
    ],
    "reviewUrl": "https://www.musinsa.com/review/goods/7034282"
-  }
+  },
+  "opts": {
+   "colors": [
+    "選「CHARCOAL」炭灰",
+    "BLACK",
+    "CHARCOAL",
+    "D.CHARCOAL",
+    "L.GREY"
+   ],
+   "sizes": [
+    "M",
+    "L",
+    "XL"
+   ]
+  },
+  "style": "炭灰防風外套，騎車擋風主力；短版勿再選小"
  },
  {
   "id": "J7",
@@ -3970,14 +6277,42 @@
    "fit": 4,
    "func": 4,
    "care": 4,
-   "make": 4,
+   "make": 3.8,
    "overall": 4.0,
    "note": "純棉生物水洗，襯衫式外套 20–25°C 剛好；細節到位。",
    "fabric": "棉 100%（生物水洗）",
    "careTxt": "一般水洗（已預洗）",
    "origin": "中國",
    "review": 5.0,
-   "reviews": 1
+   "reviews": 1,
+   "prev": 4.0,
+   "panel": {
+    "buy": "推薦",
+    "raw": 3.97,
+    "why": "；扣分：評價僅 1 則",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 4.0
+     },
+     {
+      "p": "版型打版",
+      "o": 4.0
+     },
+     {
+      "p": "男裝買手",
+      "o": 4.0
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.0
+     },
+     {
+      "p": "品質實用",
+      "o": 4.0
+     }
+    ]
+   }
   },
   "a": {
    "tone": "dark",
@@ -4006,7 +6341,18 @@
     }
    ],
    "reviewUrl": "https://www.musinsa.com/review/goods/7206051"
-  }
+  },
+  "opts": {
+   "colors": [
+    "深藍 Navy"
+   ],
+   "sizes": [
+    "M",
+    "L",
+    "XL"
+   ]
+  },
+  "style": "深藍 Trucker 可當襯衫或外套，內搭 T2 象牙白"
  },
  {
   "id": "J5",
@@ -4030,17 +6376,45 @@
   "w": 0.9,
   "q": {
    "mat": 4,
-   "fit": 3,
+   "fit": 2.8,
    "func": 4,
    "care": 4,
-   "make": 5,
+   "make": 4.8,
    "overall": 4.0,
    "note": "內外都是純棉、YKK 金屬五金，透氣好洗；版型偏寬，肩線會落一點。",
    "fabric": "棉 100%（內外皆純棉，生物水洗）",
    "careTxt": "可水洗",
    "origin": "中國",
    "review": 5.0,
-   "reviews": 11
+   "reviews": 11,
+   "prev": 4.0,
+   "panel": {
+    "buy": "推薦",
+    "raw": 3.88,
+    "why": "；扣分：評價僅 11 則、衣長偏短",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 4.0
+     },
+     {
+      "p": "版型打版",
+      "o": 4.0
+     },
+     {
+      "p": "男裝買手",
+      "o": 4.0
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.0
+     },
+     {
+      "p": "品質實用",
+      "o": 4.0
+     }
+    ]
+   }
   },
   "a": {
    "tone": "dark",
@@ -4077,7 +6451,18 @@
     }
    ],
    "reviewUrl": "https://www.musinsa.com/review/goods/6957486"
-  }
+  },
+  "opts": {
+   "colors": [
+    "深藍 Dark Blue"
+   ],
+   "sizes": [
+    "M",
+    "L",
+    "XL"
+   ]
+  },
+  "style": "深藍 Harrington 短版，蓋住腰線即可；配 P4 米褲"
  },
  {
   "id": "J8",
@@ -4102,7 +6487,7 @@
   "q": {
    "mat": 3,
    "fit": 4,
-   "func": 4,
+   "func": 4.2,
    "care": 3,
    "make": 5,
    "overall": 3.5,
@@ -4111,7 +6496,35 @@
    "careTxt": "參考洗標；建議手洗或乾洗",
    "origin": "韓國",
    "review": 4.9,
-   "reviews": 27
+   "reviews": 27,
+   "prev": 3.5,
+   "panel": {
+    "buy": "可選",
+    "raw": 3.74,
+    "why": "韓國製、顏色襯小麥膚色；扣分：天然纖維比例低／未標",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 3.5
+     },
+     {
+      "p": "版型打版",
+      "o": 3.5
+     },
+     {
+      "p": "男裝買手",
+      "o": 3.5
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.0
+     },
+     {
+      "p": "品質實用",
+      "o": 3.5
+     }
+    ]
+   }
   },
   "replaced": "MUSINSA STANDARD 小羊毛寬版開襟外套（炭灰）",
   "a": {
@@ -4148,7 +6561,18 @@
     }
    ],
    "reviewUrl": "https://www.musinsa.com/review/goods/6004542"
-  }
+  },
+  "opts": {
+   "colors": [
+    "Dust 灰褐"
+   ],
+   "sizes": [
+    "M",
+    "L",
+    "XL"
+   ]
+  },
+  "style": "灰褐拉鍊針織外套，拉鍊拉一半形成 V 線修飾寬肩"
  },
  {
   "id": "J6",
@@ -4172,17 +6596,45 @@
   "w": 1.3,
   "q": {
    "mat": 4,
-   "fit": 3,
+   "fit": 3.2,
    "func": 4,
    "care": 4,
-   "make": 4,
+   "make": 3.8,
    "overall": 4.0,
    "note": "Moleskin 純棉厚實防風、越穿越軟；寬版肩 55cm 偏大。",
    "fabric": "棉 100%（Moleskin 鼴鼠皮布，酵素水洗）",
    "careTxt": "一般水洗（已酵素洗）",
    "origin": "中國",
    "review": 4.8,
-   "reviews": 9
+   "reviews": 9,
+   "prev": 4.0,
+   "panel": {
+    "buy": "推薦",
+    "raw": 3.81,
+    "why": "尺寸表與評論一致；扣分：評價僅 9 則",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 4.0
+     },
+     {
+      "p": "版型打版",
+      "o": 4.0
+     },
+     {
+      "p": "男裝買手",
+      "o": 3.5
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.0
+     },
+     {
+      "p": "品質實用",
+      "o": 4.0
+     }
+    ]
+   }
   },
   "a": {
    "tone": "dark",
@@ -4218,7 +6670,18 @@
     }
    ],
    "reviewUrl": "https://www.musinsa.com/review/goods/6956762"
-  }
+  },
+  "opts": {
+   "colors": [
+    "炭灰 Dark Grey"
+   ],
+   "sizes": [
+    "M",
+    "L",
+    "XL"
+   ]
+  },
+  "style": "炭灰 Moleskin 工作外套，落肩寬版；內搭 S1 白牛津更正式"
  },
  {
   "id": "J9",
@@ -4242,17 +6705,45 @@
   "w": 0.9,
   "q": {
    "mat": 4,
-   "fit": 4,
-   "func": 4,
+   "fit": 3.8,
+   "func": 4.2,
    "care": 3,
-   "make": 4,
+   "make": 4.2,
    "overall": 4.0,
    "note": "1,275 則評價 4.8 的經典款，純棉可水洗，比緞面款好照顧。",
    "fabric": "棉 100%",
    "careTxt": "可水洗（單獨洗）",
    "origin": "中國",
    "review": 4.8,
-   "reviews": 1275
+   "reviews": 1275,
+   "prev": 4.0,
+   "panel": {
+    "buy": "推薦",
+    "raw": 3.88,
+    "why": "1,275 則評價背書、顏色襯小麥膚色；扣分：衣長偏短",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 4.0
+     },
+     {
+      "p": "版型打版",
+      "o": 3.5
+     },
+     {
+      "p": "男裝買手",
+      "o": 4.0
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.0
+     },
+     {
+      "p": "品質實用",
+      "o": 4.0
+     }
+    ]
+   }
   },
   "replaced": "MUSINSA STANDARD 緞面短版 Chore 工作外套（黑）",
   "a": {
@@ -4289,7 +6780,18 @@
     }
    ],
    "reviewUrl": "https://www.musinsa.com/review/goods/2349901"
-  }
+  },
+  "opts": {
+   "colors": [
+    "橄欖綠 Olive Green"
+   ],
+   "sizes": [
+    "M",
+    "L",
+    "XL"
+   ]
+  },
+  "style": "橄欖燈芯絨領工作外套，大地綠襯膚色；短版搭高腰褲"
  },
  {
   "id": "J10",
@@ -4323,7 +6825,35 @@
    "careTxt": "少洗；反面冷水手洗",
    "origin": "中國",
    "review": 4.9,
-   "reviews": 120
+   "reviews": 120,
+   "prev": 4.5,
+   "panel": {
+    "buy": "必買",
+    "raw": 4.3,
+    "why": "頂級天然纖維",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 4.5
+     },
+     {
+      "p": "版型打版",
+      "o": 4.5
+     },
+     {
+      "p": "男裝買手",
+      "o": 4.5
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.5
+     },
+     {
+      "p": "品質實用",
+      "o": 4.5
+     }
+    ]
+   }
   },
   "a": {
    "tone": "dark",
@@ -4359,7 +6889,18 @@
     }
    ],
    "reviewUrl": "https://www.musinsa.com/review/goods/5327171"
-  }
+  },
+  "opts": {
+   "colors": [
+    "深靛藍 Dark Indigo"
+   ],
+   "sizes": [
+    "M",
+    "L",
+    "XL"
+   ]
+  },
+  "style": "Type 1 赤耳丹寧外套偏短；別配同色牛仔褲，改配 P2/N11"
  },
  {
   "id": "J1",
@@ -4386,14 +6927,42 @@
    "fit": 4,
    "func": 4,
    "care": 2,
-   "make": 5,
+   "make": 4.8,
    "overall": 4.0,
    "note": "表布與身體內裡都是純棉，五金與車工扎實，429 則評價 4.9；淺色要注意髒污。",
    "fabric": "棉 100%（燈芯絨），身體內裡純棉",
    "careTxt": "建議乾洗",
    "origin": "中國",
    "review": 4.9,
-   "reviews": 18
+   "reviews": 18,
+   "prev": 4.0,
+   "panel": {
+    "buy": "推薦",
+    "raw": 3.82,
+    "why": "顏色襯小麥膚色；扣分：評價僅 18 則、需乾洗",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 4.0
+     },
+     {
+      "p": "版型打版",
+      "o": 4.0
+     },
+     {
+      "p": "男裝買手",
+      "o": 3.5
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.0
+     },
+     {
+      "p": "品質實用",
+      "o": 3.5
+     }
+    ]
+   }
   },
   "replaced": "MUSINSA STANDARD 復古 8W 燈芯絨 Trucker 外套（深咖啡）",
   "a": {
@@ -4430,7 +6999,19 @@
     }
    ],
    "reviewUrl": "https://www.musinsa.com/review/goods/4397007"
-  }
+  },
+  "opts": {
+   "colors": [
+    "奶油白 Cream"
+   ],
+   "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL"
+   ]
+  },
+  "style": "奶油白燈芯絨 Harrington，提亮膚色；配深色褲"
  },
  {
   "id": "J4",
@@ -4455,7 +7036,7 @@
   "q": {
    "mat": 4,
    "fit": 4,
-   "func": 3,
+   "func": 2.8,
    "care": 2,
    "make": 4,
    "overall": 3.5,
@@ -4464,7 +7045,35 @@
    "careTxt": "限乾洗",
    "origin": "越南",
    "review": 4.9,
-   "reviews": 370
+   "reviews": 370,
+   "prev": 3.5,
+   "panel": {
+    "buy": "可選",
+    "raw": 3.46,
+    "why": "；扣分：需乾洗",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 3.5
+     },
+     {
+      "p": "版型打版",
+      "o": 3.5
+     },
+     {
+      "p": "男裝買手",
+      "o": 3.5
+     },
+     {
+      "p": "造型色彩",
+      "o": 3.5
+     },
+     {
+      "p": "品質實用",
+      "o": 3.0
+     }
+    ]
+   }
   },
   "a": {
    "tone": "dark",
@@ -4501,7 +7110,19 @@
     }
    ],
    "reviewUrl": "https://www.musinsa.com/review/goods/2708076"
-  }
+  },
+  "opts": {
+   "colors": [
+    "炭灰 Charcoal Gray"
+   ],
+   "sizes": [
+    "M",
+    "L",
+    "XL",
+    "2XL"
+   ]
+  },
+  "style": "炭灰喀什米爾 Blouson，最正式的外套；內搭 K1 V 領"
  },
  {
   "id": "J2",
@@ -4526,16 +7147,44 @@
   "q": {
    "mat": 4,
    "fit": 4,
-   "func": 3,
+   "func": 2.8,
    "care": 2,
-   "make": 4,
+   "make": 4.2,
    "overall": 3.5,
    "note": "羊毛 83% 真大衣，取代不含羊毛的 Woolish Car Coat；748 則評價 4.9。",
    "fabric": "羊毛 83%・聚酯 14%，聚酯內裡",
    "careTxt": "限乾洗",
    "origin": "越南",
    "review": 4.9,
-   "reviews": 748
+   "reviews": 748,
+   "prev": 3.5,
+   "panel": {
+    "buy": "可選",
+    "raw": 3.49,
+    "why": "748 則評價背書、尺寸表與評論一致；扣分：衣長偏短、需乾洗",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 3.5
+     },
+     {
+      "p": "版型打版",
+      "o": 3.5
+     },
+     {
+      "p": "男裝買手",
+      "o": 3.5
+     },
+     {
+      "p": "造型色彩",
+      "o": 3.5
+     },
+     {
+      "p": "品質實用",
+      "o": 3.0
+     }
+    ]
+   }
   },
   "a": {
    "tone": "dark",
@@ -4571,7 +7220,19 @@
     }
    ],
    "reviewUrl": "https://www.musinsa.com/review/goods/3405547"
-  }
+  },
+  "opts": {
+   "colors": [
+    "黑 Black"
+   ],
+   "sizes": [
+    "M",
+    "L",
+    "XL",
+    "2XL"
+   ]
+  },
+  "style": "黑色羊毛短大衣，冷鋒天穿；配 P2 炭灰西褲避免全黑過重"
  },
  {
   "id": "A8",
@@ -4604,17 +7265,45 @@
   },
   "q": {
    "mat": 4,
-   "fit": 4,
-   "func": 4,
-   "care": 3,
+   "fit": 3.4,
+   "func": 4.2,
+   "care": 2.8,
    "make": 4,
-   "overall": 4.0,
+   "overall": 3.5,
    "note": "純棉表布、韓製水洗；評論僅 14 則，定價偏高。",
    "fabric": "表布 棉 100%・裡布 聚酯纖維 100%",
    "careTxt": "30°C 以下單獨洗或乾洗；染色品易沾染淺色衣物",
    "origin": "韓國",
    "review": 5.0,
-   "reviews": 14
+   "reviews": 14,
+   "prev": 4.0,
+   "panel": {
+    "buy": "可選",
+    "raw": 3.74,
+    "why": "韓國製、顏色襯小麥膚色；扣分：評價僅 14 則、代購不能退、尺寸風險高、肩或腰偏緊",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 4.0
+     },
+     {
+      "p": "版型打版",
+      "o": 3.5
+     },
+     {
+      "p": "男裝買手",
+      "o": 3.5
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.0
+     },
+     {
+      "p": "品質實用",
+      "o": 3.5
+     }
+    ]
+   }
   },
   "fitrec": {
    "A": "4（肩 52.5 ≥ 52、胸平量 60）",
@@ -4650,7 +7339,16 @@
     }
    ],
    "reviewUrl": "https://www.29cm.co.kr/products/3756608"
-  }
+  },
+  "opts": {
+   "colors": [
+    "Dark Beige（實物偏灰橄欖／深卡其，非淺卡其）"
+   ],
+   "sizes": [
+    "4"
+   ]
+  },
+  "style": "深卡其灰水洗夾克，偏灰橄欖不顯土；配 P3 深藍褲"
  },
  {
   "id": "W8",
@@ -4683,17 +7381,45 @@
   },
   "q": {
    "mat": 3,
-   "fit": 4,
+   "fit": 3.8,
    "func": 4,
    "care": 3,
-   "make": 4,
+   "make": 3.8,
    "overall": 3.5,
    "note": "羊毛含量高、輕巧不臃腫，但建議乾洗，出貨也慢。",
    "fabric": "羊毛 68.1%・聚酯纖維 31.9%",
    "careTxt": "建議乾洗；可冷水手洗或機洗；勿漂白；勿烘乾",
    "origin": "中國",
    "review": 4.83,
-   "reviews": 18
+   "reviews": 18,
+   "prev": 3.5,
+   "panel": {
+    "buy": "可選",
+    "raw": 3.48,
+    "why": "；扣分：天然纖維比例低／未標、評價僅 18 則、代購不能退、尺寸風險高",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 3.5
+     },
+     {
+      "p": "版型打版",
+      "o": 3.5
+     },
+     {
+      "p": "男裝買手",
+      "o": 3.0
+     },
+     {
+      "p": "造型色彩",
+      "o": 3.5
+     },
+     {
+      "p": "品質實用",
+      "o": 3.5
+     }
+    ]
+   }
   },
   "fitrec": {
    "A": "M（肩 55.5、胸平量 68，寬鬆版）",
@@ -4729,7 +7455,17 @@
     }
    ],
    "reviewUrl": "https://www.wconcept.co.kr/Product/307581429"
-  }
+  },
+  "opts": {
+   "colors": [
+    "黑色 블랙（灰色已缺貨）"
+   ],
+   "sizes": [
+    "M",
+    "L"
+   ]
+  },
+  "style": "黑色羊毛飛行夾克，短版；內搭淺色（N1/F1）避免全身黑"
  },
  {
   "id": "F8",
@@ -4761,18 +7497,46 @@
    "formal": 2
   },
   "q": {
-   "mat": 5,
-   "fit": 4,
+   "mat": 4.8,
+   "fit": 3.8,
    "func": 3,
    "care": 2,
-   "make": 4,
-   "overall": 4.0,
+   "make": 3.8,
+   "overall": 3.5,
    "note": "純羊毛表布、價格大降；只能乾洗，保暖度有限，剛好壓在預算上限。",
    "fabric": "表布：羊毛 100%；配色：羊毛 42%・壓克力 40%・聚酯纖維 16%・聚氨酯 2%；裡布：聚酯纖維 100%",
    "careTxt": "限專業乾洗；裡布低溫隔布熨燙",
    "origin": "越南",
    "review": 5.0,
-   "reviews": 9
+   "reviews": 9,
+   "prev": 4.0,
+   "panel": {
+    "buy": "可選",
+    "raw": 3.67,
+    "why": "頂級天然纖維、顏色襯小麥膚色；扣分：評價僅 9 則、代購不能退、尺寸風險高、布料偏薄",
+    "votes": [
+     {
+      "p": "面料紡織",
+      "o": 3.5
+     },
+     {
+      "p": "版型打版",
+      "o": 4.0
+     },
+     {
+      "p": "男裝買手",
+      "o": 3.5
+     },
+     {
+      "p": "造型色彩",
+      "o": 4.0
+     },
+     {
+      "p": "品質實用",
+      "o": 3.5
+     }
+    ]
+   }
   },
   "fitrec": {
    "A": "110(XL)：肩 53.5 ≥ 52（105 肩只有 50.5）",
@@ -4808,6 +7572,15 @@
     }
    ],
    "reviewUrl": "https://www.ssfshop.com/ROGATIS/GM0025082550955/good"
-  }
+  },
+  "opts": {
+   "colors": [
+    "海軍藍（네이비／標示 남색，評論：乍看接近黑色）；另有深咖啡"
+   ],
+   "sizes": [
+    "110(XL)"
+   ]
+  },
+  "style": "海軍羊毛棒球外套，海軍比黑更襯小麥膚色；配 F6 同色系"
  }
 ]
