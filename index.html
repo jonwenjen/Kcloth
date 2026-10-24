@@ -302,6 +302,9 @@ footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
 .vb{display:inline-block;padding:3px 10px;border-radius:999px;font-weight:700;font-size:13px;border:2px solid;white-space:nowrap}
 .vb.v-必買{background:#b8452a;color:#fff}.vb.v-推薦{color:#2f6b4f}.vb.v-可選{color:#8a7a4a}.vb.v-不推薦{color:#777}
 .stip{font-size:12.5px;line-height:1.55;margin:6px 0 0;padding:7px 9px;border-radius:8px;background:rgba(160,120,60,.08)}
+
+.overtag{background:#6b4fa0}
+.overnote{font-size:12.5px;line-height:1.5;margin:6px 0;padding:7px 9px;border-radius:8px;border:1.5px dashed #6b4fa0;color:#4b3576;background:rgba(107,79,160,.06)}
 </style>
 </head>
 <body>
@@ -311,7 +314,7 @@ footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
     <a class="logo" href="#top">K<span>·</span>CLOTH</a>
     <nav>
       <a href="#intro">介紹</a><a href="#shop">選物</a><a href="#sizing">尺寸建議</a><a href="#quality">質感評比</a><a href="#analyze">衣櫥分析</a><a href="#capsule">膠囊</a><a href="#looks">30 套穿搭</a>
-      <a href="#coats">外套</a><a href="#compare">韓國價差</a><a href="#proxy">代購 3 站</a><a href="#brands">20 品牌</a><a href="#guide">購買</a>
+      <a href="#coats">外套</a><a href="#compare">韓國價差</a><a href="#brands">20 品牌</a><a href="#guide">購買</a>
     </nav>
     <button class="cart-btn" id="openCart">購物清單 <b id="cartCount">0</b></button>
   </div>
@@ -323,7 +326,7 @@ footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
     <div>
       <div class="eyebrow">Korean Menswear · Winter Edit 2026</div>
       <h1>韓系質感，<br>剛好適合高雄的冬天。</h1>
-      <p class="lead">為 30–40 歲男性挑選的韓國男裝衣櫥：20 個品牌、66 件精選單品（含 13 件外套）、30 套穿搭，件件互搭。每件單價 NT$1,000–3,000 上下，42 件可在 MUSINSA 台灣站直送，另有 24 件精選自 29CM／W Concept／SSF SHOP 走代購。</p>
+      <p class="lead">為 30–40 歲男性挑選的韓國男裝衣櫥：20 個品牌、60 件精選單品（50 件上衣褲子＋10 件外套）、30 套穿搭，件件互搭。每件單價 NT$1,000–3,000 上下，全部在 MUSINSA 台灣站直送（含稅、可退換）；另列 8 件「超出預算但值得買」的精選並標註。</p>
       <div class="chips">
         <span class="chip">🌡 高雄冬天 15–25°C</span><span class="chip">📏 175cm / 75kg</span>
         <span class="chip">腰 87 · 胸 95 · 肩 52</span><span class="chip">膚色偏小麥</span>
@@ -454,22 +457,6 @@ footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
   </div>
 </section>
 
-<section id="proxy">
-  <div class="wrap">
-    <div class="sec-head"><div><div class="eyebrow">Proxy Buy · 3 Sites</div><h2>代購精選 3 站：29CM・W Concept・SSF SHOP</h2>
-      <p>MUSINSA 台灣站買不到的品牌，從韓國三大男裝站各選 8 件，規則同上：材質優先、肩 52 尺寸表 × 同身形評論雙建議、單件 NT$1,000–3,000（外套 ≤ 5,000）、避開粉嫩／土黃／淺卡其。價格為 2026-10-23 韓國站售價。</p></div></div>
-    <div class="calc">
-      <label>匯率 1 TWD =<input type="number" id="pRate" step="0.1"> KRW</label>
-      <label>代購手續費<input type="number" id="pFee" step="0.5" value="8"> %</label>
-      <label>韓國境內運費／站<input type="number" id="pDom" step="500" value="3000"> KRW</label>
-      <label>集運每公斤<input type="number" id="pKg"> NT$</label>
-      <div class="seg" id="pScope"><button data-ps="all" class="on">每站 8 件全買</button><button data-ps="cart">只算購物清單</button></div>
-    </div>
-    <p class="note" id="pNote"></p>
-    <div class="sites" id="sites"></div>
-  </div>
-</section>
-
 <section id="compare">
   <div class="wrap">
     <div class="sec-head"><div><div class="eyebrow">Global vs Korea</div><h2>韓國版 vs Global 台灣站：哪邊買划算？</h2>
@@ -552,11 +539,11 @@ footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
   </footer>
 </aside>
 
-<script src="data.js?v=15"></script>
+<script src="data.js?v=16"></script>
 <script>
 (() => {
 const D = window.KCLOTH;
-const byId = Object.fromEntries(D.items.map(i => [i.id, i]));
+const byId = Object.fromEntries(D.items.concat(D.over || []).map(i => [i.id, i]));
 const num = s => +String(s).replace(/[^\d]/g, '');
 const fmt = n => 'NT$' + n.toLocaleString('en-US');
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -570,8 +557,7 @@ const save = () => { localStorage.setItem('kcloth-cart', JSON.stringify(cart)); 
   if (typeof renderAnalyze==='function' && anSrc==='cart') renderAnalyze();
   if (typeof renderSizing==='function' && szCat==='🛒 購物清單') renderSizing();
   if (typeof renderQuality==='function' && qCat==='🛒 購物清單') renderQuality();
-  if (typeof renderPalette==='function' && palCat==='🛒 購物清單') renderPalette();
-  if (typeof renderProxy==='function') renderProxy(); };
+  if (typeof renderPalette==='function' && palCat==='🛒 購物清單') renderPalette(); };
 const toggle = id => { cart = cart.includes(id) ? cart.filter(x => x !== id) : [...cart, id]; save(); };
 const addMany = ids => { ids.forEach(id => { if (!cart.includes(id)) cart.push(id); }); save(); openCart(true); };
 let sel = JSON.parse(localStorage.getItem('kcloth-sel') || '{}');
@@ -580,8 +566,8 @@ const saveSel = () => localStorage.setItem('kcloth-sel', JSON.stringify(sel));
 function optList(id, arr){ return `<datalist id="${id}">${(arr||[]).map(v => `<option value="${esc(v)}">`).join('')}</datalist>`; }
 function renderCart(){
   $('cartCount').textContent = cart.length;
-  const tot = cart.filter(id => !byId[id].proxy).reduce((s, id) => s + num(byId[id].price), 0);
-  const ptot = cart.filter(id => byId[id].proxy).reduce((s, id) => s + num(byId[id].price), 0);
+  const tot = cart.reduce((s, id) => s + num(byId[id].price), 0), ptot = 0;
+  const otot = cart.filter(id => byId[id].over).reduce((s, id) => s + num(byId[id].price), 0);
   $('cartList').innerHTML = cart.length ? cart.map(id => { const i = byId[id], s = selOf(i), o = i.opts || {sizes:[i.size],colors:[i.color]};
     const sizeCtl = o.sizes.length > 1
       ? `<select data-sel="${id}:size">${o.sizes.map(v => `<option${v===s.size?' selected':''}>${esc(v)}</option>`).join('')}${o.sizes.includes(s.size)?'':`<option selected>${esc(s.size)}</option>`}</select>`
@@ -592,12 +578,12 @@ function renderCart(){
     <div class="ci"><img src="${i.img}" alt=""><div><b>${i.id}</b> ${esc(i.name)}<br>
     <div class="ciopt"><label>尺寸 ${sizeCtl}</label><label><i class="dot" style="background:${i.hex}"></i>顏色 ${colorCtl}</label></div>
     <span class="note">建議：${esc(i.size)}・${esc(i.color)}${changed ? ` <button class="lnk" data-reset="${id}">還原建議</button>` : ''}</span><br>
-    <a href="${i.url}" target="_blank" rel="noopener">${i.price} · ${i.proxy?'代購・'+esc(i.proxy):'MUSINSA'} ↗</a><span class="note"> 🇰🇷 ₩${i.krw.toLocaleString()}</span></div>
+    <a href="${i.url}" target="_blank" rel="noopener">${i.price} · MUSINSA${i.over?'・超出預算':''} ↗</a><span class="note"> 🇰🇷 ₩${i.krw.toLocaleString()}</span></div>
     <button data-rm="${id}" aria-label="移除">移除</button></div>`}).join('') : '<p class="note">還沒有加入任何單品。</p>';
-  $('cartTotal').textContent = fmt(tot + ptot) + (ptot ? `（MUSINSA ${fmt(tot)}＋代購 ${fmt(ptot)}）` : '');
+  $('cartTotal').textContent = fmt(tot) + (otot ? `（含超出預算 ${fmt(otot)}）` : '');
   const free = 6380;
   $('shipBar').style.width = Math.min(100, tot / free * 100) + '%';
-  $('shipNote').textContent = (tot >= free ? '✓ 已達 MUSINSA 免運門檻' : `MUSINSA 再 ${fmt(free - tot)} 免運（未達運費 NT$320）`) + (ptot ? '；代購品另計代購費與集運，見「代購 3 站」' : '');
+  $('shipNote').textContent = (tot >= free ? '✓ 已達 MUSINSA 免運門檻' : `MUSINSA 再 ${fmt(free - tot)} 免運（未達運費 NT$320）`);
   ['dlTxt','lineShare','copyList'].forEach(b => $(b).disabled = !cart.length);
 }
 $('cartList').addEventListener('change', e => { const t = e.target.closest('[data-sel]'); if (!t) return;
@@ -605,12 +591,12 @@ $('cartList').addEventListener('change', e => { const t = e.target.closest('[dat
 $('cartList').addEventListener('click', e => { const b = e.target.closest('[data-reset]'); if (!b) return; delete sel[b.dataset.reset]; saveSel(); renderCart(); });
 function listText(){
   const d = new Date(), ds = `${d.getFullYear()}/${d.getMonth()+1}/${d.getDate()}`;
-  const groups = [['MUSINSA 台灣站', cart.filter(id => !byId[id].proxy)], ...['29CM','W Concept','SSF SHOP'].map(s => ['代購・' + s, cart.filter(id => byId[id].proxy === s)])].filter(g => g[1].length);
+  const groups = [['MUSINSA 台灣站', cart.filter(id => !byId[id].over)], ['MUSINSA 台灣站・超出預算精選', cart.filter(id => byId[id].over)]].filter(g => g[1].length);
   let n = 0, out = [`🛒 KCLOTH 購物清單（${ds}）`, `共 ${cart.length} 件・合計 ${$('cartTotal').textContent}`, ''];
   groups.forEach(([g, ids]) => {
     out.push(`【${g}】`);
     ids.forEach(id => { const i = byId[id], s = selOf(i); n++;
-      out.push(`${n}. ${i.name}`, `尺寸：${s.size}`, `顏色：${s.color}`, `專家：${i.q.panel ? i.q.panel.buy + '・' + i.q.overall.toFixed(1) + '★' : ''}`, `穿搭：${i.style || ''}`, `價格：${i.price}（₩${i.krw.toLocaleString()}）`, i.url, ''); });
+      out.push(`${n}. ${i.name}`, `尺寸：${s.size}`, `顏色：${s.color}`, ...(i.over ? [`備註：${i.over}`] : []), `專家：${i.q.panel ? i.q.panel.buy + '・' + i.q.overall.toFixed(1) + '★' : ''}`, `穿搭：${i.style || ''}`, `價格：${i.price}（₩${i.krw.toLocaleString()}）`, i.url, ''); });
   });
   out.push('身形：175cm／75kg・肩 52・胸 95・腰 87', '清單網站：' + location.origin + location.pathname);
   return out.join('\n');
@@ -633,9 +619,9 @@ document.addEventListener('click', e => {
 
 // ---- Korea vs Global comparison ----
 const FX = D.fx;
-const MUS = D.items.filter(i => !i.proxy);
+const MUS = D.items;
 const S = { rate: FX.rate, kg: FX.perKg, fee: 0, card: FX.cardFee, coupon: false, scope: 'all' };
-const krUrl = i => i.proxy ? i.url : `https://www.musinsa.com/products/${i.no}`;
+const krUrl = i => `https://www.musinsa.com/products/${i.no}`;
 const krTwd = i => Math.round(i.krw / S.rate * (1 + S.card / 100));
 const shipFor = kg => Math.max(FX.minKg, Math.ceil(kg - 1e-9)) * (Math.ceil(kg) <= 5 ? FX.perKgSmall : S.kg);
 const globalPrice = i => Math.round(num(i.price) * (S.coupon ? 0.8 : 1));
@@ -654,16 +640,14 @@ function calc(list){
   return { per, kg, ship, g, gShip, kSum, fee, landedAll: kSum + ship + fee };
 }
 function krLine(i){
-  if (i.proxy) { const r = proxyCalc(D.items.filter(x => x.proxy === i.proxy)).per[i.id];
-    return `<div class="krp"><span>🇰🇷 ${esc(i.proxy)} <b>₩${i.krw.toLocaleString()}</b></span><span class="dn">代購到手 ≈ ${fmt(r.landed)}</span></div>`; }
-  const r = calc(MUS).per[i.id];
+  const r = (i.over ? calc([i]) : calc(MUS)).per[i.id];
   const pct = Math.round((num(i.price) - r.k) / r.k * 100);
   return `<div class="krp"><span>🇰🇷 韓國 <b>₩${i.krw.toLocaleString()}</b> ≈ NT$${r.k.toLocaleString()}</span>
     <span class="${pct>0?'up':'dn'}">${pct>0?'Global 貴 '+pct+'%':'Global 便宜 '+(-pct)+'%'}</span></div>`;
 }
 function renderCompare(){
   const all = calc(MUS);
-  const list = S.scope === 'cart' ? cart.map(id => byId[id]).filter(i => !i.proxy) : MUS;
+  const list = S.scope === 'cart' ? cart.map(id => byId[id]).filter(i => !i.over) : MUS;
   const c = calc(list);
   const winners = MUS.filter(i => all.per[i.id].save >= 150);
   const sel = calc(winners);
@@ -694,38 +678,6 @@ function renderCompare(){
   }).join('') || '<tr><td colspan="9" class="note">購物清單是空的，先加入單品。</td></tr>';
 }
 
-function proxyCalc(list){
-  const rate = +($('pRate') && $('pRate').value) || FX.rate, fee = +($('pFee') && $('pFee').value || 8), dom = +($('pDom') && $('pDom').value || 3000), perKg = +($('pKg') && $('pKg').value) || FX.perKg;
-  const kg = list.reduce((s, i) => s + i.w, 0);
-  const ship = list.length ? Math.max(FX.minKg, Math.ceil(kg - 1e-9)) * (Math.ceil(kg) <= 5 ? FX.perKgSmall : perKg) : 0;
-  const domT = list.length ? Math.round(dom / rate) : 0;
-  const per = Object.fromEntries(list.map(i => { const k = Math.round(i.krw / rate * (1 + FX.cardFee / 100)), f = Math.round(k * fee / 100), sh = kg ? Math.round((ship + domT) * i.w / kg) : 0; return [i.id, { k, f, sh, landed: k + f + sh }]; }));
-  const kSum = list.reduce((s, i) => s + per[i.id].k, 0);
-  return { per, kg, ship, domT, kSum, fee: Math.round(kSum * fee / 100), landedAll: kSum + Math.round(kSum * fee / 100) + ship + domT };
-}
-let pScope = 'all';
-function renderProxy(){
-  const sites = D.sites || [];
-  $('pNote').textContent = D.proxyNote + ' 集運以星球集運空運包稅價估算（≤5kg NT$' + FX.perKgSmall + '/kg，最低 ' + FX.minKg + ' kg）；代購費依業者 0–10% 不等。';
-  let grand = 0;
-  $('sites').innerHTML = sites.map(s => {
-    const all = s.ids.map(id => byId[id]).filter(Boolean);
-    const L = pScope === 'cart' ? all.filter(i => cart.includes(i.id)) : all;
-    const c = proxyCalc(L); grand += c.landedAll;
-    const avgQ = all.length ? (all.reduce((t, i) => t + i.q.overall, 0) / all.length).toFixed(2) : '—';
-    return `<div class="site"><div class="tagline">${esc(s.owner)}・${esc(s.tag)}</div><h3>${esc(s.name)}</h3>
-      <div class="pc">👍 ${esc(s.pro)}<br>⚠️ ${esc(s.con)}<br>平均質感 <b>${avgQ}</b> ★</div>
-      <ul>${all.map(i => `<li><img src="${i.img}" alt=""><span><b>${i.id}</b> ${esc(i.name)}<br><span class="note">尺寸 <b>${esc(i.size)}</b>・${star(i.q.overall)}</span></span>
-        <span class="px">₩${i.krw.toLocaleString()}<br><b>${fmt(proxyCalc(all).per[i.id].landed)}</b><br><button data-add="${i.id}" class="mini">${cart.includes(i.id)?'已加入':'加入'}</button></span></li>`).join('')}</ul>
-      <div class="tot">${pScope === 'cart' ? '清單內 ' + L.length + ' 件' : '8 件全買'}到手 <div class="big">${fmt(c.landedAll)}</div>
-        <span class="note">商品 ${fmt(c.kSum)}＋代購費 ${fmt(c.fee)}＋韓國境內運 ${fmt(c.domT)}＋集運 ${fmt(c.ship)}（${c.kg.toFixed(1)} kg）</span></div>
-      <a class="go" href="${s.url}" target="_blank" rel="noopener">前往 ${esc(s.name)} ↗</a></div>`;
-  }).join('');
-}
-['pRate','pFee','pDom','pKg'].forEach(id => $(id).addEventListener('input', () => { renderProxy(); renderGrid(); }));
-$('pRate').value = FX.rate; $('pKg').value = FX.perKg;
-$('pScope').onclick = e => { const b = e.target.closest('button'); if (!b) return; pScope = b.dataset.ps;
-  document.querySelectorAll('#pScope button').forEach(x => x.classList.toggle('on', x === b)); renderProxy(); };
 $('cRate').value = S.rate; $('cKg').value = S.kg; $('cFee').value = S.fee; $('cCard').value = S.card;
 [['cRate','rate'],['cKg','kg'],['cFee','fee'],['cCard','card']].forEach(([id,k]) => $(id).oninput = e => { S[k] = +e.target.value || 0; renderCompare(); renderGrid(); });
 $('cCoupon').onchange = e => { S.coupon = e.target.checked; renderCompare(); };
@@ -742,10 +694,10 @@ function qCard(i){
 }
 let qSort = 'overall', qCat = '全部';
 function renderQuality(){
-  const list = D.items.filter(i => qCat === '全部' || (qCat === '🛒 購物清單' ? cart.includes(i.id) : ['必買','推薦','可選','不推薦'].includes(qCat) ? i.q.panel && i.q.panel.buy === qCat : i.cat === qCat)).slice()
+  const list = D.items.concat(D.over || []).filter(i => qCat === '全部' || (qCat === '🛒 購物清單' ? cart.includes(i.id) : qCat === '💎 超出預算' ? !!i.over : ['必買','推薦','可選','不推薦'].includes(qCat) ? i.q.panel && i.q.panel.buy === qCat : i.cat === qCat)).slice()
     .sort((a,b) => qSort === 'id' ? 0 : (b.q[qSort] - a.q[qSort]) || (b.q.overall - a.q.overall));
   $('qRows').innerHTML = list.map(i => { const q = i.q; return `<tr class="${q.overall>=4.5?'qtop':q.overall<=3?'qlow':''}">
-    <td><b>${i.id}</b></td><td><a href="${i.url}" target="_blank" rel="noopener">${esc(i.name)}</a><br><span class="note">${i.price}</span></td>
+    <td><b>${i.id}</b></td><td><a href="${i.url}" target="_blank" rel="noopener">${esc(i.name)}</a><br><span class="note">${i.price}</span>${i.over?`<br><span class="vb" style="color:#6b4fa0">超出預算</span>`:''}</td>
     ${Q.map(([k]) => `<td>${star(q[k])}</td>`).join('')}
     <td><span class="ov">${q.overall.toFixed(1)}</span><br>${star(q.overall)}${q.prev!=null&&q.prev!==q.overall?`<br><span class="note">原 ${q.prev.toFixed(1)}</span>`:''}</td>
     <td>${q.panel?`<span class="vb v-${q.panel.buy}">${q.panel.buy}</span><br><span class="note">${esc(q.panel.why)}</span><br><span class="note">${q.panel.votes.map(v=>v.p+' '+v.o.toFixed(1)).join('・')}</span>`:''}</td>
@@ -753,7 +705,7 @@ function renderQuality(){
     <td>${esc(q.fabric)}<br><span class="note">${esc(q.origin)}製・${esc(q.careTxt)}${q.review?`・評價 ${q.review}（${(q.reviews||0).toLocaleString()}）`:''}</span></td></tr>`; }).join('') || '<tr><td colspan="11" class="note">購物清單是空的，先在選物區按「加入清單」。</td></tr>';
   document.querySelectorAll('.qt th[data-sort]').forEach(th => th.textContent = th.textContent.replace(/ ▼$/,'') + (th.dataset.sort === qSort ? ' ▼' : ''));
 }
-const qcats = ['全部','🛒 購物清單','必買','推薦','可選','不推薦','T-shirt','針織衫','襯衫','褲子','外套'];
+const qcats = ['全部','🛒 購物清單','必買','推薦','可選','不推薦','💎 超出預算','T-shirt','針織衫','襯衫','褲子','外套'];
 $('qFilters').innerHTML = qcats.map(c => `<button data-qcat="${c}" class="${c===qCat?'on':''}">${c}</button>`).join('');
 $('qFilters').onclick = e => { const b = e.target.closest('button'); if (!b) return; qCat = b.dataset.qcat;
   document.querySelectorAll('#qFilters button').forEach(x => x.classList.toggle('on', x === b)); renderQuality(); };
@@ -882,14 +834,14 @@ function fitBox(i){
 }
 let szCat = '全部';
 function renderSizing(){
-  $('szRows').innerHTML = D.items.concat(D.addons || []).filter(i => szCat === '全部' || (szCat === '🛒 購物清單' ? cart.includes(i.id) : szCat === '建議補充' ? /^X/.test(i.id) : i.cat === szCat)).map(i => { const f = i.fitrec; if (!f) return ''; return `<tr>
+  $('szRows').innerHTML = D.items.concat(D.over || [], D.addons || []).filter(i => szCat === '全部' || (szCat === '🛒 購物清單' ? cart.includes(i.id) : szCat === '💎 超出預算' ? !!i.over : szCat === '建議補充' ? /^X/.test(i.id) : i.cat === szCat)).map(i => { const f = i.fitrec; if (!f) return ''; return `<tr>
     <td><b>${i.id}</b></td><td><a href="${i.url}" target="_blank" rel="noopener">${esc(i.name)}</a><br><span class="note">${esc(i.color)}</span></td>
     <td><span class="szbig">${esc(f.A)}</span><br><span class="note">${esc(f.Achart)}</span></td>
     <td><span class="szbig">${esc(f.B)}</span><br><span class="note">${f.Bn ? `${f.Bn} 筆（${esc(f.Brange)}）<br>${esc(f.Bdist)}` : '無同身形評論'}</span></td>
     <td class="szfin"><span class="szbig">${esc(f.final)}</span><br><span class="note">${esc(f.Fchart)}</span><br>${esc(f.why)}</td>
     <td>${f.quotes.map(qHtml).join('') || '<span class="note">—</span>'}<a class="note" href="${f.reviewUrl}" target="_blank" rel="noopener">全部評論 ↗</a></td></tr>`; }).join('') || '<tr><td colspan="6" class="note">購物清單是空的，先在選物區按「加入清單」。</td></tr>';
 }
-const szcats = ['全部','🛒 購物清單','T-shirt','針織衫','襯衫','褲子','外套','建議補充'];
+const szcats = ['全部','🛒 購物清單','T-shirt','針織衫','襯衫','褲子','外套','💎 超出預算','建議補充'];
 $('szFilters').innerHTML = szcats.map(c => `<button data-szc="${c}" class="${c===szCat?'on':''}">${c}</button>`).join('');
 $('szFilters').onclick = e => { const b = e.target.closest('button'); if (!b) return; szCat = b.dataset.szc;
   document.querySelectorAll('#szFilters button').forEach(x => x.classList.toggle('on', x === b)); renderSizing(); };
@@ -904,7 +856,7 @@ $('statItems').textContent = D.items.length;
 $('promo').innerHTML = (D.promo ? D.promo.list : []).map(([t,d]) => `<div><b>🎟 ${esc(t)}</b>${esc(d)}</div>`).join('') + (D.promo ? `<div class="note" style="grid-column:1/-1;border:0;padding:0">MUSINSA 台灣站活動（${D.promo.date} 擷取），結帳前到「優惠券匣」領取；台灣運費 NT$320，滿 NT$6,380 免運，含關稅（DDP）。</div>` : '');
 
 // shop
-const cats = ['全部', '✨ 新加入', 'MUSINSA 台灣站', '代購：29CM', '代購：W Concept', '代購：SSF SHOP', 'T-shirt', '針織衫', '襯衫', '褲子', '外套'];
+const cats = ['全部', '✨ 新加入', '💎 超出預算精選', 'T-shirt', '針織衫', '襯衫', '褲子', '外套'];
 let cur = '全部';
 $('filters').innerHTML = cats.map(c => `<button data-cat="${c}" class="${c===cur?'on':''}">${c}</button>`).join('');
 $('filters').onclick = e => { const b = e.target.closest('button'); if (!b) return; cur = b.dataset.cat;
@@ -912,16 +864,16 @@ $('filters').onclick = e => { const b = e.target.closest('button'); if (!b) retu
 function card(i){
   const o = num(i.orig), p = num(i.price), off = o > p ? Math.round((1 - p / o) * 100) : 0;
   return `<article class="card"><a class="ph" href="${i.url}" target="_blank" rel="noopener">
-    <img src="${i.img}" alt="${esc(i.en)}" loading="lazy"><span class="tag">${i.id}</span>${i.proxy?`<span class="newtag pxtag">代購・${esc(i.proxy)}</span>`:i.isNew?'<span class="newtag">NEW</span>':''}${off?`<span class="off">-${off}%</span>`:''}</a>
+    <img src="${i.img}" alt="${esc(i.en)}" loading="lazy"><span class="tag">${i.id}</span>${i.over?'<span class="newtag overtag">超出預算</span>':i.isNew?'<span class="newtag">NEW</span>':''}${off?`<span class="off">-${off}%</span>`:''}</a>
     <div class="body"><div class="brand">${esc(i.brand)}${i.temp?' · '+i.temp:''}</div><h3>${esc(i.name)}</h3><p class="why">${esc(i.why)}</p>
     <div class="sizebox">${sizeTag(i)}</div><p class="sizewhy">實測：${esc(i.sizeWhy)} cm</p>
     ${fitBox(i)}
     ${qCard(i)}
-    <div class="price"><b>${i.price}</b>${off?`<s>${i.orig}</s>`:''}${i.proxy?'<span class="note"> 韓元換算・未含代購運費</span>':''}</div>
+    <div class="price"><b>${i.price}</b>${off?`<s>${i.orig}</s>`:''}</div>${i.over?`<div class="overnote">💎 ${esc(i.over)}</div>`:''}
     ${krLine(i)}
-    <div class="acts"><a href="${i.url}" target="_blank" rel="noopener">${i.proxy?'商品頁（複製給代購）↗':'去購買 ↗'}</a><button data-add="${i.id}">加入清單</button></div></div></article>`;
+    <div class="acts"><a href="${i.url}" target="_blank" rel="noopener">去購買 ↗</a><button data-add="${i.id}">加入清單</button></div></div></article>`;
 }
-function renderGrid(){ $('grid').innerHTML = D.items.filter(i => cur === '全部' || (cur === '✨ 新加入' ? i.isNew : cur === 'MUSINSA 台灣站' ? !i.proxy : cur.startsWith('代購：') ? i.proxy === cur.slice(3) : i.cat === cur)).map(card).join(''); syncBtns(); }
+function renderGrid(){ $('grid').innerHTML = (cur === '💎 超出預算精選' ? (D.over || []) : D.items.filter(i => cur === '全部' || (cur === '✨ 新加入' ? i.isNew : i.cat === cur))).map(card).join(''); syncBtns(); }
 renderGrid();
 
 // capsule builder
@@ -999,7 +951,7 @@ $('coatList').innerHTML = D.items.filter(i => i.cat === '外套').map(i => `
   <span class="temp">${i.temp}</span><p style="margin:4px 0 8px">${esc(i.why)}</p>
   <div class="sizebox">${sizeTag(i)}</div><p class="sizewhy">實測：${esc(i.sizeWhy)} cm</p>
   <div class="price"><b>${i.price}</b><s>${i.orig}</s></div>${krLine(i)}
-  <div class="acts"><a href="${i.url}" target="_blank" rel="noopener">${i.proxy?'商品頁（複製給代購）↗':'去購買 ↗'}</a><button data-add="${i.id}">加入清單</button></div></div></div>`).join('');
+  <div class="acts"><a href="${i.url}" target="_blank" rel="noopener">去購買 ↗</a><button data-add="${i.id}">加入清單</button></div></div></div>`).join('');
 
 // brands
 $('brandRows').innerHTML = D.brands.map(([n, price, mat, must, url, how, direct], k) => `
@@ -1016,7 +968,7 @@ $('lineShare').onclick = () => { window.open('https://line.me/R/share?text=' + e
 $('copyList').onclick = async () => { const t = listText();
   try { await navigator.clipboard.writeText(t); } catch (e) { const ta = document.createElement('textarea'); ta.value = t; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); }
   $('copyList').textContent = '✓ 已複製，貼到 LINE'; setTimeout(() => $('copyList').textContent = '📋 複製文字', 2000); };
-renderCompare(); renderCart(); renderProxy(); syncBtns();
+renderCompare(); renderCart(); syncBtns();
 })();
 </script>
 </body>
