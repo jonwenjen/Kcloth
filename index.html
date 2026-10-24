@@ -892,6 +892,7 @@ const LAYERS = { base: ['shirt','mid'], shirt: ['mid'], mid: [] };
 const isDenim = i => i && /丹寧|牛仔|Denim|Jean/i.test(i.name + i.en);
 const isStripe = i => i && /條紋|格紋|Stripe|Check/i.test(i.name + i.en + i.color);
 const isWide = i => i && /寬|褶|Wide|Relaxed|鬆緊|Officer/i.test(i.name + i.en);
+const lum = i => { const x = parseInt((i.hex||'#888').slice(1), 16), r = (x>>16&255)/255, g = (x>>8&255)/255, b = (x&255)/255; return .2126*r + .7152*g + .0722*b; };
 const isWarmTone = i => i && (i.a.tone === 'earth' || /奶油|象牙|燕麥|橄欖|摩卡|咖啡|棕|駝|可可/.test(i.color));
 function lookBand(top, layer, pants, coat){
   const parts = [top, layer, pants, coat].filter(Boolean);
@@ -906,8 +907,8 @@ function lookScore(top, layer, pants, coat){
   if (layer && !(LAYERS[top.a.role] || []).includes(layer.a.role)) return -99;
   if (coat && layer && layer.a.role === 'mid' && coat.a.role === 'warm' && coat.a.lo >= 18) s -= 1;
   // colour: contrast top vs pants
-  const fT = face.a.tone, pT = pants.a.tone;
-  if (fT !== pT) s += 2; else s -= 1;
+  const fT = face.a.tone, dl = Math.abs(lum(face) - lum(pants));
+  s += dl > .25 ? 2 : dl > .12 ? 1 : -1;
   if ([top, layer, pants, coat].filter(Boolean).every(i => i.a.tone === 'dark')) s -= 2.5;
   if (isWarmTone(face) || face.a.tone === 'light') s += 1;     // lifts tan skin
   if (/黑/.test(face.color) && !coat) s -= .5;                   // black at face dulls tan skin
@@ -932,7 +933,8 @@ function fitTip(parts){
   if (isWarmTone(face)) t.push('臉部附近是大地／暖色，最襯小麥膚色');
   else if (face.a.tone === 'light') t.push('臉旁淺色提亮膚色');
   else if (/黑/.test(face.color)) t.push('黑色貼臉會顯暗，領口露一點白 T 或配淺色外套');
-  if (face.a.tone !== pants.a.tone) t.push(face.a.tone === 'dark' ? '上深下淺，視覺重心在上、腿顯長' : '上淺下深，收斂下半身與腰腹');
+  const dL = lum(face) - lum(pants);
+  t.push(dL > .12 ? '上淺下深，收斂下半身與腰腹' : dL < -.12 ? '上深下淺，視覺重心在上、腿顯長' : '上下同明度，靠材質（針織／燈芯絨／丹寧）做出層次');
   if ([top, layer, pants, coat].filter(Boolean).every(i => i.a.tone === 'dark')) t.push('全身偏深，用白襪或淺色鞋收尾');
   if (isWide(pants)) t.push('寬褲／打褶褲多留腰臀空間，修飾小腹');
   if (layer) t.push(layer.cat === '襯衫' ? '外層襯衫敞開形成 V 線，修飾 52cm 寬肩' : '內搭領口露出一點，增加層次');
@@ -952,7 +954,7 @@ function cartLooks(max){
       combos.push({ t, ly, p, c, s, band: lookBand(t, ly, p, c) });
     }
   }
-  const BANDS2 = [[22,25,'22–25°C 不穿外套'],[20,24,'20–24°C 薄外層'],[17,22,'17–22°C 外套'],[13,19,'15°C 冷鋒']];
+  const BANDS2 = [[22,25,'22–25°C'],[20,24,'20–24°C'],[17,22,'17–22°C'],[13,19,'15°C 冷鋒']];
   const used = new Map(), out = [], seen = new Set();
   const want = Math.min(max, combos.length);
   let bi = 0, guard = 0;
