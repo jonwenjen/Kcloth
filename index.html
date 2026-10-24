@@ -305,6 +305,12 @@ footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
 
 .overtag{background:#6b4fa0}
 .overnote{font-size:12.5px;line-height:1.5;margin:6px 0;padding:7px 9px;border-radius:8px;border:1.5px dashed #6b4fa0;color:#4b3576;background:rgba(107,79,160,.06)}
+
+.capsrc{margin-top:4px}
+.capsrc button{font-size:15px;padding:11px 18px}
+.cartlook-note{background:var(--card);border:1.5px solid var(--accent);border-radius:12px;padding:12px 16px;margin:0 0 18px;font-size:14px;line-height:1.7}
+.look.gen{border-color:var(--accent)}
+.look.gen .n{color:var(--accent)}
 </style>
 </head>
 <body>
@@ -428,6 +434,8 @@ footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
   <div class="wrap">
     <div class="sec-head"><div><div class="eyebrow">Capsule Wardrobe</div><h2>膠囊衣櫥：自己混搭</h2>
       <p>上衣 × 褲子 × 外套（含不穿）自由組合，數量見上方統計。色系只有 3 組：<b>深色基底</b>（黑／炭灰／深藍）、<b>大地色</b>（咖啡／橄欖／米）、<b>提亮色</b>（白／象牙／淺灰），任意兩組都不衝突。</p></div></div>
+    <div class="seg capsrc" id="capSrc"><button data-cs="all" class="on">全部單品</button><button data-cs="cart">🛒 只用購物清單</button></div>
+    <p class="note" id="capNote" style="margin:8px 0 14px"></p>
     <div class="builder">
       <div class="slot" data-slot="top"><div class="slot-h">上衣</div><div class="slot-pick"></div><div class="slot-row"></div></div>
       <div class="slot" data-slot="layer"><div class="slot-h">疊穿（選填）</div><div class="slot-pick"></div><div class="slot-row"></div></div>
@@ -445,6 +453,7 @@ footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
     <div class="sec-head"><div><div class="eyebrow">30 Looks</div><h2>30 套穿搭，件件互搭</h2>
       <p>依溫度帶分組（篩選按鈕）。點單品圖到商品頁；每件標建議尺寸與顏色，外套可依當天溫度互換。</p></div>
       <div class="filters" id="lookFilters"></div></div>
+    <div id="lookNote"></div>
     <div class="outfits" id="outfits"></div>
   </div>
 </section>
@@ -539,7 +548,7 @@ footer.site{padding:40px 0 60px;color:var(--mute);font-size:13px}
   </footer>
 </aside>
 
-<script src="data.js?v=16"></script>
+<script src="data.js?v=17"></script>
 <script>
 (() => {
 const D = window.KCLOTH;
@@ -557,7 +566,9 @@ const save = () => { localStorage.setItem('kcloth-cart', JSON.stringify(cart)); 
   if (typeof renderAnalyze==='function' && anSrc==='cart') renderAnalyze();
   if (typeof renderSizing==='function' && szCat==='🛒 購物清單') renderSizing();
   if (typeof renderQuality==='function' && qCat==='🛒 購物清單') renderQuality();
-  if (typeof renderPalette==='function' && palCat==='🛒 購物清單') renderPalette(); };
+  if (typeof renderPalette==='function' && palCat==='🛒 購物清單') renderPalette();
+  if (typeof renderBuild==='function' && capSrc==='cart') renderBuild();
+  if (typeof renderLooks==='function' && occ==='🛒 用購物清單搭配') renderLooks(); };
 const toggle = id => { cart = cart.includes(id) ? cart.filter(x => x !== id) : [...cart, id]; save(); };
 const addMany = ids => { ids.forEach(id => { if (!cart.includes(id)) cart.push(id); }); save(); openCart(true); };
 let sel = JSON.parse(localStorage.getItem('kcloth-sel') || '{}');
@@ -876,27 +887,155 @@ function card(i){
 function renderGrid(){ $('grid').innerHTML = (cur === '💎 超出預算精選' ? (D.over || []) : D.items.filter(i => cur === '全部' || (cur === '✨ 新加入' ? i.isNew : i.cat === cur))).map(card).join(''); syncBtns(); }
 renderGrid();
 
+// ---- outfit generator from cart (tan skin + broad shoulder + waist rules) ----
+const LAYERS = { base: ['shirt','mid'], shirt: ['mid'], mid: [] };
+const isDenim = i => i && /丹寧|牛仔|Denim|Jean/i.test(i.name + i.en);
+const isStripe = i => i && /條紋|格紋|Stripe|Check/i.test(i.name + i.en + i.color);
+const isWide = i => i && /寬|褶|Wide|Relaxed|鬆緊|Officer/i.test(i.name + i.en);
+const isWarmTone = i => i && (i.a.tone === 'earth' || /奶油|象牙|燕麥|橄欖|摩卡|咖啡|棕|駝|可可/.test(i.color));
+function lookBand(top, layer, pants, coat){
+  const parts = [top, layer, pants, coat].filter(Boolean);
+  const hi = Math.min(...parts.map(i => i.a.hi));
+  const lo = coat ? coat.a.lo : layer ? Math.min(top.a.lo, layer.a.lo) + 1 : Math.max(top.a.lo, 20);
+  return [lo, Math.max(hi, lo + 2)];
+}
+function lookScore(top, layer, pants, coat){
+  let s = 0;
+  const face = layer || top;                      // piece seen next to the face
+  const upper = [top, layer, coat].filter(Boolean);
+  if (layer && !(LAYERS[top.a.role] || []).includes(layer.a.role)) return -99;
+  if (coat && layer && layer.a.role === 'mid' && coat.a.role === 'warm' && coat.a.lo >= 18) s -= 1;
+  // colour: contrast top vs pants
+  const fT = face.a.tone, pT = pants.a.tone;
+  if (fT !== pT) s += 2; else s -= 1;
+  if ([top, layer, pants, coat].filter(Boolean).every(i => i.a.tone === 'dark')) s -= 2.5;
+  if (isWarmTone(face) || face.a.tone === 'light') s += 1;     // lifts tan skin
+  if (/黑/.test(face.color) && !coat) s -= .5;                   // black at face dulls tan skin
+  if (pants.a.tone === 'light' && fT === 'light' && (!coat || coat.a.tone === 'light')) s -= 1.5; // all-pale washes out
+  // pattern & denim
+  if (upper.filter(isStripe).length + (isStripe(pants) ? 1 : 0) > 1) s -= 2;
+  if (isDenim(pants) && upper.some(isDenim)) s -= 2;
+  // formality coherence
+  const f = [top, layer, pants, coat].filter(Boolean).map(i => i.a.formal);
+  const spread = Math.max(...f) - Math.min(...f); s += spread <= 1 ? 1 : -1.5;
+  // body: wide pants help waist, open layer helps shoulders
+  if (isWide(pants)) s += .5;
+  if (layer && (layer.cat === '襯衫' || /開襟|Cardigan|V 領|V-Neck/i.test(layer.name + layer.en))) s += .5;
+  // quality
+  s += [top, layer, pants, coat].filter(Boolean).reduce((a, i) => a + (i.q.overall - 4) * .6, 0);
+  return s;
+}
+function fitTip(parts){
+  const [top, layer, pants, coat] = parts.length === 4 ? parts : [parts.find(i => TOPC.includes(i.cat)), parts.filter(i => TOPC.includes(i.cat))[1] || null, parts.find(i => i.cat === '褲子'), parts.find(i => i.cat === '外套') || null];
+  if (!top || !pants) return '';
+  const face = layer || top, t = [];
+  if (isWarmTone(face)) t.push('臉部附近是大地／暖色，最襯小麥膚色');
+  else if (face.a.tone === 'light') t.push('臉旁淺色提亮膚色');
+  else if (/黑/.test(face.color)) t.push('黑色貼臉會顯暗，領口露一點白 T 或配淺色外套');
+  if (face.a.tone !== pants.a.tone) t.push(face.a.tone === 'dark' ? '上深下淺，視覺重心在上、腿顯長' : '上淺下深，收斂下半身與腰腹');
+  if ([top, layer, pants, coat].filter(Boolean).every(i => i.a.tone === 'dark')) t.push('全身偏深，用白襪或淺色鞋收尾');
+  if (isWide(pants)) t.push('寬褲／打褶褲多留腰臀空間，修飾小腹');
+  if (layer) t.push(layer.cat === '襯衫' ? '外層襯衫敞開形成 V 線，修飾 52cm 寬肩' : '內搭領口露出一點，增加層次');
+  else if (coat) t.push('外套敞開穿，直線拉長身形');
+  if (!layer && !coat && top.cat === '襯衫') t.push('襯衫前片紮入（front tuck）收腰');
+  return t.slice(0, 3).join('；') + '。';
+}
+function cartLooks(max){
+  const L = cart.map(id => byId[id]).filter(Boolean);
+  const tops = L.filter(i => TOPC.includes(i.cat)), pants = L.filter(i => i.cat === '褲子'), coats = L.filter(i => i.cat === '外套');
+  if (!tops.length || !pants.length) return { tops, pants, coats, looks: [] };
+  const combos = [];
+  for (const t of tops) for (const ly of [null, ...tops]) {
+    if (ly === t) continue;
+    for (const p of pants) for (const c of [null, ...coats]) {
+      const s = lookScore(t, ly, p, c); if (s <= -50) continue;
+      combos.push({ t, ly, p, c, s, band: lookBand(t, ly, p, c) });
+    }
+  }
+  const BANDS2 = [[22,25,'22–25°C 不穿外套'],[20,24,'20–24°C 薄外層'],[17,22,'17–22°C 外套'],[13,19,'15°C 冷鋒']];
+  const used = new Map(), out = [], seen = new Set();
+  const want = Math.min(max, combos.length);
+  let bi = 0, guard = 0;
+  while (out.length < want && guard++ < want * 8) {
+    const [blo, bhi, blab] = BANDS2[bi++ % BANDS2.length];
+    const fits = c => c.band[0] <= blo + 2 && c.band[1] >= bhi - 2 && (blo >= 22 ? !c.c : true) && (blo < 20 ? !!c.c || (c.ly && c.ly.a.role === 'mid') : true);
+    let best = null, bv = -1e9;
+    for (const c of combos) {
+      const key = [c.t.id, c.ly && c.ly.id, c.p.id, c.c && c.c.id].join('|'); if (seen.has(key)) continue;
+      if (!fits(c)) continue;
+      const parts = [c.t, c.ly, c.p, c.c].filter(Boolean);
+      const cov = parts.reduce((a, i) => a + (used.get(i.id) ? -0.9 * used.get(i.id) : 1.6), 0);
+      const v = c.s + cov; if (v > bv) { bv = v; best = c; }
+    }
+    if (!best) continue;
+    seen.add([best.t.id, best.ly && best.ly.id, best.p.id, best.c && best.c.id].join('|'));
+    [best.t, best.ly, best.p, best.c].filter(Boolean).forEach(i => used.set(i.id, (used.get(i.id) || 0) + 1));
+    out.push({ ...best, label: blab });
+  }
+  return { tops, pants, coats, looks: out, used };
+}
+function renderCartLooks(){
+  const r = cartLooks(12);
+  const nC = r.tops.length * (r.tops.length) * r.pants.length * (r.coats.length + 1);
+  if (!cart.length) { $('lookNote').innerHTML = '<p class="note">購物清單是空的，先在選物區按「加入清單」，這裡會自動用清單內的衣服搭配。</p>'; $('outfits').innerHTML = ''; return; }
+  if (!r.looks.length) { $('lookNote').innerHTML = `<p class="note">⚠️ 清單內需要至少 1 件上衣（T 恤／針織／襯衫）和 1 條褲子才能搭配。目前：上衣 ${r.tops.length}、褲子 ${r.pants.length}、外套 ${r.coats.length}。</p>`; $('outfits').innerHTML = ''; return; }
+  const unused = cart.filter(id => !r.used.has(id) && byId[id] && ['T-shirt','針織衫','襯衫','褲子','外套'].includes(byId[id].cat));
+  $('lookNote').innerHTML = `<div class="cartlook-note">依購物清單 <b>${cart.length}</b> 件（上衣 ${r.tops.length}・褲子 ${r.pants.length}・外套 ${r.coats.length}）自動搭出 <b>${r.looks.length}</b> 套，依溫度帶輪替。規則：臉旁用大地／淺色襯小麥膚色、上下明暗對比、避免全身深色與條紋／丹寧重複、正式度一致，並優先讓每件都被用到。${unused.length ? '<br>⚠️ 未用到：' + unused.join('、') + '（顏色或正式度不易搭配，可再加 1 件中性色褲／上衣）' : '<br>✅ 清單內每件都至少出現 1 次'}</div>`;
+  $('outfits').innerHTML = r.looks.map((L, n) => {
+    const parts = [L.t, L.ly, L.p, L.c].filter(Boolean), tot = parts.reduce((s, i) => s + num(i.price), 0);
+    const name = i => i.name.replace(/^[A-Z0-9 '’&.\-]+(?=[\u4e00-\u9fff])/, '').replace(/（.*?）$/, '');
+    return `<article class="look gen"><div class="look-top"><span class="n">C${String(n+1).padStart(2,'0')}</span><span class="occ">${L.label}</span></div>
+      <h3>${esc(name(L.ly || L.t))} × ${esc(name(L.p))}</h3>
+      <div class="look-imgs">${parts.map(i => `<a href="${i.url}" target="_blank" rel="noopener" title="${esc(i.name)}"><img src="${i.img}" alt="" loading="lazy"><span>${i.id}</span></a>`).join('')}</div>
+      <p>👔 ${esc(fitTip([L.t, L.ly, L.p, L.c]))}</p>
+      <ul>${parts.map(i => { const s = selOf(i); return `<li><span>${i.id} ${esc(i.name)}<br><small>尺寸 <b>${esc(s.size)}</b>・<i class="dot" style="display:inline-block;width:9px;height:9px;border-radius:50%;background:${i.hex};border:1px solid rgba(0,0,0,.15)"></i> ${esc(s.color)}</small></span><span>${i.price}</span></li>`}).join('')}</ul>
+      <div class="tot"><span>適合 ${L.band[0]}–${L.band[1]}°C</span><span>${fmt(tot)}</span></div>
+      <button class="addall" data-tobuild="${parts.map(i=>i.id).join(',')}">在膠囊混搭中打開</button></article>`;
+  }).join('');
+}
+document.addEventListener('click', e => { const b = e.target.closest('[data-tobuild]'); if (!b) return;
+  const ids = b.dataset.tobuild.split(',').map(id => byId[id]);
+  capSrc = 'cart'; document.querySelectorAll('#capSrc button').forEach(x => x.classList.toggle('on', x.dataset.cs === 'cart'));
+  pick.top = ids.find(i => TOPC.includes(i.cat)); pick.layer = ids.filter(i => TOPC.includes(i.cat))[1] || null;
+  pick.pants = ids.find(i => i.cat === '褲子'); pick.coat = ids.find(i => i.cat === '外套') || null;
+  renderBuild(); $('capsule').scrollIntoView({ behavior: 'smooth' }); });
+
 // capsule builder
-const pool = {
-  top: D.items.filter(i => ['T-shirt','襯衫','針織衫'].includes(i.cat)),
-  layer: [null, ...D.items.filter(i => ['T-shirt','襯衫','針織衫'].includes(i.cat))],
-  pants: D.items.filter(i => i.cat === '褲子'),
-  coat: [null, ...D.items.filter(i => i.cat === '外套')],
-};
+let capSrc = 'all';
+const TOPC = ['T-shirt','襯衫','針織衫'];
+const pool = {};
+function buildPool(){
+  const src = capSrc === 'cart' ? cart.map(id => byId[id]).filter(Boolean) : D.items;
+  pool.top = src.filter(i => TOPC.includes(i.cat));
+  pool.layer = [null, ...pool.top];
+  pool.pants = src.filter(i => i.cat === '褲子');
+  pool.coat = [null, ...src.filter(i => i.cat === '外套')];
+  const keep = (k, def) => pick[k] && pool[k].includes(pick[k]) ? pick[k] : def;
+  pick.top = keep('top', pool.top[0] || null);
+  pick.layer = keep('layer', null);
+  pick.pants = keep('pants', pool.pants[0] || null);
+  pick.coat = keep('coat', null);
+  const nT = pool.top.length, nP = pool.pants.length, nC = pool.coat.length;
+  $('capNote').innerHTML = capSrc === 'cart'
+    ? (cart.length ? `購物清單：上衣 <b>${nT}</b>・褲子 <b>${nP}</b>・外套 <b>${nC-1}</b> → 可搭 <b>${(nT*nP*nC).toLocaleString()}</b> 種組合${!nT||!nP?'　⚠️ 至少要 1 件上衣和 1 條褲子才能搭配':''}` : '購物清單是空的，先在選物區按「加入清單」。')
+    : `全部單品：上衣 ${nT}・褲子 ${nP}・外套 ${nC-1}`;
+}
 const pick = { top: byId.S1, layer: null, pants: byId.P2, coat: byId.J3 };
 function renderSlot(name){
   const el = document.querySelector(`.slot[data-slot="${name}"]`), it = pick[name];
   el.querySelector('.slot-pick').style.backgroundImage = it ? `url(${it.img})` : 'none';
   el.querySelector('.slot-pick').innerHTML = `<div class="lbl">${it ? `${it.id} ${esc(it.name)}<br>尺寸 ${esc(it.size)}・${esc(it.color)}` : '不穿'}</div>`;
+  if (!pool[name].length) { el.querySelector('.slot-row').innerHTML = '<span class="note">清單內沒有此類單品</span>'; return; }
   el.querySelector('.slot-row').innerHTML = pool[name].map(x => x
     ? `<button title="${esc(x.name)}" data-slotpick="${name}:${x.id}" class="${it&&it.id===x.id?'on':''}" style="background-image:url(${x.img})"></button>`
     : `<button data-slotpick="${name}:" class="${!it?'on':''}">無</button>`).join('');
 }
 function renderBuild(){
+  buildPool();
   Object.keys(pool).forEach(renderSlot);
   const parts = [pick.top, pick.layer, pick.pants, pick.coat].filter(Boolean);
   const tot = parts.reduce((s, i) => s + num(i.price), 0);
-  $('buildSum').innerHTML = `<b>${parts.map(i => i.id).join(' + ')}</b> · ${fmt(tot)}<br><span class="note">${pick.coat ? '外套適合 '+pick.coat.temp : '不穿外套：約 22°C 以上'}</span>`;
+  $('buildSum').innerHTML = parts.length ? `<b>${parts.map(i => i.id).join(' + ')}</b> · ${fmt(tot)}<br><span class="note">${pick.coat ? '外套適合 '+pick.coat.temp : '不穿外套：約 22°C 以上'}</span>${parts.length>=2 ? '<br><span class="note">'+esc(fitTip(parts))+'</span>' : ''}` : '<span class="note">尚未選擇</span>';
 }
 document.querySelector('.builder').addEventListener('click', e => {
   const b = e.target.closest('[data-slotpick]'); if (!b) return;
@@ -906,11 +1045,17 @@ document.querySelector('.builder').addEventListener('click', e => {
 });
 const rnd = a => a[Math.floor(Math.random() * a.length)];
 $('shuffle').onclick = () => {
+  buildPool();
+  if (!pool.top.length || !pool.pants.length) return;
   pick.top = rnd(pool.top);
   const kinds = { 'T-shirt': ['襯衫','針織衫'], '襯衫': ['針織衫'], '針織衫': ['T-shirt','襯衫'] }[pick.top.cat];
-  pick.layer = Math.random() < .6 ? rnd(pool.layer.filter(x => x && kinds.includes(x.cat))) : null;
+  const lay = pool.layer.filter(x => x && kinds.includes(x.cat) && x !== pick.top);
+  pick.layer = lay.length && Math.random() < .6 ? rnd(lay) : null;
   pick.pants = rnd(pool.pants); pick.coat = rnd(pool.coat); renderBuild();
 };
+$('capSrc').onclick = e => { const b = e.target.closest('button'); if (!b) return; capSrc = b.dataset.cs;
+  document.querySelectorAll('#capSrc button').forEach(x => x.classList.toggle('on', x === b));
+  if (capSrc === 'cart') { pick.top = pick.pants = pick.coat = pick.layer = null; } renderBuild(); };
 $('addBuild').onclick = () => addMany([pick.top, pick.layer, pick.pants, pick.coat].filter(Boolean).map(i => i.id));
 renderBuild();
 let palCat = '全部';
@@ -923,13 +1068,16 @@ $('palFilters').onclick = e => { const b = e.target.closest('button'); if (!b) r
   document.querySelectorAll('#palFilters button').forEach(x => x.classList.toggle('on', x === b)); renderPalette(); };
 renderPalette();
 
+
 // outfits
-const occs = ['全部', ...new Set(D.outfits.map(o => o.occ))];
+const occs = ['全部', '🛒 用購物清單搭配', ...new Set(D.outfits.map(o => o.occ))];
 let occ = '全部';
 $('lookFilters').innerHTML = occs.map(c => `<button data-occ="${c}" class="${c===occ?'on':''}">${c}</button>`).join('');
 $('lookFilters').onclick = e => { const b = e.target.closest('button'); if (!b) return; occ = b.dataset.occ;
   document.querySelectorAll('#lookFilters button').forEach(x => x.classList.toggle('on', x === b)); renderLooks(); };
 function renderLooks(){
+  if (occ === '🛒 用購物清單搭配') { renderCartLooks(); return; }
+  $('lookNote').innerHTML = '';
   $('outfits').innerHTML = D.outfits.map((o, n) => [o, n]).filter(([o]) => occ === '全部' || o.occ === occ).map(([o, n]) => {
     const all = o.items.concat(o.coats);
     const tot = all.reduce((s, id) => s + num(byId[id].price), 0);
