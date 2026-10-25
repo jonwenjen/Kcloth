@@ -30,8 +30,13 @@
   const S = {
     month: null, orders: null, wishRepo: null, rules: null, profile: null,
     list: [], removed: [],
-    cat: 'all', sort: 'overall', onlyNew: false, band: null, trendTab: 'now',
+    cat: 'all', sort: 'rank', onlyNew: false, clean: false, band: null, trendTab: 'now', brandTab: 'material',
   };
+  const LV = { 1: ['注意', 'lv1'], 2: ['警告', 'lv2'], 3: ['嚴重', 'lv3'] };
+  const AXES = [['material', '材質'], ['fit', '版型'], ['make', '車工'], ['care', '保養'], ['function', '機能']];
+  const maxLv = (x) => Math.max(0, ...(x.alerts || []).map((a) => a.level));
+  const axisMini = (sc) => `<div class="axmini">${AXES.map(([k, l]) => `<span title="${l} ${esc(sc?.[k] ?? '—')}"><i>${l}</i><b>${esc(sc?.[k] ?? '—')}</b></span>`).join('')}</div>`;
+  const alertList = (al) => (al || []).length ? `<ul class="alerts">${al.slice().sort((a, b) => b.level - a.level).map((a) => `<li class="${LV[a.level]?.[1] || ''}"><span class="lvtag">${LV[a.level]?.[0] || ''}</span>${esc(a.text)}</li>`).join('')}</ul>` : '';
 
   // ---------------------------------------------------------------- utils
   const today = () => { const d = new Date(); return new Date(d.getFullYear(), d.getMonth(), d.getDate()); };
@@ -262,9 +267,12 @@
             ${premiumTag(p)}${budgetTag(it)}
             ${it.is_new ? '<span class="tag solid">本月新進</span>' : ''}
             ${p.global_available === false ? '<span class="tag navy">僅韓國站</span>' : ''}
+            ${maxLv(it) ? `<span class="tag ${LV[maxLv(it)][1]}">${(it.alerts || []).length} 項提醒</span>` : ''}
           </div>
         </div>
       </div>
+      ${axisMini(sc)}
+      ${alertList(it.alerts)}
       <div class="item-actions">
         <button class="btn ${added ? 'added' : 'primary'}" data-add="${esc(it.id)}">${added ? '✓ 已在清單' : '＋ 加入清單'}</button>
         <a class="btn" href="${esc(safeUrl(mainUrl))}" target="_blank" rel="noopener">商品頁</a>
@@ -335,18 +343,25 @@
     for (const it of all) counts[it.cat] = (counts[it.cat] || 0) + 1;
     let list = all.filter((x) => (S.cat === 'all' || x.cat === S.cat) && (!S.onlyNew || x.is_new));
     const price = (x) => x.price?.twd ?? x.price?.krw_twd ?? 1e9;
+    const ax = (k) => (a, b) => (b.scores?.[k] || 0) - (a.scores?.[k] || 0) || (b.scores?.overall || 0) - (a.scores?.overall || 0);
     const sorters = {
-      overall: (a, b) => (b.scores?.overall || 0) - (a.scores?.overall || 0),
+      rank: (a, b) => (b.rank ?? b.scores?.overall ?? 0) - (a.rank ?? a.scores?.overall ?? 0),
+      overall: ax('overall'),
+      material: ax('material'), fit: ax('fit'), make: ax('make'), care: ax('care'), function: ax('function'),
       price: (a, b) => price(a) - price(b),
       premium: (a, b) => (a.price?.premium_pct ?? 999) - (b.price?.premium_pct ?? 999),
+      alerts: (a, b) => maxLv(a) - maxLv(b) || (b.rank || 0) - (a.rank || 0),
     };
-    list = list.slice().sort(sorters[S.sort] || sorters.overall);
+    if (S.clean) list = list.filter((x) => maxLv(x) < 2);
+    list = list.slice().sort(sorters[S.sort] || sorters.rank);
     const cats = ['all', 'tee', 'knit', 'shirt', 'outer', 'pants'].filter((c) => counts[c]);
-    el.innerHTML = `<h2>本月選品</h2><p class="sub">預算：上衣／褲 NT$3,000、外套 NT$5,000（值得的可 +50%，會寫理由）。排雷不過的已移到「剔除」。</p>
+    const warnN = all.filter((x) => maxLv(x) >= 2).length;
+    el.innerHTML = `<h2>本月選品</h2><p class="sub">以評分排序（綜合分扣掉提醒）。條件沒全符合的也會列出，卡片上用「注意／警告」標出程度；只有嚴重問題才移到「剔除」。預算：上衣／褲 NT$3,000、外套 NT$5,000。</p>
       <div class="chips" role="group" aria-label="類別">${cats.map((c) => `<button class="chip" data-cat="${c}" aria-pressed="${S.cat === c}">${c === 'all' ? '全部' : CAT_LABEL[c]} ${counts[c]}</button>`).join('')}
-        <button class="chip" data-new aria-pressed="${S.onlyNew}">只看新進</button></div>
+        <button class="chip" data-new aria-pressed="${S.onlyNew}">只看新進</button>
+        <button class="chip" data-clean aria-pressed="${!!S.clean}">隱藏有警告的 ${warnN}</button></div>
       <div class="toolbar"><label class="small muted" for="sort">排序</label>
-        <select id="sort"><option value="overall">綜合評分</option><option value="price">價格低→高</option><option value="premium">溢價低→高</option></select></div>
+        <select id="sort"><option value="rank">推薦順序</option><option value="overall">綜合評分</option><option value="material">材質</option><option value="fit">版型</option><option value="make">車工</option><option value="care">保養</option><option value="function">機能</option><option value="alerts">提醒少→多</option><option value="price">價格低→高</option><option value="premium">溢價低→高</option></select></div>
       <div class="grid two">${list.map(itemCard).join('') || '<div class="empty">沒有符合的單品</div>'}</div>`;
     $('#sort').value = S.sort;
   }
@@ -354,11 +369,20 @@
   // ---------------------------------------------------------------- brands
   function renderBrands() {
     const el = $('#brands');
-    const bs = S.month?.brands || [];
-    if (!bs.length) { el.innerHTML = '<h2>20 大品牌</h2><div class="empty">首次分析完成後列出 MUSINSA 上最適合你的 20 個男裝品牌、強項與特點。</div>'; return; }
-    el.innerHTML = `<h2>20 大品牌</h2><p class="sub">依你的身形與預算排序，點開看強項、特點與本月入選單品。</p>
-      <div class="card">${bs.map((b) => `<details class="brand-row"><summary><span class="rank">${esc(b.rank)}</span><span><span class="bname">${esc(b.name)}</span><br><span class="bline">${esc(b.strengths)}</span></span><span class="tag">${esc(b.price_band || '')}</span></summary>
+    const lists = { material: S.month?.brands || [], premium: S.month?.brands_premium || [] };
+    if (!lists.material.length) { el.innerHTML = '<h2>品牌</h2><div class="empty">分析完成後列出品牌排名。</div>'; return; }
+    const tab = lists[S.brandTab]?.length ? S.brandTab : 'material';
+    const bs = lists[tab];
+    const desc = tab === 'material'
+      ? '以材質為第一優先（材質 40%、車工 20%、保養 20%、版型 10%、機能 10%）。'
+      : '高檔或以名品單品著稱的品牌（材質 30%、車工 30%、版型 15%、保養 15%、機能 10%），多數超出預算，挑一兩件長期投資。';
+    el.innerHTML = `<h2>品牌排名</h2>
+      <div class="chips" role="group" aria-label="品牌清單"><button class="chip" data-btab="material" aria-pressed="${tab === 'material'}">材質優先 20 大</button>${lists.premium.length ? `<button class="chip" data-btab="premium" aria-pressed="${tab === 'premium'}">高檔／名品 20 大</button>` : ''}</div>
+      <p class="sub">${desc}右側為綜合分，下方五項指標供參考。</p>
+      <div class="card">${bs.map((b) => `<details class="brand-row"><summary><span class="rank">${esc(b.rank)}</span><span><span class="bname">${esc(b.name)}</span><br><span class="bline">${esc(b.strengths)}</span>${b.scores ? axisMini(b.scores) : ''}</span><span class="bscore">${b.scores?.weighted != null ? `<b>${esc(b.scores.weighted)}</b><small>綜合</small>` : ''}<span class="tag">${esc(b.price_band || '')}</span></span></summary>
         <div class="brand-body">
+          ${b.scores_note ? `<p><b>評分依據</b>${esc(b.scores_note)}</p>` : ''}
+          ${b.signature ? `<p><b>代表單品</b>${esc(b.signature)}</p>` : ''}
           <p><b>特點</b>${esc(b.features)}</p>
           <p><b>適合你的</b>${esc(b.for_robin)}</p>
           ${b.change ? `<p><b>本月</b>${esc(b.change)}</p>` : ''}
@@ -530,6 +554,8 @@
     else if (t.dataset.remove) toggleList(t.dataset.remove);
     else if (t.dataset.cat) { S.cat = t.dataset.cat; renderPicks(); }
     else if ('new' in t.dataset) { S.onlyNew = !S.onlyNew; renderPicks(); }
+    else if ('clean' in t.dataset) { S.clean = !S.clean; renderPicks(); }
+    else if (t.dataset.btab) { S.brandTab = t.dataset.btab; renderBrands(); }
     else if (t.dataset.band) { S.band = t.dataset.band; renderOutfits(); }
     else if (t.dataset.trend) { S.trendTab = t.dataset.trend; renderTrends(); }
     else if ('sync' in t.dataset) syncIssue();

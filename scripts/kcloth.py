@@ -94,22 +94,123 @@ def derive_item(it, month, R):
             price["premium_pct"] = round((price["twd"] / (krw * fx) - 1) * 100, 1)
             price["premium_flag"] = price["premium_pct"] >= R["premium"]["warn_pct"]
     cat = it.get("cat")
-    if cat in R["categories"] and price.get("twd"):
+    ref = price.get("twd") or price.get("krw_twd")   # 沒上 Global 時用韓國站換算價判斷預算
+    if cat in R["categories"] and ref:
         cap = R["budget_twd"][R["categories"][cat]["budget"]]
         cap_max = round(cap * (1 + R["budget_twd"]["stretch_pct"] / 100))
-        over = price["twd"] - cap
+        over = ref - cap
         it["budget"] = {
             "cap": cap,
             "cap_max": cap_max,
             "over_pct": round(over / cap * 100, 1) if over > 0 else 0,
-            "status": "ok" if over <= 0 else ("stretch" if price["twd"] <= cap_max else "over"),
+            "status": "ok" if over <= 0 else ("stretch" if ref <= cap_max else "over"),
             "reason": it.get("budget_reason"),
         }
     sc = it.get("scores", {})
     vals = [sc[a] for a in SCORE_AXES if isinstance(sc.get(a), (int, float))]
     if vals:
         sc["mean"] = round(sum(vals) / len(vals), 2)
+    it["alerts"] = alerts_for(it, R) + [a for a in it.get("alerts_manual", [])]
+    pen = {int(k): (v.get("penalty") or 0) for k, v in R["selection"]["levels"].items()}
+    if isinstance(sc.get("overall"), (int, float)):
+        it["rank"] = round(sc["overall"] - sum(pen.get(a["level"], 0) for a in it["alerts"]), 2)
     return it
+
+
+def _level(value, levels):
+    """levels = [[門檻, 等級], ...]（遞增）；回傳 value 超過的最高等級，沒超過回傳 0。"""
+    lv = 0
+    for th, l in levels:
+        if value > th:
+            lv = l
+    return lv
+
+
+def alerts_for(it, R):
+    """依 rules.json severity 產生分級提醒（1 注意／2 警告／3 嚴重）。每條都寫出程度。"""
+    V = R["severity"]
+    S = R["review_screen"]
+    out = []
+    add = lambda lv, code, text: lv and out.append({"level": lv, "code": code, "text": text})
+    cat = it.get("cat")
+    sc = it.get("screen", {}) or {}
+    fetched = sc.get("fetched") or 0
+    size = it.get("size", {}) or {}
+    body_n = (size.get("reviews_body") or {}).get("n") or 0
+
+    # 評論排雷（多人反應才嚴重）
+    neg = V["review_negative"]
+    by = sc.get("neg_by") or {}
+    hits = sum(by.values()) if by else round((sc.get("neg_pct") or 0) * fetched / 100)
+    detail = "、".join(f"{lab} {by.get(k, 0)} 則" for k, lab in (("shrink", "縮水"), ("pilling", "起毛球"), ("neck", "領口鬆垮")) if by.get(k))
+    p = sc.get("neg_pct") or 0
+    if fetched >= S["negative"]["min_sample"] and p > neg["warn_pct"]:
+        severe = p >= neg["severe_pct"] and hits >= neg["severe_min_hits"]
+        add(3 if severe else 2, "neg", f"1–3 星負評 {p}%（{fetched} 則中 {hits} 則：{detail or '縮水／起毛球／領口'}）{'，多人反應' if hits >= neg['severe_min_hits'] else ''}")
+    pb = sc.get("neg_body_pct") or 0
+    if body_n >= S["negative"]["body_min_sample"] and pb > neg["warn_pct"]:
+        add(2, "neg_body", f"同身形負評 {pb}%（{body_n} 則同身形）")
+    if cat in S["clingy"]["applies_to"]:
+        c, cv = sc.get("clingy_pct") or 0, V["review_clingy"]
+        if c > cv["warn_pct"]:
+            n = round(c * fetched / 100)
+            add(3 if c >= cv["severe_pct"] and n >= cv["severe_min_hits"] else 2, "clingy", f"貼身／顯肚評論 {c}%（約 {n} 人提到）")
+    if cat in S["thin"]["applies_to"]:
+        t, tv = sc.get("thin_pct") or 0, V["review_thin"]
+        if t > tv["warn_pct"]:
+            n = round(t * fetched / 100)
+            add(3 if t >= tv["severe_pct"] and n >= tv["severe_min_hits"] else 2, "thin", f"薄透評論 {t}%（約 {n} 人提到）")
+        if sc.get("thickness") in S["thin"]["material_fail"]["두께"]:
+            add(tv["material_thin_level"], "thin_label", f"商品標示厚度「{sc['thickness']}」（薄）")
+    if fetched < S["negative"]["min_sample"]:
+        add(V["sample"]["few_reviews"], "few_reviews", f"評論只有 {fetched} 則，耐穿度判斷信心低")
+    if body_n < 10:
+        add(V["sample"]["few_body"], "few_body", f"同身形評論只有 {body_n} 則")
+
+    # 預算、溢價
+    b = it.get("budget")
+    if b and b.get("over_pct"):
+        add(_level(b["over_pct"], V["budget"]["levels"]), "budget",
+            f"超出預算 {b['over_pct']}%（NT${(it['price'].get('twd') or it['price'].get('krw_twd')):,} ／上限 NT${b['cap']:,}）" + (f"：{it['budget_reason']}" if it.get("budget_reason") else ""))
+    if (it.get("price") or {}).get("global_available") is False:
+        add(1, "kr_only", "Global 台灣站沒有上架，只能韓國站代購（價格以韓國站換算）")
+    pr = (it.get("price") or {}).get("premium_pct")
+    if pr is not None:
+        add(_level(pr, V["premium"]["levels"]), "premium", f"Global 比韓國站貴 {pr}%")
+
+    # 版型
+    fit = it.get("fit", {}) or {}
+    bans = V["bans"]
+    chart = size.get("chart") or {}
+    if fit.get("shoulder_type") == "raglan":
+        add(bans["raglan"], "raglan", "連肩袖：肩線沒有支撐，會貼合 44cm 窄肩")
+    if cat in TOPS:
+        hc = R["fit"].get("hem_cinch")
+        gap = round(chart["chest"] - chart["hem"], 1) if chart.get("hem") and chart.get("chest") else None
+        if gap is not None and hc and gap > hc["max_gap_cm"]:
+            add(3 if gap >= bans["hem_cinch_severe_gap"] else bans["ribbed_hem"], "hem", f"下擺收口：下擺 {chart['hem']}cm 比胸寬 {chart['chest']}cm 窄 {gap}cm")
+        elif fit.get("hem") == "ribbed":
+            add(bans["ribbed_hem"], "hem", "羅紋收口下擺（照片判斷）")
+    if cat == "pants" and fit.get("leg") in ("slim", "skinny", "slim-tapered"):
+        add(bans["slim_tapered"], "slim", "Slim／Skinny 褲型：小腿收太緊")
+    if cat == "pants" and chart.get("rise") is not None and chart["rise"] < 28:
+        add(3 if chart["rise"] < bans["low_rise_severe_cm"] else bans["low_rise"], "low_rise", f"前襠 {chart['rise']}cm 偏低（< 28），肚子會壓在褲頭上")
+    if cat == "outer" and fit.get("zip") is True and fit.get("two_way_zip") is False:
+        add(bans["one_way_zip"], "zip", "單向拉鍊（無法做倒 V）")
+    labels = {"shoulder": "肩寬", "chest": "胸寬", "length": "褲長" if cat == "pants" else "衣長", "rise": "前襠", "thigh": "大腿", "leg_opening": "褲腳", "waist": "腰"}
+    if not chart:
+        add(1, "no_chart", "尺寸表沒有實測數字，尺寸以同身形評論判斷")
+    for k, rg in R["fit"]["ranges"].get(cat, {}).items():
+        v = chart.get(k)
+        if v is None and k == "leg_opening":
+            v = chart.get("hem")
+        if v is None:
+            continue
+        dev = round(rg[0] - v if v < rg[0] else v - rg[1], 1)
+        if dev > 0:
+            add(_level(dev - 0.001, V["fit_range"]["levels"]) or 1, f"fit_{k}",
+                f"{labels.get(k, k)} {v}cm {'少' if v < rg[0] else '多'} {dev}cm（規則 {rg[0]}–{rg[1]}）")
+    return out
 
 
 # ---------------------------------------------------------------- validate
@@ -141,72 +242,21 @@ def check_item(it, idx, month, R, rep):
         rep.err(where, "沒有任何價格")
     if price.get("twd") and not price.get("krw"):
         rep.warn(where, "缺韓國站價格，無法計算溢價")
+    # 分級提醒（derive_item 已算好）：第 3 級不能留在 items；第 2 級必須在 comment 或 fit.note 交代
+    fit = it.get("fit", {}) or {}
+    for a in it.get("alerts", []):
+        if a["level"] >= 3:
+            rep.err(where, f"嚴重：{a['text']} → 移到 excluded")
+        elif a["level"] == 2:
+            rep.warn(where, f"警告：{a['text']}")
+    if any(a["level"] == 2 for a in it.get("alerts", [])) and not (fit.get("note") or it.get("comment")):
+        rep.err(where, "有警告級提醒，comment 或 fit.note 要說明")
     b = it.get("budget")
-    if b:
-        if b["status"] == "over":
-            rep.err(where, f"NT${price['twd']} 超過上限 {b['cap']} 的 150%（{b['cap_max']}）")
-        elif b["status"] == "stretch" and not (it.get("budget_reason") or "").strip():
-            rep.err(where, f"超出預算 {b['over_pct']}%，必須寫 budget_reason（加價理由）")
-    if price.get("premium_flag"):
-        rep.warn(where, f"Global 溢價 {price['premium_pct']}% ≥ {R['premium']['warn_pct']}%（網站會標紅）")
-
-    # 排雷
-    S = R["review_screen"]
-    sc = it.get("screen", {})
-    fetched = sc.get("fetched") or 0
-    body_n = (it.get("size", {}).get("reviews_body") or {}).get("n") or 0
-    neg_max = S["negative"]["max_pct"]
-    if fetched >= S["negative"]["min_sample"] and (sc.get("neg_pct") or 0) > neg_max:
-        rep.err(where, f"負評排雷 {sc['neg_pct']}% > {neg_max}% → 移到 excluded")
-    if body_n >= S["negative"]["body_min_sample"] and (sc.get("neg_body_pct") or 0) > neg_max:
-        rep.err(where, f"體型樣本負評 {sc['neg_body_pct']}% > {neg_max}% → 移到 excluded")
-    if cat in S["clingy"]["applies_to"] and (sc.get("clingy_pct") or 0) > S["clingy"]["max_pct"]:
-        rep.err(where, f"貼身顯肚 {sc['clingy_pct']}% > {S['clingy']['max_pct']}% → 移到 excluded")
-    if cat in S["thin"]["applies_to"] and (sc.get("thin_pct") or 0) > S["thin"]["max_pct"]:
-        rep.err(where, f"薄透 {sc['thin_pct']}% > {S['thin']['max_pct']}% → 移到 excluded")
-    if cat in S["thin"]["applies_to"] and sc.get("thickness") in S["thin"]["material_fail"]["두께"]:
-        rep.err(where, f"商品標示두께={sc['thickness']}（薄）→ 移到 excluded")
-    if fetched < S["negative"]["min_sample"]:
-        rep.warn(where, f"評論只抓到 {fetched} 則，耐穿度判斷信心低")
-    if body_n < 10:
-        rep.warn(where, f"同身形評論只有 {body_n} 則")
-
-    # 版型
-    fit = it.get("fit", {})
-    if fit.get("shoulder_type") == "raglan":
-        rep.err(where, "連肩袖 Raglan 禁用")
-    if cat in TOPS and fit.get("hem") == "ribbed":
-        rep.err(where, "上衣下擺緊羅紋收口禁用")
-    if cat == "pants" and fit.get("leg") in ("slim", "skinny", "slim-tapered"):
-        rep.err(where, "Slim／Skinny 褲型禁用")
-    if cat == "outer" and fit.get("zip") is True and fit.get("two_way_zip") is False:
-        rep.err(where, "拉鍊外套必須是雙向拉鍊")
+    if b and b.get("over_pct") and not (it.get("budget_reason") or "").strip():
+        rep.warn(where, f"超出預算 {b['over_pct']}%，建議寫 budget_reason（加價理由）")
     size = it.get("size", {})
     if cat in TOPS | {"outer"} and size.get("pick") not in (None, "L", "2", "100") and not fit.get("note"):
         rep.warn(where, f"上衣基準是 L，推薦 {size.get('pick')} 需在 fit.note 說明")
-    rng = R["fit"]["ranges"].get(cat, {})
-    chart = size.get("chart") or {}
-    hc = R["fit"].get("hem_cinch")
-    if hc and cat in hc["applies_to"] and chart.get("hem") and chart.get("chest"):
-        gap = round(chart["chest"] - chart["hem"], 1)
-        if gap > hc["max_gap_cm"]:
-            rep.err(where, f"下擺 {chart['hem']}cm 比胸寬 {chart['chest']}cm 小 {gap}cm（> {hc['max_gap_cm']}）= 收口下擺 → 移到 excluded")
-    for k, r in rng.items():
-        v = chart.get(k)
-        if v is None and k == "leg_opening":
-            v = chart.get("hem")
-        if v is None:
-            if cat == "pants" and k in ("rise", "leg_opening"):
-                rep.warn(where, f"尺寸表缺 {k}，請在 fit.note 估計")
-            continue
-        if not in_range(v, r):
-            msg = f"{k} {v}cm 不在 {r[0]}–{r[1]}cm"
-            if fit.get("note"):
-                rep.warn(where, msg + "（已有 fit.note 說明）")
-            else:
-                rep.warn(where, msg + "，請在 fit.note 說明為何仍推薦")
-    if cat == "pants" and chart.get("rise") is not None and chart["rise"] < 28:
-        rep.err(where, f"前襠 {chart['rise']}cm < 28cm 低腰禁用")
 
     # 評分
     scores = it.get("scores", {})
@@ -230,14 +280,34 @@ def validate_month(month, R, rep):
             rep.err("month", f"缺少 {key}")
     if not month.get("fx", {}).get("twd_per_krw"):
         rep.err("fx", "缺 twd_per_krw 匯率")
-    brands = month.get("brands", [])
-    if len(brands) != 20:
-        rep.warn("brands", f"品牌 {len(brands)} 個，目標是 20")
-    for i, b in enumerate(brands):
-        for key in ["name", "strengths", "features", "for_robin"]:
-            if not b.get(key):
-                rep.err(f"brands[{i}] {b.get('name', '?')}", f"缺 {key}")
+    BR = R.get("brands", {})
+    for key, conf in (("brands", BR.get("material_top")), ("brands_premium", BR.get("premium_top"))):
+        lst = month.get(key, [])
+        want = (conf or {}).get("count", 20)
+        if len(lst) != want:
+            rep.warn(key, f"品牌 {len(lst)} 個，目標是 {want}")
+        w = (conf or {}).get("weights")
+        for i, b in enumerate(lst):
+            where = f"{key}[{i}] {b.get('name', '?')}"
+            for k in ["name", "strengths", "features", "for_robin"]:
+                if not b.get(k):
+                    rep.err(where, f"缺 {k}")
+            sc = b.get("scores") or {}
+            if w:
+                miss = [a for a in SCORE_AXES if not isinstance(sc.get(a), (int, float))]
+                if miss:
+                    rep.err(where, f"品牌五項指標缺 {miss}")
+                else:
+                    sc["weighted"] = round(sum(sc[a] * w.get(a, 0) for a in SCORE_AXES), 2)
+                    if not isinstance(sc.get("overall"), (int, float)):
+                        sc["overall"] = round(sc["weighted"] * 2) / 2
+        if w and lst and all(isinstance((b.get("scores") or {}).get("weighted"), (int, float)) for b in lst):
+            lst.sort(key=lambda b: (-b["scores"]["weighted"], -b["scores"]["material"]))
+            for i, b in enumerate(lst):
+                b["rank"] = i + 1
     items = month.get("items", [])
+    if len(items) > R.get("selection", {}).get("max_items", 100):
+        rep.err("items", f"{len(items)} 件超過上限 {R['selection']['max_items']}")
     ids = [it.get("id") for it in items]
     dup = {x for x in ids if ids.count(x) > 1}
     if dup:
@@ -245,6 +315,7 @@ def validate_month(month, R, rep):
     for i, it in enumerate(items):
         derive_item(it, month, R)
         check_item(it, i, month, R, rep)
+    items.sort(key=lambda it: (-(it.get("rank") or 0), -((it.get("scores") or {}).get("mean") or 0)))
     for i, ex in enumerate(month.get("excluded", [])):
         if not ex.get("reasons"):
             rep.err(f"excluded[{i}]", "缺剔除理由")

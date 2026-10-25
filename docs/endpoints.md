@@ -10,8 +10,9 @@
 ## 先看這裡（2026-10 月報實測）
 
 - **一個 `global.musinsa.com` 分頁就能抓全部**：台灣 IP 開 `www.musinsa.com` 常被導到 Global，但下面的韓國站 API 都允許從 Global 分頁跨域 `fetch`。
+- 面板在背景時 `setTimeout` 會被節流（1 秒～1 分鐘），計時請用 MessageChannel（collect.js 的 sleep 已改）。
 - `javascript_tool` 每次最多 45 秒：大量抓取要「丟到背景跑、結果存在 `window`、之後再讀」，例如 `window.SCR`＋佇列（見 run-log 2026-10）。
-- 韓國站評論 API 抓太多（約 400 次請求）會被暫時封鎖，症狀是 `TypeError: Failed to fetch`、評論頁顯示「서비스 연결이 지연되고 있습니다」。
+- 韓國站評論 API **依序、間隔 250ms** 抓 2,500 次都沒問題；5 併發約 400 次就會被暫時封鎖，症狀是 `TypeError: Failed to fetch`、評論頁顯示「서비스 연결이 지연되고 있습니다」。
   `KC.item` 會自動改用 **Global 評論 API**（同批韓國評論的英文機器翻譯，含身高體重、購買尺寸），並套用 `rules.json review_screen.fallback_en` 的英文關鍵字；門檻不變。
   校正：MUSINSA STANDARD 重磅長袖 T（1864004）韓文 600 則負評 0.8%、英文 422 則 0.7%，結果一致。
 - 結構化搜尋用 `KC.list`（`api.musinsa.com/api2/dp/v1/plp/goods`），直接拿到品名、價格、評論數，比解析搜尋頁 HTML 好用。

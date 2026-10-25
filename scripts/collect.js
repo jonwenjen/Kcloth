@@ -18,7 +18,7 @@
  */
 (() => {
   const KC = (window.KC = window.KC || {});
-  KC.version = '2026-10-25.2';
+  KC.version = '2026-10-25.4';
 
   const MEASURE = {
     '총장': 'length', '어깨너비': 'shoulder', '가슴단면': 'chest', '소매길이': 'sleeve',
@@ -33,7 +33,13 @@
   };
 
   // 連續抓太快會出現 TypeError: Failed to fetch／429：自動重試 4 次（1.5s、3s、6s 退避）
-  const sleep = (ms) => new Promise((ok) => setTimeout(ok, ms));
+  // 內建瀏覽器面板在背景時 setTimeout 會被節流到 1 秒～1 分鐘；改用 MessageChannel 計時（不受背景節流）
+  const sleep = (ms) => new Promise((ok) => {
+    const t0 = performance.now();
+    const ch = new MessageChannel();
+    ch.port1.onmessage = () => { if (performance.now() - t0 >= ms) { ch.port1.close(); ok(); } else ch.port2.postMessage(0); };
+    ch.port2.postMessage(0);
+  });
   const getJSON = async (url, tries = 4) => {
     for (let i = 0; ; i++) {
       try {
@@ -89,7 +95,7 @@
       total = j.data.totalCount ?? total;
       out.push(...(j.data.list || []));
       if (!j.data.hasNextPage) break;
-      if (!document.hidden) await sleep(120);   // 分頁隱藏時瀏覽器會把計時器節流到 1 秒～1 分鐘，乾脆不睡
+      await sleep(120);
     }
     return {
       lang: 'en', source: 'global-review(en)', total,
@@ -102,28 +108,41 @@
     };
   }
 
+  // 韓國站評論為主（Robin 指定）。被擋時冷卻 cooldown_ms 後自動再試韓國站，冷卻期間才用 Global 英譯備援。
+  const PG = () => cfg().review_screen.pages || { screen: 10, size: 30, min_interval_ms: 250, cooldown_ms: 180000 };
+  KC.krBlockedUntil = KC.krBlockedUntil || 0;
+  let lastKr = 0;
+  const krGet = async (url) => {   // 韓國站請求節流：兩次請求至少間隔 min_interval_ms
+    const wait = lastKr + PG().min_interval_ms - Date.now();
+    if (wait > 0) await sleep(wait);
+    lastKr = Date.now();
+    return getJSON(url, 2);
+  };
+
   async function reviews(goodsNo, pages) {
-    if (KC.reviewSource === 'global') return reviewsGlobal(goodsNo, pages);
-    try {
-      return await reviewsKr(goodsNo, pages);
-    } catch (e) {
-      if (!location.hostname.endsWith('global.musinsa.com')) throw e;
-      KC.reviewSource = 'global';   // 本工作階段後續都走 Global，避免一直撞牆
-      return reviewsGlobal(goodsNo, pages);
+    const forceGlobal = KC.reviewSource === 'global';
+    if (!forceGlobal && Date.now() >= KC.krBlockedUntil) {
+      try {
+        return await reviewsKr(goodsNo, pages);
+      } catch (e) {
+        if (!location.hostname.endsWith('global.musinsa.com')) throw e;
+        KC.krBlockedUntil = Date.now() + PG().cooldown_ms;
+        KC.krBlocks = (KC.krBlocks || 0) + 1;
+      }
     }
+    return reviewsGlobal(goodsNo, pages);
   }
 
   async function reviewsKr(goodsNo, pages) {
     const base = `https://goods.musinsa.com/api2/review/v1/view/list?pageSize=20&goodsNo=${goodsNo}&sort=new&myFilter=false&hasPhoto=false&isExperience=false`;
-    const first = await getJSON(`${base}&page=0`);
-    if (!first.data) return { list: [], total: 0 };
+    const first = await krGet(`${base}&page=0`);
+    if (!first.data) return { lang: 'ko', source: 'musinsa-review(ko)', list: [], total: 0 };
     const totalPages = first.data.page?.totalPages || 1;
     const n = Math.min(pages, totalPages);
     const out = [...first.data.list];
-    for (let p = 1; p < n; p += 5) {
-      const batch = [];
-      for (let q = p; q < Math.min(p + 5, n); q++) batch.push(getJSON(`${base}&page=${q}`).catch(() => null));
-      for (const res of await Promise.all(batch)) if (res?.data?.list) out.push(...res.data.list);
+    for (let p = 1; p < n; p++) {   // 依序抓（不併發），避免觸發封鎖
+      const res = await krGet(`${base}&page=${p}`);
+      if (res?.data?.list) out.push(...res.data.list);
     }
     return {
       lang: 'ko', source: 'musinsa-review(ko)',
@@ -144,7 +163,8 @@
     const C = cfg();
     let S = C.review_screen;
     const cat = opts.cat || null;
-    const pages = opts.pages || 30;
+    // 排雷先抓 10 頁；要估尺寸（opts.size=true）才抓到 30 頁
+    const pages = opts.pages || (opts.size ? PG().size : PG().screen);
 
     const [g, size, ess] = await Promise.all([
       getJSON(`https://goods-detail.musinsa.com/api2/goods/${goodsNo}`),
@@ -290,6 +310,7 @@
           if (KEEP_SIZES.some((s) => key === s || key.startsWith(s + '(') || key.endsWith('(' + s + ')'))) chart[k] = v;
         }
         rows.push({
+          src: a.reviews.source, by: a.reviews.neg.by, img: a.img,
           no: a.goodsNo, brand: a.brand, name: a.name, en: a.nameEn,
           krw: a.krw.final, normal: a.krw.normal, oos: a.outOfStock,
           rating: a.rating.score, n: a.rating.count,

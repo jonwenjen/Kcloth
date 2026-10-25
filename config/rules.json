@@ -1,6 +1,136 @@
 {
-  "version": "2026-10-25.3",
-  "about": "每月分析的硬性規則。scripts/kcloth.py validate 會依此檢查；PLAYBOOK.md 說明為什麼。規則改動要寫進 docs/run-log.md。",
+  "version": "2026-10-25.4",
+  "about": "每月分析規則。2026-10-25 Robin 指示：選品以評分為主、件數不限（≤100）；條件不符不再直接剔除，改成分級提醒並寫出程度，只有第 3 級「嚴重」才剔除。scripts/kcloth.py 依 severity 計算提醒與排序。規則改動要寫進 docs/run-log.md。",
+  "selection": {
+    "max_items": 100,
+    "sort": "rank = overall − Σ(提醒扣分)；同分比五項平均",
+    "levels": {
+      "1": {
+        "label": "注意",
+        "penalty": 0.1
+      },
+      "2": {
+        "label": "警告",
+        "penalty": 0.3
+      },
+      "3": {
+        "label": "嚴重（剔除）",
+        "penalty": null
+      }
+    },
+    "about": "每條提醒都要寫出程度（幾 %、幾人反應、超出幾 cm／幾 %）。第 3 級才移到 excluded。"
+  },
+  "severity": {
+    "review_negative": {
+      "warn_pct": 5,
+      "severe_pct": 12,
+      "severe_min_hits": 8,
+      "about": "1–3 星中縮水／起毛球／領口鬆垮 ÷ 抓取則數：> 5% 警告；≥ 12% 且至少 8 則（多人反應）才剔除；同身形樣本 ≥ 20 則時同樣門檻"
+    },
+    "review_clingy": {
+      "warn_pct": 10,
+      "severe_pct": 25,
+      "severe_min_hits": 8
+    },
+    "review_thin": {
+      "warn_pct": 15,
+      "severe_pct": 35,
+      "severe_min_hits": 8,
+      "material_thin_level": 2
+    },
+    "budget": {
+      "levels": [
+        [
+          0,
+          1
+        ],
+        [
+          50,
+          2
+        ],
+        [
+          100,
+          3
+        ]
+      ],
+      "about": "超出上限 0–50% 注意、50–100% 警告、> 100% 嚴重剔除"
+    },
+    "premium": {
+      "levels": [
+        [
+          20,
+          1
+        ],
+        [
+          50,
+          2
+        ]
+      ],
+      "about": "Global 比韓國站貴 ≥ 20% 注意、≥ 50% 警告（不剔除）"
+    },
+    "fit_range": {
+      "levels": [
+        [
+          0,
+          1
+        ],
+        [
+          2.5,
+          2
+        ],
+        [
+          8,
+          3
+        ]
+      ],
+      "about": "超出尺寸範圍的公分數：≤ 2.5cm 注意、2.5–8cm 警告、> 8cm 嚴重"
+    },
+    "bans": {
+      "raglan": 2,
+      "ribbed_hem": 2,
+      "hem_cinch_severe_gap": 15,
+      "slim_tapered": 2,
+      "low_rise": 2,
+      "low_rise_severe_cm": 25,
+      "one_way_zip": 1,
+      "thin_soft": 2
+    },
+    "sample": {
+      "few_reviews": 1,
+      "few_body": 1
+    }
+  },
+  "brands": {
+    "axes": [
+      "material",
+      "fit",
+      "make",
+      "care",
+      "function"
+    ],
+    "material_top": {
+      "count": 20,
+      "about": "以材質為第一優先：面料成分、磅數／織法、產地、評論中的保養表現",
+      "weights": {
+        "material": 0.4,
+        "make": 0.2,
+        "care": 0.2,
+        "fit": 0.1,
+        "function": 0.1
+      }
+    },
+    "premium_top": {
+      "count": 20,
+      "about": "高檔或以名品單品著稱的品牌（MUSINSA 可買）",
+      "weights": {
+        "material": 0.3,
+        "make": 0.3,
+        "fit": 0.15,
+        "care": 0.15,
+        "function": 0.1
+      }
+    }
+  },
   "categories": {
     "tee": {
       "label": "T 恤",
@@ -45,7 +175,13 @@
         77
       ]
     },
-    "sample": "最新評論起抓，最多 600 則（每頁 20 則 × 30 頁）",
+    "sample": "韓國站評論為主：排雷先抓最新 10 頁（200 則）；入圍單品估尺寸時再抓到 30 頁（600 則）。請求間隔 ≥ 250ms；被擋時冷卻 3 分鐘後再試韓國站，期間才用 Global 英譯評論備援。",
+    "pages": {
+      "screen": 10,
+      "size": 30,
+      "min_interval_ms": 250,
+      "cooldown_ms": 180000
+    },
     "negative": {
       "grades": [
         1,
@@ -127,6 +263,30 @@
         "배가 보",
         "뱃살",
         "clingy"
+      ],
+      "negations": [
+        "몸매 부각 없",
+        "몸매 부각이 없",
+        "몸매가 드러나지 않",
+        "달라붙지 않",
+        "달라붙지않",
+        "안 달라붙",
+        "붙지 않",
+        "붙지않",
+        "안 붙",
+        "배가 보이지 않",
+        "배가 안 보",
+        "배가 드러나지 않",
+        "뱃살 커버",
+        "뱃살커버",
+        "뱃살 가려",
+        "뱃살을 가려",
+        "뱃살이 가려",
+        "뱃살도 가려",
+        "뱃살 가리",
+        "뱃살을 가리",
+        "뱃살이 안 보",
+        "뱃살 안 보"
       ]
     },
     "thin": {
@@ -425,7 +585,7 @@
         ]
       }
     },
-    "range_policy": "超出範圍是警告：必須在 fit.note 寫出為何仍推薦（例如襯衫下擺、日系 Size 2 結構肩 47.5cm）。",
+    "range_policy": "超出範圍依 severity.fit_range 分級提醒（寫出超出幾 cm），不直接剔除；> 8cm 才算嚴重。",
     "bans": {
       "raglan": "連肩袖（래글런/라글란/Raglan）一律剔除：肩線沒支撐，會貼合 44cm 窄肩並凸顯腰圍",
       "ribbed_hem": "上衣下擺緊羅紋收口（밑단 시보리/립）剔除：會上捲卡在肚臍上方",

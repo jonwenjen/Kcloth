@@ -263,6 +263,22 @@ details.more[open] > summary::after { content: "－"; }
 .verdict-watch { background: var(--amber-soft); color: var(--amber); }
 .verdict-return { background: var(--rust-soft); color: var(--rust); }
 
+/* ---------- 五項指標迷你列、分級提醒 ---------- */
+.axmini { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; margin: 10px 0 0; }
+.axmini span { display: flex; flex-direction: column; align-items: center; padding: 4px 0; border-radius: 8px; background: var(--sage-soft); font-size: 11px; line-height: 1.2; }
+.axmini i { font-style: normal; color: var(--ink-3); }
+.axmini b { font-size: 13px; color: var(--ink); }
+.brand-row .axmini { max-width: 320px; margin-top: 6px; }
+.alerts { list-style: none; margin: 8px 0 0; padding: 0; font-size: 12.5px; display: grid; gap: 4px; }
+.alerts li { display: flex; gap: 6px; align-items: baseline; color: var(--ink-2, var(--ink)); }
+.lvtag { flex: none; font-size: 11px; font-weight: 700; padding: 1px 6px; border-radius: 6px; }
+.alerts .lv1 .lvtag, .tag.lv1 { background: var(--sage-soft); color: var(--sage); border-color: transparent; }
+.alerts .lv2 .lvtag, .tag.lv2 { background: var(--amber-soft); color: var(--amber); border-color: transparent; }
+.alerts .lv3 .lvtag, .tag.lv3 { background: var(--rust-soft); color: var(--rust); border-color: transparent; }
+.bscore { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+.bscore b { font-size: 18px; line-height: 1; }
+.bscore small { font-size: 11px; color: var(--ink-3); }
+
 /* ---------- excluded / method ---------- */
 .ex { padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
 .ex:last-child { border-bottom: 0; }
