@@ -1,0 +1,3038 @@
+{
+ "month": "2026-10",
+ "run": {
+  "date": "2026-10-25",
+  "model": "claude-opus-5-5",
+  "mode": "full",
+  "notes": "首次每月分析（架構 10/25 重建後當天執行）。韓國站評論 API 抓約 400 次後被暫時封鎖，之後的排雷改用 Global 評論 API（同批韓國評論的英文翻譯），門檻不變；兩者在 1864004 上結果一致（0.8% vs 0.7%）。"
+ },
+ "fx": {
+  "twd_per_krw": 0.0246,
+  "date": "2026-10-25",
+  "source": "open.er-api.com（2026-10-25 00:02 UTC）"
+ },
+ "coupons": [
+  {
+   "text": "Weekend Deals：週末加碼 25% 折價券（指定商品）",
+   "until": null,
+   "store": "global"
+  },
+  {
+   "text": "首次用 App 購物 15% OFF",
+   "until": null,
+   "store": "global"
+  },
+  {
+   "text": "ONE BRAND DAY：單一品牌日額外 30% OFF（每日輪替）",
+   "until": null,
+   "store": "global"
+  },
+  {
+   "text": "FW26 外套最高 50% OFF、F/W 熱銷最高 30% OFF",
+   "until": null,
+   "store": "global"
+  }
+ ],
+ "sales": [
+  {
+   "name": "무진장 26 겨울 블랙프라이데이（韓國冬季黑五）",
+   "store": "kr",
+   "start": "2026-11-14",
+   "end": "2026-11-26",
+   "status": "expected",
+   "detail": "2026 日期未公告，依 2025 年（11/14 預熱、11/16–11/26 正式，最高 80%＋每日品類券＋限量 20–40% 券）推估。",
+   "action": "韓國站代購才需要；Global 台灣站看下面的 Monster Sale。",
+   "url": "https://www.insight.co.kr/news/528970"
+  },
+  {
+   "name": "MUSINSA Global Monster Sale（FW 黑五，台灣站）",
+   "store": "global",
+   "start": "2026-11-18",
+   "end": "2026-12-02",
+   "status": "expected",
+   "detail": "2026 日期未公告，依 2024 年（11/18 預熱、11/20–12/2，最高 80%＋額外 12% 碼）推估。",
+   "action": "PRODESHIRT 藍牛津（NT$3,346，目前 0% off）、INSILENCE 羊毛西裝（NT$4,024）、247 SERIES 套裝外套等「沒在打折」的高單價品等這檔；MUSINSA STANDARD 目前已 35–65% off，現在買即可。",
+   "url": "https://technode.global/?p=89448"
+  },
+  {
+   "name": "MUSINSA Global 11.11／年末",
+   "store": "global",
+   "start": null,
+   "end": null,
+   "status": "expected",
+   "detail": "查無往年獨立 11.11 大促紀錄，年底主力是 Monster Sale；11.11 可能有站內小型券。",
+   "action": "11/11 上站看一眼即可。",
+   "url": "https://en.fnnews.com/news/202510271427292297"
+  },
+  {
+   "name": "2026 추석 빅세일（中秋大促）",
+   "store": "kr",
+   "start": "2026-09-21",
+   "end": "2026-10-08",
+   "status": "ended",
+   "detail": "最高 30% 券，已結束；10 月下旬沒有全站大促。",
+   "action": "—",
+   "url": "https://www.smarttoday.co.kr/ko-kr/articles/111778"
+  },
+  {
+   "name": "무진장 26 여름／夏季 Monster Sale",
+   "store": "kr",
+   "start": "2026-06-14",
+   "end": "2026-06-24",
+   "status": "ended",
+   "detail": "韓國站與 Global 同步，供明年 6/15 前後比對。",
+   "action": "—",
+   "url": "https://mbiz.heraldcorp.com/article/10788823"
+  }
+ ],
+ "trends": {
+  "season": "2026 秋冬",
+  "next_season": "2027 春夏",
+  "summary": "2026 秋冬男裝回到「能長期穿」的路線：運動學院風、經典西裝與質感針織是主軸，外套重點是皮革飛行夾克、機能風衣與輕量羽絨。2027 春夏延續放鬆、品質、耐穿，剪裁更輕、天然纖維與大地色、藍綠、奶油色當道。",
+  "now": [
+   {
+    "title": "運動學院風（Sports Prep）",
+    "detail": "燈芯絨、橄欖球條紋、針織背心，用運動感重新詮釋學院風。",
+    "fit_for_robin": "取「條紋＋有領」元素：深色長袖 Piqué Polo 內搭白 T 露邊；避開短版針織背心（會卡在腹部）。"
+   },
+   {
+    "title": "經典西裝回歸",
+    "detail": "經典版型西裝採用率上升，明確肩線與 60 年代俐落線條回來了。",
+    "fit_for_robin": "正中你的需求：結構肩 L 號（SOLOTEX 或 INSILENCE M）把 44cm 肩撐成倒三角，扣一顆或敞開。"
+   },
+   {
+    "title": "皮革飛行夾克與機能短夾克",
+    "detail": "皮革 bomber 年增約三成，機能風衣與短夾克是外套主角。",
+    "fit_for_robin": "選正肩＋雙向拉鍊、下擺不收緊的款（本月 DIMITRI BLACK 哈靈頓）；避開羅紋收口 bomber。"
+   },
+   {
+    "title": "質感針織",
+    "detail": "喀什米爾、羊駝毛、滑雪毛衣是成長最快品類。",
+    "fit_for_robin": "只選中厚、下擺不縮口的款；細針織與羅紋收口一律避開（本月客觀用「下擺比胸寬小 6cm」判定）。"
+   },
+   {
+    "title": "城市機能（City Leisure）",
+    "detail": "輕量羽絨、刷毛、步道系單品，兼顧通勤與輕戶外。",
+    "fit_for_robin": "高雄冬天用輕量羽絨背心當中間層就夠，比厚大衣實用。"
+   }
+  ],
+  "next": [
+   {
+    "title": "精緻學院風",
+    "detail": "更好的布料、橄欖球條紋與 varsity 層次。",
+    "fit_for_robin": "條紋牛津襯衫敞開外搭（你已有 TY 條紋），比橫條紋上衣更修飾。"
+   },
+   {
+    "title": "美式工裝 × 職場",
+    "detail": "舊化丹寧、工裝語彙配襯衫領帶。",
+    "fit_for_robin": "你已有兩條赤耳丹寧與丹寧夾克；配牛津襯衫就是這個趨勢。"
+   },
+   {
+    "title": "輕剪裁與柔軟廓形",
+    "detail": "西裝變輕、比例變鬆，無領襯衫與輕薄疊穿。",
+    "fit_for_robin": "可以「鬆」但不能「軟」：選硬挺布料的寬鬆版，肩線仍要落在 48–51cm。"
+   },
+   {
+    "title": "天然纖維與水洗丹寧",
+    "detail": "亞麻、棉、絲回歸，厚重外套比重下降。",
+    "fit_for_robin": "高雄春夏首選重磅棉與牛津布；亞麻選厚織、避開會貼身的絲與薄紗。"
+   },
+   {
+    "title": "大地色＋藍綠／奶油色",
+    "detail": "大地色為底，Teal 動能最強，奶油色搜尋量最高。",
+    "fit_for_robin": "藍綠、深鼠尾草綠適合當單穿上衣（冷調中深色）；奶油色只放外層、不要單穿。"
+   }
+  ],
+  "timeless": [
+   {
+    "title": "結構肩西裝外套（黑／炭灰／深藍）",
+    "detail": "經典版型回歸，可單穿也可成套。",
+    "fit_for_robin": "L 號（Oversize 品牌選 M），肩 50 左右。"
+   },
+   {
+    "title": "高磅牛津襯衫（淺藍／霧灰）",
+    "detail": "單穿或敞開外搭都行。",
+    "fit_for_robin": "疊穿公式的外亮層，釦子全開製造直線。"
+   },
+   {
+    "title": "深色重磅 T（炭灰／黑）",
+    "detail": "內搭與單穿的基礎。",
+    "fit_for_robin": "L 號胸 57–60、直筒下擺。"
+   },
+   {
+    "title": "單打褶中高腰直筒褲",
+    "detail": "經典西裝趨勢下最實用的褲款。",
+    "fit_for_robin": "前襠 30–32、褲腳 21–23，修到 101cm。"
+   },
+   {
+    "title": "雙向拉鍊短夾克",
+    "detail": "呼應飛行夾克趨勢、四季可用。",
+    "fit_for_robin": "倒 V 拉法消肚、拉長腿。"
+   },
+   {
+    "title": "深色原色直筒丹寧",
+    "detail": "跨季必備。",
+    "fit_for_robin": "你已有 BESLOW 與 ESPIONAGE 兩條，夠了。"
+   },
+   {
+    "title": "輕量羽絨背心",
+    "detail": "高雄冬天最實用的保暖層。",
+    "fit_for_robin": "穿在西裝或夾克裡，不增加腰部體積。"
+   }
+  ],
+  "avoid": [
+   {
+    "title": "連肩袖 Oversize 上衣",
+    "detail": "沒有肩線支撐。",
+    "fit_for_robin": "44cm 窄肩會塌、凸顯腰圍；你買的 Balmacaan 大衣到貨要確認袖型。"
+   },
+   {
+    "title": "短版貼身針織／羅紋收口下擺",
+    "detail": "短版與緊羅紋會卡在肚臍附近。",
+    "fit_for_robin": "本月新增客觀判定：下擺比胸寬小超過 6cm 就剔除。"
+   },
+   {
+    "title": "垮褲與低腰極寬褲",
+    "detail": "褲頭落在肚子下方。",
+    "fit_for_robin": "小腹會垂在皮帶上，也浪費 98cm 腿長；前襠 < 28cm 一律不選。"
+   },
+   {
+    "title": "薄透、絲質貼身上衣",
+    "detail": "2027 春夏的 Sheer／柔軟面料。",
+    "fit_for_robin": "單穿最顯肚；真的要買只當外層。"
+   }
+  ],
+  "sources": [
+   {
+    "title": "Vogue Korea — 2026 가을/겨울 남성복 트렌드 12",
+    "url": "https://www.vogue.co.kr/2026/09/08/2026-%ea%b0%80%ec%9d%84-%ea%b2%a8%ec%9a%b8-%eb%82%a8%ec%84%b1%eb%b3%b5-%ed%8a%b8%eb%a0%8c%eb%93%9c-12/"
+   },
+   {
+    "title": "Trendalytics — Top 10 Menswear Runway Trends FW2026",
+    "url": "https://trendalytics.co/insights/the-top-10-menswear-runway-trends-fall-winter-2026"
+   },
+   {
+    "title": "Newsis — 무신사 스탠다드 26FW 프리뷰",
+    "url": "https://www.newsis.com/view/NISX20260723_0003720826"
+   },
+   {
+    "title": "Trendalytics — Menswear SS27 Trend Recap",
+    "url": "https://trendalytics.co/insights/menswear-ss27-trend-recap-runway-analysis-data-trendalytics"
+   },
+   {
+    "title": "FashionUnited — PFW SS27: ease, quality and longevity",
+    "url": "https://fashionunited.com/news/fashion/pfw-designers-focused-on-ease-quality-and-longevity/2026070173259"
+   },
+   {
+    "title": "YouthDaily — 2025 무신사 트렌드 결산 리포트",
+    "url": "https://www.youthdaily.co.kr/news/article.html?no=207980"
+   }
+  ]
+ },
+ "brands": [
+  {
+   "rank": 1,
+   "name": "MUSINSA STANDARD",
+   "id": "musinsastandard",
+   "strengths": "基本款尺寸表最完整、價格最低、Global 常態 35–65% off",
+   "features": "重磅 T、牛津襯衫、單打褶卡其、SOLOTEX 西裝；尺寸穩定、可重複回購",
+   "for_robin": "L 號上衣幾乎都符合規則；避開 Supima 針織系列（薄軟＋收口）與前襠 < 30 的西裝褲",
+   "price_band": "NT$450–1,200",
+   "picks": [
+    "2026-10-01",
+    "2026-10-02",
+    "2026-10-03",
+    "2026-10-04",
+    "2026-10-05",
+    "2026-10-07",
+    "2026-10-08",
+    "2026-10-10",
+    "2026-10-15",
+    "2026-10-16",
+    "2026-10-17"
+   ],
+   "change": "續留：本月 11 件入選"
+  },
+  {
+   "rank": 2,
+   "name": "INSILENCE",
+   "id": "insilence",
+   "strengths": "極簡黑白灰、羊毛西裝與大衣的長銷品牌",
+   "features": "Oversize 但有結構肩；價位中高",
+   "for_robin": "西裝外套選 M；避開 Supima T（薄）",
+   "price_band": "NT$1,500–7,000",
+   "picks": [
+    "2026-10-11"
+   ],
+   "change": "新進：羊毛西裝外套"
+  },
+  {
+   "rank": 3,
+   "name": "PRODESHIRT",
+   "id": "prodeshirt",
+   "strengths": "韓國製襯衫專門品牌，高磅牛津",
+   "features": "Regular／Relax／Comfort 三種版型，L(50) 肩 49.5",
+   "for_robin": "藍、霧灰牛津當外亮層；價位高，等折扣",
+   "price_band": "NT$3,100–4,400",
+   "picks": [
+    "2026-10-09"
+   ],
+   "change": "續留：你已購白色 D-300"
+  },
+  {
+   "rank": 4,
+   "name": "SUARE",
+   "id": "suare",
+   "strengths": "平價針織與雙向拉鍊款",
+   "features": "Hacci、翻領雙向拉鍊針織，L 號肩 51",
+   "for_robin": "雙向拉鍊針織外套；混紡材質需洗衣袋",
+   "price_band": "NT$500–1,200",
+   "picks": [
+    "2026-10-06"
+   ],
+   "change": "新進"
+  },
+  {
+   "rank": 5,
+   "name": "DIMITRI BLACK",
+   "id": "dimitriblack",
+   "strengths": "2WAY 拉鍊外套與基本款",
+   "features": "正肩哈靈頓、雙向拉鍊",
+   "for_robin": "短夾克選 2(L)；新品評論少",
+   "price_band": "NT$1,100–2,000",
+   "picks": [
+    "2026-10-13"
+   ],
+   "change": "新進"
+  },
+  {
+   "rank": 6,
+   "name": "247 SERIES",
+   "id": "247series",
+   "strengths": "都會套裝、皮革外套",
+   "features": "Steady Comfort 套裝、皮革工作夾克（肩寬偏大）",
+   "for_robin": "套裝外套選 M；皮革夾克落肩 56+ 不適合",
+   "price_band": "NT$2,000–3,600",
+   "picks": [
+    "2026-10-12"
+   ],
+   "change": "新進"
+  },
+  {
+   "rank": 7,
+   "name": "LEMAIN SECOND",
+   "id": "lemainsecond",
+   "strengths": "平價 2WAY 夾克與針織",
+   "features": "Oversize 落肩、淺色系多",
+   "for_robin": "淺色雙向拉鍊夾克選 M；褲款尺寸表常缺",
+   "price_band": "NT$600–1,300",
+   "picks": [
+    "2026-10-14"
+   ],
+   "change": "新進"
+  },
+  {
+   "rank": 8,
+   "name": "DRAW FIT",
+   "id": "drawfit",
+   "strengths": "韓系極簡、明星同款多",
+   "features": "哈靈頓／布勞森、單打褶與雙打褶西裝褲",
+   "for_robin": "本月 Moleskin 布勞森為單向拉鍊、未入選；褲款褲腳多 24cm 以上",
+   "price_band": "NT$1,200–3,600",
+   "picks": [],
+   "change": "續留：本月無入選"
+  },
+  {
+   "rank": 9,
+   "name": "ESPIONAGE",
+   "id": "espionage",
+   "strengths": "美式軍裝與丹寧，品質紮實",
+   "features": "重磅布料、赤耳丹寧；落肩偏大（肩 54–58）",
+   "for_robin": "你已買 3 件；上衣與夾克多落肩過大，褲款可以",
+   "price_band": "NT$2,000–4,000",
+   "picks": [],
+   "change": "續留：已購 3 件，本月無新入選"
+  },
+  {
+   "rank": 10,
+   "name": "BESLOW",
+   "id": "beslow",
+   "strengths": "單打褶赤耳丹寧專家",
+   "features": "Comfy One Tuck 丹寧前襠高、適合小腹",
+   "for_robin": "已購 32 腰；丹寧格已滿",
+   "price_band": "NT$1,700–2,800",
+   "picks": [],
+   "change": "續留：已購"
+  },
+  {
+   "rank": 11,
+   "name": "POTTERY",
+   "id": "pottery",
+   "strengths": "日系結構肩，Comfort Shirt 是招牌",
+   "features": "立體肩線、日本面料",
+   "for_robin": "Size 2；本月價格 NT$4,600 起，超過上限 +50%",
+   "price_band": "NT$3,900–6,400",
+   "picks": [],
+   "change": "續留：本月超預算"
+  },
+  {
+   "rank": 12,
+   "name": "NONBLANK",
+   "id": "nonblank",
+   "strengths": "Semi-over 套裝西裝",
+   "features": "版型偏小（L 胸 55.5）",
+   "for_robin": "西裝要選 XL；套裝褲前襠 27.5cm 低腰，已剔除",
+   "price_band": "NT$1,300–4,900",
+   "picks": [],
+   "change": "續留：本月無入選"
+  },
+  {
+   "rank": 13,
+   "name": "LMOOD",
+   "id": "lmood",
+   "strengths": "平價針織（화란、Milano）",
+   "features": "尺寸表在商品公告裡，44/46/48 制",
+   "for_robin": "Milano 圓領照片可見羅紋收口下擺，本月剔除",
+   "price_band": "NT$650–1,700",
+   "picks": [],
+   "change": "新進：觀察"
+  },
+  {
+   "rank": 14,
+   "name": "PARTIMENTO",
+   "id": "partimento",
+   "strengths": "高 CP 值外套（皮革、Duffle）",
+   "features": "落肩大（肩 55–63）",
+   "for_robin": "不建議，除非只當寬鬆外套",
+   "price_band": "NT$1,200–3,600",
+   "picks": [],
+   "change": "新進：觀察"
+  },
+  {
+   "rank": 15,
+   "name": "FRIZMWORKS",
+   "id": "frizmworks",
+   "strengths": "美式復古、10 支棉 Henley",
+   "features": "落肩 57cm 起",
+   "for_robin": "T 恤肩寬過大，本月剔除",
+   "price_band": "NT$900–3,500",
+   "picks": [],
+   "change": "新進：觀察"
+  },
+  {
+   "rank": 16,
+   "name": "UNIFORM BRIDGE",
+   "id": "uniformbridge",
+   "strengths": "Fatigue pants 與赤耳丹寧",
+   "features": "L 腰 42、前襠 33",
+   "for_robin": "你需要 XL（腰 44）；卡其格已滿",
+   "price_band": "NT$1,400–2,200",
+   "picks": [],
+   "change": "新進：觀察"
+  },
+  {
+   "rank": 17,
+   "name": "TRILLION",
+   "id": "trillion",
+   "strengths": "平價 2WAY 哈靈頓、針織",
+   "features": "羊毛混紡 2WAY 外套",
+   "for_robin": "M 肩 53、起毛球 3 則；未入選",
+   "price_band": "NT$750–2,200",
+   "picks": [],
+   "change": "新進：觀察"
+  },
+  {
+   "rank": 18,
+   "name": "UNTAPPED STUDIO",
+   "id": "untapped",
+   "strengths": "平價 2WAY 夾克",
+   "features": "胸寬 68cm 以上的寬版",
+   "for_robin": "哈靈頓標示透光、胸過寬；未入選",
+   "price_band": "NT$500–1,500",
+   "picks": [],
+   "change": "新進：觀察"
+  },
+  {
+   "rank": 19,
+   "name": "KNITTED",
+   "id": "knitted",
+   "strengths": "落肩華夫格針織",
+   "features": "華夫格厚度好但肩 56",
+   "for_robin": "肩過寬、標示微透；未入選",
+   "price_band": "NT$850–1,000",
+   "picks": [],
+   "change": "新進：觀察"
+  },
+  {
+   "rank": 20,
+   "name": "COSTUME O'CLOCK",
+   "id": "costumeoclock",
+   "strengths": "2WAY 飛行夾克、西裝褲",
+   "features": "飛行夾克肩 60 以上",
+   "for_robin": "肩過寬；未入選",
+   "price_band": "NT$1,100–1,700",
+   "picks": [],
+   "change": "新進：觀察"
+  }
+ ],
+ "items": [
+  {
+   "id": "2026-10-01",
+   "goodsNo": 1864004,
+   "is_new": true,
+   "cat": "tee",
+   "slot": "inner-dark-tee",
+   "role": "inner",
+   "brand": "MUSINSA STANDARD",
+   "name": "重磅寬鬆長袖圓領 T（深灰）",
+   "name_en": "Heavyweight Relaxed Crew Neck Long Sleeve T-Shirt [Dark Gray]",
+   "color": "深灰 Dark Gray",
+   "hex": "#55585c",
+   "tone": "dark",
+   "img": "https://image.msscdn.net/images/goods_img/20210325/1864004/1864004_2_big.jpg",
+   "urls": {
+    "global": "https://global.musinsa.com/tw/products/1864004",
+    "kr": "https://www.musinsa.com/products/1864004",
+    "reviews": "https://www.musinsa.com/review/goods/1864004"
+   },
+   "price": {
+    "twd": 450,
+    "twd_normal": 899,
+    "krw": 18490,
+    "krw_normal": 29900,
+    "global_available": true,
+    "krw_twd": 455,
+    "premium_pct": -1.1,
+    "premium_flag": false
+   },
+   "budget_reason": null,
+   "fabric": "棉 100%（重磅，商品標示厚度「略厚」、不透）",
+   "origin": "越南",
+   "care": "單獨手洗或冷水洗衣袋，深色易掉色，陰乾",
+   "fit": {
+    "shoulder_type": "drop-structured",
+    "hem": "open",
+    "zip": false,
+    "two_way_zip": null,
+    "leg": null,
+    "tuck": null,
+    "note": "L 衣長 72cm 比規則多 1cm：直筒下擺不紮，剛好蓋住褲頭與小腹下緣"
+   },
+   "size": {
+    "pick": "L",
+    "chart": {
+     "shoulder": 50,
+     "chest": 57.5,
+     "length": 72.05
+    },
+    "chart_pick": "L",
+    "chart_why": "肩 50 比你的 44 外擴 6cm 撐出肩線，胸 57.5 留出約 9.5cm 架空層；M 胸 55 太貼",
+    "reviews_body": {
+     "n": 37,
+     "dist": {
+      "L": 17,
+      "XL": 14,
+      "2XL": 5,
+      "M": 1
+     },
+     "tendency": "正常",
+     "note": "同身形 3 則說「剛好」，沒有人說偏小"
+    },
+    "reviews_all": {
+     "n": 422,
+     "dist": {
+      "L": 132,
+      "XL": 115,
+      "2XL": 85,
+      "M": 47
+     }
+    },
+    "why": "尺寸表與同身形評論都指向 L（17/37 人，且 XL 多為想穿寬鬆的人）"
+   },
+   "screen": {
+    "fetched": 422,
+    "neg_pct": 0.7,
+    "neg_body_pct": 0,
+    "neg_by": {
+     "shrink": 3,
+     "pilling": 0,
+     "neck": 0
+    },
+    "clingy_pct": 0,
+    "thin_pct": 2.8,
+    "thickness": "약간|두꺼움",
+    "warn": [],
+    "source": "global-review(en)"
+   },
+   "scores": {
+    "material": 4,
+    "fit": 4.5,
+    "make": 4,
+    "care": 4,
+    "function": 4,
+    "overall": 4.5,
+    "mean": 4.1
+   },
+   "experts": {
+    "material": "重磅純棉、標示略厚不透，布身有挺度，能把肚子罩住不貼肉。",
+    "fit": "微落肩＋直筒，L 的肩 50／胸 57.5 幾乎是 Robin 的教科書數字。",
+    "make": "MUSINSA STANDARD 基本款品管穩定，雙針車縫，領口有包邊。",
+    "care": "422 則中縮水 3 則、起毛球 0、領口 0（0.7%），同身形 0%；深色要單獨洗。",
+    "function": "秋冬當內搭、春秋單穿都行，高雄 16–28°C 主力。"
+   },
+   "comment": "本月 CP 值最高的內搭：NT$450 拿到幾乎完全符合尺寸規則的重磅 T。深灰比黑色柔和，搭淺色外層更好看。建議一次買 2 件輪替。",
+   "styling": "疊穿公式核心：內搭這件，外罩本月的天空藍／霧灰牛津（M）或你已買的 PRODESHIRT 白牛津，釦子全開；下身配深灰單打褶卡其褲。",
+   "temps": [
+    16,
+    28
+   ],
+   "rating": {
+    "score": 4.8,
+    "count": 422
+   },
+   "budget": {
+    "cap": 3000,
+    "cap_max": 4500,
+    "over_pct": 0,
+    "status": "ok",
+    "reason": null
+   }
+  },
+  {
+   "id": "2026-10-02",
+   "goodsNo": 1841336,
+   "is_new": true,
+   "cat": "tee",
+   "slot": "inner-dark-tee",
+   "role": "single",
+   "brand": "MUSINSA STANDARD",
+   "name": "重磅寬鬆短袖圓領 T（黑）",
+   "name_en": "Heavyweight Relaxed Crew Neck T-Shirt [Black]",
+   "color": "黑 Black",
+   "hex": "#1f1f21",
+   "tone": "dark",
+   "img": "https://image.msscdn.net/images/goods_img/20210312/1841336/1841336_2_big.jpg",
+   "urls": {
+    "global": "https://global.musinsa.com/tw/products/1841336",
+    "kr": "https://www.musinsa.com/products/1841336",
+    "reviews": "https://www.musinsa.com/review/goods/1841336"
+   },
+   "price": {
+    "twd": 702,
+    "twd_normal": 779,
+    "krw": 25900,
+    "krw_normal": 25900,
+    "global_available": true,
+    "krw_twd": 637,
+    "premium_pct": 10.2,
+    "premium_flag": false
+   },
+   "budget_reason": null,
+   "fabric": "棉 100%（重磅，標示略厚、觸感略硬挺）",
+   "origin": "越南",
+   "care": "單獨冷水洗，陰乾",
+   "fit": {
+    "shoulder_type": "drop-structured",
+    "hem": "open",
+    "zip": false,
+    "two_way_zip": null,
+    "leg": null,
+    "tuck": null,
+    "note": "L 肩 53cm 比規則多 2cm（落肩設計），但胸 59 正中藏肚黃金區；M 胸 56.5 不足。以胸寬優先，衣長 72.7 不紮"
+   },
+   "size": {
+    "pick": "L",
+    "chart": {
+     "shoulder": 53,
+     "chest": 59,
+     "length": 72.7
+    },
+    "chart_pick": "L",
+    "chart_why": "胸 59 留 11cm 架空層；肩 53 是設計落肩，硬挺布料撐得住",
+    "reviews_body": {
+     "n": 50,
+     "dist": {
+      "L": 24,
+      "XL": 10,
+      "3XL": 7,
+      "M": 5,
+      "2XL": 4
+     },
+     "tendency": "正常",
+     "note": "一位 176/75 穿 L 說「略合身」，所以不要選 M"
+    },
+    "reviews_all": {
+     "n": 600,
+     "dist": {
+      "XL": 153,
+      "L": 149,
+      "M": 98,
+      "2XL": 88
+     }
+    },
+    "why": "同身形一半（24/50）選 L，尺寸表胸寬也只有 L 落在 57–60"
+   },
+   "screen": {
+    "fetched": 600,
+    "neg_pct": 1.8,
+    "neg_body_pct": 0,
+    "neg_by": {
+     "shrink": 10,
+     "pilling": 0,
+     "neck": 1
+    },
+    "clingy_pct": 0.2,
+    "thin_pct": 4.7,
+    "thickness": "약간|두꺼움",
+    "warn": [],
+    "source": "global-review(en)"
+   },
+   "scores": {
+    "material": 4,
+    "fit": 4,
+    "make": 4,
+    "care": 3.5,
+    "function": 4.5,
+    "overall": 4,
+    "mean": 4.0
+   },
+   "experts": {
+    "material": "重磅略硬挺，單穿不貼胸腹。",
+    "fit": "胸寬完美，肩線落 2cm 屬設計範圍內，不會垮。",
+    "make": "包邊領口、雙針下擺，基本款品質穩。",
+    "care": "600 則中縮水 10 則（1.8%，低於 5%）；建議冷水、不烘乾。",
+    "function": "高雄 24–34°C 主力單穿，也能當夏天外搭襯衫裡的深色內層。"
+   },
+   "comment": "夏天單穿或當內搭的黑色重磅 T，胸寬剛好落在藏肚黃金區。縮水評論略多於長袖款，記得冷洗不烘。",
+   "styling": "單穿公式：內搭本月白 T（M）只露 1cm 白邊；或夏天外罩你已買的 TY 條紋襯衫敞開。下身配卡其或深色丹寧。",
+   "temps": [
+    24,
+    34
+   ],
+   "rating": {
+    "score": 4.9,
+    "count": 1847
+   },
+   "budget": {
+    "cap": 3000,
+    "cap_max": 4500,
+    "over_pct": 0,
+    "status": "ok",
+    "reason": null
+   }
+  },
+  {
+   "id": "2026-10-03",
+   "goodsNo": 1841337,
+   "is_new": true,
+   "cat": "tee",
+   "slot": "white-tee",
+   "role": "inner",
+   "brand": "MUSINSA STANDARD",
+   "name": "重磅寬鬆短袖圓領 T（白，當白邊內搭）",
+   "name_en": "Heavyweight Relaxed Crew Neck T-Shirt [White]",
+   "color": "白 White",
+   "hex": "#f5f5f2",
+   "tone": "light",
+   "img": "https://image.msscdn.net/images/goods_img/20210312/1841337/1841337_2_big.jpg",
+   "urls": {
+    "global": "https://global.musinsa.com/tw/products/1841337",
+    "kr": "https://www.musinsa.com/products/1841337",
+    "reviews": "https://www.musinsa.com/review/goods/1841337"
+   },
+   "price": {
+    "twd": 702,
+    "twd_normal": 779,
+    "krw": 25900,
+    "krw_normal": 25900,
+    "global_available": true,
+    "krw_twd": 637,
+    "premium_pct": 10.2,
+    "premium_flag": false
+   },
+   "budget_reason": null,
+   "fabric": "棉 100%（重磅、不透）",
+   "origin": "越南",
+   "care": "白色單獨洗，避免與深色混洗",
+   "fit": {
+    "shoulder_type": "drop-structured",
+    "hem": "open",
+    "zip": false,
+    "two_way_zip": null,
+    "leg": null,
+    "tuck": null,
+    "note": "刻意選 M：這件只當內搭露出 1–1.5cm 白領邊，要比外層小一號才不會在針織或 Polo 裡堆布；M 胸 56.5 比規則少 0.5cm，內層可接受。不建議單穿（純白放大腹部）"
+   },
+   "size": {
+    "pick": "M",
+    "chart": {
+     "shoulder": 51.5,
+     "chest": 56.5,
+     "length": 71.2
+    },
+    "chart_pick": "M",
+    "chart_why": "內層要比外層（L 肩 50–53）窄，M 肩 51.5、衣長 71.2 剛好",
+    "reviews_body": {
+     "n": 46,
+     "dist": {
+      "L": 25,
+      "XL": 11,
+      "M": 7,
+      "2XL": 2,
+      "S": 1
+     },
+     "tendency": "正常",
+     "note": "單穿的人多選 L；當內搭選 M"
+    },
+    "reviews_all": {
+     "n": 600,
+     "dist": {
+      "L": 183,
+      "XL": 138,
+      "M": 128,
+      "2XL": 68
+     }
+    },
+    "why": "單穿請選 L（25/46 人），但這件的角色是白邊內搭，所以小一號 M"
+   },
+   "screen": {
+    "fetched": 600,
+    "neg_pct": 0.5,
+    "neg_body_pct": 2.2,
+    "neg_by": {
+     "shrink": 2,
+     "pilling": 0,
+     "neck": 1
+    },
+    "clingy_pct": 0,
+    "thin_pct": 7.2,
+    "thickness": "약간|두꺼움",
+    "warn": [],
+    "source": "global-review(en)"
+   },
+   "scores": {
+    "material": 4,
+    "fit": 3.5,
+    "make": 4,
+    "care": 4,
+    "function": 4,
+    "overall": 4,
+    "mean": 3.9
+   },
+   "experts": {
+    "material": "重磅不透，白領邊挺、不會軟塌捲邊。",
+    "fit": "刻意小一號當內層，領口高度與圓領針織／Polo 搭配剛好。",
+    "make": "領口包邊紮實，是露白邊最重要的地方。",
+    "care": "負評 0.5%、同身形 2.2%，都低於 5%；薄透評論 7.2%（白色常見），當內層沒問題。",
+    "function": "「單穿公式」的白邊道具，一年四季都用得到。"
+   },
+   "comment": "規則裡的「領口 1.5cm 白邊反光板」就靠這件。只當內層，單穿請改深色。",
+   "styling": "穿在本月黑色長袖 Piqué Polo 或深灰 T 裡面，只讓圓領露出 1–1.5cm；臉部下方打光、顯白又減齡。",
+   "temps": [
+    14,
+    34
+   ],
+   "rating": {
+    "score": 4.9,
+    "count": 2426
+   },
+   "budget": {
+    "cap": 3000,
+    "cap_max": 4500,
+    "over_pct": 0,
+    "status": "ok",
+    "reason": null
+   }
+  },
+  {
+   "id": "2026-10-04",
+   "goodsNo": 1387953,
+   "is_new": true,
+   "cat": "tee",
+   "slot": "single-top",
+   "role": "single",
+   "brand": "MUSINSA STANDARD",
+   "name": "長袖 Piqué Polo 衫（黑）",
+   "name_en": "Long Sleeve Pique Polo Shirt [Black]",
+   "color": "黑 Black",
+   "hex": "#1d1e20",
+   "tone": "dark",
+   "img": "https://image.msscdn.net/images/goods_img/20200407/1387953/1387953_1_big.jpg",
+   "urls": {
+    "global": "https://global.musinsa.com/tw/products/1387953",
+    "kr": "https://www.musinsa.com/products/1387953",
+    "reviews": "https://www.musinsa.com/review/goods/1387953"
+   },
+   "price": {
+    "twd": 960,
+    "twd_normal": 1200,
+    "krw": 35890,
+    "krw_normal": 39900,
+    "global_available": true,
+    "krw_twd": 883,
+    "premium_pct": 8.7,
+    "premium_flag": false
+   },
+   "budget_reason": null,
+   "fabric": "棉 100%（Piqué 網眼針織，領片棉 97%＋彈性纖維 3%）",
+   "origin": "越南",
+   "care": "單獨手洗，深色易掉色",
+   "fit": {
+    "shoulder_type": "set-in",
+    "hem": "open",
+    "zip": false,
+    "two_way_zip": null,
+    "leg": null,
+    "tuck": null,
+    "note": "L 肩 50、胸 57、衣長 71.5，三項全在規則內；Polo 開衩直筒下擺，不是羅紋收口"
+   },
+   "size": {
+    "pick": "L",
+    "chart": {
+     "shoulder": 50,
+     "chest": 57,
+     "length": 71.5
+    },
+    "chart_pick": "L",
+    "chart_why": "三個數字都落在規則中間，肩線正好外擴 6cm",
+    "reviews_body": {
+     "n": 34,
+     "dist": {
+      "L": 19,
+      "XL": 7,
+      "2XL": 4,
+      "M": 4
+     },
+     "tendency": "正常",
+     "note": "同身形多說適合上班、版型比預期好"
+    },
+    "reviews_all": {
+     "n": 600,
+     "dist": {
+      "L": 189,
+      "XL": 137,
+      "M": 118,
+      "2XL": 115
+     }
+    },
+    "why": "尺寸表與同身形評論（19/34 選 L）一致"
+   },
+   "screen": {
+    "fetched": 600,
+    "neg_pct": 0.3,
+    "neg_body_pct": 0,
+    "neg_by": {
+     "shrink": 2,
+     "pilling": 0,
+     "neck": 0
+    },
+    "clingy_pct": 0,
+    "thin_pct": 1.2,
+    "thickness": "보통",
+    "warn": [],
+    "source": "global-review(en)"
+   },
+   "scores": {
+    "material": 4,
+    "fit": 4.5,
+    "make": 4,
+    "care": 4,
+    "function": 4,
+    "overall": 4.5,
+    "mean": 4.1
+   },
+   "experts": {
+    "material": "Piqué 網眼有立體紋路，比 Supima 平紋針織挺，不貼肚。",
+    "fit": "L 的數字是本月上衣中最標準的一件。",
+    "make": "領片加彈性纖維不易變形，前襟車工整齊。",
+    "care": "縮水 2 則（0.3%）、起毛球與領口 0。",
+    "function": "有領子能上班，高雄 18–26°C 單穿；冷天當外套裡的中間層。"
+   },
+   "comment": "用來取代你買的 Supima 長袖針織 Polo：同價位、同樣有領，但直筒下擺、布料更挺，L 號三項尺寸全中。",
+   "styling": "單穿公式：裡面加本月白 T（M）露白邊，外面可罩炭灰雙向拉鍊針織或 SOLOTEX 西裝外套；下身深灰單打褶卡其褲。",
+   "temps": [
+    18,
+    26
+   ],
+   "rating": {
+    "score": 4.8,
+    "count": 1823
+   },
+   "budget": {
+    "cap": 3000,
+    "cap_max": 4500,
+    "over_pct": 0,
+    "status": "ok",
+    "reason": null
+   }
+  },
+  {
+   "id": "2026-10-05",
+   "goodsNo": 1387960,
+   "is_new": true,
+   "cat": "tee",
+   "slot": "single-top",
+   "role": "single",
+   "brand": "MUSINSA STANDARD",
+   "name": "基本款短袖 Piqué Polo 衫（黑）",
+   "name_en": "Basic Pique Polo Shirt [Black]",
+   "color": "黑 Black（另有深藍）",
+   "hex": "#1d1e20",
+   "tone": "dark",
+   "img": "https://image.msscdn.net/images/goods_img/20200407/1387960/1387960_17507503016609_big.jpg",
+   "urls": {
+    "global": "https://global.musinsa.com/tw/products/1387960",
+    "kr": "https://www.musinsa.com/products/1387960",
+    "reviews": "https://www.musinsa.com/review/goods/1387960"
+   },
+   "price": {
+    "twd": 810,
+    "twd_normal": 899,
+    "krw": 29900,
+    "krw_normal": 29900,
+    "global_available": true,
+    "krw_twd": 736,
+    "premium_pct": 10.1,
+    "premium_flag": false
+   },
+   "budget_reason": null,
+   "fabric": "棉 100%（Piqué，領片含 3% 彈性纖維）",
+   "origin": "越南／印尼",
+   "care": "單獨手洗",
+   "fit": {
+    "shoulder_type": "set-in",
+    "hem": "open",
+    "zip": false,
+    "two_way_zip": null,
+    "leg": null,
+    "tuck": null,
+    "note": "這款是正肩修身版，L 胸只有 55cm 會貼肚，所以選 XL（肩 48.5、胸 57.5）——不是因為腰圍而加大，是這款 L 偏小；衣長 72.5 多 1.5cm，Polo 開衩下擺不紮剛好"
+   },
+   "size": {
+    "pick": "XL",
+    "chart": {
+     "shoulder": 48.5,
+     "chest": 57.5,
+     "length": 72.5
+    },
+    "chart_pick": "XL",
+    "chart_why": "XL 的肩 48.5／胸 57.5 才進入規則；L 胸 55 架空層只剩 7cm",
+    "reviews_body": {
+     "n": 48,
+     "dist": {
+      "XL": 23,
+      "L": 18,
+      "M": 3,
+      "2XL": 3,
+      "3XL": 1
+     },
+     "tendency": "偏小",
+     "note": "同身形 3 則說偏小、4 則說剛好"
+    },
+    "reviews_all": {
+     "n": 600,
+     "dist": {
+      "L": 179,
+      "XL": 177,
+      "2XL": 107,
+      "M": 88
+     }
+    },
+    "why": "同身形 23/48 選 XL 多於 L，與尺寸表一致；這是本月唯一推 XL 的上衣"
+   },
+   "screen": {
+    "fetched": 600,
+    "neg_pct": 0.2,
+    "neg_body_pct": 0,
+    "neg_by": {
+     "shrink": 1,
+     "pilling": 0,
+     "neck": 0
+    },
+    "clingy_pct": 0,
+    "thin_pct": 1.5,
+    "thickness": "보통",
+    "warn": [],
+    "source": "global-review(en)"
+   },
+   "scores": {
+    "material": 4,
+    "fit": 3.5,
+    "make": 4,
+    "care": 4,
+    "function": 4.5,
+    "overall": 4,
+    "mean": 4.0
+   },
+   "experts": {
+    "material": "Piqué 透氣又有厚度，比薄 T 更能罩住肚子。",
+    "fit": "正肩修身，靠升一號才達到胸寬標準，肩線不會外擴太多。",
+    "make": "基本款，品管穩定。",
+    "care": "負評 0.2%，同身形 0%。",
+    "function": "高雄 26–34°C 夏天上班單穿首選，比 T 恤正式。"
+   },
+   "comment": "夏天需要一件比 T 恤正式、又不貼肚的單穿上衣。注意這款要選 XL。",
+   "styling": "單穿公式：內搭白 T 露邊（可選）；下身卡其或深灰單打褶褲，皮帶與鞋同色。",
+   "temps": [
+    26,
+    34
+   ],
+   "rating": {
+    "score": 4.8,
+    "count": 6612
+   },
+   "budget": {
+    "cap": 3000,
+    "cap_max": 4500,
+    "over_pct": 0,
+    "status": "ok",
+    "reason": null
+   }
+  },
+  {
+   "id": "2026-10-06",
+   "goodsNo": 2723764,
+   "is_new": true,
+   "cat": "knit",
+   "slot": "structured-knit",
+   "role": "outer",
+   "brand": "SUARE",
+   "name": "Hacci 翻領雙向拉鍊針織外套（炭灰）",
+   "name_en": "Hacci Collar Two-Way Zip-Up Knit",
+   "color": "炭灰 Charcoal（7 色可選）",
+   "hex": "#4a4c50",
+   "tone": "dark",
+   "img": "https://image.msscdn.net/images/goods_img/20220818/2723764/2723764_17580745068789_big.jpg",
+   "urls": {
+    "global": "https://global.musinsa.com/tw/products/2723764",
+    "kr": "https://www.musinsa.com/products/2723764",
+    "reviews": "https://www.musinsa.com/review/goods/2723764"
+   },
+   "price": {
+    "twd": 779,
+    "twd_normal": 1621,
+    "krw": 29900,
+    "krw_normal": 62000,
+    "global_available": true,
+    "krw_twd": 736,
+    "premium_pct": 5.9,
+    "premium_flag": false
+   },
+   "budget_reason": null,
+   "fabric": "壓克力 50%、聚酯 30%、尼龍 20%（燕麥色另一配比）",
+   "origin": "中國",
+   "care": "建議乾洗；在家請洗衣袋冷水、平放陰乾",
+   "fit": {
+    "shoulder_type": "drop-structured",
+    "hem": "open",
+    "zip": true,
+    "two_way_zip": true,
+    "leg": null,
+    "tuck": null,
+    "note": "雙向拉鍊、翻領；照片看下擺是細羅紋邊但與衣身同寬、不縮口（尺寸表沒有下擺數字，到貨請確認）"
+   },
+   "size": {
+    "pick": "L",
+    "chart": {
+     "shoulder": 51,
+     "chest": 59,
+     "length": 70
+    },
+    "chart_pick": "L",
+    "chart_why": "L 肩 51、胸 59、衣長 70，三項都在規則內",
+    "reviews_body": {
+     "n": 39,
+     "dist": {
+      "L": 30,
+      "XL": 5,
+      "M": 4
+     },
+     "tendency": "正常",
+     "note": "同身形 5 則說剛好；有一位 177/75 選 M 也合身（偏合身穿法）"
+    },
+    "reviews_all": {
+     "n": 600,
+     "dist": {
+      "L": 309,
+      "M": 230,
+      "XL": 61
+     }
+    },
+    "why": "同身形 30/39 選 L，與尺寸表一致"
+   },
+   "screen": {
+    "fetched": 600,
+    "neg_pct": 0.2,
+    "neg_body_pct": 0,
+    "neg_by": {
+     "shrink": 0,
+     "pilling": 1,
+     "neck": 0
+    },
+    "clingy_pct": 0,
+    "thin_pct": 0.3,
+    "thickness": null,
+    "warn": [],
+    "source": "global-review(en)"
+   },
+   "scores": {
+    "material": 3,
+    "fit": 4.5,
+    "make": 3.5,
+    "care": 3.5,
+    "function": 4.5,
+    "overall": 4,
+    "mean": 3.8
+   },
+   "experts": {
+    "material": "Hacci 組織厚實有份量，但混紡壓克力，質感不如羊毛。",
+    "fit": "翻領撐肩、L 數字全中；雙向拉鍊可做倒 V。",
+    "make": "平價品牌，拉鍊頭與縫線一般，但 1.5 萬則評論口碑穩定。",
+    "care": "600 則中起毛球只 1 則（0.2%），出乎意料地耐洗；仍建議洗衣袋。",
+    "function": "高雄 14–22°C 秋冬主力，可當外套也可當中間層。"
+   },
+   "comment": "同時補「硬挺針織」與「雙向拉鍊」兩個規則要求，NT$779 是低風險嘗試。混紡材質是唯一扣分。",
+   "styling": "外套公式：內搭深灰重磅 T，拉鍊拉上後把下方拉鍊頭往上拉開 6–8cm 形成倒 V；下身深色丹寧（BESLOW）或深灰單打褶褲。",
+   "temps": [
+    14,
+    22
+   ],
+   "rating": {
+    "score": 4.8,
+    "count": 15892
+   },
+   "budget": {
+    "cap": 3000,
+    "cap_max": 4500,
+    "over_pct": 0,
+    "status": "ok",
+    "reason": null
+   }
+  },
+  {
+   "id": "2026-10-07",
+   "goodsNo": 3712743,
+   "is_new": true,
+   "cat": "shirt",
+   "slot": "light-overshirt",
+   "role": "outer",
+   "brand": "MUSINSA STANDARD",
+   "name": "寬鬆版牛津襯衫（天空藍）",
+   "name_en": "Relaxed Fit Oxford Shirt [Sky Blue]",
+   "color": "天空藍 Sky Blue",
+   "hex": "#a9c6e3",
+   "tone": "light",
+   "img": "https://image.msscdn.net/images/goods_img/20231115/3712743/3712743_17829581118486_big.jpg",
+   "urls": {
+    "global": "https://global.musinsa.com/tw/products/3712743",
+    "kr": "https://www.musinsa.com/products/3712743",
+    "reviews": "https://www.musinsa.com/review/goods/3712743"
+   },
+   "price": {
+    "twd": 780,
+    "twd_normal": 1200,
+    "krw": 27890,
+    "krw_normal": 39900,
+    "global_available": true,
+    "krw_twd": 686,
+    "premium_pct": 13.7,
+    "premium_flag": false
+   },
+   "budget_reason": null,
+   "fabric": "棉 100%（牛津布，標示厚度普通）",
+   "origin": "印尼",
+   "care": "單獨手洗",
+   "fit": {
+    "shoulder_type": "drop-structured",
+    "hem": "shirt-tail",
+    "zip": false,
+    "two_way_zip": null,
+    "leg": null,
+    "tuck": null,
+    "note": "選 M：肩 50.4、胸 58.5 在規則內；衣長 76.5 多 2.5cm，但當開襟外搭、下擺圓弧，長一點能蓋住臀線。L（肩 52、衣長 78）會更垮"
+   },
+   "size": {
+    "pick": "M",
+    "chart": {
+     "shoulder": 50.4,
+     "chest": 58.5,
+     "length": 76.5
+    },
+    "chart_pick": "M",
+    "chart_why": "M 肩與胸都在規則內；L 肩 52 超出",
+    "reviews_body": {
+     "n": 29,
+     "dist": {
+      "L": 17,
+      "M": 6,
+      "XL": 4,
+      "2XL": 2
+     },
+     "tendency": "正常",
+     "note": "同身形多選 L 穿出寬鬆感；你的肩較窄，M 肩線落點較準"
+    },
+    "reviews_all": {
+     "n": 297,
+     "dist": {
+      "L": 100,
+      "XL": 82,
+      "M": 71
+     }
+    },
+    "why": "評論多數選 L（17/29）想穿寬鬆，但規則以 44cm 窄肩為準，M 的肩線與衣長都更接近；若想要更寬鬆垂墜可選 L"
+   },
+   "screen": {
+    "fetched": 297,
+    "neg_pct": 0,
+    "neg_body_pct": 0,
+    "neg_by": {
+     "shrink": 0,
+     "pilling": 0,
+     "neck": 0
+    },
+    "clingy_pct": 0,
+    "thin_pct": 1.7,
+    "thickness": "보통",
+    "warn": [],
+    "source": "global-review(en)"
+   },
+   "scores": {
+    "material": 4,
+    "fit": 4,
+    "make": 4,
+    "care": 4,
+    "function": 4,
+    "overall": 4,
+    "mean": 4.0
+   },
+   "experts": {
+    "material": "牛津布有織紋與挺度，比府綢不易皺。",
+    "fit": "寬鬆版型選 M，肩線落在 50cm，正是擴肩需要的位置。",
+    "make": "MUSINSA STANDARD 招牌襯衫系列，車工穩定。",
+    "care": "297 則零負評。",
+    "function": "高雄 20–30°C 的萬用外搭，冷氣房也可當薄外套。"
+   },
+   "comment": "規則的「外亮」顏色（冰川藍）首選。你已有白牛津與咖啡條紋，這件補上提亮膚色的藍。",
+   "styling": "疊穿公式：內搭深灰重磅長袖 T 或黑色短袖 T，釦子全開、袖子捲兩折；下身深灰單打褶卡其或深藍丹寧。",
+   "temps": [
+    20,
+    30
+   ],
+   "rating": {
+    "score": 4.9,
+    "count": 297
+   },
+   "budget": {
+    "cap": 3000,
+    "cap_max": 4500,
+    "over_pct": 0,
+    "status": "ok",
+    "reason": null
+   }
+  },
+  {
+   "id": "2026-10-08",
+   "goodsNo": 854338,
+   "is_new": true,
+   "cat": "shirt",
+   "slot": "light-overshirt",
+   "role": "outer",
+   "brand": "MUSINSA STANDARD",
+   "name": "寬鬆版牛津襯衫（霧灰）",
+   "name_en": "Relaxed Fit Oxford Shirt [Gray]",
+   "color": "霧灰 Gray",
+   "hex": "#b8bbbe",
+   "tone": "light",
+   "img": "https://image.msscdn.net/images/goods_img/20180910/854338/854338_17829559106323_big.jpg",
+   "urls": {
+    "global": "https://global.musinsa.com/tw/products/854338",
+    "kr": "https://www.musinsa.com/products/854338",
+    "reviews": "https://www.musinsa.com/review/goods/854338"
+   },
+   "price": {
+    "twd": 780,
+    "twd_normal": 1200,
+    "krw": 27890,
+    "krw_normal": 39900,
+    "global_available": true,
+    "krw_twd": 686,
+    "premium_pct": 13.7,
+    "premium_flag": false
+   },
+   "budget_reason": null,
+   "fabric": "棉 100%（牛津布）",
+   "origin": "印尼",
+   "care": "單獨手洗，可能掉色",
+   "fit": {
+    "shoulder_type": "drop-structured",
+    "hem": "shirt-tail",
+    "zip": false,
+    "two_way_zip": null,
+    "leg": null,
+    "tuck": null,
+    "note": "同天空藍款，選 M（肩 50.4、胸 58.5），衣長 76.5 多 2.5cm，開襟外搭可接受"
+   },
+   "size": {
+    "pick": "M",
+    "chart": {
+     "shoulder": 50.4,
+     "chest": 58.5,
+     "length": 76.5
+    },
+    "chart_pick": "M",
+    "chart_why": "肩、胸在規則內",
+    "reviews_body": {
+     "n": 45,
+     "dist": {
+      "L": 26,
+      "XL": 14,
+      "M": 4,
+      "2XL": 1
+     },
+     "tendency": "正常",
+     "note": "同身形 5 則說剛好，多數選 L 穿寬鬆"
+    },
+    "reviews_all": {
+     "n": 600,
+     "dist": {
+      "L": 216,
+      "XL": 143,
+      "M": 129,
+      "2XL": 65
+     }
+    },
+    "why": "與天空藍同理：窄肩選 M；要寬鬆垂墜感可改 L"
+   },
+   "screen": {
+    "fetched": 600,
+    "neg_pct": 0,
+    "neg_body_pct": 0,
+    "neg_by": {
+     "shrink": 0,
+     "pilling": 0,
+     "neck": 0
+    },
+    "clingy_pct": 0,
+    "thin_pct": 2.2,
+    "thickness": "보통",
+    "warn": [],
+    "source": "global-review(en)"
+   },
+   "scores": {
+    "material": 4,
+    "fit": 4,
+    "make": 4,
+    "care": 4,
+    "function": 4,
+    "overall": 4,
+    "mean": 4.0
+   },
+   "experts": {
+    "material": "經典牛津，越洗越軟但不塌。",
+    "fit": "M 肩線準確，敞開穿有兩條直線。",
+    "make": "5,800 則評論的長銷款。",
+    "care": "600 則零負評。",
+    "function": "20–30°C 外搭；霧灰比藍更百搭西裝褲。"
+   },
+   "comment": "和天空藍二選一即可（霧灰較穩重、藍較提亮）。這是 MUSINSA 長銷款，品質最有把握。",
+   "styling": "外搭在黑色短袖重磅 T 外，配深灰單打褶褲與白鞋；冬天可疊在雙向拉鍊針織裡當中間層。",
+   "temps": [
+    20,
+    30
+   ],
+   "rating": {
+    "score": 4.8,
+    "count": 5856
+   },
+   "budget": {
+    "cap": 3000,
+    "cap_max": 4500,
+    "over_pct": 0,
+    "status": "ok",
+    "reason": null
+   }
+  },
+  {
+   "id": "2026-10-09",
+   "goodsNo": 2299286,
+   "is_new": true,
+   "cat": "shirt",
+   "slot": "light-overshirt",
+   "role": "outer",
+   "brand": "PRODESHIRT",
+   "name": "[Regular] D-300 牛津襯衫（藍）",
+   "name_en": "[Regular] D-300 Oxford Shirt (Blue)",
+   "color": "藍 Blue",
+   "hex": "#9fb8d8",
+   "tone": "light",
+   "img": "https://image.msscdn.net/images/goods_img/20220110/2299286/2299286_1_big.jpg",
+   "urls": {
+    "global": "https://global.musinsa.com/tw/products/2299286",
+    "kr": "https://www.musinsa.com/products/2299286",
+    "reviews": "https://www.musinsa.com/review/goods/2299286"
+   },
+   "price": {
+    "twd": 3346,
+    "twd_normal": 3346,
+    "krw": 128000,
+    "krw_normal": 128000,
+    "global_available": true,
+    "krw_twd": 3149,
+    "premium_pct": 6.3,
+    "premium_flag": false
+   },
+   "budget_reason": "韓國製高磅數牛津布（與你已買的白色同款），布身最挺、版型肩 49.5／胸 57.5 準確，是「硬挺外亮層」的最高規格；超出 11.5%，可等黑五折扣再入手",
+   "fabric": "棉 100%（D-300 高磅牛津）",
+   "origin": "韓國",
+   "care": "溫水標準洗，不擰乾，低溫熨燙",
+   "fit": {
+    "shoulder_type": "set-in",
+    "hem": "shirt-tail",
+    "zip": false,
+    "two_way_zip": null,
+    "leg": null,
+    "tuck": null,
+    "note": "L(50) 肩 49.5、胸 57.5 在規則內，衣長 77.5 多 3.5cm（襯衫下擺），開襟外搭可接受；與已購白色同尺寸"
+   },
+   "size": {
+    "pick": "L",
+    "chart": {
+     "shoulder": 49.5,
+     "chest": 57.5,
+     "length": 77.5
+    },
+    "chart_pick": "L",
+    "chart_why": "L(50) 肩胸都在規則內；Comfort 版肩 51.5 也可",
+    "reviews_body": {
+     "n": 7,
+     "dist": {
+      "L": 5,
+      "M": 2
+     },
+     "tendency": "正常",
+     "note": "同身形樣本少（7 則），但 5 則選 L、2 則說剛好；白色同款同身形 49 則中 31 則選 L"
+    },
+    "reviews_all": {
+     "n": 70,
+     "dist": {
+      "L": 25,
+      "M": 20,
+      "XL": 18
+     }
+    },
+    "why": "與你已買的白色同款同尺寸 L(50)，到貨若合身就放心買藍色"
+   },
+   "screen": {
+    "fetched": 70,
+    "neg_pct": 0,
+    "neg_body_pct": 0,
+    "neg_by": {
+     "shrink": 0,
+     "pilling": 0,
+     "neck": 0
+    },
+    "clingy_pct": 0,
+    "thin_pct": 1.4,
+    "thickness": "보통",
+    "warn": [
+     "同身形評論只有 7 則（參考白色同款 49 則）"
+    ],
+    "source": "global-review(en)"
+   },
+   "scores": {
+    "material": 5,
+    "fit": 4,
+    "make": 4.5,
+    "care": 4,
+    "function": 4,
+    "overall": 4,
+    "mean": 4.3
+   },
+   "experts": {
+    "material": "韓國製高磅牛津，挺度與耐久度是本月襯衫第一。",
+    "fit": "正肩規整，肩 49.5 剛好在規則下緣。",
+    "make": "韓國工廠縫製，領型穩定。",
+    "care": "評論零負評；高磅棉洗後略縮，建議溫水不烘。",
+    "function": "上班、休閒皆可；四季款。"
+   },
+   "comment": "品質最好但價格是 MUSINSA STANDARD 的 4 倍。先等你已買的白色到貨確認尺寸，再趁折扣買藍色。",
+   "styling": "疊穿公式的高規格版：內搭黑色重磅 T，外搭敞開；配 INSILENCE 黑色西裝外套也可做輕正裝。",
+   "temps": [
+    18,
+    30
+   ],
+   "rating": {
+    "score": 4.9,
+    "count": 70
+   },
+   "budget": {
+    "cap": 3000,
+    "cap_max": 4500,
+    "over_pct": 11.5,
+    "status": "stretch",
+    "reason": "韓國製高磅數牛津布（與你已買的白色同款），布身最挺、版型肩 49.5／胸 57.5 準確，是「硬挺外亮層」的最高規格；超出 11.5%，可等黑五折扣再入手"
+   }
+  },
+  {
+   "id": "2026-10-10",
+   "goodsNo": 4619859,
+   "is_new": true,
+   "cat": "outer",
+   "slot": "tailored-jacket",
+   "role": "outer",
+   "brand": "MUSINSA STANDARD",
+   "name": "SOLOTEX 舒適西裝外套（黑）",
+   "name_en": "SOLOTEX Comfort Blazer [Black]",
+   "color": "黑 Black",
+   "hex": "#1c1d20",
+   "tone": "dark",
+   "img": "https://image.msscdn.net/images/goods_img/20241118/4619859/4619859_17554724560839_big.jpg",
+   "urls": {
+    "global": "https://global.musinsa.com/tw/products/4619859",
+    "kr": "https://www.musinsa.com/products/4619859",
+    "reviews": "https://www.musinsa.com/review/goods/4619859"
+   },
+   "price": {
+    "twd": 1157,
+    "twd_normal": 3304,
+    "krw": 43890,
+    "krw_normal": 109900,
+    "global_available": true,
+    "krw_twd": 1080,
+    "premium_pct": 7.2,
+    "premium_flag": false
+   },
+   "budget_reason": null,
+   "fabric": "聚酯 100%（SOLOTEX 彈性纖維，裡布聚酯）",
+   "origin": "越南",
+   "care": "專業乾洗",
+   "fit": {
+    "shoulder_type": "set-in",
+    "hem": "open",
+    "zip": false,
+    "two_way_zip": null,
+    "leg": null,
+    "tuck": null,
+    "note": "L 肩 50、胸 60、衣長 73，全部在外套規則內；面料標示略薄，適合高雄的秋冬"
+   },
+   "size": {
+    "pick": "L",
+    "chart": {
+     "shoulder": 50,
+     "chest": 60,
+     "length": 73
+    },
+    "chart_pick": "L",
+    "chart_why": "肩 50 結構肩、胸 60 扣上也不緊",
+    "reviews_body": {
+     "n": 9,
+     "dist": {
+      "L": 4,
+      "XL": 3,
+      "M": 2
+     },
+     "tendency": "偏小",
+     "note": "一位 173/75 穿 M 說略小，建議照平常尺寸；同身形樣本少"
+    },
+    "reviews_all": {
+     "n": 97,
+     "dist": {
+      "XL": 36,
+      "L": 30,
+      "2XL": 17,
+      "M": 14
+     }
+    },
+    "why": "尺寸表 L 正中規則；評論提醒 M 偏小，所以不要往下選"
+   },
+   "screen": {
+    "fetched": 97,
+    "neg_pct": 0,
+    "neg_body_pct": 0,
+    "neg_by": {
+     "shrink": 0,
+     "pilling": 0,
+     "neck": 0
+    },
+    "clingy_pct": 0,
+    "thin_pct": 6.2,
+    "thickness": "약간 얇음",
+    "warn": [
+     "同身形評論只有 9 則"
+    ],
+    "source": "global-review(en)"
+   },
+   "scores": {
+    "material": 3.5,
+    "fit": 4.5,
+    "make": 3.5,
+    "care": 4,
+    "function": 4.5,
+    "overall": 4,
+    "mean": 4.0
+   },
+   "experts": {
+    "material": "SOLOTEX 彈性聚酯，抗皺好打理，但質感不及羊毛。",
+    "fit": "L 號數字完美，結構肩能把 44cm 窄肩撐成倒三角。",
+    "make": "平價西裝，墊肩輕薄，翻領工整。",
+    "care": "可乾洗、抗皺，出差塞行李也不怕。",
+    "function": "高雄冬天唯一需要的西裝外套厚度；婚喪喜慶、上班都行。"
+   },
+   "comment": "65% off 後 NT$1,157 的結構肩西裝外套，是補「輕正裝夾克」缺口最划算的選擇。",
+   "styling": "內搭黑色長袖 Piqué Polo 或深灰 T，下身深灰單打褶褲；正式場合改配藍牛津襯衫。",
+   "temps": [
+    16,
+    26
+   ],
+   "rating": {
+    "score": 4.9,
+    "count": 97
+   },
+   "budget": {
+    "cap": 5000,
+    "cap_max": 7500,
+    "over_pct": 0,
+    "status": "ok",
+    "reason": null
+   }
+  },
+  {
+   "id": "2026-10-11",
+   "goodsNo": 841230,
+   "is_new": true,
+   "cat": "outer",
+   "slot": "tailored-jacket",
+   "role": "outer",
+   "brand": "INSILENCE",
+   "name": "Oversize 羊毛西裝外套（黑）",
+   "name_en": "Oversized Wool Blazer BLACK",
+   "color": "黑 Black",
+   "hex": "#18191b",
+   "tone": "dark",
+   "img": "https://image.msscdn.net/images/goods_img/20180829/841230/841230_17875456744812_big.jpg",
+   "urls": {
+    "global": "https://global.musinsa.com/tw/products/841230",
+    "kr": "https://www.musinsa.com/products/841230",
+    "reviews": "https://www.musinsa.com/review/goods/841230"
+   },
+   "price": {
+    "twd": 4024,
+    "twd_normal": 4627,
+    "krw": 159000,
+    "krw_normal": 177000,
+    "global_available": true,
+    "krw_twd": 3911,
+    "premium_pct": 2.9,
+    "premium_flag": false
+   },
+   "budget_reason": null,
+   "fabric": "羊毛 50%、聚酯 50%",
+   "origin": "越南",
+   "care": "乾洗",
+   "fit": {
+    "shoulder_type": "set-in",
+    "hem": "open",
+    "zip": false,
+    "two_way_zip": null,
+    "leg": null,
+    "tuck": null,
+    "note": "選 M：肩 50.5、胸 59、衣長 73 在規則內；這款版型寬大，L（肩 52）偏大"
+   },
+   "size": {
+    "pick": "M",
+    "chart": {
+     "shoulder": 50.5,
+     "chest": 59,
+     "length": 73
+    },
+    "chart_pick": "M",
+    "chart_why": "Oversize 版型，M 的數字已等於一般 L",
+    "reviews_body": {
+     "n": 43,
+     "dist": {
+      "M": 29,
+      "L": 12,
+      "S": 2
+     },
+     "tendency": "偏大",
+     "note": "同身形 9 則說偏大；177/75 說 L 太大改 M"
+    },
+    "reviews_all": {
+     "n": 600,
+     "dist": {
+      "L": 238,
+      "M": 216,
+      "S": 143
+     }
+    },
+    "why": "尺寸表與同身形評論（29/43 選 M）一致"
+   },
+   "screen": {
+    "fetched": 600,
+    "neg_pct": 0,
+    "neg_body_pct": 0,
+    "neg_by": {
+     "shrink": 0,
+     "pilling": 0,
+     "neck": 0
+    },
+    "clingy_pct": 0.2,
+    "thin_pct": 1.2,
+    "thickness": null,
+    "warn": [],
+    "source": "global-review(en)"
+   },
+   "scores": {
+    "material": 4,
+    "fit": 4.5,
+    "make": 4,
+    "care": 4,
+    "function": 4,
+    "overall": 4.5,
+    "mean": 4.1
+   },
+   "experts": {
+    "material": "羊毛混紡，比 SOLOTEX 有質感、垂墜。",
+    "fit": "硬挺結構肩，M 號肩線正好撐出 6cm。",
+    "make": "9,000 則評論的長銷款，車工穩定。",
+    "care": "600 則零負評。",
+    "function": "12–22°C；比 SOLOTEX 厚，適合寒流與正式場合。"
+   },
+   "comment": "想要一件穿 5 年的西裝外套就選這件；預算優先則選 SOLOTEX。兩件二選一。",
+   "styling": "內搭白 T 或藍牛津，下身深灰單打褶或深色丹寧；扣子只扣一顆，不扣時形成兩條直線。",
+   "temps": [
+    12,
+    22
+   ],
+   "rating": {
+    "score": 4.8,
+    "count": 9045
+   },
+   "budget": {
+    "cap": 5000,
+    "cap_max": 7500,
+    "over_pct": 0,
+    "status": "ok",
+    "reason": null
+   }
+  },
+  {
+   "id": "2026-10-12",
+   "goodsNo": 4449340,
+   "is_new": true,
+   "cat": "outer",
+   "slot": "tailored-jacket",
+   "role": "outer",
+   "brand": "247 SERIES",
+   "name": "Steady 舒適套裝西裝外套（深灰）",
+   "name_en": "Steady Comfort Setup Jacket DARK GRAY",
+   "color": "深灰 Dark Gray",
+   "hex": "#47494c",
+   "tone": "dark",
+   "img": "https://image.msscdn.net/images/goods_img/20240920/4449340/4449340_17761511316691_big.jpg",
+   "urls": {
+    "global": "https://global.musinsa.com/tw/products/4449340",
+    "kr": "https://www.musinsa.com/products/4449340",
+    "reviews": "https://www.musinsa.com/review/goods/4449340"
+   },
+   "price": {
+    "twd": 3742,
+    "twd_normal": 4157,
+    "krw": 142380,
+    "krw_normal": 159000,
+    "global_available": true,
+    "krw_twd": 3503,
+    "premium_pct": 6.8,
+    "premium_flag": false
+   },
+   "budget_reason": null,
+   "fabric": "聚酯 65%、嫘縈 32%、彈性纖維 3%",
+   "origin": "越南",
+   "care": "乾洗",
+   "fit": {
+    "shoulder_type": "set-in",
+    "hem": "open",
+    "zip": false,
+    "two_way_zip": null,
+    "leg": null,
+    "tuck": null,
+    "note": "M 肩 50、胸 59、衣長 73 在規則內；評論的購買選項只顯示顏色，無法統計尺寸分布，尺寸以尺寸表為準"
+   },
+   "size": {
+    "pick": "M",
+    "chart": {
+     "shoulder": 50,
+     "chest": 59,
+     "length": 73
+    },
+    "chart_pick": "M",
+    "chart_why": "M 數字落在規則中間；L 肩 52 超出",
+    "reviews_body": {
+     "n": 13,
+     "dist": {
+      "未標尺寸": 13
+     },
+     "tendency": "正常",
+     "note": "同身形 13 則（173/75 為主）都說合身、適合婚禮與上班"
+    },
+    "reviews_all": {
+     "n": 93,
+     "dist": {
+      "未標尺寸": 93
+     }
+    },
+    "why": "評論沒有尺寸資訊，依尺寸表選 M"
+   },
+   "screen": {
+    "fetched": 93,
+    "neg_pct": 0,
+    "neg_body_pct": 0,
+    "neg_by": {
+     "shrink": 0,
+     "pilling": 0,
+     "neck": 0
+    },
+    "clingy_pct": 0,
+    "thin_pct": 1.1,
+    "thickness": null,
+    "warn": [],
+    "source": "global-review(en)"
+   },
+   "scores": {
+    "material": 3.5,
+    "fit": 4,
+    "make": 4,
+    "care": 4,
+    "function": 4,
+    "overall": 3.5,
+    "mean": 3.9
+   },
+   "experts": {
+    "material": "嫘縈混紡有垂墜，但不是羊毛。",
+    "fit": "結構肩、M 數字準，可與同系列褲子成套。",
+    "make": "評分 5.0，口碑好但樣本少。",
+    "care": "零負評。",
+    "function": "套裝用途；深灰比黑色更日常。"
+   },
+   "comment": "想要成套西裝時的選項；單買外套的話 SOLOTEX 或 INSILENCE 更值得。",
+   "styling": "可與同系列褲子成套；單穿外套配黑色重磅 T 與深色丹寧。",
+   "temps": [
+    16,
+    26
+   ],
+   "rating": {
+    "score": 5,
+    "count": 93
+   },
+   "budget": {
+    "cap": 5000,
+    "cap_max": 7500,
+    "over_pct": 0,
+    "status": "ok",
+    "reason": null
+   }
+  },
+  {
+   "id": "2026-10-13",
+   "goodsNo": 7108771,
+   "is_new": true,
+   "cat": "outer",
+   "slot": "zip-jacket",
+   "role": "outer",
+   "brand": "DIMITRI BLACK",
+   "name": "2WAY Essential 哈靈頓夾克（炭灰）",
+   "name_en": "2WAY Essential Harrington Jacket (C/N Washed)",
+   "color": "炭灰 Charcoal（4 色）",
+   "hex": "#5d6064",
+   "tone": "mid",
+   "img": "https://image.msscdn.net/images/goods_img/20260819/7108771/7108771_17872799321634_big.jpg",
+   "urls": {
+    "global": "https://global.musinsa.com/tw/products/7108771",
+    "kr": "https://www.musinsa.com/products/7108771",
+    "reviews": "https://www.musinsa.com/review/goods/7108771"
+   },
+   "price": {
+    "twd": 1612,
+    "twd_normal": 2350,
+    "krw": 59900,
+    "krw_normal": 89900,
+    "global_available": true,
+    "krw_twd": 1474,
+    "premium_pct": 9.4,
+    "premium_flag": false
+   },
+   "budget_reason": null,
+   "fabric": "棉 70%、尼龍 30%（水洗）",
+   "origin": "中國",
+   "care": "建議手洗，不可漂白、不可烘乾",
+   "fit": {
+    "shoulder_type": "set-in",
+    "hem": "open",
+    "zip": true,
+    "two_way_zip": true,
+    "leg": null,
+    "tuck": null,
+    "note": "照片確認是正肩（非連肩袖）＋雙向拉鍊。選 2(L)：肩 52、胸 64.5、衣長 65，比外套規則多 1–2.5cm；尺寸表看 1(M) 剛好，但同身形 175/75 的買家說 M 會太小"
+   },
+   "size": {
+    "pick": "2",
+    "chart": {
+     "shoulder": 52,
+     "chest": 64.5,
+     "length": 65
+    },
+    "chart_pick": "1",
+    "chart_why": "1(M) 肩 50.5、胸 62 正好落在規則內",
+    "reviews_body": {
+     "n": 5,
+     "dist": {
+      "L": 4,
+      "XL": 1
+     },
+     "tendency": "偏小",
+     "note": "175/75 的買家穿 2(L) 剛好，說選 1 會太小"
+    },
+    "reviews_all": {
+     "n": 86,
+     "dist": {
+      "L": 39,
+      "M": 27,
+      "XL": 20
+     }
+    },
+    "why": "尺寸表指向 1(M)，但同身形實穿說 M 太緊；外套要能坐下、內搭針織，所以選 2(L)，肩線多 1cm 可接受"
+   },
+   "screen": {
+    "fetched": 86,
+    "neg_pct": 0,
+    "neg_body_pct": 0,
+    "neg_by": {
+     "shrink": 0,
+     "pilling": 0,
+     "neck": 0
+    },
+    "clingy_pct": 0,
+    "thin_pct": 7,
+    "thickness": null,
+    "warn": [
+     "同身形評論只有 5 則"
+    ],
+    "source": "global-review(en)"
+   },
+   "scores": {
+    "material": 3.5,
+    "fit": 4,
+    "make": 3.5,
+    "care": 3.5,
+    "function": 4.5,
+    "overall": 4,
+    "mean": 3.8
+   },
+   "experts": {
+    "material": "棉尼龍水洗布，有挺度又防潑，適合秋冬。",
+    "fit": "正肩＋短版，下擺不收緊，雙向拉鍊可做倒 V。",
+    "make": "新品評論少，品質待觀察。",
+    "care": "不可烘乾，水洗布洗後色澤會自然變化。",
+    "function": "高雄 14–22°C 的機能短夾克。"
+   },
+   "comment": "本月唯一同時符合「正肩、雙向拉鍊、預算內」的短夾克。樣本少，建議先買一件、到貨確認。",
+   "styling": "外套公式：內搭深灰重磅 T，拉鍊拉到胸口、下方拉鍊頭往上開 6–8cm 成倒 V；下身深色丹寧或卡其。",
+   "temps": [
+    14,
+    22
+   ],
+   "rating": {
+    "score": 4.8,
+    "count": 86
+   },
+   "budget": {
+    "cap": 5000,
+    "cap_max": 7500,
+    "over_pct": 0,
+    "status": "ok",
+    "reason": null
+   }
+  },
+  {
+   "id": "2026-10-14",
+   "goodsNo": 3826251,
+   "is_new": true,
+   "cat": "outer",
+   "slot": "zip-jacket",
+   "role": "outer",
+   "brand": "LEMAIN SECOND",
+   "name": "極簡 Oversize 雙向拉鍊夾克（米色）",
+   "name_en": "Minimal Overfit Two-Way Jacket [Beige]",
+   "color": "米色 Beige",
+   "hex": "#d6cdbd",
+   "tone": "light",
+   "img": "https://image.msscdn.net/images/goods_img/20240126/3826251/3826251_17611870350709_big.jpg",
+   "urls": {
+    "global": "https://global.musinsa.com/tw/products/3826251",
+    "kr": "https://www.musinsa.com/products/3826251",
+    "reviews": "https://www.musinsa.com/review/goods/3826251"
+   },
+   "price": {
+    "twd": 1299,
+    "twd_normal": 2405,
+    "krw": 39800,
+    "krw_normal": 92000,
+    "global_available": true,
+    "krw_twd": 979,
+    "premium_pct": 32.7,
+    "premium_flag": true
+   },
+   "budget_reason": null,
+   "fabric": "聚酯 65%、嫘縈 35%（裡布聚酯）",
+   "origin": "越南",
+   "care": "依洗標",
+   "fit": {
+    "shoulder_type": "drop-structured",
+    "hem": "open",
+    "zip": true,
+    "two_way_zip": true,
+    "leg": null,
+    "tuck": null,
+    "note": "M 肩 53 比規則多 2cm（Oversize 落肩），胸 60、衣長 66 在範圍內；淺米色是規則的「外亮」色，適合放在臉旁提亮"
+   },
+   "size": {
+    "pick": "M",
+    "chart": {
+     "shoulder": 53,
+     "chest": 60,
+     "length": 66
+    },
+    "chart_pick": "M",
+    "chart_why": "Oversize 版型，M 的肩已經 53；L 肩 55 太垮",
+    "reviews_body": {
+     "n": 6,
+     "dist": {
+      "L": 5,
+      "M": 1
+     },
+     "tendency": "偏大",
+     "note": "177/75 說平常穿 XL，這款 L 就夠（版型寬）"
+    },
+    "reviews_all": {
+     "n": 288,
+     "dist": {
+      "L": 162,
+      "M": 126
+     }
+    },
+    "why": "評論多選 L，但你肩窄，M 的肩 53 已經落肩 9cm；想要寬鬆感再選 L"
+   },
+   "screen": {
+    "fetched": 288,
+    "neg_pct": 0,
+    "neg_body_pct": 0,
+    "neg_by": {
+     "shrink": 0,
+     "pilling": 0,
+     "neck": 0
+    },
+    "clingy_pct": 0,
+    "thin_pct": 9.4,
+    "thickness": "보통",
+    "warn": [
+     "同身形評論只有 6 則"
+    ],
+    "source": "global-review(en)"
+   },
+   "scores": {
+    "material": 3,
+    "fit": 3.5,
+    "make": 3.5,
+    "care": 3.5,
+    "function": 4,
+    "overall": 3.5,
+    "mean": 3.5
+   },
+   "experts": {
+    "material": "聚酯嫘縈，輕薄有垂墜，不算硬挺。",
+    "fit": "落肩偏多，靠翻領撐出肩線。",
+    "make": "平價款，評分 4.9。",
+    "care": "零負評。",
+    "function": "16–24°C 春秋輕外套。"
+   },
+   "comment": "想要淺色雙向拉鍊外套時的平價選擇；版型與面料不如 DIMITRI BLACK 挺。⚠ Global 比韓國站貴 33%（超過 20% 警戒線），建議等 Monster Sale 或略過。",
+   "styling": "外亮公式：內搭黑色重磅 T，拉鍊全開或倒 V；下身深色丹寧。",
+   "temps": [
+    16,
+    24
+   ],
+   "rating": {
+    "score": 4.9,
+    "count": 288
+   },
+   "budget": {
+    "cap": 5000,
+    "cap_max": 7500,
+    "over_pct": 0,
+    "status": "ok",
+    "reason": null
+   }
+  },
+  {
+   "id": "2026-10-15",
+   "goodsNo": 2069528,
+   "is_new": true,
+   "cat": "pants",
+   "slot": "tuck-slacks",
+   "role": "bottom",
+   "brand": "MUSINSA STANDARD",
+   "name": "單打褶 Regular 卡其褲（深灰）",
+   "name_en": "One Tuck Regular Fit Chino Pants [Dark Gray]",
+   "color": "深灰 Dark Gray",
+   "hex": "#4b4d50",
+   "tone": "dark",
+   "img": "https://image.msscdn.net/images/goods_img/20210818/2069528/2069528_16933727680022_big.jpg",
+   "urls": {
+    "global": "https://global.musinsa.com/tw/products/2069528",
+    "kr": "https://www.musinsa.com/products/2069528",
+    "reviews": "https://www.musinsa.com/review/goods/2069528"
+   },
+   "price": {
+    "twd": 901,
+    "twd_normal": 1501,
+    "krw": 23890,
+    "krw_normal": 49900,
+    "global_available": true,
+    "krw_twd": 588,
+    "premium_pct": 53.3,
+    "premium_flag": true
+   },
+   "budget_reason": null,
+   "fabric": "棉 100%（口袋布聚酯 80%／棉 20%）",
+   "origin": "越南",
+   "care": "單獨手洗",
+   "fit": {
+    "shoulder_type": null,
+    "hem": null,
+    "zip": null,
+    "two_way_zip": null,
+    "leg": "straight",
+    "tuck": "one-tuck",
+    "note": "33 腰：前襠 32.3（多 0.3cm）、褲腳 21.25 都符合；大腿 36.9 比規則寬 1.4cm（單打褶給小腹空間的代價）；褲長 105 需修到 101cm。本月掃描 95 件單打褶褲，只有這個系列同時符合前襠與褲腳"
+   },
+   "size": {
+    "pick": "33",
+    "chart": {
+     "waist": 44.5,
+     "thigh": 36.875,
+     "rise": 32.3,
+     "leg_opening": 21.25,
+     "length": 105
+    },
+    "chart_pick": "33",
+    "chart_why": "33 腰 44.5 比你的 43.5 多 1cm，坐下不勒；32 腰 43.25 沒有餘裕",
+    "reviews_body": {
+     "n": 45,
+     "dist": {
+      "32": 27,
+      "31": 7,
+      "30": 3,
+      "33": 3
+     },
+     "tendency": "正常",
+     "note": "同身形多數選 32"
+    },
+    "reviews_all": {
+     "n": 600,
+     "dist": {}
+    },
+    "why": "評論多選 32（27/45），但這款沒有鬆緊帶，你坐下腹部前推 3–4cm，所以選 33；若習慣低一點的褲頭可選 32"
+   },
+   "screen": {
+    "fetched": 600,
+    "neg_pct": 0,
+    "neg_body_pct": 0,
+    "neg_by": {
+     "shrink": 0,
+     "pilling": 0,
+     "neck": 0
+    },
+    "clingy_pct": 0,
+    "thin_pct": 2.3,
+    "thickness": "보통",
+    "warn": [],
+    "source": "global-review(en)"
+   },
+   "scores": {
+    "material": 4,
+    "fit": 4,
+    "make": 4,
+    "care": 4,
+    "function": 4,
+    "overall": 4,
+    "mean": 4.0
+   },
+   "experts": {
+    "material": "純棉斜紋卡其，挺而不硬。",
+    "fit": "中高腰＋單打褶＋直筒褲腳 21cm，完全對上藏肚褲款邏輯。",
+    "make": "1.1 萬則評論的長銷系列。",
+    "care": "600 則零負評。",
+    "function": "四季可穿，深灰可當休閒西裝褲。"
+   },
+   "comment": "本月最符合「單打褶＋中高腰＋微寬直筒」的褲子，深灰色可以取代西裝褲。修短到 101cm 是必要步驟。⚠ 價差：Global NT$901 比韓國站（₩23,890≈NT$588）貴 53%，超過 20% 警戒線——同款黑色在 Global 只要 NT$676（無溢價），想省錢先買黑色，深灰等 Monster Sale。",
+   "styling": "配天空藍牛津＋深灰 T 的疊穿，或 SOLOTEX 西裝外套做輕正裝；鞋子選黑色德比鞋或白球鞋。",
+   "temps": [
+    12,
+    30
+   ],
+   "rating": {
+    "score": 4.8,
+    "count": 1796
+   },
+   "budget": {
+    "cap": 3000,
+    "cap_max": 4500,
+    "over_pct": 0,
+    "status": "ok",
+    "reason": null
+   }
+  },
+  {
+   "id": "2026-10-16",
+   "goodsNo": 2069524,
+   "is_new": true,
+   "cat": "pants",
+   "slot": "tuck-slacks",
+   "role": "bottom",
+   "brand": "MUSINSA STANDARD",
+   "name": "單打褶 Regular 卡其褲（黑）",
+   "name_en": "One Tuck Regular Fit Chino Pants [Black]",
+   "color": "黑 Black",
+   "hex": "#1e1f21",
+   "tone": "dark",
+   "img": "https://image.msscdn.net/images/goods_img/20210818/2069524/2069524_2_big.jpg",
+   "urls": {
+    "global": "https://global.musinsa.com/tw/products/2069524",
+    "kr": "https://www.musinsa.com/products/2069524",
+    "reviews": "https://www.musinsa.com/review/goods/2069524"
+   },
+   "price": {
+    "twd": 676,
+    "twd_normal": 1501,
+    "krw": 26990,
+    "krw_normal": 49900,
+    "global_available": true,
+    "krw_twd": 664,
+    "premium_pct": 1.8,
+    "premium_flag": false
+   },
+   "budget_reason": null,
+   "fabric": "棉 100%",
+   "origin": "越南",
+   "care": "單獨手洗，黑色易掉色",
+   "fit": {
+    "shoulder_type": null,
+    "hem": null,
+    "zip": null,
+    "two_way_zip": null,
+    "leg": "straight",
+    "tuck": "one-tuck",
+    "note": "同深灰款：33 腰前襠 32.3、褲腳 21.25；大腿 36.9 寬 1.4cm；褲長修到 101cm"
+   },
+   "size": {
+    "pick": "33",
+    "chart": {
+     "waist": 44.5,
+     "thigh": 36.875,
+     "rise": 32.3,
+     "leg_opening": 21.25,
+     "length": 105
+    },
+    "chart_pick": "33",
+    "chart_why": "同深灰款",
+    "reviews_body": {
+     "n": 41,
+     "dist": {
+      "30": 14,
+      "31": 13,
+      "32": 12,
+      "29": 1,
+      "38": 1
+     },
+     "tendency": "正常",
+     "note": "175/75 穿 32 說合身略寬"
+    },
+    "reviews_all": {
+     "n": 600,
+     "dist": {}
+    },
+    "why": "同深灰款：坐姿留餘裕選 33，偏好合身選 32"
+   },
+   "screen": {
+    "fetched": 600,
+    "neg_pct": 0.3,
+    "neg_body_pct": 0,
+    "neg_by": {
+     "shrink": 2,
+     "pilling": 0,
+     "neck": 0
+    },
+    "clingy_pct": 0,
+    "thin_pct": 3,
+    "thickness": "보통",
+    "warn": [],
+    "source": "global-review(en)"
+   },
+   "scores": {
+    "material": 4,
+    "fit": 4,
+    "make": 4,
+    "care": 4,
+    "function": 4,
+    "overall": 4,
+    "mean": 4.0
+   },
+   "experts": {
+    "material": "純棉斜紋。",
+    "fit": "同系列，單打褶中高腰。",
+    "make": "長銷款。",
+    "care": "縮水 2 則（0.3%）。",
+    "function": "黑色更正式，可配西裝外套。"
+   },
+   "comment": "Global 55% off 只要 NT$676，比深灰更便宜；兩色可以都買，正好補滿單打褶褲的 2 格。",
+   "styling": "配 INSILENCE 黑西裝外套＋白 T 做全黑輕正裝，或配霧灰牛津敞開。",
+   "temps": [
+    12,
+    30
+   ],
+   "rating": {
+    "score": 4.8,
+    "count": 3717
+   },
+   "budget": {
+    "cap": 3000,
+    "cap_max": 4500,
+    "over_pct": 0,
+    "status": "ok",
+    "reason": null
+   }
+  },
+  {
+   "id": "2026-10-17",
+   "goodsNo": 1224094,
+   "is_new": true,
+   "cat": "pants",
+   "slot": "tuck-slacks",
+   "role": "bottom",
+   "brand": "MUSINSA STANDARD",
+   "name": "微寬隱藏鬆緊西裝褲（炭灰）",
+   "name_en": "Semi Wide Hidden Banding Slacks [Charcoal Gray]",
+   "color": "炭灰 Charcoal",
+   "hex": "#3f4145",
+   "tone": "dark",
+   "img": "https://image.msscdn.net/images/goods_img/20191113/1224094/1224094_17518465836463_big.jpg",
+   "urls": {
+    "global": "https://global.musinsa.com/tw/products/1224094",
+    "kr": "https://www.musinsa.com/products/1224094",
+    "reviews": "https://www.musinsa.com/review/goods/1224094"
+   },
+   "price": {
+    "twd": 1051,
+    "twd_normal": 1501,
+    "krw": 39990,
+    "krw_normal": 49900,
+    "global_available": true,
+    "krw_twd": 984,
+    "premium_pct": 6.8,
+    "premium_flag": false
+   },
+   "budget_reason": null,
+   "fabric": "聚酯 67%、嫘縈 29%、彈性纖維 4%",
+   "origin": "越南",
+   "care": "專業乾洗",
+   "fit": {
+    "shoulder_type": null,
+    "hem": null,
+    "zip": null,
+    "two_way_zip": null,
+    "leg": "semi-wide",
+    "tuck": "flat",
+    "note": "注意：33 腰前襠只有 28cm（規則 30–32，剛好在 28cm 低腰禁令邊緣），而且是平前片不是單打褶；靠隱藏鬆緊帶與彈性布料補償。褲腳 21.8、大腿 33.6 符合。這是你原本 #01 推薦，保留但降為次選"
+   },
+   "size": {
+    "pick": "33",
+    "chart": {
+     "waist": 43.8,
+     "thigh": 33.6,
+     "rise": 28,
+     "leg_opening": 21.8,
+     "length": 104
+    },
+    "chart_pick": "33",
+    "chart_why": "33 腰 43.8＋隱藏鬆緊，前襠是所有尺寸中較高的",
+    "reviews_body": {
+     "n": 47,
+     "dist": {
+      "32": 18,
+      "31": 12,
+      "33": 11,
+      "34": 2,
+      "36": 2,
+      "30": 2
+     },
+     "tendency": "正常",
+     "note": "同身形 6 則說剛好；173/73 與 173/77 穿 33 都說合身"
+    },
+    "reviews_all": {
+     "n": 600,
+     "dist": {}
+    },
+    "why": "同身形 32 與 33 都多；前襠偏低，選 33 讓褲頭位置高一點"
+   },
+   "screen": {
+    "fetched": 600,
+    "neg_pct": 0,
+    "neg_body_pct": 0,
+    "neg_by": {
+     "shrink": 0,
+     "pilling": 0,
+     "neck": 0
+    },
+    "clingy_pct": 0,
+    "thin_pct": 0.2,
+    "thickness": "보통",
+    "warn": [],
+    "source": "global-review(en)"
+   },
+   "scores": {
+    "material": 3.5,
+    "fit": 3,
+    "make": 4,
+    "care": 4,
+    "function": 4.5,
+    "overall": 3.5,
+    "mean": 3.8
+   },
+   "experts": {
+    "material": "聚酯嫘縈彈性布，抗皺有垂墜。",
+    "fit": "前襠 28 偏低、平前片，對小腹不如單打褶卡其友善。",
+    "make": "11 萬則評論的國民西裝褲。",
+    "care": "600 則零負評。",
+    "function": "有彈性、好活動，四季可穿。"
+   },
+   "comment": "穿起來最舒服、最像西裝褲，但前襠偏低。若在意小腹，優先買單打褶卡其褲；這件當第二條。",
+   "styling": "配黑色長袖 Piqué Polo＋SOLOTEX 西裝外套做上班造型。",
+   "temps": [
+    14,
+    30
+   ],
+   "rating": {
+    "score": 4.9,
+    "count": 9333
+   },
+   "budget": {
+    "cap": 3000,
+    "cap_max": 4500,
+    "over_pct": 0,
+    "status": "ok",
+    "reason": null
+   }
+  }
+ ],
+ "excluded": [
+  {
+   "goodsNo": 5662177,
+   "brand": "MUSINSA STANDARD",
+   "name": "Washable Supima 長袖針織 Polo（你已購）",
+   "cat": "knit",
+   "url": "https://global.musinsa.com/tw/products/5662177",
+   "reasons": [
+    "L 下擺 46cm 比胸 58 小 12cm＝羅紋收口（客觀判定）",
+    "Supima 薄軟針織（規則點名）"
+   ]
+  },
+  {
+   "goodsNo": 4419402,
+   "brand": "ECORR",
+   "name": "Merino Wool 100 圓領針織（你已購）",
+   "cat": "knit",
+   "url": "https://global.musinsa.com/tw/products/4419402",
+   "reasons": [
+    "2(L) 下擺 44cm 比胸 57 小 13cm＝羅紋收口",
+    "細針織＋象牙白單穿"
+   ]
+  },
+  {
+   "goodsNo": 4278935,
+   "brand": "LMOOD",
+   "name": "Milano 羊毛棉圓領針織",
+   "cat": "knit",
+   "url": "https://global.musinsa.com/tw/products/4278935",
+   "reasons": [
+    "商品照片可見羅紋收口下擺（尺寸表無下擺數字）",
+    "48 號衣長 67cm 偏短"
+   ]
+  },
+  {
+   "goodsNo": 2826999,
+   "brand": "GOODLIFEWORKS",
+   "name": "雙向拉鍊厚羅紋翻領針織",
+   "cat": "knit",
+   "url": "https://global.musinsa.com/tw/products/2826999",
+   "reasons": [
+    "商品照片下擺羅紋明顯收口",
+    "L 胸 62cm 超出 57–60"
+   ]
+  },
+  {
+   "goodsNo": 5318901,
+   "brand": "HOOVES",
+   "name": "VTG Interlock 亨利領長袖 T",
+   "cat": "tee",
+   "url": "https://global.musinsa.com/tw/products/5318901",
+   "reasons": [
+    "薄透評論 18.7% > 15%"
+   ]
+  },
+  {
+   "goodsNo": 2356060,
+   "brand": "NONBLANK",
+   "name": "[SAINT YEAR] 微寬西裝褲",
+   "cat": "pants",
+   "url": "https://global.musinsa.com/tw/products/2356060",
+   "reasons": [
+    "L 前襠 27.5cm < 28cm 低腰禁令",
+    "面料標示略薄、薄透評論 23%"
+   ]
+  },
+  {
+   "goodsNo": 1973481,
+   "brand": "ASP",
+   "name": "Steady Shirt 淺灰",
+   "cat": "shirt",
+   "url": "https://global.musinsa.com/tw/products/1973481",
+   "reasons": [
+    "商品標示厚度「薄」，薄透評論 12%：外亮層需要硬挺布料"
+   ]
+  },
+  {
+   "goodsNo": 606067,
+   "brand": "KNITTED",
+   "name": "落肩華夫格針織",
+   "cat": "knit",
+   "url": "https://global.musinsa.com/tw/products/606067",
+   "reasons": [
+    "標示透光「普通」",
+    "L 肩 56、胸 56：落肩過大且胸寬不足"
+   ]
+  },
+  {
+   "goodsNo": 621266,
+   "brand": "FRIZMWORKS",
+   "name": "10S Henley 短袖 T",
+   "cat": "tee",
+   "url": "https://global.musinsa.com/tw/products/621266",
+   "reasons": [
+    "M 肩 57、L 肩 59：遠超 48–51cm，會垮肩顯矮"
+   ]
+  },
+  {
+   "goodsNo": 7140447,
+   "brand": "DRAW FIT",
+   "name": "Moleskin 布勞森夾克",
+   "cat": "outer",
+   "url": "https://global.musinsa.com/tw/products/7140447",
+   "reasons": [
+    "單向拉鍊（規則：拉鍊外套必須雙向）",
+    "L 肩 52.5"
+   ]
+  },
+  {
+   "goodsNo": 5310906,
+   "brand": "UNTAPPED STUDIO",
+   "name": "2WAY 棉質哈靈頓",
+   "cat": "outer",
+   "url": "https://global.musinsa.com/tw/products/5310906",
+   "reasons": [
+    "商品標示透光「有」",
+    "M 胸 68cm 遠超 57–62"
+   ]
+  },
+  {
+   "goodsNo": 3816993,
+   "brand": "COSTUME O'CLOCK",
+   "name": "Curved 2WAY 飛行夾克",
+   "cat": "outer",
+   "url": "https://global.musinsa.com/tw/products/3816993",
+   "reasons": [
+    "M 肩 60、胸 72：超大落肩"
+   ]
+  },
+  {
+   "goodsNo": 7260574,
+   "brand": "SHAKAWEAR",
+   "name": "7.5oz Max 重磅 T（黑）",
+   "cat": "tee",
+   "url": "https://global.musinsa.com/tw/products/7260574",
+   "reasons": [
+    "L 衣長 78.7cm、胸 55.9：太長且胸寬不足"
+   ]
+  },
+  {
+   "goodsNo": 4838119,
+   "brand": "PRINTSTAR",
+   "name": "14 支 7.4oz 重磅 T 2 入",
+   "cat": "tee",
+   "url": "https://global.musinsa.com/tw/products/4838119",
+   "reasons": [
+    "L 胸 55cm < 57、衣長 74"
+   ]
+  },
+  {
+   "goodsNo": 3075261,
+   "brand": "MUSINSA STANDARD",
+   "name": "[Cool] Relaxed Piqué Polo",
+   "cat": "tee",
+   "url": "https://global.musinsa.com/tw/products/3075261",
+   "reasons": [
+    "標示厚度「略薄」、聚酯混紡；L 肩 53"
+   ]
+  },
+  {
+   "goodsNo": 3045274,
+   "brand": "MUSINSA STANDARD",
+   "name": "反向單打褶寬版隱藏鬆緊西裝褲",
+   "cat": "pants",
+   "url": "https://global.musinsa.com/tw/products/3045274",
+   "reasons": [
+    "33 腰褲腳 24.3cm > 23（寬褲）",
+    "前襠 30 OK，但整體偏寬"
+   ]
+  },
+  {
+   "goodsNo": 5358778,
+   "brand": "DRAW FIT",
+   "name": "雙打褶寬版細條紋西裝褲",
+   "cat": "pants",
+   "url": "https://global.musinsa.com/tw/products/5358778",
+   "reasons": [
+    "褲腳 28–29cm 過寬",
+    "前襠 33"
+   ]
+  }
+ ],
+ "wardrobe": {
+  "summary": "已購 12 件中褲子與外套比例偏高（丹寧 2、卡其 2、丹寧夾克、大衣），但上身的「深色重磅內搭 T、白邊 T、硬挺單穿上衣、雙向拉鍊外套、西裝外套」幾乎全空，而且 3 件建議退（Supima 2 入 T、ECORR 美麗諾、Supima 長袖 Polo）。本月選品以補上身為主：先買 NT$450 深灰重磅長袖 T ×2、黑色長袖 Piqué Polo、白 T（M）與單打褶卡其褲，總計約 NT$4,000 就能讓已買的褲子和襯衫全部搭得起來。丹寧與卡其各已有兩條，短期內不要再買。",
+  "gaps": [
+   {
+    "slot": "inner-dark-tee",
+    "need": "深色重磅內搭 T 3 件（目前 0）",
+    "suggest": [
+     "2026-10-01",
+     "2026-10-02"
+    ]
+   },
+   {
+    "slot": "white-tee",
+    "need": "白邊內搭 T 2 件（目前 0）",
+    "suggest": [
+     "2026-10-03"
+    ]
+   },
+   {
+    "slot": "single-top",
+    "need": "硬挺單穿上衣 2 件（Supima Henley 待到貨確認）",
+    "suggest": [
+     "2026-10-04",
+     "2026-10-05"
+    ]
+   },
+   {
+    "slot": "light-overshirt",
+    "need": "亮色外搭再 1 件（冰川藍／霧灰）",
+    "suggest": [
+     "2026-10-07",
+     "2026-10-08",
+     "2026-10-09"
+    ]
+   },
+   {
+    "slot": "structured-knit",
+    "need": "硬挺針織 2 件（ECORR 建議退）",
+    "suggest": [
+     "2026-10-06"
+    ]
+   },
+   {
+    "slot": "zip-jacket",
+    "need": "正肩雙向拉鍊短夾克 1 件",
+    "suggest": [
+     "2026-10-13",
+     "2026-10-14"
+    ]
+   },
+   {
+    "slot": "tailored-jacket",
+    "need": "結構肩西裝外套 1 件",
+    "suggest": [
+     "2026-10-10",
+     "2026-10-11",
+     "2026-10-12"
+    ]
+   },
+   {
+    "slot": "tuck-slacks",
+    "need": "單打褶中高腰褲 2 條（目前 0；已買的都是丹寧／卡其）",
+    "suggest": [
+     "2026-10-15",
+     "2026-10-16",
+     "2026-10-17"
+    ]
+   }
+  ],
+  "owned_review": [
+   {
+    "ref": "o-20261024a-1",
+    "note": "保留。32 腰同身形 28 人選，腰 43.5 不勒；前襠 34 把褲頭拉到肚臍上方。修到 101cm。"
+   },
+   {
+    "ref": "o-20261024a-2",
+    "note": "保留。M 號四項尺寸都在規則內，卡其色配深色上衣。"
+   },
+   {
+    "ref": "o-20261024a-3",
+    "note": "只當開襟外搭，內搭深灰／黑色重磅 T。"
+   },
+   {
+    "ref": "o-20261024a-4",
+    "note": "保留（修正上月推測）：實測褲腳 22.5、前襠 31.5，不是 Slim Tapered。"
+   },
+   {
+    "ref": "o-20261024a-5",
+    "note": "保留，寬直筒；配有份量的外套，修短。"
+   },
+   {
+    "ref": "o-20261024b-1",
+    "note": "建議退：Supima 薄軟。已出貨就只當內搭。"
+   },
+   {
+    "ref": "o-20261024b-2",
+    "note": "到貨確認是否連肩袖；高雄只有寒流用得到。"
+   },
+   {
+    "ref": "o-20261024b-3",
+    "note": "建議退：下擺收口 13cm（客觀判定）＋細針織＋象牙白。"
+   },
+   {
+    "ref": "o-20261024b-4",
+    "note": "敞開穿，下擺腰帶不扣。"
+   },
+   {
+    "ref": "o-20261024b-5",
+    "note": "敞開穿，內搭白 T 提亮；L 偏寬，袖子捲起。"
+   },
+   {
+    "ref": "o-20261024b-6",
+    "note": "先別退：實測尺寸與厚度都過關，到貨坐著看腹部是否貼合再決定。"
+   },
+   {
+    "ref": "o-20261024b-7",
+    "note": "建議退：下擺收口 12cm。改買本月長袖 Piqué Polo（2026-10-04）。"
+   }
+  ]
+ },
+ "outfits": [
+  {
+   "id": "hot-1",
+   "band": "hot",
+   "title": "夏日上班 Polo",
+   "items": [
+    "2026-10-05",
+    "o-20261024a-2"
+   ],
+   "how": "黑色基本款 Piqué Polo（XL）單穿不紮，配卡其軍官褲，褲長修到 101cm。",
+   "why": "Piqué 比 T 恤挺、有領更正式；深色上身收斂腹部、卡其褲提亮下半身。"
+  },
+  {
+   "id": "hot-2",
+   "band": "hot",
+   "title": "黑 T ＋ 白邊",
+   "items": [
+    "2026-10-02",
+    "2026-10-03",
+    "o-20261024a-4"
+   ],
+   "how": "黑色重磅短袖 T 裡加白 T（M），只露 1cm 白領邊；下身深藍 City Workers 褲。",
+   "why": "單穿公式：深色收腹、白邊在臉下打光。"
+  },
+  {
+   "id": "warm-1",
+   "band": "warm",
+   "title": "條紋襯衫敞開",
+   "items": [
+    "2026-10-02",
+    "o-20261024b-5",
+    "o-20261024a-5"
+   ],
+   "how": "黑 T 外罩 TY 咖啡條紋襯衫全開、袖子捲兩折；ESPIONAGE 原色丹寧。",
+   "why": "敞開的衣襟做出兩條直線把腰側切掉；直條紋再拉長。"
+  },
+  {
+   "id": "warm-2",
+   "band": "warm",
+   "title": "冰川藍外亮",
+   "items": [
+    "2026-10-02",
+    "2026-10-07",
+    "2026-10-15"
+   ],
+   "how": "黑色短袖重磅 T＋天空藍牛津（M）全開；深灰單打褶卡其。",
+   "why": "內深外亮：藍色靠臉提亮黃偏黑膚色。"
+  },
+  {
+   "id": "mild-1",
+   "band": "mild",
+   "title": "經典疊穿",
+   "items": [
+    "2026-10-01",
+    "2026-10-07",
+    "2026-10-15"
+   ],
+   "how": "深灰重磅長袖 T＋天空藍牛津敞開；深灰單打褶卡其，白球鞋。",
+   "why": "最標準的「內深外亮＋垂直分割」公式，全部是本月新品。"
+  },
+  {
+   "id": "mild-2",
+   "band": "mild",
+   "title": "長袖 Polo 上班",
+   "items": [
+    "2026-10-04",
+    "2026-10-03",
+    "2026-10-17"
+   ],
+   "how": "黑色長袖 Piqué Polo 內加白 T 露邊；炭灰隱藏鬆緊西裝褲。",
+   "why": "有領＋白邊＝35 歲的俐落感；Polo 直筒下擺不卡肚。"
+  },
+  {
+   "id": "mild-3",
+   "band": "mild",
+   "title": "白牛津 × 丹寧",
+   "items": [
+    "2026-10-01",
+    "o-20261024a-3",
+    "o-20261024a-1"
+   ],
+   "how": "深灰長袖 T＋PRODESHIRT 白牛津全開；BESLOW 單打褶丹寧。",
+   "why": "你已買的白牛津只要換成開襟外搭就能穿。"
+  },
+  {
+   "id": "cool-1",
+   "band": "cool",
+   "title": "倒 V 針織外套",
+   "items": [
+    "2026-10-01",
+    "2026-10-06",
+    "o-20261024a-1"
+   ],
+   "how": "深灰長袖 T＋炭灰雙向拉鍊針織，拉鍊拉到胸口、下方拉鍊頭往上開 6–8cm；BESLOW 丹寧。",
+   "why": "倒 V 消除坐下時腹部鼓包，引導視線往下拉長腿。"
+  },
+  {
+   "id": "cool-2",
+   "band": "cool",
+   "title": "輕正裝",
+   "items": [
+    "2026-10-04",
+    "2026-10-10",
+    "2026-10-16"
+   ],
+   "how": "黑色長袖 Polo＋SOLOTEX 西裝外套（扣一顆或敞開）；黑色單打褶卡其。",
+   "why": "結構肩把 44cm 肩撐出倒三角；全深色顯瘦。"
+  },
+  {
+   "id": "cool-3",
+   "band": "cool",
+   "title": "丹寧夾克敞開",
+   "items": [
+    "2026-10-01",
+    "o-20261024b-4",
+    "o-20261024a-2"
+   ],
+   "how": "深灰長袖 T＋ESPIONAGE Type 1 丹寧夾克全開、腰帶不扣；卡其軍官褲。",
+   "why": "硬挺丹寧撐肩；敞開避免腰帶把肚子框住。"
+  },
+  {
+   "id": "cold-1",
+   "band": "cold",
+   "title": "寒流大衣",
+   "items": [
+    "2026-10-01",
+    "2026-10-06",
+    "o-20261024b-2",
+    "2026-10-15"
+   ],
+   "how": "深灰長袖 T＋雙向拉鍊針織＋Balmacaan 大衣敞開；深灰單打褶卡其。",
+   "why": "大衣若是連肩袖，靠裡面的翻領針織撐出肩線。"
+  },
+  {
+   "id": "cold-2",
+   "band": "cold",
+   "title": "哈靈頓 × 針織",
+   "items": [
+    "2026-10-04",
+    "2026-10-13",
+    "o-20261024a-5"
+   ],
+   "how": "黑色長袖 Polo＋炭灰雙向拉鍊哈靈頓（倒 V）；ESPIONAGE 原色丹寧。",
+   "why": "正肩短夾克比例好，露出腿長；倒 V 消肚。"
+  }
+ ],
+ "carryover": [
+  {
+   "ref": "prev-01",
+   "name": "MUSINSA STANDARD 微寬隱藏鬆緊西裝褲（原推 34 腰）",
+   "decision": "保留，降為次選",
+   "note": "實測 33 腰前襠只有 28cm、平前片；改推同品牌「單打褶 Regular 卡其褲」33 腰（前襠 32.3、褲腳 21.25）為主力，見 2026-10-15／16。原款炭灰列為 2026-10-17。"
+  },
+  {
+   "ref": "prev-02",
+   "name": "DRAW FIT 華夫格亨利領上衣（L、炭灰）",
+   "decision": "待查",
+   "note": "本月 DRAW FIT 目錄只找到薄款 Pigment 亨利領長袖 T，未找到原款；下月再查。深色內搭先用 MUSINSA STANDARD 重磅長袖 T（2026-10-01）。"
+  },
+  {
+   "ref": "prev-03",
+   "name": "MUSINSA STANDARD Supima 薄針織 Polo",
+   "decision": "剔除（確認）",
+   "note": "實測 L 下擺 46cm 比胸 58 小 12cm＝羅紋收口；你在 10/24 買的黑色 L 建議退，改買長袖 Piqué Polo（2026-10-04）。"
+  },
+  {
+   "ref": "prev-04",
+   "name": "微落肩雙向拉鍊短夾克（替代 DRAW FIT 連肩袖哈靈頓）",
+   "decision": "換款",
+   "note": "DRAW FIT 新款 Moleskin 布勞森為單向拉鍊未入選；改推 DIMITRI BLACK 2WAY 哈靈頓 2(L)（照片確認正肩＋雙向拉鍊）。"
+  },
+  {
+   "ref": "prev-05",
+   "name": "POTTERY Comfort 輕正裝夾克（Size 2）",
+   "decision": "本月不推",
+   "note": "POTTERY 本月在 MUSINSA 的價格（Comfort Shirt ₩189,000≈NT$4,650）已超過上衣上限 +50%；結構肩西裝改推 MUSINSA STANDARD SOLOTEX（NT$1,157）或 INSILENCE 羊毛（M，NT$4,024）。"
+  }
+ ],
+ "self_review": {
+  "changes": [
+   "排雷關鍵字加入「否定片語先刪除再比對」：보풀 없어요、줄어들지 않아요、뱃살 커버（遮肚）等正評不再被算成縮水／起毛球／貼身（rules 2026-10-25.2）。只修正誤判，門檻不變。",
+   "新增客觀「收口下擺」判定：上衣下擺平量比胸寬小超過 6cm 即視同羅紋收口禁令（build 會擋）。用它確認 Supima 長袖 Polo（差 12cm）與 ECORR 美麗諾（差 13cm）確實違規，並把 Supima Henley 從「建議退」修正為「到貨確認」。",
+   "韓國站評論 API 被暫時封鎖時，自動改用 Global 評論 API（英文翻譯、含身高體重），英文關鍵字以單字邊界比對（避免 thin 誤中 think）；1864004 驗證兩者結果一致。",
+   "新增 KC.list（api.musinsa.com 結構化列表），搜尋直接拿到品名、價格、評論數；所有抓取可在單一 global.musinsa.com 分頁完成。",
+   "抓取加上自動重試與背景佇列（javascript_tool 45 秒上限）；隱藏分頁不再 sleep（瀏覽器會把計時器節流到 1 分鐘）。",
+   "尺寸表 API 全為 0 時（LMOOD 等），改解析商品公告的「치수」表格。",
+   "已購 12 件全部補上 goodsNo、成分與實測尺寸，重新核對 audit（City Workers 錐形褲實測褲腳 22.5 → 改為保留）。",
+   "網站單品卡片標示排雷評論來源（韓國站／Global 英譯）。"
+  ],
+  "todo": [
+   "下月先試韓國站評論 API；若仍被擋，抓取量控制在每件 10–15 頁並分散時間。",
+   "評論 API 只回同一 goodsNo，不含同款他色：下月研究用 similarNo 合併他色評論以加大樣本。",
+   "針織類尺寸表多半沒有下擺數字：建立照片檢查清單（本月手動看了 5 件）。",
+   "查 DRAW FIT 華夫格亨利領、COOR Milano 翻領針織的現行款（品牌 id 需確認）。",
+   "Balmacaan 大衣、Supima Henley、BESLOW 32 腰到貨後，請 Robin 回報合身度以校正尺寸模型。"
+  ]
+ },
+ "built_at": "2026-10-25T05:58:35",
+ "rules_version": "2026-10-25.3"
+}

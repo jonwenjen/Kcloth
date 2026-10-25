@@ -1,71 +1,429 @@
 {
-  "version": "2026-10-25",
+  "version": "2026-10-25.3",
   "about": "每月分析的硬性規則。scripts/kcloth.py validate 會依此檢查；PLAYBOOK.md 說明為什麼。規則改動要寫進 docs/run-log.md。",
-
   "categories": {
-    "tee":   { "label": "T 恤",   "budget": "top" },
-    "knit":  { "label": "針織衫", "budget": "top" },
-    "shirt": { "label": "襯衫",   "budget": "top" },
-    "outer": { "label": "外套",   "budget": "outer" },
-    "pants": { "label": "褲子",   "budget": "pants" }
+    "tee": {
+      "label": "T 恤",
+      "budget": "top"
+    },
+    "knit": {
+      "label": "針織衫",
+      "budget": "top"
+    },
+    "shirt": {
+      "label": "襯衫",
+      "budget": "top"
+    },
+    "outer": {
+      "label": "外套",
+      "budget": "outer"
+    },
+    "pants": {
+      "label": "褲子",
+      "budget": "pants"
+    }
   },
-
-  "budget_twd": { "top": 3000, "pants": 3000, "outer": 5000, "stretch_pct": 50 },
-
+  "budget_twd": {
+    "top": 3000,
+    "pants": 3000,
+    "outer": 5000,
+    "stretch_pct": 50
+  },
   "premium": {
     "warn_pct": 20,
     "formula": "premium_pct = (Global 台灣站售價 TWD ÷ (韓國站售價 KRW × TWD/KRW 匯率) − 1) × 100；正數=Global 較貴",
     "note": "溢價 ≥ 20% 標紅色警戒，但不自動剔除；建議改等折扣或改買韓國站代購"
   },
-
   "review_screen": {
-    "body_filter": { "height": [173, 177], "weight": [73, 77] },
+    "body_filter": {
+      "height": [
+        173,
+        177
+      ],
+      "weight": [
+        73,
+        77
+      ]
+    },
     "sample": "最新評論起抓，最多 600 則（每頁 20 則 × 30 頁）",
     "negative": {
-      "grades": [1, 2, 3],
+      "grades": [
+        1,
+        2,
+        3
+      ],
       "max_pct": 5,
       "min_sample": 30,
       "body_min_sample": 20,
       "definition": "1–3 星評論中，內容含任一關鍵字（同一則只算一次）÷ 抓取的評論總數。全體樣本或體型樣本（≥20 則時）任一超過 5% 就剔除",
       "keywords": {
-        "shrink": ["수축", "줄어", "줄었", "쪼그라", "작아졌", "shrink"],
-        "pilling": ["보풀", "필링", "pilling"],
-        "neck": ["목 늘어", "목늘어", "목이 늘어", "넥 늘어", "목부분 늘어", "카라 늘어", "stretched collar"]
-      }
+        "shrink": [
+          "수축",
+          "줄어",
+          "줄었",
+          "쪼그라",
+          "작아졌",
+          "shrink"
+        ],
+        "pilling": [
+          "보풀",
+          "필링",
+          "pilling"
+        ],
+        "neck": [
+          "목 늘어",
+          "목늘어",
+          "목이 늘어",
+          "넥 늘어",
+          "목부분 늘어",
+          "카라 늘어",
+          "stretched collar"
+        ]
+      },
+      "negations": [
+        "줄어들지 않",
+        "줄어들지않",
+        "줄지 않",
+        "줄지않",
+        "안 줄어",
+        "안줄어",
+        "수축 없",
+        "수축이 없",
+        "수축은 없",
+        "수축 안",
+        "보풀 없",
+        "보풀이 없",
+        "보풀은 없",
+        "보풀도 없",
+        "보풀 안",
+        "보풀이 안",
+        "보풀도 안",
+        "보풀 걱정 없",
+        "목 늘어남 없",
+        "목이 안 늘어",
+        "목 안 늘어",
+        "목늘어남 없",
+        "목 늘어나지 않",
+        "목이 늘어나지 않"
+      ],
+      "negation_rule": "比對前先把否定片語從評論文字中刪掉，再看關鍵字是否仍出現（同一則『보풀 없다더니 보풀 생김』仍會被計入）"
     },
     "clingy": {
-      "applies_to": ["tee", "knit", "shirt"],
+      "applies_to": [
+        "tee",
+        "knit",
+        "shirt"
+      ],
       "max_pct": 10,
       "definition": "任一星等評論含關鍵字 ÷ 抓取的評論總數",
-      "keywords": ["몸매 부각", "몸매가 드러", "몸매가 다 드러", "달라붙", "붙어서", "붙는 느낌", "배가 드러", "배가 보", "뱃살", "clingy"]
+      "keywords": [
+        "몸매 부각",
+        "몸매가 드러",
+        "몸매가 다 드러",
+        "달라붙",
+        "붙어서",
+        "붙는 느낌",
+        "배가 드러",
+        "배가 보",
+        "뱃살",
+        "clingy"
+      ]
     },
     "thin": {
-      "applies_to": ["tee", "knit"],
-      "keywords": ["얇아", "얇음", "얇은 편", "비침", "비쳐", "비치", "속이 비"],
-      "negations": ["비침 없", "비침이 없", "비침은 없", "안 비", "안비", "얇지 않", "얇지않", "안 얇", "두께감 있", "두꺼"],
+      "applies_to": [
+        "tee",
+        "knit"
+      ],
+      "keywords": [
+        "얇아",
+        "얇음",
+        "얇은 편",
+        "비침",
+        "비쳐",
+        "비치",
+        "속이 비"
+      ],
+      "negations": [
+        "비침 없",
+        "비침이 없",
+        "비침은 없",
+        "안 비",
+        "안비",
+        "얇지 않",
+        "얇지않",
+        "안 얇",
+        "두께감 있",
+        "두꺼"
+      ],
       "max_pct": 15,
-      "material_fail": { "두께": ["얇음"], "비침": ["있음"] },
-      "prefer_material": { "두께": ["보통", "약간|두꺼움", "두꺼움"] }
+      "material_fail": {
+        "두께": [
+          "얇음"
+        ],
+        "비침": [
+          "있음"
+        ]
+      },
+      "prefer_material": {
+        "두께": [
+          "보통",
+          "약간|두꺼움",
+          "두꺼움"
+        ]
+      }
     },
     "size_tendency": {
-      "big": ["크게 나", "커요", "큰 편", "크네", "넉넉"],
-      "small": ["작게 나", "작아요", "작은 편", "작네", "타이트"],
-      "true": ["정사이즈", "딱 맞", "사이즈 맞"]
+      "big": [
+        "크게 나",
+        "커요",
+        "큰 편",
+        "크네",
+        "넉넉"
+      ],
+      "small": [
+        "작게 나",
+        "작아요",
+        "작은 편",
+        "작네",
+        "타이트"
+      ],
+      "true": [
+        "정사이즈",
+        "딱 맞",
+        "사이즈 맞"
+      ]
+    },
+    "fallback_en": {
+      "about": "韓國站評論 API（goods.musinsa.com）被暫時擋下時，改用 Global 站評論 API（同一批韓國評論的英文機器翻譯，含身高體重）。英文關鍵字以單字邊界比對；門檻與中文規則完全相同。",
+      "negative": {
+        "shrink": [
+          "shrink",
+          "shrinks",
+          "shrank",
+          "shrunk",
+          "shrinkage",
+          "got smaller after wash",
+          "became smaller after wash"
+        ],
+        "pilling": [
+          "pilling",
+          "pills",
+          "pilled",
+          "pill",
+          "lint balls",
+          "fuzz balls",
+          "bobbles",
+          "bobbling"
+        ],
+        "neck": [
+          "neck stretched",
+          "neckline stretched",
+          "collar stretched",
+          "neck got stretched",
+          "neckline got stretched",
+          "collar got stretched",
+          "neck stretches",
+          "neckline stretches",
+          "collar stretches",
+          "neck got loose",
+          "neckline got loose",
+          "collar got loose",
+          "stretched out neck",
+          "stretched-out neck",
+          "stretched neckline",
+          "stretched collar"
+        ]
+      },
+      "negative_negations": [
+        "no shrink",
+        "no shrinkage",
+        "didn't shrink",
+        "did not shrink",
+        "doesn't shrink",
+        "does not shrink",
+        "don't shrink",
+        "without shrink",
+        "not shrink",
+        "no pilling",
+        "no pills",
+        "doesn't pill",
+        "does not pill",
+        "didn't pill",
+        "did not pill",
+        "don't pill",
+        "without pilling",
+        "not pill",
+        "neck doesn't stretch",
+        "neckline doesn't stretch",
+        "collar doesn't stretch",
+        "no neck stretching"
+      ],
+      "clingy": [
+        "clingy",
+        "clings",
+        "cling to",
+        "hugs the body",
+        "shows body line",
+        "shows my body",
+        "shows my belly",
+        "shows the belly",
+        "belly shows",
+        "belly is visible",
+        "stomach shows",
+        "shows my stomach",
+        "tight around the belly",
+        "tight around the stomach",
+        "sticks to the body",
+        "sticks to my body"
+      ],
+      "clingy_negations": [
+        "not clingy",
+        "doesn't cling",
+        "does not cling",
+        "not tight around",
+        "hides my belly",
+        "hides the belly",
+        "covers the belly",
+        "covers my belly",
+        "covers my stomach",
+        "hides my stomach",
+        "doesn't show my",
+        "does not show my",
+        "doesn't stick",
+        "does not stick"
+      ],
+      "thin": [
+        "thin",
+        "see-through",
+        "see through",
+        "sheer",
+        "transparent"
+      ],
+      "thin_negations": [
+        "not thin",
+        "not too thin",
+        "isn't thin",
+        "is not thin",
+        "not see-through",
+        "not see through",
+        "not sheer",
+        "not transparent"
+      ],
+      "size_tendency": {
+        "big": [
+          "runs big",
+          "runs large",
+          "a bit big",
+          "bit large",
+          "too big",
+          "roomy",
+          "larger than expected",
+          "bigger than expected"
+        ],
+        "small": [
+          "runs small",
+          "a bit small",
+          "too small",
+          "tight",
+          "snug",
+          "smaller than expected"
+        ],
+        "true": [
+          "true to size",
+          "fits well",
+          "fits perfectly",
+          "right size",
+          "perfect size",
+          "fits just right"
+        ]
+      }
     }
   },
-
   "fit": {
     "top_size": "L",
     "measure_names": {
-      "length": "총장", "shoulder": "어깨너비", "chest": "가슴단면", "sleeve": "소매길이", "hem": "밑단단면",
-      "waist": "허리단면", "hip": "엉덩이단면", "thigh": "허벅지단면", "rise": "밑위", "leg_opening": "밑단단면"
+      "length": "총장",
+      "shoulder": "어깨너비",
+      "chest": "가슴단면",
+      "sleeve": "소매길이",
+      "hem": "밑단단면",
+      "waist": "허리단면",
+      "hip": "엉덩이단면",
+      "thigh": "허벅지단면",
+      "rise": "밑위",
+      "leg_opening": "밑단단면"
     },
     "ranges": {
-      "tee":   { "shoulder": [48, 51], "chest": [57, 60], "length": [68, 71] },
-      "knit":  { "shoulder": [48, 51], "chest": [57, 60], "length": [68, 71] },
-      "shirt": { "shoulder": [48, 51], "chest": [57, 61], "length": [68, 74] },
-      "outer": { "shoulder": [47, 51], "chest": [57, 62] },
-      "pants": { "rise": [30, 32], "thigh": [34, 35.5], "leg_opening": [21, 23], "length": [99, 103] }
+      "tee": {
+        "shoulder": [
+          48,
+          51
+        ],
+        "chest": [
+          57,
+          60
+        ],
+        "length": [
+          68,
+          71
+        ]
+      },
+      "knit": {
+        "shoulder": [
+          48,
+          51
+        ],
+        "chest": [
+          57,
+          60
+        ],
+        "length": [
+          68,
+          71
+        ]
+      },
+      "shirt": {
+        "shoulder": [
+          48,
+          51
+        ],
+        "chest": [
+          57,
+          61
+        ],
+        "length": [
+          68,
+          74
+        ]
+      },
+      "outer": {
+        "shoulder": [
+          47,
+          51
+        ],
+        "chest": [
+          57,
+          62
+        ]
+      },
+      "pants": {
+        "rise": [
+          30,
+          32
+        ],
+        "thigh": [
+          34,
+          35.5
+        ],
+        "leg_opening": [
+          21,
+          23
+        ],
+        "length": [
+          99,
+          103
+        ]
+      }
     },
     "range_policy": "超出範圍是警告：必須在 fit.note 寫出為何仍推薦（例如襯衫下擺、日系 Size 2 結構肩 47.5cm）。",
     "bans": {
@@ -78,24 +436,57 @@
     "prefer": {
       "shoulder": "硬挺微落肩（Structured Drop-Shoulder），平量肩 48–51cm，Semi-Over Fit",
       "hem": "直筒不收口下擺（Boxy Open Hem）",
-      "fabric": ["10–12oz 重磅純棉", "空氣層雙面布 Interlock", "米蘭諾羅紋 Milano Rib", "高磅數牛津布", "斜紋布 Twill", "華夫格 Waffle（厚）"],
+      "fabric": [
+        "10–12oz 重磅純棉",
+        "空氣層雙面布 Interlock",
+        "米蘭諾羅紋 Milano Rib",
+        "高磅數牛津布",
+        "斜紋布 Twill",
+        "華夫格 Waffle（厚）"
+      ],
       "pants": "中高腰（前襠 30–32cm）＋ 單打褶 One-Tuck ＋ 後腰鬆緊 ＋ 微寬直筒（褲腳 21–23cm）＋ Short 褲長 100–102cm",
       "zip_outer": "有拉鍊的夾克／針織外套必須是雙向拉鍊（투웨이 지퍼 / 2-Way Zipper）"
+    },
+    "hem_cinch": {
+      "max_gap_cm": 6,
+      "applies_to": [
+        "tee",
+        "knit",
+        "shirt"
+      ],
+      "about": "客觀判定下擺收口：上衣 밑단단면（下擺平量）比 가슴단면（胸寬）小超過 6cm，視為羅紋／縮口下擺（等同 ribbed_hem 禁令）。例：MUSINSA STANDARD Supima 針織 Polo L 胸 58／下擺 46、ECORR 美麗諾 2(L) 胸 57／下擺 44 都會被擋；直筒 T 恤胸 59／下擺 58.5 通過。"
     }
   },
-
   "color": {
-    "single_wear_top": ["炭灰 Charcoal", "深霧藍 Dusty Navy", "深鼠尾草綠 Deep Sage", "深海軍藍", "黑"],
-    "inner_dark": ["炭灰", "深海軍藍", "黑"],
-    "outer_light": ["冰川藍", "霧灰藍", "淺卡其灰", "燕麥色"],
-    "avoid_single_wear": ["純白", "象牙白", "淺米白"],
+    "single_wear_top": [
+      "炭灰 Charcoal",
+      "深霧藍 Dusty Navy",
+      "深鼠尾草綠 Deep Sage",
+      "深海軍藍",
+      "黑"
+    ],
+    "inner_dark": [
+      "炭灰",
+      "深海軍藍",
+      "黑"
+    ],
+    "outer_light": [
+      "冰川藍",
+      "霧灰藍",
+      "淺卡其灰",
+      "燕麥色"
+    ],
+    "avoid_single_wear": [
+      "純白",
+      "象牙白",
+      "淺米白"
+    ],
     "formulas": [
       "疊穿：內深（炭灰／深海軍／黑合身 T）＋ 外亮（冰川藍／霧灰藍／淺卡其灰／燕麥色硬挺襯衫或 Overshirt）＋ 外搭不扣釦，製造兩條垂直線",
       "單穿：冷調中深色硬挺上衣 ＋ 內搭白 T 只露領口 1–1.5cm 白邊",
       "外套：雙向拉鍊拉上後，下方拉鍊頭往上拉開 6–8cm（肚臍位置）形成倒 V"
     ]
   },
-
   "scoring": {
     "axes": {
       "material": "材質（面料紡織專家）",
@@ -104,30 +495,158 @@
       "care": "保養（洗護、縮水、起毛球、領口耐久）",
       "function": "機能（高雄氣候、透氣、彈性、實穿場合）"
     },
-    "scale": [1, 5],
+    "scale": [
+      1,
+      5
+    ],
     "overall_note": "綜合評價由專家給分，可不等於平均；偏離平均超過 0.75 會出警告，需在 comment 解釋"
   },
-
   "capsule_slots": [
-    { "id": "inner-dark-tee",   "label": "深色重磅內搭 T（炭灰／深海軍／黑）", "target": 3, "cats": ["tee"] },
-    { "id": "white-tee",        "label": "白色圓領 T（只露領口白邊用）",       "target": 2, "cats": ["tee"] },
-    { "id": "single-top",       "label": "冷調中深色硬挺單穿上衣",             "target": 3, "cats": ["tee", "knit", "shirt"] },
-    { "id": "light-overshirt",  "label": "亮色硬挺襯衫／Overshirt（開襟外搭）", "target": 3, "cats": ["shirt", "outer"] },
-    { "id": "structured-knit",  "label": "硬挺針織（Milano／Interlock／厚華夫格）", "target": 2, "cats": ["knit"] },
-    { "id": "zip-jacket",       "label": "微落肩雙向拉鍊短夾克",               "target": 1, "cats": ["outer"] },
-    { "id": "short-jacket",     "label": "丹寧／工作短夾克（敞開穿）",           "target": 1, "cats": ["outer"] },
-    { "id": "tailored-jacket",  "label": "結構肩輕正裝夾克",                   "target": 1, "cats": ["outer"] },
-    { "id": "winter-coat",      "label": "冬季外套（寒流用）",                 "target": 1, "cats": ["outer"] },
-    { "id": "tuck-slacks",      "label": "單打褶微寬直筒西裝褲",               "target": 2, "cats": ["pants"] },
-    { "id": "denim",            "label": "微寬直筒丹寧",                       "target": 1, "cats": ["pants"] },
-    { "id": "chino",            "label": "微寬直筒卡其／工作褲",               "target": 1, "cats": ["pants"] }
+    {
+      "id": "inner-dark-tee",
+      "label": "深色重磅內搭 T（炭灰／深海軍／黑）",
+      "target": 3,
+      "cats": [
+        "tee"
+      ]
+    },
+    {
+      "id": "white-tee",
+      "label": "白色圓領 T（只露領口白邊用）",
+      "target": 2,
+      "cats": [
+        "tee"
+      ]
+    },
+    {
+      "id": "single-top",
+      "label": "冷調中深色硬挺單穿上衣",
+      "target": 3,
+      "cats": [
+        "tee",
+        "knit",
+        "shirt"
+      ]
+    },
+    {
+      "id": "light-overshirt",
+      "label": "亮色硬挺襯衫／Overshirt（開襟外搭）",
+      "target": 3,
+      "cats": [
+        "shirt",
+        "outer"
+      ]
+    },
+    {
+      "id": "structured-knit",
+      "label": "硬挺針織（Milano／Interlock／厚華夫格）",
+      "target": 2,
+      "cats": [
+        "knit"
+      ]
+    },
+    {
+      "id": "zip-jacket",
+      "label": "微落肩雙向拉鍊短夾克",
+      "target": 1,
+      "cats": [
+        "outer"
+      ]
+    },
+    {
+      "id": "short-jacket",
+      "label": "丹寧／工作短夾克（敞開穿）",
+      "target": 1,
+      "cats": [
+        "outer"
+      ]
+    },
+    {
+      "id": "tailored-jacket",
+      "label": "結構肩輕正裝夾克",
+      "target": 1,
+      "cats": [
+        "outer"
+      ]
+    },
+    {
+      "id": "winter-coat",
+      "label": "冬季外套（寒流用）",
+      "target": 1,
+      "cats": [
+        "outer"
+      ]
+    },
+    {
+      "id": "tuck-slacks",
+      "label": "單打褶微寬直筒西裝褲",
+      "target": 2,
+      "cats": [
+        "pants"
+      ]
+    },
+    {
+      "id": "denim",
+      "label": "微寬直筒丹寧",
+      "target": 1,
+      "cats": [
+        "pants"
+      ]
+    },
+    {
+      "id": "chino",
+      "label": "微寬直筒卡其／工作褲",
+      "target": 1,
+      "cats": [
+        "pants"
+      ]
+    }
   ],
-
   "temp_bands": [
-    { "id": "hot",   "label": "28°C 以上", "range": [28, 36], "layers": "單穿重磅上衣＋白邊內搭，九分或輕薄微寬褲" },
-    { "id": "warm",  "label": "24–28°C",  "range": [24, 28], "layers": "單穿或薄襯衫敞開外搭" },
-    { "id": "mild",  "label": "20–24°C",  "range": [20, 24], "layers": "深色 T ＋ 亮色襯衫／Overshirt 敞開" },
-    { "id": "cool",  "label": "16–20°C",  "range": [16, 20], "layers": "深色 T ＋ 針織或雙向拉鍊夾克" },
-    { "id": "cold",  "label": "16°C 以下（寒流）", "range": [8, 16], "layers": "針織＋夾克或大衣" }
+    {
+      "id": "hot",
+      "label": "28°C 以上",
+      "range": [
+        28,
+        36
+      ],
+      "layers": "單穿重磅上衣＋白邊內搭，九分或輕薄微寬褲"
+    },
+    {
+      "id": "warm",
+      "label": "24–28°C",
+      "range": [
+        24,
+        28
+      ],
+      "layers": "單穿或薄襯衫敞開外搭"
+    },
+    {
+      "id": "mild",
+      "label": "20–24°C",
+      "range": [
+        20,
+        24
+      ],
+      "layers": "深色 T ＋ 亮色襯衫／Overshirt 敞開"
+    },
+    {
+      "id": "cool",
+      "label": "16–20°C",
+      "range": [
+        16,
+        20
+      ],
+      "layers": "深色 T ＋ 針織或雙向拉鍊夾克"
+    },
+    {
+      "id": "cold",
+      "label": "16°C 以下（寒流）",
+      "range": [
+        8,
+        16
+      ],
+      "layers": "針織＋夾克或大衣"
+    }
   ]
 }

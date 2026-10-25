@@ -1,7 +1,7 @@
 {
  "updated": "2026-10-25",
  "source": "Gmail：MUSINSA Global「Your order has been confirmed」信件",
- "note": "audit 目前依品名與 config/rules.json 判斷；首次每月執行會補 goodsNo、成分與實測尺寸並重新核對。",
+ "note": "2026-10 月報已補 goodsNo、成分與實測尺寸並重新核對 audit。",
  "orders": [
   {
    "date": "2026-10-24",
@@ -23,13 +23,20 @@
       12,
       28
      ],
-     "goodsNo": null,
-     "fabric": null,
+     "goodsNo": 1759490,
+     "fabric": "棉 100%（赤耳丹寧）",
      "status": "ordered",
      "audit": {
-      "verdict": "watch",
-      "note": "單打褶丹寧正好符合藏肚邏輯；但腰圍 32 比基準 33/34 小一號，到貨先確認前襠 30–32cm、坐下腰頭不勒。",
-      "checked": "依品名判斷"
+      "verdict": "keep",
+      "note": "實測 32 腰：腰 43.5、前襠 34.3、褲腳 23.5、褲長 107cm；同身形 57 人中 28 人選 32、29 人選 30，腰圍剛好不勒。前襠偏高反而能把褲頭拉到肚臍上方。只需修短到 101cm（約 6cm）。",
+      "checked": "2026-10 月報：已核對實測尺寸表＋評論（Global 英譯評論）"
+     },
+     "chart": {
+      "waist": 43.5,
+      "thigh": 34.3,
+      "rise": 34.3,
+      "leg_opening": 23.5,
+      "length": 107
      }
     },
     {
@@ -46,13 +53,20 @@
       16,
       30
      ],
-     "goodsNo": null,
+     "goodsNo": 2084435,
      "fabric": null,
      "status": "ordered",
      "audit": {
-      "verdict": "watch",
-      "note": "寬版軍官褲有份量，能平衡上身；需核對 M 號腰圍與前襠是否到中高腰，褲腳若超過 24cm 建議修短到 101cm 左右。",
-      "checked": "依品名判斷"
+      "verdict": "keep",
+      "note": "實測 M：前襠 30、大腿 35、褲腳 22、褲長 102，四項都落在規則內；同身形 57 人有 42 人選 M。腰 42 比你的 43.5 小，靠腰側調整扣／褲頭鬆量，到貨坐下測試。",
+      "checked": "2026-10 月報：已核對實測尺寸表＋評論（Global 英譯評論）"
+     },
+     "chart": {
+      "waist": 42,
+      "thigh": 35,
+      "rise": 30,
+      "leg_opening": 22,
+      "length": 102
      }
     },
     {
@@ -69,13 +83,18 @@
       18,
       30
      ],
-     "goodsNo": null,
-     "fabric": null,
+     "goodsNo": 2299263,
+     "fabric": "棉 100%（D-300 牛津布）",
      "status": "ordered",
      "audit": {
       "verdict": "tip",
-      "note": "高磅牛津布夠挺；白色單穿會放大腹部，當開襟外搭罩深色 T（炭灰／深海軍）最好，釦子全開形成兩條直線。",
-      "checked": "依品名判斷"
+      "note": "L(50) 實測肩 49.5、胸 57.5 符合規則，衣長 77.5 偏長 3.5cm。白色只當開襟外搭：內搭炭灰／深海軍 T，釦子全開形成兩條直線，袖子捲兩折。",
+      "checked": "2026-10 月報：已核對實測尺寸表＋評論（Global 英譯評論）"
+     },
+     "chart": {
+      "shoulder": 49.5,
+      "chest": 57.5,
+      "length": 77.5
      }
     },
     {
@@ -92,13 +111,20 @@
       14,
       30
      ],
-     "goodsNo": null,
-     "fabric": null,
+     "goodsNo": 4210127,
+     "fabric": "棉 100%",
      "status": "ordered",
      "audit": {
-      "verdict": "watch",
-      "note": "錐形褲與「微寬直筒、褲腳 21–23cm」規則衝突；若實測褲腳 < 20cm 屬於小腿收緊款，建議退換成同系列直筒或單打褶。",
-      "checked": "依品名判斷"
+      "verdict": "keep",
+      "note": "實測 33 腰：前襠 31.5、大腿 34.6、褲腳 22.5、褲長 103，全部在規則內——名為 Tapered 但收腳很輕，不是 Slim Tapered，不必退。褲長修到 101cm 更好。",
+      "checked": "2026-10 月報：已核對實測尺寸表＋評論（Global 英譯評論）"
+     },
+     "chart": {
+      "waist": 43.75,
+      "thigh": 34.63,
+      "rise": 31.5,
+      "leg_opening": 22.5,
+      "length": 103
      }
     },
     {
@@ -115,13 +141,20 @@
       12,
       28
      ],
-     "goodsNo": null,
+     "goodsNo": 4398163,
      "fabric": null,
      "status": "ordered",
      "audit": {
-      "verdict": "keep",
-      "note": "Relaxed 直筒深藍原色丹寧，耐看又能撐住下半身份量；長度過長再修到 101cm。",
-      "checked": "依品名判斷"
+      "verdict": "tip",
+      "note": "實測 L：前襠 31 OK，但大腿 37、褲腳 25 比規則寬 2cm，屬寬直筒。上身配有份量的外套（卡車夾克、短夾克）平衡；修到 101cm 讓褲腳不堆積。",
+      "checked": "2026-10 月報：已核對實測尺寸表＋評論（Global 英譯評論）"
+     },
+     "chart": {
+      "waist": 42,
+      "thigh": 37,
+      "rise": 31,
+      "leg_opening": 25,
+      "length": 104
      }
     }
    ]
@@ -146,13 +179,18 @@
       20,
       34
      ],
-     "goodsNo": null,
+     "goodsNo": 3206068,
      "fabric": null,
      "status": "ordered",
      "audit": {
       "verdict": "return",
-      "note": "Supima 薄軟面料＋M 號，兩項都違反規則（單穿會貼出胸腹起伏）。還能退就退；已出貨就只當開襟襯衫裡的內搭。",
-      "checked": "依品名判斷"
+      "note": "M 號實測肩 52、胸 59、衣長 69.5 其實符合尺寸規則；問題在 Supima 薄軟面料（規則點名）。還能退就退；已出貨就只當開襟襯衫或夾克裡的內搭，不要單穿。",
+      "checked": "2026-10 月報：已核對實測尺寸表＋評論（Global 英譯評論）"
+     },
+     "chart": {
+      "shoulder": 52,
+      "chest": 59,
+      "length": 69.5
      }
     },
     {
@@ -169,13 +207,18 @@
       6,
       16
      ],
-     "goodsNo": null,
-     "fabric": null,
+     "goodsNo": 3405547,
+     "fabric": "羊毛 83%、聚酯 14% 等（裡布聚酯）",
      "status": "ordered",
      "audit": {
       "verdict": "watch",
-      "note": "Balmacaan 大衣通常是連肩袖（規則禁用）。到貨確認袖型：若是連肩袖，穿時內搭硬挺高領或襯衫撐肩，且不要扣到底。",
-      "checked": "依品名判斷"
+      "note": "L 實測肩 52、胸 65、衣長 65（短版）。Balmacaan 多為連肩袖，尺寸表無法判斷袖型：到貨看肩線，若是連肩袖就內搭有領襯衫撐肩、敞開穿，不扣到底。高雄一年只有寒流幾天用得到。",
+      "checked": "2026-10 月報：已核對實測尺寸表＋評論（Global 英譯評論）"
+     },
+     "chart": {
+      "shoulder": 52,
+      "chest": 65,
+      "length": 65
      }
     },
     {
@@ -192,13 +235,19 @@
       10,
       20
      ],
-     "goodsNo": null,
-     "fabric": null,
+     "goodsNo": 4419402,
+     "fabric": "美麗諾羊毛 100%",
      "status": "ordered",
      "audit": {
       "verdict": "return",
-      "note": "細針織美麗諾通常偏薄軟、下擺羅紋收口，加上象牙白單穿膨脹，三項都踩雷。能退建議退；留下就只當外套裡的中間層。",
-      "checked": "依品名判斷"
+      "note": "2(L) 實測下擺 44cm 比胸寬 57 小 13cm＝羅紋收口（本月新增的客觀判定），加上細針織＋象牙白單穿三項踩雷。能退就退；留下只當夾克裡的中間層。",
+      "checked": "2026-10 月報：已核對實測尺寸表＋評論（Global 英譯評論）"
+     },
+     "chart": {
+      "shoulder": 50,
+      "chest": 57,
+      "length": 69,
+      "hem": 44
      }
     },
     {
@@ -215,13 +264,18 @@
       14,
       22
      ],
-     "goodsNo": null,
+     "goodsNo": 5327171,
      "fabric": null,
      "status": "ordered",
      "audit": {
       "verdict": "tip",
-      "note": "硬挺原色丹寧能撐肩；Type 1 下擺有腰帶會收在腰部，一律敞開穿，內搭深色 T，避免扣起來把肚子框住。",
-      "checked": "依品名判斷"
+      "note": "L 實測肩 55（落肩 11cm）、胸 63、衣長 65，偏寬鬆；同身形 7 人中 4 人選 L。一律敞開穿、內搭深色 T，下擺腰帶不要扣緊。",
+      "checked": "2026-10 月報：已核對實測尺寸表＋評論（Global 英譯評論）"
+     },
+     "chart": {
+      "shoulder": 55,
+      "chest": 63,
+      "length": 65
      }
     },
     {
@@ -238,13 +292,18 @@
       18,
       30
      ],
-     "goodsNo": null,
-     "fabric": null,
+     "goodsNo": 5396110,
+     "fabric": "棉 100%",
      "status": "ordered",
      "audit": {
       "verdict": "tip",
-      "note": "直條紋有拉長效果；咖啡色接近黃偏黑膚色，靠臉處容易顯暗，建議敞開穿、內搭白 T 提亮臉部。",
-      "checked": "依品名判斷"
+      "note": "L 實測肩 51、胸 64.5、衣長 76，比規則寬長；同身形 41 人中 22 人選 M、18 人選 L。敞開穿、袖子捲起，內搭白 T 提亮臉部（咖啡色靠臉偏暗）。",
+      "checked": "2026-10 月報：已核對實測尺寸表＋評論（Global 英譯評論）"
+     },
+     "chart": {
+      "shoulder": 51,
+      "chest": 64.5,
+      "length": 76
      }
     },
     {
@@ -261,13 +320,18 @@
       16,
       24
      ],
-     "goodsNo": null,
-     "fabric": null,
+     "goodsNo": 5662175,
+     "fabric": "棉 100%（Supima）",
      "status": "ordered",
      "audit": {
-      "verdict": "return",
-      "note": "Supima 薄針織是規則點名的地雷（貼合胸腹）；還能退建議換成 Milano／Interlock 硬挺款。",
-      "checked": "依品名判斷"
+      "verdict": "watch",
+      "note": "修正上月誤判：實測 L 肩 49、胸 58、衣長 69 全在規則內，商品標示厚度「普通」、不透，評論薄透 8.5%、貼身 0.5% 都低於門檻。先別急著退：到貨坐著照鏡子，若腹部有貼合線再退。",
+      "checked": "2026-10 月報：已核對實測尺寸表＋評論（Global 英譯評論）"
+     },
+     "chart": {
+      "shoulder": 49,
+      "chest": 58,
+      "length": 69
      }
     },
     {
@@ -284,13 +348,19 @@
       16,
       24
      ],
-     "goodsNo": null,
-     "fabric": null,
+     "goodsNo": 5662177,
+     "fabric": "棉 100%（Supima）",
      "status": "ordered",
      "audit": {
       "verdict": "return",
-      "note": "與上期被剔除的「Supima 薄針織 Polo」同款（只是黑色 L）：薄軟＋下擺羅紋。建議退換成直筒下擺的 Milano 針織翻領衫。",
-      "checked": "依品名判斷"
+      "note": "L 實測下擺 46cm 比胸寬 58 小 12cm＝羅紋收口，會上捲卡在肚臍上方（客觀判定確認上月推測）。建議退，改買本月的 MUSINSA STANDARD 長袖 Piqué Polo（直筒下擺、L 剛好）。",
+      "checked": "2026-10 月報：已核對實測尺寸表＋評論（Global 英譯評論）"
+     },
+     "chart": {
+      "shoulder": 49,
+      "chest": 58,
+      "length": 69,
+      "hem": 46
      }
     }
    ]

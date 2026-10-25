@@ -1,4 +1,4 @@
-# MUSINSA 資料怎麼抓（2026-10-25 實測可用）
+# MUSINSA 資料怎麼抓（2026-10-25 實測可用；同日第二次修訂）
 
 所有抓取都在 **Robin 的 Mac（jonwenjens-mac-mini）Claude 桌面 App 內建瀏覽器** 裡執行，
 透過 `javascript_tool` 在 MUSINSA 自己的網頁內 `fetch`，不需要登入，也不送出任何表單。
@@ -7,7 +7,16 @@
 `scripts/collect.js` 把下面這些包成 `KC.*` 函式。用 `python3 scripts/kcloth.py bundle` 產生
 `.cache/collect.bundle.js`（含 rules.json 的門檻與關鍵字），整份交給 `javascript_tool` 執行一次即可。
 
-## 韓國站（分頁要停在 `https://www.musinsa.com/...`）
+## 先看這裡（2026-10 月報實測）
+
+- **一個 `global.musinsa.com` 分頁就能抓全部**：台灣 IP 開 `www.musinsa.com` 常被導到 Global，但下面的韓國站 API 都允許從 Global 分頁跨域 `fetch`。
+- `javascript_tool` 每次最多 45 秒：大量抓取要「丟到背景跑、結果存在 `window`、之後再讀」，例如 `window.SCR`＋佇列（見 run-log 2026-10）。
+- 韓國站評論 API 抓太多（約 400 次請求）會被暫時封鎖，症狀是 `TypeError: Failed to fetch`、評論頁顯示「서비스 연결이 지연되고 있습니다」。
+  `KC.item` 會自動改用 **Global 評論 API**（同批韓國評論的英文機器翻譯，含身高體重、購買尺寸），並套用 `rules.json review_screen.fallback_en` 的英文關鍵字；門檻不變。
+  校正：MUSINSA STANDARD 重磅長袖 T（1864004）韓文 600 則負評 0.8%、英文 422 則 0.7%，結果一致。
+- 結構化搜尋用 `KC.list`（`api.musinsa.com/api2/dp/v1/plp/goods`），直接拿到品名、價格、評論數，比解析搜尋頁 HTML 好用。
+
+## 韓國站 API（`www` 或 `global` 分頁皆可）
 
 | 用途 | 端點 | 備註 |
 |---|---|---|
@@ -18,6 +27,7 @@
 | 評論 | `https://goods.musinsa.com/api2/review/v1/view/list?page={p}&pageSize=20&goodsNo={no}&sort=new&myFilter=false&hasPhoto=false&isExperience=false` | **pageSize 上限 20**。每則有 `grade`、`content`、`goodsOption`（購買尺寸）、`userProfileInfo.userHeight / userWeight`。評論會合併同款不同色（similarNo）。30 頁約 2 秒 |
 | 搜尋 | `https://www.musinsa.com/search/goods?keyword={kw}&gf=M` | 伺服器端渲染；用正則抓 `products/(\d+)`，一頁約 60 個商品編號 |
 | 品牌頁 | `https://www.musinsa.com/brand/{brandId}?gf=M` | 同上；brandId 例如 `musinsastandard`、`drawfit` |
+| 結構化列表 | `https://api.musinsa.com/api2/dp/v1/plp/goods?gf=M&keyword={kw}&sortCode=POPULAR&page=1&size=60&caller=SEARCH` | 也可用 `brand={id}&caller=BRAND`、`category=001/002/003`；回傳 goodsNo、goodsName、price、reviewCount、displayGenderText、isSoldOut |
 
 ## Global 台灣站（分頁要停在 `https://global.musinsa.com/...`）
 
@@ -25,6 +35,7 @@
 |---|---|---|
 | 台灣售價 | `https://global.musinsa.com/tw/products/{goodsNo}` 的 HTML | 內嵌 `"goodsPrice":{"normalPrice":899,"price":450,"saleRate":50,"currencyCode":"TWD"…}`；沒上架 Global 的商品找不到 goodsPrice → 視為不可買 |
 | 折價券／活動 | `https://global.musinsa.com/tw` 首頁文字 | 例：「20% off on all orders TWD 3,600+」、「18% off outerwear TWD 1,600+」 |
+| 評論（備援） | `https://global.musinsa.com/api2/global/global-review/v1/list?countryCode=TW&localeCode=en-US&goodsNo={no}&sort=new&page={1..}&pageSize=20` | pageSize 上限 20；`content` 是英譯；`userProfile.userHeight/userWeight`、`goodsOptionList`；只含該 goodsNo（不合併同款他色） |
 | 訂單紀錄 | `https://global.musinsa.com/order/mypage/order_list` | 需登入。2026-10-25 內建瀏覽器**未登入**（會轉址），改用 Gmail 訂單信 |
 
 商品編號（goodsNo）在韓國站與 Global 站相同。
@@ -37,7 +48,7 @@ Gmail：`from:mail.global@musinsa.com subject:"order has been confirmed"`（另�
 
 ## 匯率
 
-`https://open.er-api.com/v6/latest/KRW`（WebFetch）取 `rates.TWD`；失敗就 WebSearch「KRW TWD 匯率」。
+`https://open.er-api.com/v6/latest/KRW` 取 `rates.TWD`（雲端 shell 被擋，改在內建瀏覽器分頁 `fetch`）；失敗就 WebSearch「KRW TWD 匯率」。
 
 ## 端點壞掉時
 

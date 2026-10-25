@@ -50,7 +50,7 @@
 
 ## 步驟 5　匯率、折扣、折價券（目標 2、8）
 
-1. 匯率：WebFetch `https://open.er-api.com/v6/latest/KRW` 取 `rates.TWD` → `fx.twd_per_krw`（附日期與來源）。
+1. 匯率：在內建瀏覽器分頁 `fetch('https://open.er-api.com/v6/latest/KRW')`（雲端 shell 與 WebFetch 常被擋）取 `rates.TWD` → `fx.twd_per_krw`（附日期與來源）。
 2. Global 台灣站首頁（瀏覽器）讀目前折價券與活動文字 → `coupons`。
 3. WebSearch 至少 4 次：「무신사 무진장 블랙프라이데이 2026」「무신사 세일 일정」「MUSINSA Global Black Friday」「MUSINSA global sale 台灣」等（換成當年年份），整理 `sales`：名稱、站別、起訖、折扣、`status`（live／upcoming／expected／ended）、建議行動（清單裡哪些等這檔買）。傳統大檔：6 月中（夏季무진장）、11 月中（冬季무진장／블랙프라이데이）、11 月底 Black Friday、12 月年末。
 4. 45 天內有大檔：若有 Google Calendar 工具，先搜尋是否已有同名事件，沒有才建全天事件「🛍 MUSINSA ＜檔期＞」，備註寫要買的清單品項。7 天內開跑的檔期，最後用 PushNotification 提醒。
@@ -68,7 +68,8 @@ WebSearch 4–6 次（本季與下季的韓系男裝、MUSINSA 趨勢報告、�
 
 ## 步驟 8　選品：搜尋 → 排雷 → 專家評分（目標 1、6、7、12、14）
 
-**8a 候選池**（80–150 件）：先跑 `python3 scripts/kcloth.py wardrobe` 看哪幾格缺最多，優先補缺；在 www.musinsa.com 分頁執行 bundle 後：
+**8a 候選池**（80–150 件）：先跑 `python3 scripts/kcloth.py wardrobe` 看哪幾格缺最多，優先補缺；在 global.musinsa.com（或 www）分頁執行 bundle 後（大量抓取用背景佇列，見 docs/endpoints.md「先看這裡」）：
+- `KC.list({keyword}, {minReviews, maxKrw})`：結構化列表，優先用
 - `KC.search(關鍵字)`：下方關鍵字庫每格 1–3 組
 - `KC.brand(brandId)`：20 大品牌各取前 30–60
 - 上月入選、清單內、已購同款的後續款也放進來重新檢查（價格與庫存會變）
@@ -92,7 +93,7 @@ WebSearch 4–6 次（本季與下季的韓系男裝、MUSINSA 趨勢報告、�
 
 **8c 入圍分析**（約 40 件）：`KC.item(no, {cat})` 取完整資料；在 global.musinsa.com 分頁 `KC.globalPrices([...])` 取台灣價（不可買的標 `global_available:false`，仍可列但寫明只能韓國站）。
 依 `rules.json` 判斷版型：
-- 上衣：L 號平量肩 48–51、胸 57–60、衣長 68–71（襯衫可到 74）；微落肩硬挺；直筒不收口；厚度 보통以上；禁連肩袖、下擺羅紋、薄軟布。
+- 上衣：L 號平量肩 48–51、胸 57–60、衣長 68–71（襯衫可到 74）；微落肩硬挺；直筒不收口（下擺比胸寬小 > 6cm 即視為收口，尺寸表沒有下擺時看商品照片）；厚度 보통以上；禁連肩袖、下擺羅紋、薄軟布。
 - 外套：微落肩或結構肩、拉鍊必須雙向；日系 Size 2 可接受肩 47–48。
 - 褲子：前襠 30–32、單打褶優先、後腰鬆緊加分、大腿 34–35、褲腳 21–23、褲長 100–102（Short）；禁 Slim／Skinny。
 - 顏色：單穿上衣用炭灰／深霧藍／深鼠尾草綠；外搭亮色用冰川藍／霧灰藍／淺卡其灰／燕麥；避免單穿純白／象牙白。

@@ -4,11 +4,13 @@
  * （本檔 + rules.json 的 review_screen / fit 設定）。把那個檔案全文交給
  * javascript_tool 執行一次，之後在同一個分頁呼叫：
  *
- *   www.musinsa.com 分頁：
+ *   www.musinsa.com 或 global.musinsa.com 分頁皆可（API 允許跨域；台灣 IP 開 www 常被導到 global）：
  *     await KC.item(goodsNo, {cat: 'tee'})   單品：商品資料、實測尺寸、評論排雷、尺寸分布
  *     await KC.items([no1, no2], {cat})      多筆（依序）
  *     await KC.search('원턱 슬랙스', 60)      搜尋（男裝）→ 商品編號
  *     await KC.brand('drawfit', 60)          品牌頁 → 商品編號
+ *     await KC.list({keyword:'원턱 슬랙스'}, {minReviews:50, maxKrw:70000})  結構化列表（品名、價格、評論數）
+ *     await KC.list({brand:'drawfit', category:'001'})
  *   global.musinsa.com 分頁：
  *     await KC.globalPrice(goodsNo)          Global 台灣站 TWD 售價與是否可買
  *
@@ -16,7 +18,7 @@
  */
 (() => {
   const KC = (window.KC = window.KC || {});
-  KC.version = '2026-10-25';
+  KC.version = '2026-10-25.2';
 
   const MEASURE = {
     '총장': 'length', '어깨너비': 'shoulder', '가슴단면': 'chest', '소매길이': 'sleeve',
@@ -30,13 +32,30 @@
     return KC.cfg;
   };
 
-  const getJSON = async (url) => {
-    const r = await fetch(url, { credentials: 'include' });
-    if (!r.ok) throw new Error(`${r.status} ${url}`);
-    return r.json();
+  // 連續抓太快會出現 TypeError: Failed to fetch／429：自動重試 4 次（1.5s、3s、6s 退避）
+  const sleep = (ms) => new Promise((ok) => setTimeout(ok, ms));
+  const getJSON = async (url, tries = 4) => {
+    for (let i = 0; ; i++) {
+      try {
+        const r = await fetch(url, { credentials: 'include' });
+        if (r.status === 429 || r.status >= 500) throw new Error(`${r.status} ${url}`);
+        if (!r.ok) { const e = new Error(`${r.status} ${url}`); e.fatal = true; throw e; }
+        return await r.json();
+      } catch (e) {
+        if (e.fatal || i >= tries - 1) throw e;
+        await sleep(1500 * 2 ** i);
+      }
+    }
   };
   const low = (s) => (s || '').toLowerCase();
-  const hit = (txt, kws) => kws.some((k) => txt.includes(low(k)));
+  // 關鍵字以 '/' 開頭代表正規式（英文備援用單字邊界）
+  const rxCache = {};
+  const hit = (txt, kws) => kws.some((k) => (k[0] === '/'
+    ? (rxCache[k] ||= new RegExp(k.slice(1), 'i')).test(txt)
+    : txt.includes(low(k))));
+  // 先刪掉否定片語（例：보풀 없어요、뱃살 커버）再比對，避免把正評算成負評
+  const strip = (txt, negs) => (negs || []).reduce((t, n) => t.split(low(n)).join(' '), txt);
+  const hitN = (txt, kws, negs) => hit(strip(txt, negs), kws);
   const pct = (a, b) => (b ? Math.round((a / b) * 1000) / 10 : null);
 
   const normSize = (opt) => {
@@ -59,7 +78,42 @@
     return t;
   };
 
+  // 韓國站評論 API 被擋（Failed to fetch／서비스 연결이 지연）時，改抓 Global 評論 API（英文翻譯，含身高體重）
+  async function reviewsGlobal(goodsNo, pages) {
+    const base = `https://global.musinsa.com/api2/global/global-review/v1/list?countryCode=TW&localeCode=en-US&goodsNo=${goodsNo}&sort=new&pageSize=20`;
+    const out = [];
+    let total = null;
+    for (let p = 1; p <= pages; p++) {
+      const j = await getJSON(`${base}&page=${p}`);
+      if (!j.data) break;
+      total = j.data.totalCount ?? total;
+      out.push(...(j.data.list || []));
+      if (!j.data.hasNextPage) break;
+      if (!document.hidden) await sleep(120);   // 分頁隱藏時瀏覽器會把計時器節流到 1 秒～1 分鐘，乾脆不睡
+    }
+    return {
+      lang: 'en', source: 'global-review(en)', total,
+      list: out.map((r) => ({
+        g: Number(r.grade), c: low(r.content), raw: r.content || '',
+        s: normSize((r.goodsOptionList || []).join('/')),
+        h: r.userProfile?.userHeight ?? null, w: r.userProfile?.userWeight ?? null,
+        d: (r.createDate || '').slice(0, 10),
+      })),
+    };
+  }
+
   async function reviews(goodsNo, pages) {
+    if (KC.reviewSource === 'global') return reviewsGlobal(goodsNo, pages);
+    try {
+      return await reviewsKr(goodsNo, pages);
+    } catch (e) {
+      if (!location.hostname.endsWith('global.musinsa.com')) throw e;
+      KC.reviewSource = 'global';   // 本工作階段後續都走 Global，避免一直撞牆
+      return reviewsGlobal(goodsNo, pages);
+    }
+  }
+
+  async function reviewsKr(goodsNo, pages) {
     const base = `https://goods.musinsa.com/api2/review/v1/view/list?pageSize=20&goodsNo=${goodsNo}&sort=new&myFilter=false&hasPhoto=false&isExperience=false`;
     const first = await getJSON(`${base}&page=0`);
     if (!first.data) return { list: [], total: 0 };
@@ -72,6 +126,7 @@
       for (const res of await Promise.all(batch)) if (res?.data?.list) out.push(...res.data.list);
     }
     return {
+      lang: 'ko', source: 'musinsa-review(ko)',
       total: first.data.total ?? null,
       list: out.map((r) => ({
         g: Number(r.grade),
@@ -87,7 +142,7 @@
 
   KC.item = async (goodsNo, opts = {}) => {
     const C = cfg();
-    const S = C.review_screen;
+    let S = C.review_screen;
     const cat = opts.cat || null;
     const pages = opts.pages || 30;
 
@@ -115,7 +170,22 @@
       chart[sz.name] = row;
     }
 
+    // 實測尺寸 API 全是 0 時（常見於 LMOOD 等），改解析商品資訊公告「치수」的表格
+    if (!Object.values(chart).some((r) => Object.keys(r).length)) {
+      const raw = (ess?.data?.essentials || []).find((e) => e.name === '치수')?.value || '';
+      const lines = String(raw).split(/<br\s*\/?>|\n/).map((s) => s.trim()).filter(Boolean);
+      const head = (lines[0] || '').split(/\t+/).map((h) => MEASURE[h.trim()]).filter(Boolean);
+      const names = Object.keys(chart);
+      if (head.length) {
+        lines.slice(1).forEach((ln, i) => {
+          const nums = (ln.match(/[\d.]+/g) || []).map(Number);
+          if (nums.length >= head.length && names[i]) chart[names[i]] = Object.fromEntries(head.map((h, k) => [h, nums[k]]));
+        });
+      }
+    }
+
     const rv = await reviews(goodsNo, pages);
+    if (rv.lang === 'en' && C.review_screen_en) S = C.review_screen_en;
     const all = rv.list;
     const [h0, h1] = S.body_filter.height;
     const [w0, w1] = S.body_filter.weight;
@@ -123,7 +193,7 @@
 
     const NK = S.negative.keywords;
     const negFlags = (r) => (r.g <= Math.max(...S.negative.grades)
-      ? { shrink: hit(r.c, NK.shrink), pilling: hit(r.c, NK.pilling), neck: hit(r.c, NK.neck) }
+      ? { shrink: hitN(r.c, NK.shrink, S.negative.negations), pilling: hitN(r.c, NK.pilling, S.negative.negations), neck: hitN(r.c, NK.neck, S.negative.negations) }
       : { shrink: false, pilling: false, neck: false });
     const anyNeg = (r) => { const f = negFlags(r); return f.shrink || f.pilling || f.neck; };
     const negAll = all.filter(anyNeg);
@@ -131,8 +201,8 @@
     const by = { shrink: 0, pilling: 0, neck: 0 };
     for (const r of negAll) { const f = negFlags(r); for (const k in by) if (f[k]) by[k]++; }
 
-    const clingyHits = all.filter((r) => hit(r.c, S.clingy.keywords)).length;
-    const thinHits = all.filter((r) => hit(r.c, S.thin.keywords) && !hit(r.c, S.thin.negations || [])).length;
+    const clingyHits = all.filter((r) => hitN(r.c, S.clingy.keywords, S.clingy.negations)).length;
+    const thinHits = all.filter((r) => hitN(r.c, S.thin.keywords, S.thin.negations)).length;
 
     const neg = {
       low_star: all.filter((r) => r.g <= 3).length,
@@ -159,6 +229,12 @@
     if (/래글런|라글란|raglan/.test(nameAll)) reasons.push('連肩袖 Raglan');
     if (cat === 'pants' && /슬림|스키니|slim|skinny/.test(nameAll)) reasons.push('Slim／Skinny 褲型');
     if (cat === 'pants' && /테이퍼드|tapered/.test(nameAll)) warn.push('錐形褲：確認不是小腿收緊的 Slim Tapered');
+    const HC = C.fit?.hem_cinch;
+    if (HC && cat && HC.applies_to.includes(cat)) {
+      for (const [sz, row] of Object.entries(chart)) {
+        if (row.hem && row.chest && row.chest - row.hem > HC.max_gap_cm) { warn.push(`${sz} 號下擺 ${row.hem} < 胸 ${row.chest}−${HC.max_gap_cm}：收口下擺`); break; }
+      }
+    }
     if (all.length < S.negative.min_sample) warn.push(`評論只有 ${all.length} 則，耐穿度樣本不足`);
     if (body.length < 10) warn.push(`同身形（${h0}–${h1}cm／${w0}–${w1}kg）評論只有 ${body.length} 則`);
 
@@ -189,6 +265,7 @@
       reviews: {
         fetched: all.length,
         total: rv.total,
+        source: rv.source,
         all: { dist: count(all, (r) => r.s), tendency: tendency(all, S.size_tendency) },
         body: { n: body.length, dist: count(body, (r) => r.s), tendency: tendency(body, S.size_tendency) },
         neg, clingy, thin,
@@ -246,6 +323,29 @@
   KC.brand = async (brandId, limit = 60) => {
     const r = await fetch(`https://www.musinsa.com/brand/${encodeURIComponent(brandId)}?gf=M`, { credentials: 'include' });
     return idsFromHtml(await r.text(), limit);
+  };
+
+  // 結構化商品列表（api.musinsa.com plp，2026-10 實測；global.musinsa.com 分頁也可跨域呼叫）
+  // q: { keyword } 或 { brand }，可加 category（001 上衣、002 外套、003 褲子）
+  // opts: { pages=1, size=60, minReviews=0, maxKrw=Infinity, male=true }
+  KC.list = async (q, opts = {}) => {
+    const o = { pages: 1, size: 60, minReviews: 0, maxKrw: Infinity, male: true, sort: 'POPULAR', ...opts };
+    const out = [];
+    for (let p = 1; p <= o.pages; p++) {
+      const sp = new URLSearchParams({ gf: 'M', sortCode: o.sort, page: String(p), size: String(o.size), caller: q.brand ? 'BRAND' : 'SEARCH' });
+      for (const k of ['keyword', 'brand', 'category']) if (q[k]) sp.set(k, q[k]);
+      const j = await getJSON(`https://api.musinsa.com/api2/dp/v1/plp/goods?${sp}`);
+      for (const x of j.data?.list || []) {
+        if (x.isAd) continue;
+        if (o.male && x.displayGenderText && !/남성|공용|남녀/.test(x.displayGenderText)) continue;
+        if (x.isSoldOut || (x.reviewCount || 0) < o.minReviews || x.price > o.maxKrw) continue;
+        out.push({ no: x.goodsNo, brand: x.brand, brandName: x.brandName, name: x.goodsName, krw: x.price, normal: x.normalPrice,
+                   rate: x.saleRate, n: x.reviewCount, score: x.reviewScore, img: x.thumbnail });
+      }
+      if (!j.data?.pagination?.hasNext) break;
+    }
+    const seen = new Set();
+    return out.filter((x) => (seen.has(x.no) ? false : seen.add(x.no)));
   };
 
   // 在 global.musinsa.com 分頁執行

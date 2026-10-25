@@ -61,6 +61,19 @@ def cmd_bundle():
     r = rules()
     src = (ROOT / "scripts" / "collect.js").read_text(encoding="utf-8")
     cfg = {"review_screen": r["review_screen"], "fit": r["fit"]}
+    fb = r["review_screen"].get("fallback_en")
+    if fb:
+        # 英文備援：關鍵字轉成單字邊界正規式（'/'開頭），避免 thin 誤中 think
+        rx = lambda ws: ["/\\b" + w.replace("-", "\\-") + "\\b" for w in ws]
+        base = r["review_screen"]
+        cfg["review_screen_en"] = {
+            "body_filter": base["body_filter"],
+            "negative": {**base["negative"], "keywords": {k2: rx(v) for k2, v in fb["negative"].items()},
+                         "negations": fb["negative_negations"]},
+            "clingy": {**base["clingy"], "keywords": rx(fb["clingy"]), "negations": fb["clingy_negations"]},
+            "thin": {**base["thin"], "keywords": rx(fb["thin"]), "negations": fb["thin_negations"]},
+            "size_tendency": {k2: rx(v) for k2, v in fb["size_tendency"].items()},
+        }
     out = src + "\nKC.init(" + json.dumps(cfg, ensure_ascii=False) + ");\n"
     CACHE.mkdir(exist_ok=True)
     path = CACHE / "collect.bundle.js"
@@ -173,6 +186,11 @@ def check_item(it, idx, month, R, rep):
         rep.warn(where, f"上衣基準是 L，推薦 {size.get('pick')} 需在 fit.note 說明")
     rng = R["fit"]["ranges"].get(cat, {})
     chart = size.get("chart") or {}
+    hc = R["fit"].get("hem_cinch")
+    if hc and cat in hc["applies_to"] and chart.get("hem") and chart.get("chest"):
+        gap = round(chart["chest"] - chart["hem"], 1)
+        if gap > hc["max_gap_cm"]:
+            rep.err(where, f"下擺 {chart['hem']}cm 比胸寬 {chart['chest']}cm 小 {gap}cm（> {hc['max_gap_cm']}）= 收口下擺 → 移到 excluded")
     for k, r in rng.items():
         v = chart.get(k)
         if v is None and k == "leg_opening":

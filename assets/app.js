@@ -289,7 +289,7 @@
             <div class="final" style="margin-top:10px">推薦 <b>${esc(sz.pick || '—')}</b>｜${esc(sz.why || '')}</div>
             ${it.fit?.note ? `<p class="small muted" style="margin:8px 0 0">版型備註：${esc(it.fit.note)}</p>` : ''}
           </div>
-          <div class="sec"><h4>雙重負評排雷（抓 ${esc(scr.fetched ?? '—')} 則）</h4>
+          <div class="sec"><h4>雙重負評排雷（抓 ${esc(scr.fetched ?? '—')} 則${scr.source ? '・' + esc(scr.source === 'global-review(en)' ? 'Global 英譯評論' : '韓國站評論') : ''}）</h4>
             <div class="screen-grid">
               ${g('縮水／起毛球／領口', scr.neg_pct, thr?.negative.max_pct, '上限 5%')}
               ${g('同身形負評', scr.neg_body_pct, thr?.negative.max_pct, '上限 5%')}
