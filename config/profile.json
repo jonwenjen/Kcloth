@@ -1,0 +1,38 @@
+{
+  "name": "Robin",
+  "sex": "male",
+  "home": "高雄",
+  "climate_note": "高雄：11–2 月 15–25°C，3–4 月與 10 月 22–30°C，5–9 月 28–34°C 且潮濕",
+  "age": 43,
+  "target_look_age": 35,
+  "skin": "黃偏黑",
+  "body": {
+    "height_cm": 175,
+    "weight_kg": 75,
+    "shoulder_cm": 44,
+    "chest_flat_cm": 48,
+    "waist_flat_cm": 43.5,
+    "head_to_shoulder_cm": 23,
+    "shoulder_to_waist_cm": 54,
+    "waist_to_floor_cm": 98,
+    "notes": "肩寬標準偏窄；有小腹（坐下時腹部前推 3–4cm，與胸寬齊平）；腿長比例佳"
+  },
+  "base_sizes": {
+    "top": "L (100)",
+    "outer": "L (100)，日系品牌 Size 2",
+    "pants": "33 或 34 腰 Short（褲長 100–102cm）"
+  },
+  "review_body_filter": { "height": [173, 177], "weight": [73, 77] },
+  "budget_twd": {
+    "top": 3000,
+    "pants": 3000,
+    "outer": 5000,
+    "stretch_pct": 50,
+    "stretch_rule": "值得的單品可超出上限最多 50%，必須寫出加價理由"
+  },
+  "shopping": {
+    "stores": ["MUSINSA Global 台灣站 (global.musinsa.com/tw)", "MUSINSA 韓國站 (www.musinsa.com)"],
+    "order_source": "Gmail：mail.global@musinsa.com 的 Order Confirmation 信",
+    "login": "Google 帳號登入 MUSINSA Global"
+  }
+}

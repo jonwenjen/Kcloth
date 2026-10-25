@@ -1,0 +1,299 @@
+{
+ "updated": "2026-10-25",
+ "source": "Gmail：MUSINSA Global「Your order has been confirmed」信件",
+ "note": "audit 目前依品名與 config/rules.json 判斷；首次每月執行會補 goodsNo、成分與實測尺寸並重新核對。",
+ "orders": [
+  {
+   "date": "2026-10-24",
+   "key": "20261024a",
+   "store": "global",
+   "time": "10:45",
+   "items": [
+    {
+     "ref": "o-20261024a-1",
+     "brand": "BESLOW",
+     "name": "[ORIGINALS] Comfy Single Pleated Selvage Denim Pants",
+     "color": "Indigo",
+     "size": "32",
+     "twd": 2304,
+     "cat": "pants",
+     "slot": "denim",
+     "role": "bottom",
+     "temps": [
+      12,
+      28
+     ],
+     "goodsNo": null,
+     "fabric": null,
+     "status": "ordered",
+     "audit": {
+      "verdict": "watch",
+      "note": "單打褶丹寧正好符合藏肚邏輯；但腰圍 32 比基準 33/34 小一號，到貨先確認前襠 30–32cm、坐下腰頭不勒。",
+      "checked": "依品名判斷"
+     }
+    },
+    {
+     "ref": "o-20261024a-2",
+     "brand": "ESPIONAGE",
+     "name": "Wide Officer Pants",
+     "color": "Beige",
+     "size": "M",
+     "twd": 2177,
+     "cat": "pants",
+     "slot": "chino",
+     "role": "bottom",
+     "temps": [
+      16,
+      30
+     ],
+     "goodsNo": null,
+     "fabric": null,
+     "status": "ordered",
+     "audit": {
+      "verdict": "watch",
+      "note": "寬版軍官褲有份量，能平衡上身；需核對 M 號腰圍與前襠是否到中高腰，褲腳若超過 24cm 建議修短到 101cm 左右。",
+      "checked": "依品名判斷"
+     }
+    },
+    {
+     "ref": "o-20261024a-3",
+     "brand": "PRODESHIRT",
+     "name": "[Regular] D-300 Oxford Shirt",
+     "color": "White",
+     "size": "L(50)",
+     "twd": 2753,
+     "cat": "shirt",
+     "slot": "light-overshirt",
+     "role": "outer",
+     "temps": [
+      18,
+      30
+     ],
+     "goodsNo": null,
+     "fabric": null,
+     "status": "ordered",
+     "audit": {
+      "verdict": "tip",
+      "note": "高磅牛津布夠挺；白色單穿會放大腹部，當開襟外搭罩深色 T（炭灰／深海軍）最好，釦子全開形成兩條直線。",
+      "checked": "依品名判斷"
+     }
+    },
+    {
+     "ref": "o-20261024a-4",
+     "brand": "MUSINSA STANDARD",
+     "name": "[City Workers] Tapered Cotton Pants",
+     "color": "Navy",
+     "size": "33",
+     "twd": 803,
+     "cat": "pants",
+     "slot": "chino",
+     "role": "bottom",
+     "temps": [
+      14,
+      30
+     ],
+     "goodsNo": null,
+     "fabric": null,
+     "status": "ordered",
+     "audit": {
+      "verdict": "watch",
+      "note": "錐形褲與「微寬直筒、褲腳 21–23cm」規則衝突；若實測褲腳 < 20cm 屬於小腿收緊款，建議退換成同系列直筒或單打褶。",
+      "checked": "依品名判斷"
+     }
+    },
+    {
+     "ref": "o-20261024a-5",
+     "brand": "ESPIONAGE",
+     "name": "Selvedge Relaxed Denim Pants",
+     "color": "Dark Indigo",
+     "size": "L",
+     "twd": 2414,
+     "cat": "pants",
+     "slot": "denim",
+     "role": "bottom",
+     "temps": [
+      12,
+      28
+     ],
+     "goodsNo": null,
+     "fabric": null,
+     "status": "ordered",
+     "audit": {
+      "verdict": "keep",
+      "note": "Relaxed 直筒深藍原色丹寧，耐看又能撐住下半身份量；長度過長再修到 101cm。",
+      "checked": "依品名判斷"
+     }
+    }
+   ]
+  },
+  {
+   "date": "2026-10-24",
+   "key": "20261024b",
+   "store": "global",
+   "time": "11:02",
+   "items": [
+    {
+     "ref": "o-20261024b-1",
+     "brand": "INSILENCE",
+     "name": "[2 PACK] Supima Cotton Premium T-Shirt",
+     "color": "Black ×2",
+     "size": "M",
+     "twd": 1655,
+     "cat": "tee",
+     "slot": "inner-dark-tee",
+     "role": "inner",
+     "temps": [
+      20,
+      34
+     ],
+     "goodsNo": null,
+     "fabric": null,
+     "status": "ordered",
+     "audit": {
+      "verdict": "return",
+      "note": "Supima 薄軟面料＋M 號，兩項都違反規則（單穿會貼出胸腹起伏）。還能退就退；已出貨就只當開襟襯衫裡的內搭。",
+      "checked": "依品名判斷"
+     }
+    },
+    {
+     "ref": "o-20261024b-2",
+     "brand": "MUSINSA STANDARD",
+     "name": "Wool Blend Oversized Short Balmacaan Coat",
+     "color": "Black",
+     "size": "L",
+     "twd": 2338,
+     "cat": "outer",
+     "slot": "winter-coat",
+     "role": "outer",
+     "temps": [
+      6,
+      16
+     ],
+     "goodsNo": null,
+     "fabric": null,
+     "status": "ordered",
+     "audit": {
+      "verdict": "watch",
+      "note": "Balmacaan 大衣通常是連肩袖（規則禁用）。到貨確認袖型：若是連肩袖，穿時內搭硬挺高領或襯衫撐肩，且不要扣到底。",
+      "checked": "依品名判斷"
+     }
+    },
+    {
+     "ref": "o-20261024b-3",
+     "brand": "ECORR",
+     "name": "Merino Wool 100 Basic Crew Neck Knit",
+     "color": "Ivory",
+     "size": "2(L)",
+     "twd": 1060,
+     "cat": "knit",
+     "slot": "structured-knit",
+     "role": "single",
+     "temps": [
+      10,
+      20
+     ],
+     "goodsNo": null,
+     "fabric": null,
+     "status": "ordered",
+     "audit": {
+      "verdict": "return",
+      "note": "細針織美麗諾通常偏薄軟、下擺羅紋收口，加上象牙白單穿膨脹，三項都踩雷。能退建議退；留下就只當外套裡的中間層。",
+      "checked": "依品名判斷"
+     }
+    },
+    {
+     "ref": "o-20261024b-4",
+     "brand": "ESPIONAGE",
+     "name": "Type 1 Selvedge Denim Trucker Jacket",
+     "color": "Dark Indigo",
+     "size": "L",
+     "twd": 3255,
+     "cat": "outer",
+     "slot": "short-jacket",
+     "role": "outer",
+     "temps": [
+      14,
+      22
+     ],
+     "goodsNo": null,
+     "fabric": null,
+     "status": "ordered",
+     "audit": {
+      "verdict": "tip",
+      "note": "硬挺原色丹寧能撐肩；Type 1 下擺有腰帶會收在腰部，一律敞開穿，內搭深色 T，避免扣起來把肚子框住。",
+      "checked": "依品名判斷"
+     }
+    },
+    {
+     "ref": "o-20261024b-5",
+     "brand": "TY",
+     "name": "All Day Stripe Shirt",
+     "color": "Brown",
+     "size": "L",
+     "twd": 1534,
+     "cat": "shirt",
+     "slot": "light-overshirt",
+     "role": "outer",
+     "temps": [
+      18,
+      30
+     ],
+     "goodsNo": null,
+     "fabric": null,
+     "status": "ordered",
+     "audit": {
+      "verdict": "tip",
+      "note": "直條紋有拉長效果；咖啡色接近黃偏黑膚色，靠臉處容易顯暗，建議敞開穿、內搭白 T 提亮臉部。",
+      "checked": "依品名判斷"
+     }
+    },
+    {
+     "ref": "o-20261024b-6",
+     "brand": "MUSINSA STANDARD",
+     "name": "Washable Supima Cotton Henley Neck Knit",
+     "color": "Medium Gray",
+     "size": "L",
+     "twd": 1309,
+     "cat": "knit",
+     "slot": "single-top",
+     "role": "single",
+     "temps": [
+      16,
+      24
+     ],
+     "goodsNo": null,
+     "fabric": null,
+     "status": "ordered",
+     "audit": {
+      "verdict": "return",
+      "note": "Supima 薄針織是規則點名的地雷（貼合胸腹）；還能退建議換成 Milano／Interlock 硬挺款。",
+      "checked": "依品名判斷"
+     }
+    },
+    {
+     "ref": "o-20261024b-7",
+     "brand": "MUSINSA STANDARD",
+     "name": "Washable Supima Cotton Long Sleeve Knitted Polo Shirt",
+     "color": "Black",
+     "size": "L",
+     "twd": 1001,
+     "cat": "knit",
+     "slot": "single-top",
+     "role": "single",
+     "temps": [
+      16,
+      24
+     ],
+     "goodsNo": null,
+     "fabric": null,
+     "status": "ordered",
+     "audit": {
+      "verdict": "return",
+      "note": "與上期被剔除的「Supima 薄針織 Polo」同款（只是黑色 L）：薄軟＋下擺羅紋。建議退換成直筒下擺的 Milano 針織翻領衫。",
+      "checked": "依品名判斷"
+     }
+    }
+   ]
+  }
+ ]
+}

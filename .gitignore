@@ -1,6 +1,4 @@
-.sizes.json
-.kr.json
-.mat.json
-.cands.json
-.reviews.json
-.newE.json
+.cache/
+__pycache__/
+*.pyc
+.DS_Store
