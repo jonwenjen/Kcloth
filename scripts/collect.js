@@ -375,7 +375,7 @@
     if (!r.ok) return { goodsNo, available: false, status: r.status };
     const html = (await r.text()).replace(/\\"/g, '"').replace(/\\\//g, '/');
     const i = html.indexOf('"goodsPrice":{');
-    if (i < 0) return { goodsNo, available: false, status: 'no-price' };
+    if (i < 0) return { goodsNo, available: false, status: /not available in your country/i.test(html) ? 'not-in-country' : 'no-price' };
     const obj = JSON.parse(html.slice(i + 13, html.indexOf('}', i) + 1));
     const st = html.match(/"status":"([A-Z_]+)","tag"/);
     return {

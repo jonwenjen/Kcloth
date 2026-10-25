@@ -14,6 +14,7 @@
 
 1. 確認 repo：`/home/user/Kcloth`、`/home/claude/kcloth` 或工作目錄下任何 `Kcloth` clone。沒有就 `add_repo(jonwenjen, Kcloth, push)` 後照工具指示 clone。`git checkout main && git pull --ff-only`。
 2. `MONTH` = 台灣時間（UTC+8）的 `YYYY-MM`。若 `data/months/MONTH.json` 已存在，表示本月跑過：沿用並更新它，不要另開。
+   - **複查模式**：若它的 `run.date` 在 14 天內（例如排程在同月重跑），不要重抓候選池、不要改寫選品內容（重抓會撞評論 API 封鎖，也可能覆蓋 Robin 互動工作階段剛做的調整）。只做：步驟 1、3、4、5（檔期是否已公告）、價格／庫存／Global 可買狀態複查、處理上次 `self_review.todo`；run-log 記「複查」。push 前一定先 `git fetch` 確認沒有別的工作階段剛推過。
 3. 讀：`config/*.json`、`docs/run-log.md` 最後一筆、`data/latest.json`（上月結果）、`data/orders.json`、`data/wishlist.json`。
 4. 建工作清單（TaskCreate），每完成一步就打勾。
 
@@ -28,6 +29,9 @@
 ## 步驟 2　確認工具
 
 - 瀏覽器：工具名稱含 `Claude_Browser__`（Robin 的 Mac 內建瀏覽器）。載入方式依該工具說明；有 `built-in-browser` skill 先讀。
+- 載入抓取器（省掉貼 bundle）：開 `https://global.musinsa.com/tw` 後在 javascript_tool 執行
+  `const t=await fetch('https://raw.githubusercontent.com/jonwenjen/Kcloth/main/scripts/collect.js').then(r=>r.text()); const rules=await fetch('https://raw.githubusercontent.com/jonwenjen/Kcloth/main/config/rules.json').then(r=>r.json()); (0,eval)(t); KC.init(rules)`
+  讀的是 main 上的版本；步驟 1 改了 collect.js／rules.json 但還沒 push 時，改貼 `.cache/collect.bundle.js` 全文。
 - 若瀏覽器連不上（Mac 睡眠或 App 沒開）：改走 **部分更新模式**（見文末），不要硬試超過 2 次。
 - Gmail、Google Calendar、PushNotification 若有就用，沒有就略過並記錄。
 
@@ -43,8 +47,8 @@
 
 網站的「加入清單」存在 Robin 手機的瀏覽器，按「同步到 GitHub」會開一個標題以「清單同步」開頭的 Issue，內文有 JSON。
 
-1. `gh issue list --repo jonwenjen/Kcloth --state open --search "清單同步 in:title" --json number,title,body,createdAt`
-2. 取最新一則的 JSON 當完整清單（網站送的是精簡欄位），用 `id` 對回 `data/months/*.json` 的單品補齊 `color`、`hex`、`tone`、`role`、`temps`、`url`、`img`，覆寫 `data/wishlist.json`（保留 `added` 日期、`source` 寫 Issue 編號），其餘舊 Issue 一併關閉：`gh issue close N --comment "已於 MONTH 月報同步"`。
+1. `gh api 'repos/jonwenjen/Kcloth/issues?state=open&per_page=50' --jq '.[] | select(.title | startswith("清單同步")) | {number,title,created_at,body}'`（雲端工作階段擋 GraphQL，`gh issue list` 會 403，一律用 REST）
+2. 取最新一則的 JSON 當完整清單（網站送的是精簡欄位），用 `id` 對回 `data/months/*.json` 的單品補齊 `color`、`hex`、`tone`、`role`、`temps`、`url`、`img`，覆寫 `data/wishlist.json`（保留 `added` 日期、`source` 寫 Issue 編號），其餘舊 Issue 一併關閉：`gh api -X POST repos/jonwenjen/Kcloth/issues/N/comments -f body="已於 MONTH 月報同步"`，再 `gh api -X PATCH repos/jonwenjen/Kcloth/issues/N -f state=closed -f state_reason=completed`。
    - 清單內單品若本月仍在售，重新檢查價格；若已在 `orders.json`（買了）就從清單移除。
 3. `gh` 不能用時記錄在 run-log，沿用現有 wishlist.json。
 

@@ -93,6 +93,10 @@ def derive_item(it, month, R):
         if price.get("twd"):
             price["premium_pct"] = round((price["twd"] / (krw * fx) - 1) * 100, 1)
             price["premium_flag"] = price["premium_pct"] >= R["premium"]["warn_pct"]
+    if not price.get("twd"):
+        # Global 下架／台灣不販售：不可沿用舊的溢價數字
+        price.pop("premium_pct", None)
+        price.pop("premium_flag", None)
     cat = it.get("cat")
     ref = price.get("twd") or price.get("krw_twd")   # 沒上 Global 時用韓國站換算價判斷預算
     if cat in R["categories"] and ref:

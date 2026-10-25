@@ -9,6 +9,9 @@
 
 ## 先看這裡（2026-10 月報實測）
 
+- **載入抓取器不必貼 bundle**：在 global 分頁 `fetch` GitHub raw 的 `scripts/collect.js`＋`config/rules.json`，`(0,eval)(t); KC.init(rules)`（2026-10-25 實測，頁面 CSP 不擋）。
+- Global 商品頁出現「not available in your country」＝對台灣不販售，`KC.globalPrice` 回 `status: 'not-in-country'`（例：DIMITRI BLACK 7108771）。
+
 - **一個 `global.musinsa.com` 分頁就能抓全部**：台灣 IP 開 `www.musinsa.com` 常被導到 Global，但下面的韓國站 API 都允許從 Global 分頁跨域 `fetch`。
 - 面板在背景時 `setTimeout` 會被節流（1 秒～1 分鐘），計時請用 MessageChannel（collect.js 的 sleep 已改）。
 - `javascript_tool` 每次最多 45 秒：大量抓取要「丟到背景跑、結果存在 `window`、之後再讀」，例如 `window.SCR`＋佇列（見 run-log 2026-10）。
